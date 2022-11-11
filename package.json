@@ -1,7 +1,7 @@
 {
-  "name": "nodejsexpressapp",
+  "name": "edflix",
   "version": "1.0.0",
-  "description": "Start building your next Node.js Express app on IBM Cloud.",
+  "description": "Netflix for education.",
   "private": true,
   "engines": {
     "node": "^16.0.0"
