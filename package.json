@@ -1,0 +1,58 @@
+{
+  "name": "nodejsexpressapp",
+  "version": "1.0.0",
+  "description": "Start building your next Node.js Express app on IBM Cloud.",
+  "private": true,
+  "engines": {
+    "node": "^16.0.0"
+  },
+  "scripts": {
+    "dev": "nodemon server/server.js",
+    "debug": "node --nolazy --inspect-brk=5858 server.js",
+    "start": "node server/server.js",
+    "check-coverage": "c8 report --check-coverage --lines 100",
+    "lint": "eslint --ignore-path .gitignore .",
+    "fix": "eslint --ignore-path .gitignore . --fix",
+    "test": "c8 mocha test --recursive --exit"
+  },
+  "type": "module",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run test && npm run check-coverage"
+    }
+  },
+  "nyc": {
+    "check-coverage": true,
+    "per-file": true,
+    "lines": 100,
+    "statements": 100,
+    "functions": 100,
+    "branches": 100,
+    "exclude": [
+      "test"
+    ],
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ]
+  },
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
+    "helmet": "^6.0.0",
+    "ibm-cloud-env": "^0",
+    "swagger-ui-express": "^4.6.0"
+  },
+  "devDependencies": {
+    "c8": "^7.12.0",
+    "chai": "^4.3.7",
+    "eslint": "^8.27.0",
+    "eslint-config-strongloop": "^2.1.0",
+    "husky": "^8.0.2",
+    "mocha": "^10.1.0",
+    "nodemon": "^2.0.20",
+    "sinon": "^14.0.2",
+    "sinon-chai": "^3.7.0",
+    "supertest": "^6.3.1"
+  }
+}
