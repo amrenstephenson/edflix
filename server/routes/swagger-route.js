@@ -2,10 +2,10 @@
 import express from 'express';
 import swaggerUi from 'swagger-ui-express';
 
-import { readFile } from 'fs/promises';
+import { readFileSync } from 'fs';
 
 const swaggerDoc = JSON.parse(
-  await readFile(
+  readFileSync(
     new URL('../config/swagger.json', import.meta.url),
   ),
 );
