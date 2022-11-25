@@ -11,10 +11,24 @@ describe('GET /', () => {
     return request(server)
       .get('/')
       .expect('Content-Type', 'text/html; charset=UTF-8')
-      .expect(404)
+      .expect(200)
       .then(response => {
         expect(response.text).to.include(
           'Welcome to EDFLIX',
+        );
+      });
+  });
+});
+
+describe('POST /fake/route', () => {
+  it('responds with not found page', () => {
+    return request(server)
+      .post('/fake/route')
+      .expect('Content-Type', 'text/html; charset=UTF-8')
+      .expect(200)
+      .then(response => {
+        expect(response.text).to.include(
+          'Whoops! Looks like you got lost or couldn\'t find your page.',
         );
       });
   });
