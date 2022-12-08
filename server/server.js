@@ -23,13 +23,11 @@ if (process.env.VCAP_APPLICATION) {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// have node serve the files for our built React app
+app.use(express.static(path.resolve(__dirname, '../client/build')));
+
 // routes and api calls
 app.use('/health', healthRoutes);
-
-// default path to serve up index.html (single page application)
-app.all('', (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, '../public', 'index.html'));
-});
 
 // start node server
 const port = process.env.PORT || 3000;
@@ -37,9 +35,9 @@ app.listen(port, () => {
   console.log(`App UI available http://localhost:${port}`);
 });
 
-// error handler for unmatched routes or api calls
+// all other GET requests not handled before will return our React app
 app.use((req, res, next) => {
-  res.sendFile(path.join(__dirname, '../public', '404.html'));
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 });
 
 export default app;
