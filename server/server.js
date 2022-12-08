@@ -7,7 +7,6 @@ import helmet from 'helmet';
 import { fileURLToPath } from 'url';
 
 import healthRoutes from './routes/health-route.js';
-import swaggerRoutes from './routes/swagger-route.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -26,7 +25,6 @@ app.use(bodyParser.json());
 
 // routes and api calls
 app.use('/health', healthRoutes);
-app.use('/swagger', swaggerRoutes);
 
 // default path to serve up index.html (single page application)
 app.all('', (req, res) => {
@@ -37,7 +35,6 @@ app.all('', (req, res) => {
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`App UI available http://localhost:${port}`);
-  console.log(`Swagger UI available http://localhost:${port}/swagger/api-docs`);
 });
 
 // error handler for unmatched routes or api calls

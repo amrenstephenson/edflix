@@ -14,32 +14,8 @@ describe('GET /', () => {
       .expect(200)
       .then(response => {
         expect(response.text).to.include(
-          'You are running a Node.js microservice built for the IBM Cloud.',
+          'Welcome to EDFLIX',
         );
-      });
-  });
-});
-
-describe('GET /health', () => {
-  it('responds with json', () => {
-    return request(server)
-      .get('/health/')
-      .set('Accept', 'application/json')
-      .expect('Content-Type', 'application/json; charset=utf-8')
-      .expect(200, {
-        status: 'UP',
-      });
-  });
-});
-
-describe('GET /swagger/api-docs', () => {
-  it('responds with swagger', () => {
-    return request(server)
-      .get('/swagger/api-docs/')
-      .expect('Content-Type', 'text/html; charset=utf-8')
-      .expect(200)
-      .then(response => {
-        expect(response.text).to.include('Swagger');
       });
   });
 });
