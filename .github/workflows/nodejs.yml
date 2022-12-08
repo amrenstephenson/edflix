@@ -18,10 +18,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install
-    - run: cd client
-    - run: npm install
-    - run: npm run build
-    - run: cd ..
+    - run: cd client && npm install && npm run build && cd ..
     - run: npm run lint
     - run: npm run test
       env:
