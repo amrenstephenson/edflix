@@ -7,3 +7,4 @@ credentials.json
 localdev-config.json
 .nyc*
 **/.DS_Store
+build
