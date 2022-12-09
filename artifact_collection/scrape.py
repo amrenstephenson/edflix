@@ -17,14 +17,14 @@ def scrape_page(pageid, topic):
 	cardInfos = []
 	for card in cards:
 		# Get the title:
-		title = None
-		try:
-			title = dpath.get(card, "elements/title/value")
-		except KeyError:
-			pass
+		title = dpath.get(card, "elements/title/value")
+
+		if not title:
+			print(f"[ERR] Artifact has no title!")
+			continue
 
 		# Skip "View All" cards:
-		if title == None or title == "View All":
+		if title == "View All":
 			continue
 
 		# Get the description:
@@ -39,9 +39,12 @@ def scrape_page(pageid, topic):
 		# Get the card type:
 		cardType = None
 		try:
+			cardType = dpath.get(card, "elements/card_type/value/selection")
 			cardType = dpath.get(card, "elements/card_type/value/label")
 		except KeyError:
 			pass
+		if cardType:
+			cardType = cardType[0].upper() + cardType[1:].lower()
 
 		# Get all links in the card:
 		links = []
@@ -54,18 +57,32 @@ def scrape_page(pageid, topic):
 				continue
 
 			links.append({"linkText": linkText, "linkURL": linkURL})
+		
+		if not cardType:
+			print(f"[WARN] Artifact \"{title}\" has no type")
+		if not desc:
+			print(f"[WARN] Artifact \"{title}\" has no description")
+		if len(links) == 0:
+			print(f"[WARN] Artifact \"{title}\" has no links")
 
-		info = {"title":title, "desc":desc, "links":links, "cardType":cardType, "topic":topic}
+		info = {"title":title, "desc":desc, "links":links, "type":cardType, "topic":topic}
 		cardInfos.append(info)
 
 	return cardInfos
 
 def main():
-	#TODO: get IDs of other topics
-	#Topics pageid: 8eb42ca6-0ff0-406b-83fd-4feb2606a1d4
 	topics = {
 		"Artificial Intelligence" : "bb82683e-1969-4794-9d2c-515615f7d25b",
-		"Power Systems" : "20fa61f1-051a-4825-8e87-e8821a2ccb20"
+		"Capstone" : "5fa76346-c492-489d-b67f-dccccb110dd5",
+		"Data Science" : "9b3be54f-e417-441c-ba49-892795ba5040",
+		"IBM Automation" : "cc45e3f7-978d-4cb3-8f8b-de29cd2a69a5",
+		"IBM Cloud" : "891e1d46-661a-4283-9d32-6d3ef41b4eed",
+		"IBM Engineering" : "81c6be0c-235f-4ba0-9c5d-cd58c878e6d6",
+		"IBM Security" : "bdaa89b0-38be-4254-9199-26d5c7c8cf2d",
+		"IBM Z" : "9dfd699d-7769-4daa-8203-c70ff983abb1",
+		"Power Systems" : "20fa61f1-051a-4825-8e87-e8821a2ccb20",
+		"Red Hat Academy" : "f45f9648-01e7-48b5-aabd-cf657c4c1a6a",
+		"IBM Quantum" : "b8abdcde-7d23-45a0-ac27-5f8fa73fd3e3"
 	}
 
 	artifacts = []
