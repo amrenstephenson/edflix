@@ -1,0 +1,824 @@
+[
+  {
+    "title": "Getting Started with Enterprise-grade AI",
+    "desc": "<p>This course covers the foundations of Artificial Intelligence for business, including the following topics: AI Evolution, AI Industry Adoption Trends, Natural Language Processing and Virtual Agents.</p>\n",
+    "links": [
+      {
+        "linkText": "Take the course",
+        "linkURL": "https://keyskill-clms.comprehend.ibm.com/course/view.php?id=236"
+      },
+      {
+        "linkText": "Learn about the badge",
+        "linkURL": "https://skillsbuild.org/college-students/digital-credentials/getting-started-with-enterprise-grade-ai"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "OpenDS4All",
+    "desc": "<p>OpenDS4All is a project created to accelerate the creation of data science curriculum at academic institutions. The project hosts educational modules that may be used as building blocks for a data science curriculum.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://github.com/odpi/OpenDS4All/"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "IBM Watson Machine Learning Essentials",
+    "desc": "<p>Watson Machine Learning is a service on IBM Cloud with features for training and deploying machine learning models and neural networks. This course consists of a series of videos showing how to use the Watson Machine Learning in Watson Studio.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.onlinedigitallearning.com/course/view.php?id=4482"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "IBM AI Education",
+    "desc": "<p>We know that students need to understand AI to be successful in the modern workforce. Through this PD experience, teachers will be able to equip their students to think about how AI impacts their lives and what it means for their professional futures.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.mymindsparklearning.org/ibm-ai-education"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "Watson Academy",
+    "desc": "<p>Your fast track to cognitive computing</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www-03.ibm.com/services/learning/ites.wss/zz-en?pageType=page&c=LNW1G2K9220IL0YX"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "Data Refinery Essentials",
+    "desc": "<p>Data Refinery is a self-service data preparation client for data scientists, data engineers, and business analysts. With it, you can quickly transform large amounts of raw data into consumable, quality information that\u2019s ready for analytics.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.onlinedigitallearning.com/course/view.php?id=4480"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "IBM Watson Knowledge Catalog Essentials",
+    "desc": "<p>IBM Watson Knowledge Catalog is a secure enterprise catalog to index, classify, and govern your data with greater efficiency. Manage your data from every angle giving you a 360-degree view of your data so you can create models, uncover insights, and collaborate more effectively.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.onlinedigitallearning.com/course/view.php?id=4481"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "Create a Node-RED starter application",
+    "desc": "<p>In this tutorial, you will learn how to create a Node-RED starter application in the IBM Cloud, including a Cloudant database to store the application flow configuration.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://developer.ibm.com/tutorials/how-to-create-a-node-red-starter-application/"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "Project Debater for Academic Use",
+    "desc": "<p>Project Debater is the first AI system that can debate humans on complex topics. The goal is to help people build persuasive arguments and make well-informed decisions. We offer free access to these services as Cloud APIs for non commercial academic use.</p>\n",
+    "links": [
+      {
+        "linkText": "Early Access Program",
+        "linkURL": "https://early-access-program.debater.res.ibm.com/academic_use.html"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "IBM Maximo Visual Inspection",
+    "desc": "<p>IBM Maximo Visual Inspection empowers SMEs to label, train and deploy deep learning vision models, without coding or deep learning expertise. It includes the most popular deep learning frameworks and their dependencies, and it is built for easy and rapid deployment and increased team productivity</p>\n",
+    "links": [
+      {
+        "linkText": "Knowledge Center",
+        "linkURL": "https://www.ibm.com/support/knowledgecenter/SSRU69_1.3.0/navigation/welcome.html"
+      },
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://www.ibm.com/products/ibm-maximo-visual-inspection"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "AI Fairness 360",
+    "desc": "<p>The AI Fairness 360 package is an extensible open source toolkit that includes a comprehensive set of metrics for datasets and models to test for biases, explanations for these metrics, and algorithms to mitigate bias in datasets and models. It is available in both Python and R languages.</p>\n",
+    "links": [
+      {
+        "linkText": "Documentation",
+        "linkURL": "https://aif360.readthedocs.io/en/latest/"
+      },
+      {
+        "linkText": "Project website",
+        "linkURL": "https://aif360.mybluemix.net/"
+      },
+      {
+        "linkText": "Github",
+        "linkURL": "https://github.com/Trusted-AI/AIF360"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "Project CodeNet",
+    "desc": "<p>The goal of Project CodeNet is to provide the AI-for-Code research community with a large scale, diverse, and high quality curated dataset to drive innovation in AI techniques.</p>\n",
+    "links": [
+      {
+        "linkText": "Github",
+        "linkURL": "https://github.com/IBM/Project_CodeNet"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "IBM Digital App Builder",
+    "desc": "<p>IBM Digital App Builder is a low-code tool, which helps to quickly create mobile, web and PWA multi-channel applications with AI capabilities powered by Watson services.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/digital-app-builder/"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "AI Explainability 360",
+    "desc": "<p>An open source software toolkit featuring ten explainability methods and two evaluation metrics along with a taxonomy that can help identify gaps where more explainability methods are needed and provide a common platform for their integration.</p>\n",
+    "links": [
+      {
+        "linkText": "Project website",
+        "linkURL": "https://aix360.mybluemix.net/"
+      },
+      {
+        "linkText": "Github",
+        "linkURL": "https://github.com/Trusted-AI/AIX360"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "AI FactSheets 360",
+    "desc": "<p>The goal of the FactSheet project is to foster trust in AI by increasing transparency and enabling governance to allow AI consumers to understand if an AI model is appropriate for their situation. It enables the specification and enforcement of policies regarding AI model construction.</p>\n",
+    "links": [
+      {
+        "linkText": "Project website",
+        "linkURL": "https://aifs360.mybluemix.net/"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "Adversarial Robustness Toolbox",
+    "desc": "<p>Adversarial Robustness Toolbox (ART) is a Python library for Machine Learning Security. ART provides tools that enable developers and researchers to defend and evaluate Machine Learning models and applications against the adversarial threats of Evasion, Poisoning, Extraction, and Inference.</p>\n",
+    "links": [
+      {
+        "linkText": "Project website",
+        "linkURL": "https://art360.mybluemix.net/"
+      },
+      {
+        "linkText": "Github",
+        "linkURL": "https://github.com/Trusted-AI/adversarial-robustness-toolbox/"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "Causal Inference 360",
+    "desc": "<p>Go beyond just prediction: By applying Causal Inference 360 to a dataset, you can estimate what may happen to one variable (an &#34;outcome&#34;) if another variable (an &#34;intervention&#34; or &#34;treatment&#34;) is actively changed, without having to perform a randomized trial.</p>\n",
+    "links": [
+      {
+        "linkText": "Project website",
+        "linkURL": "https://cif360-dev.mybluemix.net"
+      },
+      {
+        "linkText": "Github",
+        "linkURL": "https://github.com/IBM/causallib"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "Trustworthy Generation 360",
+    "desc": "<p>A collection of platforms and tools that can help you to synthesize novel and useful data for different modalities and applications, and evaluation thereof, using generative machine learning models throughout the AI application lifecycle. We invite you to use and improve them.</p>\n",
+    "links": [
+      {
+        "linkText": "Peptide Sampler",
+        "linkURL": "https://peptide-walk.mybluemix.net"
+      },
+      {
+        "linkText": "COVID-19 Molecules",
+        "linkURL": "https://covid19-mol.mybluemix.net"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "IBM Analog Hardware Acceleration Kit",
+    "desc": "<p>IBM Analog Hardware Acceleration Kit is an open source Python toolkit for exploring and using the capabilities of in-memory computing devices in the context of artificial intelligence.</p>\n",
+    "links": [
+      {
+        "linkText": "Project website",
+        "linkURL": "https://aihw-composer.draco.res.ibm.com/"
+      },
+      {
+        "linkText": "Github",
+        "linkURL": "https://github.com/IBM/aihwkit"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "Uncertainty Quantification 360",
+    "desc": "<p>Uncertainty quantification gives AI the ability to express that it is unsure, adding critical transparency for the safe deployment and use of AI. This open source toolkit can help you estimate, communicate and use uncertainty in machine learning model predictions through an AI application lifecycle.</p>\n",
+    "links": [
+      {
+        "linkText": "Project website",
+        "linkURL": "https://uq360.mybluemix.net/"
+      },
+      {
+        "linkText": "Github",
+        "linkURL": "https://github.com/IBM/UQ360"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "Explore the IBM Software Catalog",
+    "desc": "<p>Access a comprehensive library of professional software resources for use in the classroom or non-commercial research projects.</p>\n",
+    "links": [
+      {
+        "linkText": "List of Available Software",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/Academic%20Initiative%20-%20Available%20Software.pdf"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "TJBot",
+    "desc": "<p>Have some fun and code your own AI robot with TJBot, a do-it-yourself template to learn, experiment with and explore AI using IBM Watson services. Get started with easy, step-by-step Instructions and pre-written recipes to bring TJBot to life.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.research.ibm.com/tjbot/"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "Machine Learning For Kids",
+    "desc": "<p>This free tool introduces machine learning by providing hands-on experiences for training machine learning systems and building things with them. It provides an easy-to-use guided environment for training machine learning models to recognize text, numbers, images, or sounds.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://machinelearningforkids.co.uk"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "Build with Watson",
+    "desc": "<p>Access the starter guide, community, resources and tooling to help you build with Watson.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.ibm.com/watson/developer/"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "Machine Learning for Dummies",
+    "desc": "<p>This book gives you insights into what machine learning is all about and how it can impact the way you can weaponize data to gain unimaginable insights. Your data is only as good as what you do with it and how you manage it.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.ibm.com/downloads/cas/GB8ZMQZ3"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "AIX Basics",
+    "desc": "<p>This course enables students to perform everyday tasks using the AIX operating system. The course provides lectures and hands on labs in an instructor lead course environment. This basic course is intended for anyone who requires basic AIX/UNIX user skills to be able to work in an AIX environment.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AN10G-6.1-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Power Systems Academic Updates/Support",
+    "desc": "<p>Allow us to communicate with you; Get the latest news. Ask a question about a course; Ask the experts technical/cloud questions; PSAI newsletters featuring student success stories; Changes to the courses or the cloud environment and cloud related processes; Outages and maintenance work in the cloud.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.ibm.com/university/power/"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Introduction to IBM i for New Users",
+    "desc": "<p>In this classroom course, you will learn basic concepts and skills you need to be productive users on Power Systems with IBM i. With plenty of hands-on lab exercises, we show everything from signing onto the available user interfaces; green screen environment and IBM Navigator for i.</p>\n",
+    "links": [],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Power Systems for AIX I: LPAR Configuration and Planning",
+    "desc": "<p>Learn how to perform system administration in a Power Systems environment. Learn about the features of PowerVM Editions and how to configure and manage LPARs running AIX V7 or Linux using the Hardware Management Console (HMC).</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AN11G-8.1-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Using Open Source Tools on IBM i",
+    "desc": "<p>For a those familiar with open source tools (Python, Node.js, PHP) learn to use those tools to access the data on IBM i. Includes Portable Applications Solutions Environment for IBM i (PASE), shell environment as a way of accessing/using the tools, toolkits, SQL, message queuing, REST,etc.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AS40G-1.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Power Systems for AIX II AIX Implementation and Administration",
+    "desc": "<p>Learn to install, customize, and administer the AIX operating system in a multiuser Power Systems partitioned environment. It is based on AIX 7.2 running on a Power Systems server managed by Hardware Management Console and provides practical discussions that are appropriate to earlier AIX releases.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AN12G-6.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "AIX Jumpstart for UNIX Professionals",
+    "desc": "<p>Focused training for experienced UNIX administrators on how to install, customize, and administer the AIX operating system in a multiuser POWER partitioned environment. It is based on AIX 7.1 running on a Power system managed by Hardware Management Console v7. I(earlier versions also discussed)</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AN14G-6.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "System Operator for IBM i",
+    "desc": "<p>The course enables a new system operator to develop basic to intermediate skills needed for day-to-day operations IBM i on Power. Learn the GUI (IBM i Access Client Solutions &amp; IBM Navigator for i) and 5250 emulation. (job control, monitoring, sending messages, managing systems devices, etc).</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AS24G-12.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "PowerVM on IBM i - I: Implementing Virtualization and LPAR",
+    "desc": "<p>Learn the concepts of Logical Partitioning (LPAR) for Power Systems with IBM i. In this course we begin with an overview of LPAR on Power Systems, followed with more detailed information on configuration planning and implementation using hands-on exercises to create and implement logical partitions.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AS5EG-3.1-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "IBM i System Administration",
+    "desc": "<p>Learn how to plan for, implement, and manage the ongoing operations of an IBM i. Emphasis is on security, system availability, backup and recovery, system software management, and problem determination. Also, get an introduction to the architecture and terminology of the IBM i.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/OL19G-15.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "IBM i Performance Tuning - I: IBM i Structure, Tailoring and Basic Tuning",
+    "desc": "<p>This course explains how to balance the workload on the IBM i system to ensure optimum performance. Learn how to manage workloads, measure system performance, and tune the operating system to meet processing requirements. Hands-on exercises show how to control workload and tune system performance.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/OL23G-11.1-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Power Systems Running Linux: Server Administration",
+    "desc": "<p>This course introduces basic administrative tasks associated with Linux Servers hosted on Power Systems servers. This includes installation, command line operations, system administration, device management, IBM tools, and system recovery.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/LX071G-1.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Enhancing Workload and Capacity Management with Docker on Power Systems",
+    "desc": "<p>This course provides skills enablement (hands-on) for system administrators and product support specialists in operating system based virtualization provided by Docker. Topics include introduction to Docker, planning the installation, Docker administration, and using images and containers.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/LX061G-2.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Advanced Docker for Power Systems",
+    "desc": "<p>This course enhances skills for system administrators and product support specialists in operating system based virtualization provided by Docker. Topics include Docker remote client, Docker registries, and Docker problem determination. Hands-on exercises show how to manage a Docker configuration.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/LX062G-1.1-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Move to Cloud with IBM Cloud PowerVC Manager",
+    "desc": "<p>This course provides an overall understanding of how to install and configure IBM PowerVC Standard Edition, OpenStack and IBM Cloud PowerVC Manager, in an environment with HMC and IBM PowerVM NovaLink. Hands-on exercises span the basics of installing IBM PowerVC to performing advanced admin tasks.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/QZC30G-3.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Implementing IBM Cloud Private on Power Systems",
+    "desc": "<p>This course introduces the Kubernetes-based IBM Cloud Private platform, a new way to deliver and run cloud workloads in your own trusted data center. Learn how to install / configure the IBM Cloud Private program on IBM Power Systems; the concepts, planning, installation, and basic mgmt operations</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/QZC40G-1.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Implementing Red Hat OpenShift Container Platform on Power Systems",
+    "desc": "<p>This course broadens the skills of the student who is required to implement/manage a Kubernetes-based Platform as a Service (PaaS) environment based on Red Hat OpenShift Container Platform on Power Systems. Learn basic admin &amp; config of Red Hat OpenShift Container Platform with IBM PowerVC.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/QZC42G-1.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "DevOps with Private Cloud on IBM Power Systems",
+    "desc": "<p>The course addresses concepts involved in planning, deploying and implementing Ansible, Chef &amp; Puppet, and shows how to integrate these tools with IBM Cloud PowerVC Manager. You perform basic installation to advanced administrative tasks with these DevOps tools while learning architecture/benefits.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/QZC50G-1.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "PowerHA SystemMirror 7 Planning, Implementation, Basic Administration",
+    "desc": "<p>This course is designed to prepare students to install and configure a highly available cluster using PowerHA SystemMirror.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AN61G-5.1-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Korn and Bash Shell Programming",
+    "desc": "<p>This course teaches how to use shell scripts and utilities for practical system administration of AIX (or other UNIX) operating systems.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AN202G-1.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Network Installation Management Concepts and Configuration",
+    "desc": "<p>This course provides a working knowledge of the fundamental capabilities of the Network Installation Management (NIM) facility of the AIX 7.1 operating system. This course uses a lecture and machine exercises to provide a practical background knowledge of the topics covered.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AN22G-3.1-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "IBM Integration Bus V10 System Administration",
+    "desc": "<p>This course gives administrators training on IBM Integration Bus system administration. It is also relevant for IBM Integration Bus developers who work in an admin capacity. Learn how to administer IBM Integration Bus on distributed operating systems (Windows, UNIX) by using various interfaces.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/WM646G-1.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Power Systems for AIX III: Advanced Administration and Problem Determination",
+    "desc": "<p>Learn advanced AIX system administrator skills focusing on monitoring, availability and problem determination. Learn about the ODM database where AIX maintains configuration info, Logical Volume Manager procedures for replacing disks, and techniques for minimizing the system maintenance window.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AN15G-4.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Power Systems for AIX - Virtualization II: Advanced PowerVM and Performance",
+    "desc": "<p>Learn skills to implement, measure, analyze and tune PowerVM virtualization features for optimal performance. Lean how to implement advanced IBM PowerVM features, such as Active Memory Sharing, Active Memory Expansion, shared dedicated processors, and multiple shared processor pools.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AN31G-6.1-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Power Systems for AIX - PowerVM I Implementing Virtualization",
+    "desc": "<p>Overview of the PowerVM edition&#39;s features on POWER processor-based systems. It explains the new features and benefits of virtualization including processor virtualization, Virtual I/O Server, and virtual devices, such as virtual Ethernet, virtual SCSI, and virtual Fibre Channel adapters.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AN30G-8.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Power Systems for AIX IV: Performance Management",
+    "desc": "<p>Develop the skills to measure, analyze, and tune common performance issues on IBM Power Systems running AIX. The materials include AIX 7.1 enhancements and exercises are executed on a POWER8 lab environment</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AN51G-5.2-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "RPG IV Programming Fundamentals Workshop for IBM i",
+    "desc": "<p>This course is a comprehensive exposure to the basic features and functions of RPG IV for Version 7. It is designed to enable a trained programmer to develop and maintain simple RPG IV programs written using the latest features and techniques available in the V7 compiler</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AS06G-8.1-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Advanced System Operator Workshop for IBM i",
+    "desc": "<p>This course is designed to enhance the skills of an IBM i System Operator It explains the concept of how LPAR works and discusses the functions provided by the HMC, Access Client Solutions, basic CL programming, GUI tools in RDP ( RSE and LPEX) ,and menu creation using SDA, Management Central.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AS27G-11.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Explore Additional Power System Courses",
+    "desc": "<p>Access a comprehensive library of additional courseware material available for AIX, IBM i and Linux on Power for beginner, intermediate and advanced users.</p>\n",
+    "links": [
+      {
+        "linkText": "Explore AIX Courses",
+        "linkURL": "https://www.ibm.com/university/power/aixcurric.html"
+      },
+      {
+        "linkText": "Explore IBM i Courses",
+        "linkURL": "https://www.ibm.com/university/power/ibmicurric.html"
+      },
+      {
+        "linkText": "Explore PHP and Zend Courses",
+        "linkURL": "https://www.ibm.com/university/power/zend.html"
+      },
+      {
+        "linkText": "Explore Linux Courses",
+        "linkURL": "https://www.ibm.com/university/power/linuxcurric.html"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "IBM Engineering and Scientific Subroutine Library for Linux on Power",
+    "desc": "<p>IBM Engineering and Scientific Subroutine Library (ESSL) is a state-of-the-art collection of subroutines providing a wide range of mathematical functions for scientific and engineering applications. Its primary characteristics are performance, functional capability, and usability.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://epwt-www.mybluemix.net/software/support/trial/cst/welcomepage.wss?siteId=589&tabId=1174&w=1&p=1"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "IBM Rational Developer for i RPG & COBOL Tools",
+    "desc": "<p>IBM Rational Developer for i is an integrated development environment (IDE) built on the Eclipse platform. Designed for creating and maintaining applications on IBM i systems, it resides on the developers desktop, supporting development in both host-connected and disconnected modes.</p>\n",
+    "links": [
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://www.ibm.com/us-en/marketplace/rational-developer-for-i"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "IBM Watson Machine Learning Accelerator",
+    "desc": "<p>Watson Machine Learning Accelerator, makes deep learning and machine learning more accessible. Combining popular open source deep learning frameworks, efficient AI development tools, and accelerated IBM Power Systems servers.</p>\n",
+    "links": [
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://www.ibm.com/us-en/marketplace/deep-learning-platform"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "IBM XL Fortran",
+    "desc": "<p>IBM XL Fortran for Linux is an advanced, high-performance compiler that can be used for developing complex, computationally intensive programs, including interlanguage calls with C programs.</p>\n",
+    "links": [
+      {
+        "linkText": "Documentation",
+        "linkURL": "https://www.ibm.com/support/knowledgecenter/SSAT4T_16.1.1/com.ibm.compilers.linux.doc/welcome.html"
+      },
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://www.ibm.com/us-en/marketplace/xl-fortran-aix-compiler-power"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "IBM XL C/C++",
+    "desc": "<p>IBM XL C/C&#43;&#43; for AIX is an advanced, high-performance compiler that can be used for developing complex, computationally intensive programs, including interlanguage calls with C and Fortran programs.</p>\n",
+    "links": [
+      {
+        "linkText": "Documentation",
+        "linkURL": "https://www.ibm.com/support/knowledgecenter/SSGH3R_16.1.0/com.ibm.compilers.aix.doc/welcome.html"
+      },
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://www.ibm.com/us-en/marketplace/xl-cpp-aix-compiler-power"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Explore the IBM Software Catalog",
+    "desc": "<p>Access a comprehensive library of professional software resources for use in the classroom or non-commercial research projects.</p>\n",
+    "links": [
+      {
+        "linkText": "List of Available Software",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/Academic%20Initiative%20-%20Available%20Software.pdf"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Linux on Power Developer Portal",
+    "desc": "<p>Learn about developing on the Power architecture, find packages, get access to cloud resources, discover the tools and technologies you need to build applications, and connect with your peers and other developers, data scientists, and academics.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://developer.ibm.com/linuxonpower/"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "IBM Power Systems Academic Cloud",
+    "desc": "<p>Provides faculty with free remote access to Power Systems for teaching or research activities. Your request will be forwarded to the Power Systems Academic Cloud manager, who will contact you to arrange a conference call to discuss your objectives, technical requirements and OS to meet your needs.</p>\n",
+    "links": [],
+    "cardType": "Resources",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Cognitive Class",
+    "desc": "<p>Cognitive Class, an IBM community initiative, is not like other on-line training sites. Our content is free, access to tool sets used within the courses is free, and we have designed our courses to be accessed at your pace based on your priorities.</p>\n",
+    "links": [
+      {
+        "linkText": "Cognitive Class Website",
+        "linkURL": "https://cognitiveclass.ai/"
+      },
+      {
+        "linkText": "Cognitive Learning Paths",
+        "linkURL": "https://www.ibm.com/university/power/learningpaths.html"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Participating schools",
+    "desc": "<p>Our participating schools are listed alphabetically by State or Country. To be included in this list or to find out more about these schools, please send a note to powerskills&#64;us.ibm.com</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.ibm.com/university/power/na.html"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "Power Systems"
+  }
+]
