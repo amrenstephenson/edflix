@@ -1,12 +1,11 @@
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
-import { Image } from 'react';
 
 function NavBar() {
 	return (
 		<Navbar bg="dark" variant="dark" expand="lg">
 			<Container>
 				<Navbar.Brand href="#home">
-					<img src="images/edflix-logo.png" style={{ height: "2rem" }} />
+					<img src="images/edflix-logo.png" about="Edflix logo" style={{ height: "2rem" }} />
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
