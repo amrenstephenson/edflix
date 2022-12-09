@@ -1,12 +1,14 @@
 import './App.css';
+import NavBar from './components/NavBar';
 
 export default function Home() {
 	return (
 		<div className="App">
 			<header>
-				<h1>EDFLIX</h1>
+				<NavBar></NavBar>
 			</header>
 			<main>
+				<br></br>
 				<p>Welcome to EDFLIX</p>
 			</main>
 		</div>
