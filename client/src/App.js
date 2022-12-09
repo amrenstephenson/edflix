@@ -6,8 +6,8 @@ function App() {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path="/" element={ <Home/> }/>
-				<Route path='*' element={ <PageNotFound /> }/>
+				<Route path="/" element={<Home />} />
+				<Route path='*' element={<PageNotFound />} />
 			</Routes>
 		</BrowserRouter>
 	);
