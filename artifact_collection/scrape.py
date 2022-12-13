@@ -2,6 +2,15 @@ import requests
 import json
 import dpath
 import os
+from dataclasses import dataclass, field
+
+@dataclass(unsafe_hash=True)
+class LearningArtifact:
+	title: str
+	desc: str = field(compare=False)
+	links: list[str] = field(compare=False)
+	cardType: str = field(compare=False)
+	topic: str = field(compare=False)
 
 def build_uri(pageid):
 	return f"https://content-eu-7.content-cms.com/api/b73a5759-c6a6-4033-ab6b-d9d4f9a6d65b/dxsites/151914d1-03d2-48fe-97d9-d21166848e65/delivery/v1/rendering/context/{pageid}"
@@ -14,7 +23,7 @@ def scrape_page(pageid, topic):
 	# Cards are in the `technology` element in `sectionOne`
 	cards = dpath.get(resp, "elements/sectionOne/values/*/elements/technology/value/elements/cards/values")
 
-	cardInfos = []
+	cardInfos = set()
 	for card in cards:
 		# Get the title:
 		title = dpath.get(card, "elements/title/value")
@@ -57,7 +66,7 @@ def scrape_page(pageid, topic):
 				continue
 
 			links.append({"linkText": linkText, "linkURL": linkURL})
-		
+
 		if not cardType:
 			print(f"[WARN] Artifact \"{title}\" has no type")
 		if not desc:
@@ -65,8 +74,8 @@ def scrape_page(pageid, topic):
 		if len(links) == 0:
 			print(f"[WARN] Artifact \"{title}\" has no links")
 
-		info = {"title":title, "desc":desc, "links":links, "type":cardType, "topic":topic}
-		cardInfos.append(info)
+		info = LearningArtifact(title=title, desc=desc, links=links, cardType=cardType, topic=topic)
+		cardInfos.add(info)
 
 	return cardInfos
 
@@ -85,12 +94,12 @@ def main():
 		"IBM Quantum" : "b8abdcde-7d23-45a0-ac27-5f8fa73fd3e3"
 	}
 
-	artifacts = []
+	artifacts = set()
 	for topic, pageid in topics.items():
-		artifacts += scrape_page(pageid, topic)
+		artifacts |= scrape_page(pageid, topic)
 
 	with open("learning_artifacts.json", "w") as f:
-		f.write(json.dumps(artifacts, indent=2))
+		f.write(json.dumps([a.__dict__ for a in artifacts], indent=2))
 	
 	print(f"*** Successfully found {len(artifacts)} artifacts! ***")
 
