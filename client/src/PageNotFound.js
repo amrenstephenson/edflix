@@ -1,5 +1,3 @@
-import './App.css';
-
 export default function PageNotFound() {
 	return (
 		<div className="App">
