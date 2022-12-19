@@ -4,7 +4,7 @@ import dpath
 import os
 from dataclasses import dataclass, field
 
-@dataclass(unsafe_hash=True)
+@dataclass(frozen=True)
 class LearningArtifact:
 	title: str
 	desc: str = field(compare=False)
