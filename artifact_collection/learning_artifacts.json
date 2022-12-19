@@ -1,0 +1,2230 @@
+[
+  {
+    "title": "Introduction to OpenShift Applications (DO101)",
+    "desc": "<p>A developer-focused introduction to OpenShift application building, deployment, scaling, and troubleshooting.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.redhat.com/en/services/training/do101-introduction-openshift-applications"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Red Hat Academy"
+  },
+  {
+    "title": "IBM Process Mining Collection",
+    "desc": "<p>Process mining uses business system data to create and visualize an end-to-end process that includes all the process activities involved along with the various process paths. Businesses analyze the discovered process to gain actionable insights for improvement.</p>\n",
+    "links": [
+      {
+        "linkText": "Explore the collection",
+        "linkURL": "https://www.ibm.com/training/collection/processmining"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "IBM Automation"
+  },
+  {
+    "title": "IBM Robotic Process Automation - Basic II",
+    "desc": "<p>RPA Basic II is a continuation of the Basic I course, where students will further their RPA skills and learn more in-depth and essential concepts for the development of the programmer within IBM RPA resources. This course covers the use of assets, parameters, and the manipulation of PDFs, data tables, and databases</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://learn.ibm.com/course/view.php?id=8382"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "IBM Automation"
+  },
+  {
+    "title": "AIX Jumpstart for UNIX Professionals",
+    "desc": "<p>Focused training for experienced UNIX administrators on how to install, customize, and administer the AIX operating system in a multiuser POWER partitioned environment. It is based on AIX 7.1 running on a Power system managed by Hardware Management Console v7. I(earlier versions also discussed)</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AN14G-6.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "IBM i System Administration",
+    "desc": "<p>Learn how to plan for, implement, and manage the ongoing operations of an IBM i. Emphasis is on security, system availability, backup and recovery, system software management, and problem determination. Also, get an introduction to the architecture and terminology of the IBM i.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/OL19G-15.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Spectum Scale Developer Edition",
+    "desc": "<p>Organizations are creating and analyzing more data than ever, and their data storage must support big data and artificial intelligence workloads along with traditional applications while ensuring security, reliability and high performance. IBM Spectrum Scale\u2122 is the solution to these needs.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://epwt-www.mybluemix.net/software/support/trial/cst/programwebsite.wss?siteId=803&h=&tabId=&source=swerpzsw-sscale-3&transactionId=459466387"
+      },
+      {
+        "linkText": "Spectrum Scale Overview",
+        "linkURL": "https://youtu.be/prYbCLTODCw"
+      },
+      {
+        "linkText": "Introduction to Deployment",
+        "linkURL": "https://youtu.be/BoP9lH7QZBI"
+      },
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://www.ibm.com/us-en/marketplace/scale-out-file-and-object-storage"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Data Science"
+  },
+  {
+    "title": "IBM Robotic Process Automation",
+    "desc": "<p>Going from simple, back-office task automation to scaled automation to handle time-consuming business processes can be a challenge. The IBM\u00a0Robotic Process Automation offering helps you automate more business and IT processes at scale with the ease and speed of traditional RPA. Software robots, or bots, can act on AI insights to complete tasks with no lag time and enable you to achieve digital transformation.</p>\n",
+    "links": [
+      {
+        "linkText": "Documentation",
+        "linkURL": "https://www.ibm.com/docs/en/rpa/20.12"
+      },
+      {
+        "linkText": "Communities",
+        "linkURL": "https://community.ibm.com/community/user/automation/communities/community-home?communitykey=6209ec75-bc9a-4b5f-9611-65d286eb7379&tab=groupdetails"
+      },
+      {
+        "linkText": "Video",
+        "linkURL": "https://youtu.be/aZDaNVh3l0k"
+      },
+      {
+        "linkText": "Access",
+        "linkURL": "https://www.ibm.com/account/reg/signup?formid=urx-51072"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "IBM Automation"
+  },
+  {
+    "title": "Trustworthy Generation 360",
+    "desc": "<p>A collection of platforms and tools that can help you to synthesize novel and useful data for different modalities and applications, and evaluation thereof, using generative machine learning models throughout the AI application lifecycle. We invite you to use and improve them.</p>\n",
+    "links": [
+      {
+        "linkText": "Peptide Sampler",
+        "linkURL": "https://peptide-walk.mybluemix.net"
+      },
+      {
+        "linkText": "COVID-19 Molecules",
+        "linkURL": "https://covid19-mol.mybluemix.net"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "IBM Cloud Architecture Center",
+    "desc": "<p>IBM&#39;s architectures provide practices for building apps on the cloud. The reference architectures define the basic pattern, while implementations provide specific technology, practices, and tool choices to build and deploy that pattern.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.ibm.com/cloud/architecture"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Cloud"
+  },
+  {
+    "title": "Watson Academy",
+    "desc": "<p>Your fast track to cognitive computing</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www-03.ibm.com/services/learning/ites.wss/zz-en?pageType=page&c=LNW1G2K9220IL0YX"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "Get started with IBM Cloud",
+    "desc": "<p>Get access to tutorials and materials to help you start building now with use AI, IoT, data and mobile services.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.ibm.com/cloud/get-started"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Cloud"
+  },
+  {
+    "title": "Qiskit Textbook",
+    "desc": "<p>Qiskit makes it easy to start learning quantum software to run on real quantum hardware. Teach your students with the same tools used by scientists and engineers worldwide to accelerate research towards practical applications for quantum computing</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://qiskit.org/learn/"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "IBM Quantum"
+  },
+  {
+    "title": "Project Debater for Academic Use",
+    "desc": "<p>Project Debater is the first AI system that can debate humans on complex topics. The goal is to help people build persuasive arguments and make well-informed decisions. We offer free access to these services as Cloud APIs for non commercial academic use.</p>\n",
+    "links": [
+      {
+        "linkText": "Early Access Program",
+        "linkURL": "https://early-access-program.debater.res.ibm.com/academic_use.html"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "Machine Learning For Kids",
+    "desc": "<p>This free tool introduces machine learning by providing hands-on experiences for training machine learning systems and building things with them. It provides an easy-to-use guided environment for training machine learning models to recognize text, numbers, images, or sounds.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://machinelearningforkids.co.uk"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "AIX Basics",
+    "desc": "<p>This course enables students to perform everyday tasks using the AIX operating system. The course provides lectures and hands on labs in an instructor lead course environment. This basic course is intended for anyone who requires basic AIX/UNIX user skills to be able to work in an AIX environment.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AN10G-6.1-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Move to Cloud with IBM Cloud PowerVC Manager",
+    "desc": "<p>This course provides an overall understanding of how to install and configure IBM PowerVC Standard Edition, OpenStack and IBM Cloud PowerVC Manager, in an environment with HMC and IBM PowerVM NovaLink. Hands-on exercises span the basics of installing IBM PowerVC to performing advanced admin tasks.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/QZC30G-3.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Using Open Source Tools on IBM i",
+    "desc": "<p>For a those familiar with open source tools (Python, Node.js, PHP) learn to use those tools to access the data on IBM i. Includes Portable Applications Solutions Environment for IBM i (PASE), shell environment as a way of accessing/using the tools, toolkits, SQL, message queuing, REST,etc.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AS40G-1.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Introduction to the Mainframe",
+    "desc": "<p>This textbook provides students with the background, knowledge, and skills necessary to begin using the basic facilities of a mainframe computer. Topics include: job roles; mainframe interfaces; Job Control Language; mainframe hardware and architecture; networking, and security topics</p>\n",
+    "links": [],
+    "cardType": "Courseware",
+    "topic": "IBM Z"
+  },
+  {
+    "title": "System Operator for IBM i",
+    "desc": "<p>The course enables a new system operator to develop basic to intermediate skills needed for day-to-day operations IBM i on Power. Learn the GUI (IBM i Access Client Solutions &amp; IBM Navigator for i) and 5250 emulation. (job control, monitoring, sending messages, managing systems devices, etc).</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AS24G-12.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "IBM Cloud Foundation Skills Series",
+    "desc": "<p>A series of videos which aims to give users of IBM Cloud a broad foundation knowledge and some deeper level skills in the tools and services that are available so that they can get started on using their account and building their first environments and applications.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.youtube.com/playlist?list=PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Cloud"
+  },
+  {
+    "title": "OpenDS4All",
+    "desc": "<p>OpenDS4All is a project created to accelerate the creation of data science curriculum at academic institutions. The project hosts educational modules that may be used as building blocks for a data science curriculum.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://github.com/odpi/OpenDS4All/"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "SPSS Modeler Premium",
+    "desc": "<p>SPSS Modeler provides an intuitive graphical interface to help visualize each step in the data mining process. Automatically transforms data into the best format for the most accurate predictive modeling. Explore geographic data such as latitude and longitude, postal codes and addresses using SPSS.</p>\n",
+    "links": [
+      {
+        "linkText": "SPSS Community",
+        "linkURL": "https://developer.ibm.com/predictiveanalytics/"
+      },
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://www.ibm.com/products/spss-modeler?p1=Search&p4=p50328194449&p5=b&cm_mmc=Search_Google-_-1S_1S-_-WW_NA-_-%2Bibm%20%2Bmodeler_b&cm_mmca7=71700000060952240&cm_mmca8=kwd-306874575040&cm_mmca9=EAIaIQobChMIuJmkprif6AIVgsDACh1NlQJEEAAYASAAEgJzpfD_BwE&cm_mmca10=406181271776&cm_mmca11=b&gclid=EAIaIQobChMIuJmkprif6AIVgsDACh1NlQJEEAAYASAAEgJzpfD_BwE&gclsrc=aw.ds"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Data Science"
+  },
+  {
+    "title": "Blueworks Live",
+    "desc": "<p>IBM Blueworks Live is a cloud-based software that provides a dedicated, collaborative anywhere environment to build and improve business processes through process mapping.</p>\n\n<p>\u00a0</p>\n\n<p>Teams can work together through an intuitive and easily accessible web interface to document and analyze processes to help make them more efficient. No download required.</p>\n",
+    "links": [
+      {
+        "linkText": "Documentation",
+        "linkURL": "https://www.blueworkslive.com/scr/docs?cm_mc_uid=54046830266616013218867&cm_mc_sid_50200000=56790071603477841240"
+      },
+      {
+        "linkText": "Communities",
+        "linkURL": "https://community.ibm.com/community/user/automation/communities/community-home?communitykey=6209ec75-bc9a-4b5f-9611-65d286eb7379&tab=groupdetails"
+      },
+      {
+        "linkText": "Video",
+        "linkURL": "https://www.youtube.com/watch?v=US-KcZbZGUk"
+      },
+      {
+        "linkText": "Create a Blueworks Live Account",
+        "linkURL": "https://www.ibm.com/products/blueworkslive"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "IBM Automation"
+  },
+  {
+    "title": "Red Hat System Administration I (RH124)",
+    "desc": "<p>The first of two courses that cover the core system administration tasks needed to manage Red Hat\u00ae Enterprise Linux\u00ae servers.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.redhat.com/en/services/training/rh124-red-hat-system-administration-i"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Red Hat Academy"
+  },
+  {
+    "title": "IBM Z Educator Hub",
+    "desc": "<p>The IBM Z Educator Hub is a new one-stop destination for IBM Z educators to find the latest communications, news and events, as well as collaborate and network.</p>\n",
+    "links": [
+      {
+        "linkText": "Join IBM Z Educator Hub",
+        "linkURL": "https://community.ibm.com/community/user/ibmz-and-linuxone/groups/group-home?CommunityKey=cefd2ec8-fffb-415b-8b41-9b66cae37192&joinOurCommunity=1"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Z"
+  },
+  {
+    "title": "IBM Watson Machine Learning Essentials",
+    "desc": "<p>Watson Machine Learning is a service on IBM Cloud with features for training and deploying machine learning models and neural networks. This course consists of a series of videos showing how to use the Watson Machine Learning in Watson Studio.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.onlinedigitallearning.com/course/view.php?id=4482"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "Hello Quantum",
+    "desc": "<p>Hello Quantum is a puzzle game designed to teach introductory principles of quantum computing.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://helloquantum.mybluemix.net/"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Quantum"
+  },
+  {
+    "title": "Cloud Brokering for Dummies",
+    "desc": "<p>This book is intended to help you understand what it means to plan for a hybrid computing future. As more and more services move to the cloud you need to have the right information and the right approach so that you\u2019re prepared for whatever the future brings to your business.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.ibm.com/downloads/cas/NNM9RKOJ"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Cloud"
+  },
+  {
+    "title": "IBM Engineering Test Management",
+    "desc": "<p>A collaborative quality management solution that offers comprehensive test planning and test asset management from requirements to defects. ETM enables teams to seamlessly share information. It uses automation to speed up project schedules and report on metrics for informed release decisions.</p>\n",
+    "links": [
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://www.ibm.com/products/ibm-engineering-test-management"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "IBM Engineering"
+  },
+  {
+    "title": "IBM Z Skills Employer Resource Center",
+    "desc": "<p>Enterprise computing runs on talent. This comprehensive resource center is designed to provide organizations with the tools and guidance needed to develop a solid strategy for building a robust pipeline of mainframe talent that will propel your company&#39;s enterprise infrastructures into the future.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.onlinedigitallearning.com/course/view.php?id=3532"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Z"
+  },
+  {
+    "title": "Getting Started with Enterprise-grade AI",
+    "desc": "<p>This course covers the foundations of Artificial Intelligence for business, including the following topics: AI Evolution, AI Industry Adoption Trends, Natural Language Processing and Virtual Agents.</p>\n",
+    "links": [
+      {
+        "linkText": "Take the course",
+        "linkURL": "https://keyskill-clms.comprehend.ibm.com/course/view.php?id=236"
+      },
+      {
+        "linkText": "Learn about the badge",
+        "linkURL": "https://skillsbuild.org/college-students/digital-credentials/getting-started-with-enterprise-grade-ai"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "IBM Z Academic Cloud",
+    "desc": "<p>The IBM Z\u00ae Academic Cloud provides no-charge access to z/OS for teaching and research purposes for academics and students only, and is not available for computer hobbyists or self-education.</p>\n",
+    "links": [],
+    "cardType": "Resources",
+    "topic": "IBM Z"
+  },
+  {
+    "title": "Data Refinery Essentials",
+    "desc": "<p>Data Refinery is a self-service data preparation client for data scientists, data engineers, and business analysts. With it, you can quickly transform large amounts of raw data into consumable, quality information that\u2019s ready for analytics.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.onlinedigitallearning.com/course/view.php?id=4480"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "IBM Cloud Academic User Group",
+    "desc": "<p>A user group for students, faculty, researchers and others to discuss the IBM Cloud and ask questions.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://community.ibm.com/community/user/publiccloud/communities/globalgrouphome?CommunityKey=a7aa122f-ce3f-42df-a178-46f1753ddb0b"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Cloud"
+  },
+  {
+    "title": "IBM Security Community",
+    "desc": "<p>Engage with IBM experts, share advice and best practices with peers, and stay up to date on the latest product enhancements.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.ibm.com/security/community"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Security"
+  },
+  {
+    "title": "Red Hat OpenShift I: Containers & Kubernetes (DO180)",
+    "desc": "<p>Introduction to building and managing containers for deployment on a Kubernetes and OpenShift 4 cluster.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.redhat.com/en/services/training/do180-red-hat-openshift-I-containers-kubernetes"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Red Hat Academy"
+  },
+  {
+    "title": "IBM Cognos Analytics - Architecture and Logging",
+    "desc": "<p>Through lecture and interactive exercises participants will identify IBM Cognos Analytics components, examine how these components interact with Java, and will explore logging to assist when troubleshooting issues.</p>\n",
+    "links": [],
+    "cardType": "Courseware",
+    "topic": "Data Science"
+  },
+  {
+    "title": "Engineering Test Management",
+    "desc": "<p>The IBM Engineering Test Management solution help systems engineers manage quality in software and product development.</p>\n",
+    "links": [
+      {
+        "linkText": "Watch it now",
+        "linkURL": "https://mediacenter.ibm.com/media/t/1_lgg7ucc7"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Engineering"
+  },
+  {
+    "title": "IBM Planning Analytics - Analyze Data and Create Reports",
+    "desc": "<p>This course is designed to teach analysts how to use IBM Planning Analytics to analyze data to discover trends and exceptions, create and customize reports and templates, and contribute data to plans.</p>\n",
+    "links": [],
+    "cardType": "Courseware",
+    "topic": "Data Science"
+  },
+  {
+    "title": "Cloud Services for Dummies",
+    "desc": "<p>This book gives you some insights into what it means to leverage both IaaS and PaaS in both public and private cloud environments and how these environments work with data center services.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.ibm.com/cloud-computing/files/cloud-for-dummies.pdf"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Cloud"
+  },
+  {
+    "title": "IBM Cloud Feature Code",
+    "desc": "<p>Get enhanced access to the IBM Cloud the cloud platform that offers a choice of scalable and flexible resources in one consistent experience. Bringing together APIs and services, IBM Cloud offers a rich and continuously expanding ecosystem of services to accelerate the pace of innovation.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://cloud.ibm.com/docs/tutorials?topic=solution-tutorials-tutorials#tutorials"
+      },
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://cloud.ibm.com/docs/home/alldocs"
+      },
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://watson.service-now.com/wcp"
+      },
+      {
+        "linkText": "How to create your IBM Cloud trial account",
+        "linkURL": "https://github.com/academic-initiative/documentation/blob/main/academic-initiative/how-to/How-to-create-an-IBM-Cloud-account/readme.md"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "IBM Cloud"
+  },
+  {
+    "title": "IBM Personal Communications (PCOMM)",
+    "desc": "<p>IBM Personal Communications is a host communication and terminal emulation package for Microsoft Windows. It features virtual terminal (VT) emulation and systems network architecture (SNA) application support and provides a platform to access data and applications on different host systems.</p>\n",
+    "links": [
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://www.ibm.com/us-en/marketplace/personal-communications"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "IBM Z"
+  },
+  {
+    "title": "IBM Power Systems Academic Cloud",
+    "desc": "<p>Provides faculty with free remote access to Power Systems for teaching or research activities. Your request will be forwarded to the Power Systems Academic Cloud manager, who will contact you to arrange a conference call to discuss your objectives, technical requirements and OS to meet your needs.</p>\n",
+    "links": [],
+    "cardType": "Resources",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "TJBot",
+    "desc": "<p>Have some fun and code your own AI robot with TJBot, a do-it-yourself template to learn, experiment with and explore AI using IBM Watson services. Get started with easy, step-by-step Instructions and pre-written recipes to bring TJBot to life.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.research.ibm.com/tjbot/"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "IBM Data Risk Manager",
+    "desc": "<p>Identify and prevent risks to sensitive business data that may impact business processes, operations, and competitive position using IBM Data Risk Manager. Use the built-in data risk control center to uncover, analyze, and visualize data-related business risks to help executives can take action.</p>\n",
+    "links": [
+      {
+        "linkText": "Knowledge Center",
+        "linkURL": "https://www.ibm.com/support/knowledgecenter/SSJQ6V_2.0.6/com.ibm.idrm.doc/welcome.html"
+      },
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://www.ibm.com/products/data-risk-manager"
+      },
+      {
+        "linkText": "Installing and Configuring",
+        "linkURL": "https://www.ibm.com/support/knowledgecenter/SSJQ6V_2.0.6/com.ibm.idrm.doc/install/top/landing-install.html"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "IBM Security"
+  },
+  {
+    "title": "LinuxONE Community Cloud",
+    "desc": "<p>No-charge, open access to an enterprise grade Linux environment with code-patterns and tutorials to get you up and running to quickly solve real problems.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://developer.ibm.com/articles/get-started-with-ibm-linuxone/"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Z"
+  },
+  {
+    "title": "IBM Cognos Analytics - Author Reports with Multidimensional Data",
+    "desc": "<p>Through interactive demonstrations and exercises, participants will learn how to author reports that navigate and manipulate dimensional data structures using the specific dimensional functions and features available in IBM Cognos Analytics.</p>\n",
+    "links": [],
+    "cardType": "Courseware",
+    "topic": "Data Science"
+  },
+  {
+    "title": "Cognitive Class",
+    "desc": "<p>Cognitive Class, an IBM community initiative, is not like other on-line training sites. Our content is free, access to tool sets used within the courses is free, and we have designed our courses to be accessed at your pace based on your priorities.</p>\n",
+    "links": [
+      {
+        "linkText": "Cognitive Class Website",
+        "linkURL": "https://cognitiveclass.ai/"
+      },
+      {
+        "linkText": "Cognitive Learning Paths",
+        "linkURL": "https://www.ibm.com/university/power/learningpaths.html"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "IBM Planning Analytics - Design & Develop Models in Workspace",
+    "desc": "<p>This course is designed to teach modelers how to build a complete model in IBM Planning Analytics. Through a series of lectures and hands-on exercises, students will learn how to set up dimensions and cubes, manually enter data into these structures, and define the data that users can see.</p>\n",
+    "links": [],
+    "cardType": "Courseware",
+    "topic": "Data Science"
+  },
+  {
+    "title": "IBM Rational Developer for i RPG & COBOL Tools",
+    "desc": "<p>IBM Rational Developer for i is an integrated development environment (IDE) built on the Eclipse platform. Designed for creating and maintaining applications on IBM i systems, it resides on the developers desktop, supporting development in both host-connected and disconnected modes.</p>\n",
+    "links": [
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://www.ibm.com/us-en/marketplace/rational-developer-for-i"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "IBM Cloud Associate Solution Advisor",
+    "desc": "<p>Learners in any job role can get a first look at cloud computing and IBM Cloud. No experience needed. Learn to discuss and use cloud services with confidence. Earn your first cloud certification.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.ibm.com/training/path/41"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "IBM Cloud"
+  },
+  {
+    "title": "Agile Development - Why Requirements Matter Smart Paper",
+    "desc": "<p>This interactive paper explores the ways requirements management brings value to agile development.</p>\n",
+    "links": [
+      {
+        "linkText": "Read it",
+        "linkURL": "https://www.ibm.com/internet-of-things/learn/agile-development-methodology/"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Engineering"
+  },
+  {
+    "title": "Security Intelligence",
+    "desc": "<p>Read up on the latest perspectives on cybersecurity through the lens of IBM Security experts.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://securityintelligence.com/"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Security"
+  },
+  {
+    "title": "Getting Started with Threat Intelligence and Hunting",
+    "desc": "<p>This is a foundational course, exposing the learner to threat intelligence concepts including: Attack trends by geography, threat intelligence tools and real-world use cases. Complete this course to get your badge.</p>\n",
+    "links": [
+      {
+        "linkText": "Take the course",
+        "linkURL": "https://keyskill-clms.comprehend.ibm.com/course/view.php?id=389"
+      },
+      {
+        "linkText": "Learn about the badge",
+        "linkURL": "https://skillsbuild.org/college-students/digital-credentials/getting-started-with-threat-intelligence-and-hunting"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Capstone"
+  },
+  {
+    "title": "Power Systems for AIX I: LPAR Configuration and Planning",
+    "desc": "<p>Learn how to perform system administration in a Power Systems environment. Learn about the features of PowerVM Editions and how to configure and manage LPARs running AIX V7 or Linux using the Hardware Management Console (HMC).</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AN11G-8.1-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "IBM X-ForceThreat Intelligence Index",
+    "desc": "<p>Understand your cyber risks with a global view of the threat landscape.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.ibm.com/security/data-breach/threat-intelligence"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Security"
+  },
+  {
+    "title": "SPSS Modeler Premium Concurrent License Request (MAP)",
+    "desc": "<p>Need to running SPSS Modeler Premium on multiple machines in a\u00a0computer classroom or lab?\u00a0SPSS Modeler provides an intuitive graphical interface to help visualize each step in the data mining process. Automatically transforms data into the best format for the most accurate predictive modeling. Explore geographic data such as latitude and longitude, postal codes and addresses using SPSS.</p>\n",
+    "links": [
+      {
+        "linkText": "Request",
+        "linkURL": "https://www.ibm.com/academic/topic/data-science/spss-map"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Data Science"
+  },
+  {
+    "title": "IBM Watson Knowledge Catalog Essentials",
+    "desc": "<p>IBM Watson Knowledge Catalog is a secure enterprise catalog to index, classify, and govern your data with greater efficiency. Manage your data from every angle giving you a 360-degree view of your data so you can create models, uncover insights, and collaborate more effectively.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.onlinedigitallearning.com/course/view.php?id=4481"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "IBM Z Software Trials",
+    "desc": "<p>Try the latest IBM\u00ae Z software today at no charge, and with no installation required. These no-charge trials are available within two hours for three days.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.ibm.com/it-infrastructure/z/resources/trial"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "IBM Z"
+  },
+  {
+    "title": "Explore the IBM Software Catalog",
+    "desc": "<p>Access a comprehensive library of professional software resources for use in the classroom or non-commercial research projects.</p>\n",
+    "links": [
+      {
+        "linkText": "List of Available Software",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/Academic%20Initiative%20-%20Available%20Software.pdf"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "IBM QRadar SIEM Foundations",
+    "desc": "<p>IBM QRadar SIEM provides deep visibility into network, user, and application activity. It provides collection, normalization, correlation, and secure storage of events, flows, asset profiles, and vulnerabilities. QRadar SIEM classifies suspected attacks and policy violations as offenses.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/BQ104G-1.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "IBM Security"
+  },
+  {
+    "title": "RPG IV Programming Fundamentals Workshop for IBM i",
+    "desc": "<p>This course is a comprehensive exposure to the basic features and functions of RPG IV for Version 7. It is designed to enable a trained programmer to develop and maintain simple RPG IV programs written using the latest features and techniques available in the V7 compiler</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AS06G-8.1-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Advanced Docker for Power Systems",
+    "desc": "<p>This course enhances skills for system administrators and product support specialists in operating system based virtualization provided by Docker. Topics include Docker remote client, Docker registries, and Docker problem determination. Hands-on exercises show how to manage a Docker configuration.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/LX062G-1.1-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Planning Analytics",
+    "desc": "<p>IBM Planning Analytics is an integrated planning solution that allows you to blend your financial and technical skills to create future budgets/plans &amp; forecasts for all size businesses. Build financial plans that integrate all areas of the business: sales, operations, supply chain management etc.</p>\n",
+    "links": [
+      {
+        "linkText": "Community",
+        "linkURL": "https://www.ibm.com/community/businessanalytics/planning-analytics/"
+      },
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://www.ibm.com/products/planning-analytics?p1=Search&p4=p50328202114&p5=e&cm_mmc=Search_Google-_-1S_1S-_-WW_NA-_-ibm%20planning%20analytics_e&cm_mmca7=71700000060951748&cm_mmca8=kwd-317964872146&cm_mmca9=EAIaIQobChMIjJ21nLmf6AIVRr7ACh3FGQfmEAAYASAAEgKBuvD_BwE&cm_mmca10=406181274380&cm_mmca11=e&gclid=EAIaIQobChMIjJ21nLmf6AIVRr7ACh3FGQfmEAAYASAAEgKBuvD_BwE&gclsrc=aw.ds"
+      },
+      {
+        "linkText": "Demos & Hands-on Labs",
+        "linkURL": "https://www.ibm.com/demos/collection/IBM-Planning-Analytics/"
+      },
+      {
+        "linkText": "Planning Analytics Local Installation and Configuration",
+        "linkURL": "https://www.ibm.com/support/knowledgecenter/en/SSD29G_2.0.0/com.ibm.swg.ba.cognos.tm1_inst.2.0.0.doc/pa_install.html"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Data Science"
+  },
+  {
+    "title": "DevOps with Private Cloud on IBM Power Systems",
+    "desc": "<p>The course addresses concepts involved in planning, deploying and implementing Ansible, Chef &amp; Puppet, and shows how to integrate these tools with IBM Cloud PowerVC Manager. You perform basic installation to advanced administrative tasks with these DevOps tools while learning architecture/benefits.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/QZC50G-1.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Causal Inference 360",
+    "desc": "<p>Go beyond just prediction: By applying Causal Inference 360 to a dataset, you can estimate what may happen to one variable (an &#34;outcome&#34;) if another variable (an &#34;intervention&#34; or &#34;treatment&#34;) is actively changed, without having to perform a randomized trial.</p>\n",
+    "links": [
+      {
+        "linkText": "Project website",
+        "linkURL": "https://cif360-dev.mybluemix.net"
+      },
+      {
+        "linkText": "Github",
+        "linkURL": "https://github.com/IBM/causallib"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "QRadar Community Edition",
+    "desc": "<p>With all the functionality of QRadar, Community Edition is your place to start or extend your skills and passion for QRadar. We\u2019ll guide you along the way, with a set of instructional videos to help you get started and access to IBM Learning Academy to deepen those skills.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://www.ibm.com/account/reg/us-en/signup?formid=urx-32552"
+      },
+      {
+        "linkText": "Support",
+        "linkURL": "https://developer.ibm.com/answers/topics/qradarce/?sort=newest&filter=all"
+      },
+      {
+        "linkText": "Documentation",
+        "linkURL": "https://developer.ibm.com/qradar/wp-content/uploads/sites/89/2018/08/b_qradar_community_edition.pdf"
+      },
+      {
+        "linkText": "Videos",
+        "linkURL": "https://www.youtube.com/watch?v=Ii62Qy3ggnQ&list=PLHh9jhztlMyom5iT0a1JCpQgeK8j3blZf"
+      },
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://developer.ibm.com/qradar/ce/"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "IBM Security"
+  },
+  {
+    "title": "IBM Z Xplore",
+    "desc": "<p>IBM Z Xplore Learning Platform is a fun way to learn, earn digital badges and experience hands-on mainframe technology with no prior knowledge required!</p>\n",
+    "links": [
+      {
+        "linkText": "Register",
+        "linkURL": "https://ibmzxplore.influitive.com/"
+      },
+      {
+        "linkText": "Explore badges",
+        "linkURL": "https://www.ibm.com/community/z/ibm-z-xplore/badges/"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Z"
+  },
+  {
+    "title": "Implementing IBM Cloud Private on Power Systems",
+    "desc": "<p>This course introduces the Kubernetes-based IBM Cloud Private platform, a new way to deliver and run cloud workloads in your own trusted data center. Learn how to install / configure the IBM Cloud Private program on IBM Power Systems; the concepts, planning, installation, and basic mgmt operations</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/QZC40G-1.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Overview of IBM Cognos Analytics",
+    "desc": "<p>This course provides participants with a high level overview of the IBM Cognos Analytics suite of products and their underlying architecture. They will examine each component as it relates to an Analytics solution. Participants will be shown a range of resources to provide additional information.</p>\n",
+    "links": [],
+    "cardType": "Courseware",
+    "topic": "Data Science"
+  },
+  {
+    "title": "Korn and Bash Shell Programming",
+    "desc": "<p>This course teaches how to use shell scripts and utilities for practical system administration of AIX (or other UNIX) operating systems.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AN202G-1.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Power Systems Academic Updates/Support",
+    "desc": "<p>Allow us to communicate with you; Get the latest news. Ask a question about a course; Ask the experts technical/cloud questions; PSAI newsletters featuring student success stories; Changes to the courses or the cloud environment and cloud related processes; Outages and maintenance work in the cloud.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.ibm.com/university/power/"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Power Systems for AIX - Virtualization II: Advanced PowerVM and Performance",
+    "desc": "<p>Learn skills to implement, measure, analyze and tune PowerVM virtualization features for optimal performance. Lean how to implement advanced IBM PowerVM features, such as Active Memory Sharing, Active Memory Expansion, shared dedicated processors, and multiple shared processor pools.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AN31G-6.1-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "What is cybersecurity",
+    "desc": "<p>Cybersecurity management is comprised of evolving tools, services and technology that work together to counter today&#39;s sophisticated cyber-attack methods. IBM Security offers tools that train businesses to identify, protect, detect, respond, and recover critical data in the event of a cyber-attack.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.ibm.com/topics/cybersecurity"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Security"
+  },
+  {
+    "title": "Cognos Analytics on Cloud",
+    "desc": "<p>Cognos Analytics, helps enable you to: 1) Find answers, using AI and machine learning; 2) Unearth information that may not be obvious, using pattern detection; 3) Pose questions about your data and receive intelligent responses; 4) Reduce the time needed for data preparation.</p>\n",
+    "links": [
+      {
+        "linkText": "Access now",
+        "linkURL": "https://www.ibm.com/account/reg/signup?formid=urx-47688"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Data Science"
+  },
+  {
+    "title": "IBM Z Enterprise Computing Kickstart",
+    "desc": "<p>13 Courses (56 hours) of online, self-paced courses covering topics from the z/OS Mainframe System, the IBM Development Environment, JCL, WebSphere, COBOL and DB2. Differentiate yourself with essential skills needed by Fortune 500 companies to run their mission-critical workloads.</p>\n",
+    "links": [
+      {
+        "linkText": "Register today",
+        "linkURL": "https://interskill.com/academic/"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "IBM Z"
+  },
+  {
+    "title": "Engineering Workflow Management Overview",
+    "desc": "<p>IBM Engineering Workflow Management helps systems engineers put agile methods to work for improved team collaboration and project traceability.</p>\n",
+    "links": [
+      {
+        "linkText": "Watch it now",
+        "linkURL": "https://mediacenter.ibm.com/media/t/1_5jhs8nd6"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Engineering"
+  },
+  {
+    "title": "Red Hat Enterprise Linux Automation with Ansible (RH294)",
+    "desc": "<p>Learn how to automate Linux system administration tasks with Red Hat Ansible\u00ae Automation Platform</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.redhat.com/en/services/training/rh294-red-hat-linux-automation-with-ansible"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Red Hat Academy"
+  },
+  {
+    "title": "Quick Start Sessions",
+    "desc": "<p>Learn how to use IBM Engineering tools. Quick Starts are short, focused, introductory hands-on labs designed to take less than two hours to complete.</p>\n",
+    "links": [
+      {
+        "linkText": "Get Started",
+        "linkURL": "https://demo.innovationcloud.info/ELMQuickStarts.html"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "IBM Engineering"
+  },
+  {
+    "title": "Power Systems for AIX IV: Performance Management",
+    "desc": "<p>Develop the skills to measure, analyze, and tune common performance issues on IBM Power Systems running AIX. The materials include AIX 7.1 enhancements and exercises are executed on a POWER8 lab environment</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AN51G-5.2-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "IBM z15 Virtual Tour",
+    "desc": "<p>Meet the new IBM z15. Have a closer look inside a modern mainframe and see how IBM Z systems are designed to bring privacy, security and resiliency to your mission-critical workloads on hybrid cloud.</p>\n",
+    "links": [
+      {
+        "linkText": "Explore the z15",
+        "linkURL": "https://apps.kaonadn.net/4882011/z/index.html#;C591"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Z"
+  },
+  {
+    "title": "PowerHA SystemMirror 7 Planning, Implementation, Basic Administration",
+    "desc": "<p>This course is designed to prepare students to install and configure a highly available cluster using PowerHA SystemMirror.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AN61G-5.1-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Linux on Power Developer Portal",
+    "desc": "<p>Learn about developing on the Power architecture, find packages, get access to cloud resources, discover the tools and technologies you need to build applications, and connect with your peers and other developers, data scientists, and academics.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://developer.ibm.com/linuxonpower/"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "IBM Cognos Analytics - Author Reports Fundamentals",
+    "desc": "<p>This course provides authors with an introduction to build reports using Cognos Analytics. Techniques to enhance, customize, and manage reports will be explored. Activities will illustrate and reinforce key concepts during this learning opportunity.</p>\n",
+    "links": [],
+    "cardType": "Courseware",
+    "topic": "Data Science"
+  },
+  {
+    "title": "IBM AI Education",
+    "desc": "<p>We know that students need to understand AI to be successful in the modern workforce. Through this PD experience, teachers will be able to equip their students to think about how AI impacts their lives and what it means for their professional futures.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.mymindsparklearning.org/ibm-ai-education"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "IBM CloudLabs",
+    "desc": "<p>With IBM CloudLabs, you&#39;ll have a chance to learn how to operate Kubernetes on IBM Cloud by completing three free interactive labs, entirely through your web browser.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.ibm.com/cloud/blog/ibm-cloudlabs-free-interactive-kubernetes-tutorials"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "IBM Cloud"
+  },
+  {
+    "title": "IBM Engineering Workflow Management",
+    "desc": "<p>EWM automates change, manages plans, tasks, the project status and acts as the critical link between required and delivered work. It provides flexibility to adapt to any process, enabling teams to adopt faster release cycles and manage dependencies across both small and complex development projects.</p>\n",
+    "links": [
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://www.ibm.com/products/ibm-engineering-workflow-management"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "IBM Engineering"
+  },
+  {
+    "title": "Data Asset eXchange",
+    "desc": "<p>The IBM Data Asset eXchange (DAX) is an online hub for developers and data scientists to find free and open data sets under open data licenses.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://developer.ibm.com/exchanges/data/#"
+      },
+      {
+        "linkText": "Getting started",
+        "linkURL": "https://developer.ibm.com/tutorials/getting-started-with-the-data-asset-exchange/"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "Data Science"
+  },
+  {
+    "title": "IBM XL Fortran",
+    "desc": "<p>IBM XL Fortran for Linux is an advanced, high-performance compiler that can be used for developing complex, computationally intensive programs, including interlanguage calls with C programs.</p>\n",
+    "links": [
+      {
+        "linkText": "Documentation",
+        "linkURL": "https://www.ibm.com/support/knowledgecenter/SSAT4T_16.1.1/com.ibm.compilers.linux.doc/welcome.html"
+      },
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://www.ibm.com/us-en/marketplace/xl-fortran-aix-compiler-power"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Elyra",
+    "desc": "<p>Elyra is a set of open source AI-centric extensions to Jupyter Notebooks, and, more specifically, the JupyterLab user interface.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://github.com/elyra-ai"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Data Science"
+  },
+  {
+    "title": "IBM Cognos Framework Manager - Design Metadata Models",
+    "desc": "<p>This course provides an introduction to advanced knowledge of metadata modeling concepts, and how to model metadata for predictable reporting and analysis results using IBM Cognos Framework Manager.</p>\n",
+    "links": [],
+    "cardType": "Courseware",
+    "topic": "Data Science"
+  },
+  {
+    "title": "Participating schools",
+    "desc": "<p>Our participating schools are listed alphabetically by State or Country. To be included in this list or to find out more about these schools, please send a note to powerskills&#64;us.ibm.com</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.ibm.com/university/power/na.html"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "IBM Maximo Visual Inspection",
+    "desc": "<p>IBM Maximo Visual Inspection empowers SMEs to label, train and deploy deep learning vision models, without coding or deep learning expertise. It includes the most popular deep learning frameworks and their dependencies, and it is built for easy and rapid deployment and increased team productivity</p>\n",
+    "links": [
+      {
+        "linkText": "Knowledge Center",
+        "linkURL": "https://www.ibm.com/support/knowledgecenter/SSRU69_1.3.0/navigation/welcome.html"
+      },
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://www.ibm.com/products/ibm-maximo-visual-inspection"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "Red Hat OpenStack Administration I: Core Operations for Domain Operators (CL110)",
+    "desc": "<p>Learn to operate a Red Hat OpenStack Platform private cloud and manage domain resources to secure and deploy modern, scalable cloud applications, networks, and storage.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.redhat.com/en/services/training/cl110-red-hat-openstack-administration-i"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Red Hat Academy"
+  },
+  {
+    "title": "EDT Co-Creator",
+    "desc": "<p>Once you\u2019ve received the Practitioner Badge, you\u2019ll unlock this series of practice-based modules. These activities will help you work on methods like identifying stakeholders, creating a research plan, and testing ideas. In order to collect your Co-Creator Badge, you must complete these modules with a partner or your team.</p>\n",
+    "links": [
+      {
+        "linkText": "Take the course",
+        "linkURL": "https://www.ibm.com/design/thinking/page/courses/Co-Creator"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "Capstone"
+  },
+  {
+    "title": "QRadar SIEM",
+    "desc": "<p>IBM QRadar SIEM helps security teams accurately detect and prioritize threats across the enterprise, and it provides intelligent insights that enable teams to respond quickly to reduce the impact of incidents.</p>\n",
+    "links": [
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://www.ibm.com/products/qradar-siem"
+      },
+      {
+        "linkText": "Getting Started",
+        "linkURL": "https://www.ibm.com/support/knowledgecenter/SS42VS_7.3.3/com.ibm.qradar.doc/qradar_IC_welcome.html"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "IBM Security"
+  },
+  {
+    "title": "Cognos Analytics",
+    "desc": "<p>Cognos Analytics on premise, helps enable you to: 1) Find answers, using AI and machine learning; 2) Unearth information that may not be obvious, using pattern detection; 3) Pose questions about your data and receive intelligent responses; 4) Reduce the time needed for data preparation.</p>\n",
+    "links": [
+      {
+        "linkText": "Community",
+        "linkURL": "https://community.ibm.com/community/user/businessanalytics/communities/community-home/digestviewer?communitykey=6b10df83-0b3c-4f92-8b1f-1fd80d0e7e58&tab=digestviewer"
+      },
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://www.ibm.com/products/cognos-analytics?p1=Search&p4=p50328202003&p5=e&cm_mmc=Search_Google-_-1S_1S-_-WW_NA-_-ibm%20cognos%20analytics_e&cm_mmca7=71700000060951742&cm_mmca8=kwd-304419737172&cm_mmca9=EAIaIQobChMIgb-j5rif6AIVS73ACh3RfAKqEAAYASAAEgJ2CfD_BwE&cm_mmca10=406181273984&cm_mmca11=e&gclid=EAIaIQobChMIgb-j5rif6AIVS73ACh3RfAKqEAAYASAAEgJ2CfD_BwE&gclsrc=aw.ds"
+      },
+      {
+        "linkText": "Demos & Hands-on Labs",
+        "linkURL": "https://www.ibm.com/demos/collection/IBM-Cognos-Analytics/"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Data Science"
+  },
+  {
+    "title": "Introduction to IBM i for New Users",
+    "desc": "<p>In this classroom course, you will learn basic concepts and skills you need to be productive users on Power Systems with IBM i. With plenty of hands-on lab exercises, we show everything from signing onto the available user interfaces; green screen environment and IBM Navigator for i.</p>\n",
+    "links": [],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "IBM Developer",
+    "desc": "<p>More than 100 open source programs, a library of knowledge resources, Developer Advocates ready to help, and a global community of developers. What in the world will you create?</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://developer.ibm.com/"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Cloud"
+  },
+  {
+    "title": "IBM Z Global Student Hub",
+    "desc": "<p>The Hub is not only a platform for students; it is a learning platform for all. Anyone interested in learning the latest and greatest about enterprise computing and career development is welcome to join our weekly webinars. You can also catch-up on recordings of earlier webinars.</p>\n",
+    "links": [
+      {
+        "linkText": "Join IBM Z Global Student Hub",
+        "linkURL": "https://www.ibm.biz/studenthub"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Z"
+  },
+  {
+    "title": "Build with Watson",
+    "desc": "<p>Access the starter guide, community, resources and tooling to help you build with Watson.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.ibm.com/watson/developer/"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "Developing Secure Software",
+    "desc": "<p>Learn the security basics to develop software that is hardened against attacks, and understand how you can reduce the damage and speed the response when a vulnerability is exploited. Thanks to the involvement of OpenSSF, a cross-industry collaboration that brings together leaders to improve the security of open source software by building a broader community, targeted initiatives, and best practices, this course provides specific tips on how to use and develop open source and other software securely.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://training.linuxfoundation.org/training/developing-secure-software-lfd121/"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "IBM Security"
+  },
+  {
+    "title": "IBM DB2 Standard",
+    "desc": "<p>IBM Db2 is a family of hybrid data management products offering a complete suite of AI-empowered capabilities designed to help you manage both structured and unstructured data on premises as well as in private and public cloud environments.</p>\n",
+    "links": [
+      {
+        "linkText": "Knowledge Center",
+        "linkURL": "https://www.ibm.com/support/knowledgecenter/SSEPGG_11.5.0/com.ibm.db2.luw.welcome.doc/doc/welcome.html"
+      },
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://www.ibm.com/analytics/db2"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Data Science"
+  },
+  {
+    "title": "Advanced System Operator Workshop for IBM i",
+    "desc": "<p>This course is designed to enhance the skills of an IBM i System Operator It explains the concept of how LPAR works and discusses the functions provided by the HMC, Access Client Solutions, basic CL programming, GUI tools in RDP ( RSE and LPEX) ,and menu creation using SDA, Management Central.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AS27G-11.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Machine Learning for Dummies",
+    "desc": "<p>This book gives you insights into what machine learning is all about and how it can impact the way you can weaponize data to gain unimaginable insights. Your data is only as good as what you do with it and how you manage it.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.ibm.com/downloads/cas/GB8ZMQZ3"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "PowerVM on IBM i - I: Implementing Virtualization and LPAR",
+    "desc": "<p>Learn the concepts of Logical Partitioning (LPAR) for Power Systems with IBM i. In this course we begin with an overview of LPAR on Power Systems, followed with more detailed information on configuration planning and implementation using hands-on exercises to create and implement logical partitions.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AS5EG-3.1-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Garage Method",
+    "desc": "<p>The Methodology drives Enterprise Design Thinking at scale, is built on agile principles for colocated and distributed teams, leverages DevOps tools and techniques for continued delivery and operations, fosters digital talent and culture change, and enables Site Reliability Engineering.</p>\n",
+    "links": [
+      {
+        "linkText": "Explore the method",
+        "linkURL": "https://www.ibm.com/garage/method/"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "Capstone"
+  },
+  {
+    "title": "IBM Digital App Builder",
+    "desc": "<p>IBM Digital App Builder is a low-code tool, which helps to quickly create mobile, web and PWA multi-channel applications with AI capabilities powered by Watson services.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/digital-app-builder/"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "Uncertainty Quantification 360",
+    "desc": "<p>Uncertainty quantification gives AI the ability to express that it is unsure, adding critical transparency for the safe deployment and use of AI. This open source toolkit can help you estimate, communicate and use uncertainty in machine learning model predictions through an AI application lifecycle.</p>\n",
+    "links": [
+      {
+        "linkText": "Project website",
+        "linkURL": "https://uq360.mybluemix.net/"
+      },
+      {
+        "linkText": "Github",
+        "linkURL": "https://github.com/IBM/UQ360"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "z/OS Introduction",
+    "desc": "<p>This series of short videos teaches you about the IBM Z environment. The course starts from the beginning teaching IBM Z basics and the flagship operating system z/OS. The course addresses access and interaction basics, data sets and data access methods, and operating system environment topics.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.redbooks.ibm.com/redbooks.nsf/redbookabstracts/crse0304.html?Open"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "IBM Z"
+  },
+  {
+    "title": "IBM Cognos Analytics - Author Reports Advanced",
+    "desc": "<p>This course teaches experienced authors advanced report building techniques to enhance, customize, manage, and distribute reports. Additionally, the student will learn how to create highly interactive and engaging reports that can be run offline by creating Active Reports.</p>\n",
+    "links": [],
+    "cardType": "Courseware",
+    "topic": "Data Science"
+  },
+  {
+    "title": "Requirements Quality Assistant (RQA) Game",
+    "desc": "<p>Test your requirements management skills. Play this interactive game now to see if you can spot the best requirement from the list. Can you beat Watson?</p>\n",
+    "links": [
+      {
+        "linkText": "Play now",
+        "linkURL": "https://www.ibm.com/internet-of-things/learn/RQA-interactive/#/"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Engineering"
+  },
+  {
+    "title": "IBM i Performance Tuning - I: IBM i Structure, Tailoring and Basic Tuning",
+    "desc": "<p>This course explains how to balance the workload on the IBM i system to ensure optimum performance. Learn how to manage workloads, measure system performance, and tune the operating system to meet processing requirements. Hands-on exercises show how to control workload and tune system performance.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/OL23G-11.1-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "AI Fairness 360",
+    "desc": "<p>The AI Fairness 360 package is an extensible open source toolkit that includes a comprehensive set of metrics for datasets and models to test for biases, explanations for these metrics, and algorithms to mitigate bias in datasets and models. It is available in both Python and R languages.</p>\n",
+    "links": [
+      {
+        "linkText": "Documentation",
+        "linkURL": "https://aif360.readthedocs.io/en/latest/"
+      },
+      {
+        "linkText": "Project website",
+        "linkURL": "https://aif360.mybluemix.net/"
+      },
+      {
+        "linkText": "Github",
+        "linkURL": "https://github.com/Trusted-AI/AIF360"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "Quantum Machine Learning",
+    "desc": "<p>This course contains around eight hours of content, and is aimed at self-learners who are comfortable with undergraduate-level mathematics and quantum computing fundamentals. This course will take you through key concepts in quantum machine learning, such as parameterized quantum circuits, training these circuits, and applying them to basic problems. By the end of the course, you\u2019ll understand the state of the field, and you\u2019ll be familiar with recent developments in both supervised and unsupervised learning such as quantum kernels and general adversarial networks. This course finishes with a project that you can use to showcase what you\u2019ve learnt.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://qiskit.org/learn/course/machine-learning-course/"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "IBM Quantum"
+  },
+  {
+    "title": "Linux on IBM Z",
+    "desc": "<p>This course introduces the major functions and capabilities of Linux on IBM Z. It also goes into the advantages of Linux on System z including total cost of ownership, scalability, performance, administration, availability, system, memory management, security and connectivity advantages.</p>\n",
+    "links": [],
+    "cardType": "Courseware",
+    "topic": "IBM Z"
+  },
+  {
+    "title": "AI Explainability 360",
+    "desc": "<p>An open source software toolkit featuring ten explainability methods and two evaluation metrics along with a taxonomy that can help identify gaps where more explainability methods are needed and provide a common platform for their integration.</p>\n",
+    "links": [
+      {
+        "linkText": "Project website",
+        "linkURL": "https://aix360.mybluemix.net/"
+      },
+      {
+        "linkText": "Github",
+        "linkURL": "https://github.com/Trusted-AI/AIX360"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "OpenLiberty",
+    "desc": "<p>A lightweight open framework for building fast and efficient cloud-native Java microservices. Build cloud-native apps and microservices while running only what you need. Open Liberty is the most flexible server runtime available to JavaTM developers in this solar system.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://openliberty.io/downloads/"
+      },
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://openliberty.io/docs/"
+      },
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://openliberty.io/support/"
+      },
+      {
+        "linkText": "Stack Overflow",
+        "linkURL": "https://stackoverflow.com/questions/tagged/open-liberty"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "IBM Cloud"
+  },
+  {
+    "title": "Red Hat System Administration II (RH134)",
+    "desc": "<p>Focuses on the key tasks needed to become a full-time Linux administrator.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.redhat.com/en/services/training/rh134-red-hat-system-administration-ii"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Red Hat Academy"
+  },
+  {
+    "title": "Engineering Requirements Management DOORS Next Overview",
+    "desc": "<p>Watch the experts tackle engineering complexity in real-time in this Requirements Management episode of the Full Stack. IBM Engineering Requirements Management tools can provide valuable insights for systems engineers in the area of requirements management and automation.</p>\n",
+    "links": [
+      {
+        "linkText": "Watch it now",
+        "linkURL": "https://www.youtube.com/watch?v=SWmfYZYMN-E&list=PLV850jtTzoaIcQNNrLbqIXXx6ytGdrTD4&index=2&t=0s"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Engineering"
+  },
+  {
+    "title": "Enhancing Workload and Capacity Management with Docker on Power Systems",
+    "desc": "<p>This course provides skills enablement (hands-on) for system administrators and product support specialists in operating system based virtualization provided by Docker. Topics include introduction to Docker, planning the installation, Docker administration, and using images and containers.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/LX061G-2.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "IBM Quantum Lab & Composer",
+    "desc": "<p>Explore the world of quantum computing! Check out our User Guides and interactive Demos to learn more about quantum principles. Or, dive right in to create and run algorithms on real quantum computing hardware, using the Quantum Composer and QISKit software developer kit.</p>\n",
+    "links": [
+      {
+        "linkText": "Explore",
+        "linkURL": "https://quantum-computing.ibm.com/login"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "IBM Quantum"
+  },
+  {
+    "title": "Open Source Cloud Guide",
+    "desc": "<p>This guide will provide comprehensive learning for hybrid cloud and multicloud developers. As well as an agnostic view of how various clouds are using open source in their offerings.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://open-cloud-guide.dev"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Cloud"
+  },
+  {
+    "title": "IBM Developer for z/OS",
+    "desc": "<p>IBM\u00a0Developer for z/OS\u00a0(IDz) is a modern, robust toolset for developing and maintaining IBM z/OS applications through the use of DevOps practices. It helps you deliver more, faster, with better quality and greater agility.</p>\n",
+    "links": [
+      {
+        "linkText": "Download - Windows",
+        "linkURL": "https://www14.software.ibm.com/cgi-bin/weblap/lap.pl?popup=Y&li_formnum=L-MSAR-C5QJAP&accepted_url=https://public.dhe.ibm.com/ibmdl/export/pub/software/htp/zos/tools/aqua3.2/direct/IDz-aqua-15.0.3-win32-x86_64.zip"
+      },
+      {
+        "linkText": "Documentation",
+        "linkURL": "https://www.ibm.com/support/pages/node/713179"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "IBM Z"
+  },
+  {
+    "title": "Overview of Process Mining",
+    "desc": "<p>This course introduces students to IBM Process Mining. Students will learn the differences between process mining and task mining, the different phases of process mining, use cases, and how process mining is performed. Students will also learn how to use IBM Process Mining to import data sources, map data, and how to visualize a process, along with the introduction to other major features of process mining.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.ibm.com/training/course/ZB845G"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "IBM Automation"
+  },
+  {
+    "title": "IBM Security Learning Academy",
+    "desc": "<p>Get free technical training for IBM Security products. You can explore the course catalog and build your own curriculum by enrolling in courses.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.securitylearningacademy.com"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "IBM Security"
+  },
+  {
+    "title": "IBM Design Equal Access Toolkit",
+    "desc": "<p>Use this toolkit to increase the accessibility of your product regardless of role or expertise.</p>\n",
+    "links": [
+      {
+        "linkText": "Access the toolkit",
+        "linkURL": "https://www.ibm.com/able/toolkit/"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "Capstone"
+  },
+  {
+    "title": "IBM Automation Learning Center",
+    "desc": "<p>Getting started in your\u00a0Automation journey is\u00a0easy!\u00a0Visit the IBM Automation Learning Center to\u00a0complete\u00a0the Future of Work learning modules\u00a0and visit Credly to see\u00a0the requirements for the IBM Automation Compass badge.\u00a0\u00a0Once you are ready to dive in,\u00a0\u00a0the completion of\u00a0lessons\u00a0you\u00a0will allow you to\u00a0\u00a0earn an externally recognized\u00a0badge to showcase\u00a0your understanding of\u00a0Automation in business.\u00a0</p>\n",
+    "links": [
+      {
+        "linkText": "Access",
+        "linkURL": "https://automation-learning-center.mybluemix.net/"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "IBM Automation"
+  },
+  {
+    "title": "Introduction to Quantum Computing and Quantum Hardware",
+    "desc": "<p>This course is an introduction to the world of quantum computing, with an exploration of some of the key quantum algorithms and their implementations using quantum circuits, as well as the quantum hardware that is designed to run these algorithms.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://qiskit.org/learn/intro-qc-qh/"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "IBM Quantum"
+  },
+  {
+    "title": "Power Systems for AIX II AIX Implementation and Administration",
+    "desc": "<p>Learn to install, customize, and administer the AIX operating system in a multiuser Power Systems partitioned environment. It is based on AIX 7.2 running on a Power Systems server managed by Hardware Management Console and provides practical discussions that are appropriate to earlier AIX releases.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AN12G-6.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Introduction to the Cobol Language",
+    "desc": "<p>The student will learn computer programming and reporting for file-oriented, computerized information systems utilizing the COBOL language. Additional topics include: COBOL sorting routines; table handling features; structured coding techniques; sequential disk organization</p>\n",
+    "links": [],
+    "cardType": "Courseware",
+    "topic": "IBM Z"
+  },
+  {
+    "title": "IBM Engineering Help",
+    "desc": "<p>Learn more about IBM Engineering at the Knowledge Center.</p>\n",
+    "links": [
+      {
+        "linkText": "Access this resource",
+        "linkURL": "https://www.ibm.com/support/knowledgecenter/SSYMRC_7.0.3/com.ibm.help.common.jazz.calm.doc/topics/c_clm_overview.html"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Engineering"
+  },
+  {
+    "title": "IBM QRadar SIEM Advanced Topics",
+    "desc": "<p>Using the skills taught in this course, you will be able to configure processing of uncommon events, work with reference data, and develop custom rules, custom actions, and custom anomoly detection rules using IBM Security QRadar.</p>\n",
+    "links": [],
+    "cardType": "Courseware",
+    "topic": "IBM Security"
+  },
+  {
+    "title": "Getting Started with Enterprise Data Science",
+    "desc": "<p>This course provides a basic understanding of the foundations of Data Science including: Data Science Team Roles, Data Analysis Tools, and real-world use cases for the application of the Data Science method.</p>\n",
+    "links": [
+      {
+        "linkText": "Take the course",
+        "linkURL": "https://keyskill-clms.comprehend.ibm.com/course/view.php?id=386"
+      },
+      {
+        "linkText": "Learn about the badge",
+        "linkURL": "https://skillsbuild.org/college-students/digital-credentials/getting-started-with-enterprise-data-science"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Capstone"
+  },
+  {
+    "title": "IBM Analog Hardware Acceleration Kit",
+    "desc": "<p>IBM Analog Hardware Acceleration Kit is an open source Python toolkit for exploring and using the capabilities of in-memory computing devices in the context of artificial intelligence.</p>\n",
+    "links": [
+      {
+        "linkText": "Project website",
+        "linkURL": "https://aihw-composer.draco.res.ibm.com/"
+      },
+      {
+        "linkText": "Github",
+        "linkURL": "https://github.com/IBM/aihwkit"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "IBM Robotic Process Automation - Basic I",
+    "desc": "<p>This is an introductory course to IBM Robotic Process Automation. In this course, students will learn the basics of inserting commands, publishing scripts, controlling the flow of scripts, and many other RPA essentials. This course provides students with the opportunity to learn and sharpen the basic skills needed to successfully learn IBM\u2019s Robotic Process Automation.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://learn.ibm.com/course/view.php?id=8373#section-2"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "IBM Automation"
+  },
+  {
+    "title": "IBM Engineering Requirements Quality Assistant",
+    "desc": "<p>Using Watson Natural Language Service, RQA has built in quality indicators designed to be consistent with guidelines from the International Council on Systems Engineering (INCOSE) for writing complete, clear and testable requirements to accelerate the review process and increase requirement quality.</p>\n",
+    "links": [
+      {
+        "linkText": "Try it",
+        "linkURL": "https://requirements-quality-assistant-demo.reqadvisorprod-cluster-5d0ff5b66564d2b1e6331e47173f1d7a-0001.eu-de.containers.appdomain.cloud/"
+      },
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://www.ibm.com/us-en/marketplace/requirements-quality-assistant"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "IBM Engineering"
+  },
+  {
+    "title": "Network Installation Management Concepts and Configuration",
+    "desc": "<p>This course provides a working knowledge of the fundamental capabilities of the Network Installation Management (NIM) facility of the AIX 7.1 operating system. This course uses a lecture and machine exercises to provide a practical background knowledge of the topics covered.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AN22G-3.1-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Qiskit",
+    "desc": "<p>An open-source quantum computing framework for leveraging today&#39;s quantum processors in research, education, and business.</p>\n",
+    "links": [
+      {
+        "linkText": "Qiskit",
+        "linkURL": "https://qiskit.org/"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "IBM Quantum"
+  },
+  {
+    "title": "Create a Node-RED starter application",
+    "desc": "<p>In this tutorial, you will learn how to create a Node-RED starter application in the IBM Cloud, including a Cloudant database to store the application flow configuration.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://developer.ibm.com/tutorials/how-to-create-a-node-red-starter-application/"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "SAFe Guidance in ELM Tools",
+    "desc": "<p>The ELM solution provides the industry-standard Scaled Agile Framework- SAFe\u00ae methodology built in, helping you get up and running quickly. The ELM tooling environment makes it easy to adopt necessary lean and agile principles.</p>\n",
+    "links": [
+      {
+        "linkText": "Take me there",
+        "linkURL": "https://www.ibm.com/support/knowledgecenter/SSYMRC_7.0.3/com.ibm.rational.rrm.help.doc/topics/c_safe_4_5.html"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Engineering"
+  },
+  {
+    "title": "Requirements Quality Assistant (RQA) Demo",
+    "desc": "<p>RQA assesses inconsistent, incomplete and ambiguous requirement definitions. Using natural language processing as part of Watson AI, the solution analyzes and scores each requirement and suggests improvements consistent with the INCOSE Guidelines for Writing Good Requirements.</p>\n",
+    "links": [
+      {
+        "linkText": "Try it out",
+        "linkURL": "https://requirements-quality-assistant-demo.reqadvisorprod-cluster-5d0ff5b66564d2b1e6331e47173f1d7a-0001.eu-de.containers.appdomain.cloud"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Engineering"
+  },
+  {
+    "title": "IBM XL C/C++",
+    "desc": "<p>IBM XL C/C&#43;&#43; for AIX is an advanced, high-performance compiler that can be used for developing complex, computationally intensive programs, including interlanguage calls with C and Fortran programs.</p>\n",
+    "links": [
+      {
+        "linkText": "Documentation",
+        "linkURL": "https://www.ibm.com/support/knowledgecenter/SSGH3R_16.1.0/com.ibm.compilers.aix.doc/welcome.html"
+      },
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://www.ibm.com/us-en/marketplace/xl-cpp-aix-compiler-power"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Power Systems for AIX - PowerVM I Implementing Virtualization",
+    "desc": "<p>Overview of the PowerVM edition&#39;s features on POWER processor-based systems. It explains the new features and benefits of virtualization including processor virtualization, Virtual I/O Server, and virtual devices, such as virtual Ethernet, virtual SCSI, and virtual Fibre Channel adapters.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AN30G-8.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "AI FactSheets 360",
+    "desc": "<p>The goal of the FactSheet project is to foster trust in AI by increasing transparency and enabling governance to allow AI consumers to understand if an AI model is appropriate for their situation. It enables the specification and enforcement of policies regarding AI model construction.</p>\n",
+    "links": [
+      {
+        "linkText": "Project website",
+        "linkURL": "https://aifs360.mybluemix.net/"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "Requirements Quality Assistant Overview",
+    "desc": "<p>RQA assesses inconsistent, incomplete and ambiguous requirement definitions. Using natural language processing as part of Watson AI, the solution analyzes and scores each requirement and suggests improvements consistent with the INCOSE Guidelines for Writing Good Requirements.</p>\n",
+    "links": [
+      {
+        "linkText": "Watch it now",
+        "linkURL": "https://www.youtube.com/watch?v=pXaKgAn7PJo&t=1s"
+      },
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://www.ibm.com/internet-of-things/learn/requirements-management-ai/"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Engineering"
+  },
+  {
+    "title": "Explore Additional Power System Courses",
+    "desc": "<p>Access a comprehensive library of additional courseware material available for AIX, IBM i and Linux on Power for beginner, intermediate and advanced users.</p>\n",
+    "links": [
+      {
+        "linkText": "Explore AIX Courses",
+        "linkURL": "https://www.ibm.com/university/power/aixcurric.html"
+      },
+      {
+        "linkText": "Explore IBM i Courses",
+        "linkURL": "https://www.ibm.com/university/power/ibmicurric.html"
+      },
+      {
+        "linkText": "Explore PHP and Zend Courses",
+        "linkURL": "https://www.ibm.com/university/power/zend.html"
+      },
+      {
+        "linkText": "Explore Linux Courses",
+        "linkURL": "https://www.ibm.com/university/power/linuxcurric.html"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Adversarial Robustness Toolbox",
+    "desc": "<p>Adversarial Robustness Toolbox (ART) is a Python library for Machine Learning Security. ART provides tools that enable developers and researchers to defend and evaluate Machine Learning models and applications against the adversarial threats of Evasion, Poisoning, Extraction, and Inference.</p>\n",
+    "links": [
+      {
+        "linkText": "Project website",
+        "linkURL": "https://art360.mybluemix.net/"
+      },
+      {
+        "linkText": "Github",
+        "linkURL": "https://github.com/Trusted-AI/adversarial-robustness-toolbox/"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "IBM Engineering Requirements Management DOORS Next",
+    "desc": "<p>DOORS Next is a scalable solution to optimize communication, collaboration, and verification of requirements. It enables teams to capture, trace, analyze and manage changes to requirements while maintaining compliance to regulations and standards.</p>\n",
+    "links": [
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://www.ibm.com/products/ibm-engineering-requirements-management-doors-next"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "IBM Engineering"
+  },
+  {
+    "title": "Journey to Cloud: Envisioning Your Solution",
+    "desc": "<p>This credential earner demonstrates knowledge and understanding of the digital transformation drivers made possible by cloud technologies and services. This includes: how cloud works, its capabilities, types, and delivery models (IaaS, SaaS, and PaaS); digital transformation strategies such as Agile practices, the IBM Garage Method, and Enterprise Design Thinking to help organizations get started on their transformation journey; &amp; deploying a test pilot cloud application using IBM Code Engine.</p>\n",
+    "links": [
+      {
+        "linkText": "Take the course",
+        "linkURL": "https://keyskill-clms.comprehend.ibm.com/course/view.php?id=347"
+      },
+      {
+        "linkText": "Learn about the badge",
+        "linkURL": "https://skillsbuild.org/college-students/digital-credentials/journey-to-cloud-envisioning-your-solution"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "IBM Cloud"
+  },
+  {
+    "title": "IBM Engineering and Scientific Subroutine Library for Linux on Power",
+    "desc": "<p>IBM Engineering and Scientific Subroutine Library (ESSL) is a state-of-the-art collection of subroutines providing a wide range of mathematical functions for scientific and engineering applications. Its primary characteristics are performance, functional capability, and usability.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://epwt-www.mybluemix.net/software/support/trial/cst/welcomepage.wss?siteId=589&tabId=1174&w=1&p=1"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Red Hat Application Development I: Programming in Java EE (AD183)",
+    "desc": "<p>Helping Java SE developers write Java EE applications.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.redhat.com/en/services/training/ad183-red-hat-application-development-i-programming-java-ee"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Red Hat Academy"
+  },
+  {
+    "title": "ILOG CPLEX Optimization Studio",
+    "desc": "<p>Analytical decision support toolkit for rapid development and deployment of optimization models using mathematical and constraint programming. It combines an integrated development environment with the powerful Optimization Programming Language and high-performance CPLEX and CP Optimizer solvers.</p>\n",
+    "links": [
+      {
+        "linkText": "CPLEX Community",
+        "linkURL": "https://www.ibm.com/developerworks/community/forums/html/forum?id=11111111-0000-0000-0000-000000002059"
+      },
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://www.ibm.com/products/ilog-cplex-optimization-studio?p1=Search&p4=p50329220859&p5=b&cm_mmc=Search_Google-_-1S_1S-_-WW_NA-_-%2Bibm%20%2Bilog%20%2Boptimization_b&cm_mmca7=71700000060951724&cm_mmca8=kwd-343233446104&cm_mmca9=EAIaIQobChMI6tCZxrOf6AIVyEXVCh3e3QeyEAAYASAAEgJBP_D_BwE&cm_mmca10=406192103462&cm_mmca11=b&gclid=EAIaIQobChMI6tCZxrOf6AIVyEXVCh3e3QeyEAAYASAAEgJBP_D_BwE&gclsrc=aw.ds"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Data Science"
+  },
+  {
+    "title": "IBM Cloud Documentation",
+    "desc": "<p>From core concepts to beginner tutorials, find the information you need to start using IBM Cloud.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://cloud.ibm.com/docs"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Cloud"
+  },
+  {
+    "title": "Power Systems Running Linux: Server Administration",
+    "desc": "<p>This course introduces basic administrative tasks associated with Linux Servers hosted on Power Systems servers. This includes installation, command line operations, system administration, device management, IBM tools, and system recovery.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/LX071G-1.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "IBM Watson Machine Learning Accelerator",
+    "desc": "<p>Watson Machine Learning Accelerator, makes deep learning and machine learning more accessible. Combining popular open source deep learning frameworks, efficient AI development tools, and accelerated IBM Power Systems servers.</p>\n",
+    "links": [
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://www.ibm.com/us-en/marketplace/deep-learning-platform"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Quantum for Educators",
+    "desc": "<p>This program helps teachers in the burgeoning quantum computing field connect with one another. And it provides the learning resources, tools, and systems access they need to provide quality educational experiences.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.ibm.com/quantum/educators"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Quantum"
+  },
+  {
+    "title": "IBM Engineering Systems Design Rhapsody",
+    "desc": "<p>Rhapsody helps teams collaborate, share, review and manage designs and models using a central repository. It automatically creates systems specifications and helps you prototype and simulate complex systems for early requirements, architecture, and behavior validation.</p>\n",
+    "links": [
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://www.ibm.com/us-en/marketplace/systems-design-rhapsody"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "IBM Engineering"
+  },
+  {
+    "title": "IBM Integration Bus V10 System Administration",
+    "desc": "<p>This course gives administrators training on IBM Integration Bus system administration. It is also relevant for IBM Integration Bus developers who work in an admin capacity. Learn how to administer IBM Integration Bus on distributed operating systems (Windows, UNIX) by using various interfaces.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/WM646G-1.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "IBM Process Mining",
+    "desc": "<p>Today, business processes are performing faster and producing more data than ever before. Companies struggle to keep up with the speed of change and high volumes of data to adopt optimization strategies.\u00a0</p>\n\n<p>\u00a0</p>\n\n<p>IBM\u00a0Process Mining lets you instantly visualize complete processes to find and fix inefficiencies that contribute to wasted time and resources. Leverage AI-driven process simulation to confidently improve processes and understand their impact.</p>\n\n<p>\u00a0</p>\n",
+    "links": [
+      {
+        "linkText": "Get Started",
+        "linkURL": "https://www.ibm.com/account/reg/us-en/signup?formid=urx-51357"
+      },
+      {
+        "linkText": "Documentation",
+        "linkURL": "https://www.ibm.com/docs/en/cloud-paks/1.0?topic=foundation-process-mining"
+      },
+      {
+        "linkText": "Community",
+        "linkURL": "https://community.ibm.com/community/user/automation/communities/community-home?CommunityKey=347f0b63-ba83-42bb-a040-85d25f9b661a"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "IBM Automation"
+  },
+  {
+    "title": "Solution tutorials",
+    "desc": "<p>Learn how to build, deploy and scale real-world solutions on IBM Cloud. These guides provide step-by-step instructions on how to use IBM Cloud to implement common patterns based on best practices and proven technologies.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://cloud.ibm.com/docs/solution-tutorials"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "IBM Cloud"
+  },
+  {
+    "title": "Cloud Native Bootcamp",
+    "desc": "<p>Cloud is everywhere. Today, many companies want to migrate their applications on to cloud. For this migration to be done, the applications must be re-architected in a way that they fully utilize the advantages of the cloud.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://cloudnative101.dev/"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "IBM Cloud"
+  },
+  {
+    "title": "Power Systems for AIX III: Advanced Administration and Problem Determination",
+    "desc": "<p>Learn advanced AIX system administrator skills focusing on monitoring, availability and problem determination. Learn about the ODM database where AIX maintains configuration info, Logical Volume Manager procedures for replacing disks, and techniques for minimizing the system maintenance window.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/AN15G-4.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "IBM Developer - Security",
+    "desc": "<p>More than 100 open source programs, a library of knowledge resources, Developer Advocates ready to help, and a global community of developers. What in the world will you create?</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://developer.ibm.com/technologies/security/"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Security"
+  },
+  {
+    "title": "Fundamentals of IBM Process Mining",
+    "desc": "<p>Fundamentals of IBM process mining is a collection of courses that introduces students to process mining and how it is used to perform process and data analysis. Students will learn how to evaluate a process for potential candidates for Robotic Process Automation implementation. Students will also learn advanced data preparation, transformation concepts, and how to evaluate a multi-level process for maverick buying patterns. Finally, students will learn how to create and visualize end-to-end processes that include all process activities involved along with various process paths.</p>\n",
+    "links": [
+      {
+        "linkText": "Learn more",
+        "linkURL": "https://www.ibm.com/training/course/ZB846G"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "IBM Automation"
+  },
+  {
+    "title": "IBM Engineering Overview",
+    "desc": "<p>Rising product complexity is challenging engineering teams to deliver products to market, faster than the competition. If you&#39;re not already embracing digital engineering and an end-to-end engineering lifecycle approach, you&#39;re already falling behind.</p>\n",
+    "links": [
+      {
+        "linkText": "Watch it now",
+        "linkURL": "https://mediacenter.ibm.com/media/1_bg9adfw4"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "IBM Engineering"
+  },
+  {
+    "title": "Zowe",
+    "desc": "<p>Zowe offers modern interfaces to interact with z/OS and allows you to work with z/OS in a way that is similar to what you experience on cloud platforms today. You can use these interfaces as delivered or through plug-ins and extensions that are created by clients or third-party vendors.</p>\n",
+    "links": [
+      {
+        "linkText": "How to install",
+        "linkURL": "https://docs.zowe.org/stable/user-guide/ze-install/"
+      },
+      {
+        "linkText": "Open Mainframe Project",
+        "linkURL": "https://www.openmainframeproject.org/projects/zowe"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "IBM Z"
+  },
+  {
+    "title": "Project CodeNet",
+    "desc": "<p>The goal of Project CodeNet is to provide the AI-for-Code research community with a large scale, diverse, and high quality curated dataset to drive innovation in AI techniques.</p>\n",
+    "links": [
+      {
+        "linkText": "Github",
+        "linkURL": "https://github.com/IBM/Project_CodeNet"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "Artificial Intelligence"
+  },
+  {
+    "title": "EDT Practitioner",
+    "desc": "<p>The Practitioner Course will give you a baseline of Enterprise Design Thinking skills: collaboration, synthesis, design research, prototyping, and storytelling.</p>\n",
+    "links": [
+      {
+        "linkText": "Take the course",
+        "linkURL": "https://www.ibm.com/design/thinking/page/courses/Practitioner"
+      }
+    ],
+    "cardType": "Resources",
+    "topic": "Capstone"
+  },
+  {
+    "title": "Getting Started with Cloud for the Enterprise",
+    "desc": "<p>This course covers the basic foundations of cloud for the enterprise including: Consumer applications, Enterprise adoption, Delivery models and Industry Cloud Adoption.</p>\n",
+    "links": [
+      {
+        "linkText": "Take the course",
+        "linkURL": "https://keyskill-clms.comprehend.ibm.com/course/view.php?id=233"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Capstone"
+  },
+  {
+    "title": "Implementing Red Hat OpenShift Container Platform on Power Systems",
+    "desc": "<p>This course broadens the skills of the student who is required to implement/manage a Kubernetes-based Platform as a Service (PaaS) environment based on Red Hat OpenShift Container Platform on Power Systems. Learn basic admin &amp; config of Red Hat OpenShift Container Platform with IBM PowerVC.</p>\n",
+    "links": [
+      {
+        "linkText": "Download",
+        "linkURL": "https://cloud-object-storage-sv-academic-course-x3o.s3.us-east.cloud-object-storage.appdomain.cloud/QZC42G-1.0-English.zip"
+      }
+    ],
+    "cardType": "Courseware",
+    "topic": "Power Systems"
+  },
+  {
+    "title": "Constraint Programming with ILOG CP Optimizer",
+    "desc": "<p>Fundamentals of constraint programming (CP). CP is demonstrated through the use of ILOG CP Optimizer via ILOG OPL-CPLEX/ILOG Analyst Studio, a complete integrated development environment which leverages the powerful and intuitive algebraic modeling language, Optimization Programming Language.</p>\n",
+    "links": [],
+    "cardType": "Courseware",
+    "topic": "Data Science"
+  },
+  {
+    "title": "IBM Security SOAR",
+    "desc": "<p>IBM Security SOAR, formerly IBM Security Resilient, introduces efficiency into the Security Operations Center (SOC). It maximizes security tools by integrating with them, guides the SOC team through the incident response process with playbooks, and leverages automation to reduce repetitive tasks.</p>\n",
+    "links": [
+      {
+        "linkText": "Documentation",
+        "linkURL": "https://www.ibm.com/support/knowledgecenter/SSBRUQ_39.0.0/doc/Resilient_Incident_Response_Documentation.html"
+      },
+      {
+        "linkText": "Product Information",
+        "linkURL": "https://www.ibm.com/security/intelligent-orchestration/soar"
+      }
+    ],
+    "cardType": "Software",
+    "topic": "IBM Security"
+  }
+]
