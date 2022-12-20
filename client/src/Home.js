@@ -8,7 +8,7 @@ export default function Home() {
 			<header>
 				<NavBar />
 			</header>
-			<main>
+			<main className='container-fluid'>
 				<ArtifactBanner />
 				<div style={{ padding: '2rem', paddingTop: '3rem' }}>
 					<ArtifactRow title='Personalised Recommendations' />
