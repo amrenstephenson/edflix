@@ -5,10 +5,8 @@ import NavBar from './components/NavBar';
 export default function Home() {
 	return (
 		<div>
-			<header>
-				<NavBar />
-			</header>
 			<main className='container-fluid'>
+				<NavBar />
 				<ArtifactBanner />
 				<div style={{ padding: '2rem', paddingTop: '3rem' }}>
 					<ArtifactRow title='Personalised Recommendations' />
