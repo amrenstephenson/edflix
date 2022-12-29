@@ -1,23 +1,21 @@
 /* eslint-disable no-undef */
-import sqlite3 from 'sqlite3';
-const sqlite = sqlite3.verbose;
 
-class Sqlite {
-  constructor() {
-    this.instance;
+const sqlite = sqlite3.verbose();
+
+class Sqlite{
+  constructor(){
     this.db = null;
   }
 
   connect(path = './Edflix.db') {
     return new Promise((resolve, reject) => {
       this.db = new sqlite.Database(path, (err) => {
-        if (err === null) {
-          resolve(err);
+        if (err == null){
+          resolve();
         } else {
           reject(err);
         }
       });
-
     });
   }
 
@@ -25,7 +23,7 @@ class Sqlite {
     return new Promise((resolve, reject) => {
       this.db.run(sql, params, (err) => {
         if (err === null) {
-          resolve(err);
+          resolve();
         } else {
           reject(err);
         }
@@ -37,7 +35,7 @@ class Sqlite {
     return new Promise((resolve, reject) => {
       this.db.exec(sql, (err) => {
         if (err === null) {
-          resolve(err);
+          resolve();
         } else {
           reject(err);
         }
