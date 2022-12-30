@@ -7,6 +7,7 @@ import helmet from 'helmet';
 import { fileURLToPath } from 'url';
 
 import healthRoutes from './routes/health-route.js';
+import apiRoutes from './routes/api-routes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -28,6 +29,7 @@ app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 // routes and api calls
 app.use('/health', healthRoutes);
+app.use('/api', apiRoutes);
 
 // start node server
 const port = process.env.PORT || 3000;
