@@ -1,17 +1,15 @@
-/* eslint-disable no-undef */
-
 import sqlite3 from 'sqlite3';
 const sqlite = sqlite3.verbose();
 
-class Sqlite{
-  constructor(){
+class Sqlite {
+  constructor() {
     this.db = null;
   }
 
   connect(path = './Edflix.db') {
     return new Promise((resolve, reject) => {
       this.db = new sqlite.Database(path, (err) => {
-        if (err == null){
+        if (err == null) {
           resolve();
         } else {
           reject(err);
