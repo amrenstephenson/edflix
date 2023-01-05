@@ -6,7 +6,7 @@ class Sqlite {
     this.db = null;
   }
 
-  connect(path = './Edflix.db') {
+  connect(path = './server/db/Edflix.db') {
     return new Promise((resolve, reject) => {
       this.db = new sqlite.Database(path, (err) => {
         if (err == null) {
