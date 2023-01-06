@@ -8,3 +8,4 @@ localdev-config.json
 .nyc*
 **/.DS_Store
 build
+unsplash_keys.json
