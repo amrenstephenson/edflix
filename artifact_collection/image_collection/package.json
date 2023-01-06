@@ -2,7 +2,6 @@
   "name": "image_collection",
   "version": "1.0.0",
   "description": "Collection of artifact images using Unsplash API",
-  "main": "collect.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "collect": "node collect.js"
