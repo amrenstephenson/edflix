@@ -16,7 +16,7 @@ with open('learning_artifacts.json', 'r') as artifacts_file, open('image_collect
 		topic = artifact["topic"]
 		cardType = artifact["cardType"]
 		imgURL = image["urls"]["regular"]
-		thumbURL = image["urls"]["thumb"]
+		thumbURL = image["urls"]["small"]
 		return name, url, description, topic, cardType, imgURL, thumbURL
 
 	artifact_rows = map(create_artifact_row, artifacts, images)
