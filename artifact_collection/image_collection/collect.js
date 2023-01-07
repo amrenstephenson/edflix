@@ -48,7 +48,7 @@ for (const query of queries) {
     const result = await unsplash.search.getPhotos({
       query: query,
       page: page,
-      perPage: Math.min(30, imagesNeededForQuery),
+      perPage: Math.min(30, imagesNeededForQuery - results.length),
       orientation: 'landscape',
       content_filter: 'high',
     });
