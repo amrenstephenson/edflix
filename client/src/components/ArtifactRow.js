@@ -20,19 +20,28 @@ function ArtifactRow(props) {
                 nextIcon={CarouselIcon('next')}
                 style={{ paddingBottom: '3.5rem' }}
             >
-                {Array.from({ length: 6 }).map((_, index) => (
-                    <Carousel.Item key={index}>
-                        <div style={{ display: 'flex', height: '12rem', width: '100%', gap: '1rem' }}>
-                            <ArtifactCard style={{ flex: 1 }} />
-                            <ArtifactCard style={{ flex: 1 }} />
-                            <ArtifactCard style={{ flex: 1 }} />
-                            <ArtifactCard style={{ flex: 1 }} />
-                            <ArtifactCard style={{ flex: 1 }} />
-                        </div>
-                        <Carousel.Caption>
-                            <h3>{index}</h3>
-                        </Carousel.Caption>
-                    </Carousel.Item>
+                {props.artifacts.reduce((resultArray, item, index) => { 
+                    const cardsPerRow = 5
+                    const rowIndex = Math.floor(index/cardsPerRow)
+
+                    if(!resultArray[rowIndex]) {
+                        resultArray[rowIndex] = [] // start a new row
+                    }
+
+                    resultArray[rowIndex].push(item)
+
+                    return resultArray
+                    }, []).map((artifacts, index) => (
+                        <Carousel.Item key={index}>
+                            <div style={{ display: 'flex', height: '12rem', width: '100%', gap: '1rem' }}>
+                                {artifacts.map((artifact) => (
+                                    <ArtifactCard style={{ flex: 1 }} artifact={artifact} />
+                                ))}
+                            </div>
+                            {/* <Carousel.Caption>
+                                <h3>{index}</h3>
+                            </Carousel.Caption> */}
+                        </Carousel.Item>
                 ))}
             </Carousel>
         </div >
