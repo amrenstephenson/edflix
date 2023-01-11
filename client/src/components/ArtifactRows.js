@@ -21,16 +21,12 @@ function ArtifactRows(props) {
                 }
             })
         
-            console.log(groupedArtifacts)
-        
             setArtifactRows(groupedArtifacts);
         }
         
         fetchData()
             .catch(console.error);;
     }, [])
-
-    console.log(artifactRows);
 
     return (
         <div {...props} style={{ ...props.style }}>
