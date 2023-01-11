@@ -1,7 +1,9 @@
 function ArtifactCard(props) {
     return (
-        <div {...props} style={{ borderRadius: '2rem', backgroundColor: '#700', ...props.style }}>
-            <img src="images/testing/artifiact-image.png" alt="artifact testing" style={{ opacity: 0.8, width: '100%' }} />
+        <div style={{ borderRadius: '2rem', background: `url("${props.artifact.ThumbnailURL}")`, backgroundSize: 'cover', border: '0.5px solid white', ...props.style }}>
+            <div style={{borderRadius: '2rem', background: '#00000044', width: '100%', height: '100%', padding: '1rem'}}>
+                <b>{props.artifact.Artifact_Name}</b>
+            </div>
         </div>
     );
 }
