@@ -7,33 +7,33 @@ export default function Login() {
 	return (
 		<div>
 			<div><NavBar /></div>
-			<img id="logoImg" class="pt-5" src="images/edflix-logo.png" />
+			<img id="logoImg" className="pt-5" src="images/edflix-logo.png" />
 
 
-			<div class="loginBox">
+			<div className="loginBox">
 				<h2>Sign Up</h2>
 				<form action="">
-					<div class="item">
-						<input type="text" required></input>
-						<label for="">UserNane/Email</label>
+					<div className="item">
+						<input id="usrField" type="text" required></input>
+						<label htmlFor="usrField">UserNane/Email</label>
 					</div>
-					<div class="item">
-						<input type="password" required></input>
-						<label for="">Password</label>
+					<div className="item">
+						<input id="pswdField" type="password" required></input>
+						<label htmlFor="pswdField">Password</label>
 					</div>
-					<div class="item">
-						<input type="password" required></input>
-						<label for="">Confirm Password</label>
+					<div className="item">
+						<input id="confPswdField" type="password" required></input>
+						<label htmlFor="confPswdField">Confirm Password</label>
 					</div>
 
-					<button class="btn">submit
+					<button className="btn">submit
 						<span></span>
 						<span></span>
 						<span></span>
 						<span></span>
 					</button>
 					<hr/>
-					<div class="msg">Already have account?
+					<div className="msg">Already have account?
                 		<a href="/Login">Login</a>
             		</div>
 

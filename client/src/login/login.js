@@ -7,26 +7,26 @@ export default function Login() {
 	return (
 		<div>
 			<div><NavBar /></div>
-			<img id="logoImg" class="pt-5" src="images/edflix-logo.png" />
+			<img id="logoImg" className="pt-5" src="images/edflix-logo.png" />
 
 
-			<div class="loginBox">
+			<div className="loginBox">
 				<h2>login</h2>
 				<form action="">
-					<div class="item">
-						<input type="text" required></input>
-						<label for="">UserNane/Email</label>
+					<div className="item">
+						<input id="usrField" type="text" required></input>
+						<label htmlFor="usrField">UserNane/Email</label>
 					</div>
-					<div class="item">
-						<input type="password" required></input>
-						<label for="">Password</label>
+					<div className="item">
+						<input id="pwdField" type="password" required></input>
+						<label htmlFor="pwdField">Password</label>
 					</div>
 
-					<div class="mt-2 mb-3" id="remChkContainer">
-						<input class="form-check-input" type="checkbox" id="remPswdCheck" checked></input>
-						<label class="form-check-label" for="remPswdCheck">Remember me</label>
+					<div className="mt-2 mb-3" id="remChkContainer">
+						<input className="form-check-input" type="checkbox" id="remPswdCheck" checked></input>
+						<label className="form-check-label" htmlFor="remPswdCheck">Remember me</label>
 					</div>
-					<button class="btn">submit
+					<button className="btn">submit
 						<span></span>
 						<span></span>
 						<span></span>
@@ -53,7 +53,7 @@ export default function Login() {
 						</svg>
 						<span  width="100%">&nbsp;&nbsp;Login By Google</span>
 					</a>
-					<div class="msg">Don't have account?
+					<div className="msg">Don't have account?
                 		<a href="/signup">Sign up</a>
             		</div>
 
