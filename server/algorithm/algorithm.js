@@ -52,28 +52,63 @@ async function createExampleUsers() {
     );
   }
 
+  const choose = (arr) => arr[Math.floor(Math.random() * arr.length)];
+  const unis = ['Durham', 'Oxford', 'Lancaster', 'Warwick', 'Bath'];
+  const courses = ['Computer Science', 'Physics', 'Maths', 'Engineering'];
+  const topics = [
+    'Artificial Intelligence',
+    'Capstone',
+    'Data Science',
+    'IBM Automation',
+    'IBM Cloud',
+  ];
+
   const NUSERS = 100;
   for (let i = 0; i < NUSERS; i++) {
     await db.exec('BEGIN TRANSACTION');
 
+    const topic = choose(topics);
+
     // TODO: why is ProfilePicture an INTEGER?? AND it is misspelled!
     let user = {
-      User_name: `FakeUser_${i}`,
+      User_name: `FakeUser_${i}_${topic}`,
       Email: `fake_${i}.fake@gmail.com`,
       Password: 'password1',
       ProfliePicture: 0,
     };
 
     let journal = {
-      LevelOfStudy: 0,
-      UniversityCourse: 'Computer Science',
-      University: 'Durham University',
+      LevelOfStudy: 1 + Math.floor(Math.random() * 4),
+      UniversityCourse: choose(courses),
+      University: choose(unis),
       JournalURL: null,
     };
 
-    const lastID = await insertObject('LearningJournal', journal).lastID;
-    user.Journal_id = lastID;
-    await insertObject('User', user);
+    // eslint-disable-next-line max-len
+    journal.Journal_id = (await insertObject('LearningJournal', journal)).lastID;
+    user.Journal_id = journal.Journal_id;
+    user.User_id = (await insertObject('User', user)).lastID;
+
+    const n_ratings = 3 + Math.floor(Math.random() * 6);
+    let rated = [];
+    for (let j = 0; j < n_ratings; j++) {
+      const { Artifact_id } = await db.get(
+        // eslint-disable-next-line max-len
+        'SELECT Artifact_id FROM Artifact WHERE Topic=? ORDER BY RANDOM() LIMIT 1',
+        [topic],
+      );
+      if (rated.includes(Artifact_id))
+        continue;
+
+      rated.push(Artifact_id);
+
+      let rating = {
+        User_id: user.User_id,
+        Artifact_id: Artifact_id,
+        Value: 3 + Math.floor(Math.random() * 3),
+      };
+      await insertObject('Rating', rating);
+    }
 
     db.exec('COMMIT TRANSACTION');
   }
