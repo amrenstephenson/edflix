@@ -4,7 +4,7 @@
   "description": "Netflix for education.",
   "private": true,
   "engines": {
-    "node": "^16.0.0"
+    "node": ">=16.0.0"
   },
   "scripts": {
     "dev": "nodemon server/server.js",
@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "body-parser": "^1.20.1",
+    "content-based-recommender": "^1.5.0",
     "express": "^4.18.2",
     "helmet": "^6.0.0",
     "ibm-cloud-env": "^0",
