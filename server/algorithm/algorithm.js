@@ -1,124 +1,76 @@
-// import ContentBasedRecommender from 'content-based-recommender';
+import ContentBasedRecommender from 'content-based-recommender';
 import Sqlite from '../db/connect.js';
 import fs from 'fs';
+import { runInContainer, createExampleUsers } from './container.js';
 
-/*
-let usersRecommender = null;
+let journalsRecommender = null;
 
-async function buildUsersRecommender() {
-  usersRecommender = new ContentBasedRecommender({
+async function buildJournalsRecommender() {
+  journalsRecommender = new ContentBasedRecommender({
     minScore: 0.1,
     maxSimilarDocuments: 100,
   });
   const db = new Sqlite();
   db.connect();
   const journals = await db.all(
-    'SELECT * FROM LearningJournal',
+    // eslint-disable-next-line max-len
+    'SELECT Journal_id,LevelOfStudy,UniversityCourse,University FROM LearningJournal',
   );
-  usersRecommender.train(journals);
+
+  // DEBUG: currently only using course, should use custom algorithm
+  journalsRecommender.train(journals.map((j) => {
+    j.LevelOfStudy = j.LevelOfStudy.toString();
+    return { id: j.Journal_id, content: j.UniversityCourse };
+  }));
   db.close();
 }
 
 async function getRecommendedArtifacts(userID) {
   // TODO: only run this when users changes
-  await buildUsersRecommender();
+  await buildJournalsRecommender();
 
-  return [];
-}
-*/
-
-async function runInContainer(f) {
-  fs.copyFileSync('./server/db/Edflix.db', './server/db/Edflix.backup.db');
-  try {
-    await f();
-  } catch (e) {
-    console.error(e);
-  }
-  fs.copyFileSync('./server/db/Edflix.db', './server/db/Edflix.tmp.db');
-  fs.copyFileSync('./server/db/Edflix.backup.db', './server/db/Edflix.db');
-  fs.unlinkSync('./server/db/Edflix.backup.db');
-}
-
-async function createExampleUsers() {
   const db = new Sqlite();
   db.connect();
+  const journalID = (await db.get(
+    'SELECT Journal_id FROM User WHERE User_id=?',
+    [userID],
+  )).Journal_id;
 
-  async function insertObject(table, obj) {
-    const cols = Object.keys(obj).join(',');
-    const placeholders = Object.keys(obj).fill('?').join(',');
-    return await db.run(
-      `INSERT INTO ${table} (${cols}) VALUES (${placeholders})`,
-      Object.values(obj),
+  const scaleRating = (val) => (val - 2.5) / 2.5;
+
+  const similarUsers = journalsRecommender.getSimilarDocuments(
+    journalID.toString(), 0, 10,
+  );
+
+  let artifactScores = {};
+  for (const otherUser of similarUsers) {
+    const userRatings = await db.all(
+      'SELECT * FROM Rating WHERE User_id=?', [otherUser.id],
     );
-  }
+    for (const rating of userRatings) {
+      const oldScore = (artifactScores[rating.Artifact_id] === undefined) ?
+        0.0 :
+        artifactScores[rating.Artifact_id];
 
-  const choose = (arr) => arr[Math.floor(Math.random() * arr.length)];
-  const unis = ['Durham', 'Oxford', 'Lancaster', 'Warwick', 'Bath'];
-  const courses = ['Computer Science', 'Physics', 'Maths', 'Engineering'];
-  const topics = [
-    'Artificial Intelligence',
-    'Capstone',
-    'Data Science',
-    'IBM Automation',
-    'IBM Cloud',
-  ];
-
-  const NUSERS = 100;
-  for (let i = 0; i < NUSERS; i++) {
-    await db.exec('BEGIN TRANSACTION');
-
-    const topic = choose(topics);
-
-    // TODO: why is ProfilePicture an INTEGER?? AND it is misspelled!
-    let user = {
-      User_name: `FakeUser_${i}_${topic}`,
-      Email: `fake_${i}.fake@gmail.com`,
-      Password: 'password1',
-      ProfliePicture: 0,
-    };
-
-    let journal = {
-      LevelOfStudy: 1 + Math.floor(Math.random() * 4),
-      UniversityCourse: choose(courses),
-      University: choose(unis),
-      JournalURL: null,
-    };
-
-    // eslint-disable-next-line max-len
-    journal.Journal_id = (await insertObject('LearningJournal', journal)).lastID;
-    user.Journal_id = journal.Journal_id;
-    user.User_id = (await insertObject('User', user)).lastID;
-
-    const n_ratings = 3 + Math.floor(Math.random() * 6);
-    let rated = [];
-    for (let j = 0; j < n_ratings; j++) {
-      const { Artifact_id } = await db.get(
-        // eslint-disable-next-line max-len
-        'SELECT Artifact_id FROM Artifact WHERE Topic=? ORDER BY RANDOM() LIMIT 1',
-        [topic],
-      );
-      if (rated.includes(Artifact_id))
-        continue;
-
-      rated.push(Artifact_id);
-
-      let rating = {
-        User_id: user.User_id,
-        Artifact_id: Artifact_id,
-        Value: 3 + Math.floor(Math.random() * 3),
-      };
-      await insertObject('Rating', rating);
+      artifactScores[rating.Artifact_id] =
+        oldScore + otherUser.score * scaleRating(rating.Value);
     }
-
-    db.exec('COMMIT TRANSACTION');
   }
-
   db.close();
+
+  return artifactScores;
 }
 
 function main() {
+  const populateDB = false;
   runInContainer(async function() {
-    await createExampleUsers();
+    if (populateDB)
+      await createExampleUsers();
+    else
+      fs.copyFileSync('./server/db/Edflix.tmp.db', './server/db/Edflix.db');
+
+    const recommendations = await getRecommendedArtifacts(19);
+    console.log(recommendations);
   });
 }
 
