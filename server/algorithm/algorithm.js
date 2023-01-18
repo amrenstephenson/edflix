@@ -1,34 +1,12 @@
-import ContentBasedRecommender from 'content-based-recommender';
 import Sqlite from '../db/connect.js';
 import fs from 'fs';
 import { runInContainer, createExampleUsers } from './container.js';
 
-let journalsRecommender = null;
-
-async function buildJournalsRecommender() {
-  journalsRecommender = new ContentBasedRecommender({
-    minScore: 0.1,
-    maxSimilarDocuments: 100,
-  });
-  const db = new Sqlite();
-  db.connect();
-  const journals = await db.all(
-    // eslint-disable-next-line max-len
-    'SELECT Journal_id,LevelOfStudy,UniversityCourse,University FROM LearningJournal',
-  );
-
-  // DEBUG: currently only using course, should use custom algorithm
-  journalsRecommender.train(journals.map((j) => {
-    j.LevelOfStudy = j.LevelOfStudy.toString();
-    return { id: j.Journal_id, content: j.UniversityCourse };
-  }));
-  db.close();
+async function getSimilarJournals(journalID) {
+  return [];
 }
 
 async function getRecommendedArtifacts(userID) {
-  // TODO: only run this when users changes
-  await buildJournalsRecommender();
-
   const db = new Sqlite();
   db.connect();
   const journalID = (await db.get(
@@ -38,9 +16,7 @@ async function getRecommendedArtifacts(userID) {
 
   const scaleRating = (val) => (val - 2.5) / 2.5;
 
-  const similarUsers = journalsRecommender.getSimilarDocuments(
-    journalID.toString(), 0, 10,
-  );
+  const similarUsers = await getSimilarJournals(journalID);
 
   let artifactScores = {};
   for (const otherUser of similarUsers) {
