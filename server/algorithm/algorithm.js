@@ -1,6 +1,4 @@
 import Sqlite from '../db/connect.js';
-import fs from 'fs';
-import { runInContainer, createExampleUsers } from './container.js';
 
 async function getAllJournalsAndUsers() {
   return await db.all(
@@ -9,12 +7,11 @@ async function getAllJournalsAndUsers() {
   );
 }
 
-function calculateJournalSimilarity(journal1, journal2) {
+async function calculateJournalSimilarity(journal1, journal2) {
   if (journal1 === journal2) {
     return 0.0;
   }
 
-  // TODO: improve
   let score = 0.0;
   if (journal1.LevelOfStudy === journal2.LevelOfStudy)
     score += 0.2;
@@ -22,21 +19,36 @@ function calculateJournalSimilarity(journal1, journal2) {
     score += 0.5;
   if (journal1.University === journal2.University)
     score += 0.1;
-  // TODO: use journal's module list
+
+  const SQL = 'SELECT Module_Name FROM LearningModule WHERE Journal_id = ?';
+  const modules1 = (await db.all(
+    SQL, [journal1.Journal_id],
+  )).map(m => m.Module_Name);
+
+  const modules2 = (await db.all(
+    SQL, [journal2.Journal_id],
+  )).map(m => m.Module_Name);
+
+  for (const module of modules1) {
+    if (modules2.includes(module)) {
+      score += 0.2;
+    }
+  }
+
   return score;
 }
 
 async function getSimilarJournals(journalID) {
   const journals = await getAllJournalsAndUsers();
   const userJournal = journals.find(j => j.Journal_id === journalID);
-  const similarities = journals.map(j => (
+  const similarities = journals.map(async(j) => (
     {
       journalID: j.Journal_id,
       userID: j.User_id,
-      score: calculateJournalSimilarity(userJournal, j),
+      score: await calculateJournalSimilarity(userJournal, j),
     }
   ));
-  return similarities;
+  return await Promise.all(similarities);
 }
 
 var db = null;
@@ -45,18 +57,17 @@ function initialiseDBConnection() {
   db.connect();
 }
 
-async function getRecommendedArtifacts(userID) {
+export async function getRecommendedArtifacts(userID) {
   if (!db) {
     initialiseDBConnection();
   }
+
+  const scaleRating = (val) => (val - 2.5) / 2.5;
 
   const journalID = (await db.get(
     'SELECT Journal_id FROM User WHERE User_id=?',
     [userID],
   )).Journal_id;
-
-  const scaleRating = (val) => (val - 2.5) / 2.5;
-
   const similarJournals = await getSimilarJournals(journalID);
 
   let artifactScores = {};
@@ -77,18 +88,3 @@ async function getRecommendedArtifacts(userID) {
     a[1] < b[1] ? 1 : -1
   ));
 }
-
-function main() {
-  const populateDB = false;
-  runInContainer(async function() {
-    if (populateDB)
-      await createExampleUsers();
-    else
-      fs.copyFileSync('./server/db/Edflix.tmp.db', './server/db/Edflix.db');
-
-    const recommendations = await getRecommendedArtifacts(19);
-    console.log(recommendations);
-  });
-}
-
-main();
