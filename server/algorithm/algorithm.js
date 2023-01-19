@@ -20,7 +20,7 @@ async function calculateJournalSimilarity(journal1, journal2) {
   if (journal1.University === journal2.University)
     score += 0.1;
 
-  const SQL = 'SELECT Module_Name FROM LearningModule WHERE Journal_id = ?';
+  const SQL = 'SELECT Module_Name FROM JournalModule WHERE Journal_id = ?';
   const modules1 = (await db.all(
     SQL, [journal1.Journal_id],
   )).map(m => m.Module_Name);

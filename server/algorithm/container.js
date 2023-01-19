@@ -43,12 +43,11 @@ export async function createExampleUsers() {
 
     const topic = choose(topics);
 
-    // TODO: why is ProfilePicture an INTEGER?? AND it is misspelled!
     let user = {
       User_name: `FakeUser_${i}_${topic}`,
       Email: `fake_${i}.fake@gmail.com`,
       Password: 'password1',
-      ProfliePicture: 0,
+      ProfilePicture: null,
     };
 
     let journal = {
