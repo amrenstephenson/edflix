@@ -1,0 +1,104 @@
+#logoImg {
+    margin: auto;
+    display: block;
+    width: 350px;
+}
+
+input,
+button {
+    background: transparent;
+    border: 0;
+    outline: none;
+}
+
+
+.loginBox {
+    width: 30%;
+    height: auto;
+    background-color: #0c1622;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: 2%;
+    border-radius: 10px;
+    box-shadow: 0 15px 25px 0 rgba(0, 0, 0, .6);
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+h2 {
+    text-align: center;
+    color: aliceblue;
+    margin-bottom: 30px;
+}
+
+.item {
+    height: 45px;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.item input {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+
+.item input:focus+label,
+.item input:valid+label {
+    top: 0px;
+    font-size: 15px;
+}
+
+.item label {
+    position: absolute;
+    left: 0;
+    top: 12px;
+    transition: all 0.1s linear;
+    cursor: text;
+}
+
+#remChkContainer {
+    font-size: 0.9em;
+    color: var(--col-dark-text);
+}
+
+.btn {
+    padding: 10px 20px;
+    margin-top: 30px;
+    background-color: #f41303;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 2px;
+    left: 35%;
+}
+
+.btn:hover {
+    background: #7e1b00;
+}
+
+#otherway {
+    width: 100%;
+    font-size: 20px;
+    height: 50px;
+    color: #f41303;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#otherway:hover {
+    opacity: 0.75;
+    cursor: pointer;
+}
+
+.msg {
+    text-align: center;
+    line-height: 88px;
+}
+
+.form-check-label {
+    margin-left: 0.5rem;
+}
