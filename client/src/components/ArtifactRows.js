@@ -1,12 +1,13 @@
 import ArtifactRow from "./ArtifactRow";
 import { useEffect, useState } from "react";
+import { serverURL } from '../index';
 
 function ArtifactRows(props) {
     const [artifactRows, setArtifactRows] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch('/api/artifacts');
+            const response = await fetch(`${serverURL}/api/artifacts`);
             const artifacts = await response.json();
         
             // Create an array of topics and their associated artifacts from the array of artifacts.
