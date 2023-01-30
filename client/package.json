@@ -37,6 +37,8 @@
     ]
   },
   "devDependencies": {
+    "antd": "^5.1.4",
+    "axios": "^1.2.4",
     "react-router-dom": "^6.4.5"
   }
 }
