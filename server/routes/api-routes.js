@@ -6,17 +6,15 @@ const apiController = new APIController();
 
 router.get('/artifacts', apiController.getArtifacts);
 
-router.get('/artifacts', apiController.getArtifacts_id);
+router.get('/artifact/:id', apiController.getArtifact);
 
-router.get('/artifacts', apiController.getArtifacts_Name);
+router.get('/ratings/get/:id', apiController.getArtifactRating);
 
-router.get('/api/ratings/get/artifact-id', apiController.getArtifacts_avag);
-
-router.get('/recommendations/get/<user_id>', apiController.recommendations_id);
+router.get('/recommendations/', apiController.getRecommendations);
 
 router.post('/login', apiController.login);
 
-router.post('/register ', apiController.register);
+router.post('/register', apiController.register);
 
 
 export default router;

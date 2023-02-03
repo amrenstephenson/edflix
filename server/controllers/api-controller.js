@@ -1,4 +1,5 @@
 import Sqlite from '../db/connect.js';
+import { getRecommendedArtifacts } from '../algorithm/algorithm.js';
 
 class APIController {
   constructor() {
@@ -18,73 +19,90 @@ class APIController {
     }
 
   };
-  getArtifacts_id = async(req, res) => {
-    let id = req.params['id'];
+  getArtifact = async(req, res) => {
+    let id = req.params.id;
     try {
       // eslint-disable-next-line max-len
-      let artifacts = await this.db.all(`SELECT * FROM Artifact where Artifact_id=${id}`);
-      res.json(artifacts);
+      let artifact = await this.db.get('SELECT * FROM Artifact where Artifact_id=?', [id]);
+      res.json(artifact);
     } catch (e) {
       console.log(e);
       res
         .status(500)
-        .send('Internal Server Error - Could not get artifacts from database.');
+        .send('Internal Server Error - Could not get artifact from database.');
     }
 
   };
-  getArtifacts_Name = async(req, res) => {
-    let Name = req.params['Name'];
-    try {
-      // eslint-disable-next-line max-len
-      let artifacts = await this.db.all(`SELECT * FROM Artifact where Artifact_Name=${Name}`);
-      res.json(artifacts);
-    } catch (e) {
-      console.log(e);
-      res
-        .status(500)
-        .send('Internal Server Error - Could not get artifacts from database.');
-    }
-
-  };
-  getArtifacts_avag = async(req, res) => {
+  getArtifactRating = async(req, res) => {
     let id = req.params['id'];
     try {
       // eslint-disable-next-line max-len
-      let artifacts = await this.db.all(`SELECT * FROM Artifact where Artifact_id=${id}`);
-      res.json(artifacts);
+      let rating = await this.db.get('SELECT AVG(Value) FROM Rating where Artifact_id=?', [id]);
+      res.json(rating);
     } catch (e) {
       console.log(e);
       res
         .status(500)
-        .send('Internal Server Error - Could not get artifacts from database.');
+        .send('Internal Server Error - Could not get rating from database.');
     }
 
+  };
+  getRecommendations = async(req, res) => {
+    const userID = req.query.userID;
+    try {
+      const recommendations = await getRecommendedArtifacts(userID);
+      res.json(recommendations);
+    } catch (e) {
+      console.log(e);
+      res
+        .status(500)
+        .send('Internal Server Error - Could not fetch recommendations.');
+    }
   };
   login = async(req, res) => {
 
-    let {userName, passWorld} = req.body;
+    let {userName, password} = req.body;
     try {
       // eslint-disable-next-line max-len
-      let artifacts = await this.db.all(`SELECT * FROM User where User_name='${userName}' and  Password= '${passWorld}'`);
-      res.json(artifacts);
+      let user = await this.db.get('SELECT * FROM User where User_name=?', [userName]);
+      if (user) {
+        if (user.Password === password) {
+          res.json(user.User_id);
+        } else {
+          res
+            .status(500)
+            .send('Incorrect password.');
+        }
+      } else {
+        res
+          .status(500)
+          .send('Username invalid.');
+      }
     } catch (e) {
       console.log(e);
       res
         .status(500)
-        .send('Internal Server Error - Could not get artifacts from database.');
+        .send('Internal Server Error - Could not login.');
     }
   };
   register = async(req, res) => {
-    let {Email, passWorld, userName} = req.body;
+    let {userName, password, email} = req.body;
+    console.log({userName, password, email});
+
     try {
       // eslint-disable-next-line max-len
-      let artifacts = await this.db.all(`SELECT * FROM User where User_name='${userName}' and  Password= '${passWorld}' and Email='${Email}'`);
-      res.json(artifacts);
+      let result = await this.db.insertObject('User', {
+        User_name: userName,
+        Password: password,
+        Email: email,
+        ProfilePicture: null,
+      });
+      res.json(result.lastID);
     } catch (e) {
       console.log(e);
       res
         .status(500)
-        .send('Internal Server Error - Could not get artifacts from database.');
+        .send('Internal Server Error - Could not create user.');
     }
 
   };
