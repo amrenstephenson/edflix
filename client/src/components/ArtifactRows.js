@@ -1,12 +1,14 @@
 import ArtifactRow from "./ArtifactRow";
 import { useEffect, useState } from "react";
+import { serverURL } from '../index';
 
 function ArtifactRows(props) {
     const [artifactRows, setArtifactRows] = useState([]);
-
+    console.log(props)
     useEffect(() => {
+            // Create an array of topics and their associated artifacts from the array of artifacts.
         const fetchData = async () => {
-            const response = await fetch('/api/artifacts');
+            const response = await fetch(`${serverURL}/api/artifacts`);
             const artifacts = await response.json();
         
             // Create an array of topics and their associated artifacts from the array of artifacts.
@@ -30,8 +32,8 @@ function ArtifactRows(props) {
 
     return (
         <div {...props} style={{ ...props.style }}>
-            {artifactRows.map((artifactRow) => (
-                <ArtifactRow title={artifactRow.topic} artifacts={artifactRow.artifacts} />
+            {artifactRows.map((artifactRow,index) => (
+              <ArtifactRow index={index} title={artifactRow.topic} artifacts={artifactRow.artifacts} />
             ))}
         </div>
     );

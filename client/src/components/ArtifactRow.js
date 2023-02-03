@@ -9,9 +9,10 @@ function CarouselIcon(direction) {
     )
 }
 
-function ArtifactRow(props) {
+function ArtifactRow (props) {
+  console.log(props.index)
     return (
-        <div>
+      <div key={props.index}>
             <h1 style={{ color: 'white', paddingBottom: '1rem', float: 'left', fontSize: '2rem' }}>{props.title}</h1>
             <Carousel
                 wrap={false}
