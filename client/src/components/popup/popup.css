@@ -5,6 +5,7 @@
   box-sizing: border-box;
   font-size: 14px;
   z-index: 9;
+  position: fixed;
   /* position: fixed;
   left: 50%;
   top: 50%;
