@@ -6,4 +6,15 @@ const apiController = new APIController();
 
 router.get('/artifacts', apiController.getArtifacts);
 
+router.get('/artifact/:id', apiController.getArtifact);
+
+router.get('/ratings/get/:id', apiController.getArtifactRating);
+
+router.get('/recommendations/', apiController.getRecommendations);
+
+router.post('/login', apiController.login);
+
+router.post('/register', apiController.register);
+
+
 export default router;

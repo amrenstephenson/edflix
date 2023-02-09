@@ -66,6 +66,16 @@ class Sqlite {
     });
   }
 
+  insertObject(table, obj) {
+    const cols = Object.keys(obj).join(',');
+    const placeholders = Object.keys(obj).fill('?').join(',');
+    return this.run(
+      `INSERT INTO ${table} (${cols})
+       VALUES (${placeholders})`,
+      Object.values(obj),
+    );
+  }
+
   close() {
     this.db.close();
   }
