@@ -7,6 +7,11 @@ class APIController {
     this.db.connect();
   }
 
+  getUserId = (sessionToken) => {
+    // NOTE: for now, session tokens ARE user ids, but this could change
+    return sessionToken;
+  };
+
   getArtifacts = async(req, res) => {
     try {
       let artifacts = await this.db.all('SELECT * FROM Artifact');
@@ -48,7 +53,7 @@ class APIController {
 
   };
   getRecommendations = async(req, res) => {
-    const userID = req.query.userID;
+    const userID = this.getUserId(req.cookies.edflixSessionToken);
     try {
       const recommendations = await getRecommendedArtifacts(userID);
       res.json(recommendations);
@@ -94,7 +99,6 @@ class APIController {
   };
   register = async(req, res) => {
     let {userName, password, email} = req.body;
-    console.log({userName, password, email});
 
     try {
       // eslint-disable-next-line max-len
