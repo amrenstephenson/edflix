@@ -73,7 +73,7 @@ class APIController {
       if (user) {
         if (user.Password === password) {
           let cookieOpts = {
-            httpOnly: false,
+            httpOnly: true,
           };
           if (parseInt(remember, 2)) {
             cookieOpts.maxAge = 2700000;
@@ -110,7 +110,7 @@ class APIController {
       });
 
       res.cookie('edflixSessionToken', result.lastID, {
-        httpOnly: false,
+        httpOnly: true,
       });
       res.send();
     } catch (e) {
