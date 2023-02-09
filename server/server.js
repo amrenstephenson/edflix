@@ -33,7 +33,7 @@ app.use('/api', apiRoutes);
 
 // start node server
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`App UI available http://localhost:${port}`);
 });
 
@@ -42,4 +42,4 @@ app.use((req, res, next) => {
   res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 });
 
-export default app;
+export {app, server};
