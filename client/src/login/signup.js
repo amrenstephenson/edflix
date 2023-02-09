@@ -17,9 +17,14 @@ async function handleSubmit(event) {
 		},
 		body: json,
 	});
-	console.log("response:", res);
+
 	if (res.ok) {
 		window.location.href = '/';
+	} else {
+		const err = await res.json();
+		if (err.code === 'SQLITE_CONSTRAINT') {
+			alert('User already exists.');
+		}
 	}
 }
 

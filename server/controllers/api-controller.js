@@ -109,7 +109,7 @@ class APIController {
       console.log(e);
       res
         .status(500)
-        .send('Internal Server Error - Could not create user.');
+        .json(e);
     }
 
   };
