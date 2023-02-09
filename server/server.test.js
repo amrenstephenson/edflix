@@ -13,7 +13,6 @@ afterAll(async() => {
 
 describe('Test /api/artifact/:id', () => {
   test('Artifact with valid ID found and JSON returned.', () => {
-    console.log('test');
     return request(app)
       .get('/api/artifact/1301')
       .expect(200)
