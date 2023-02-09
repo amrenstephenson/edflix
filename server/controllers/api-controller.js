@@ -24,6 +24,7 @@ class APIController {
     }
 
   };
+
   getArtifact = async(req, res) => {
     let id = req.params.id;
     try {
@@ -38,6 +39,7 @@ class APIController {
     }
 
   };
+
   getArtifactRating = async(req, res) => {
     let id = req.params['id'];
     try {
@@ -52,6 +54,7 @@ class APIController {
     }
 
   };
+
   getRecommendations = async(req, res) => {
     const userID = this.getUserId(req.cookies.edflixSessionToken);
     try {
@@ -64,9 +67,15 @@ class APIController {
         .send('Internal Server Error - Could not fetch recommendations.');
     }
   };
-  login = async(req, res) => {
 
+  logout = async(req, res) => {
+    res.clearCookie('edflixSessionToken');
+    res.redirect('/');
+  };
+
+  login = async(req, res) => {
     let {userName, password, remember} = req.body;
+
     try {
       // eslint-disable-next-line max-len
       let user = await this.db.get('SELECT * FROM User where User_name=?', [userName]);
@@ -79,7 +88,7 @@ class APIController {
             cookieOpts.maxAge = 2700000;
           }
           res.cookie('edflixSessionToken', user.User_id, cookieOpts);
-          res.send();
+          res.end();
         } else {
           res
             .status(500)
@@ -97,6 +106,7 @@ class APIController {
         .send('Internal Server Error - Could not login.');
     }
   };
+
   register = async(req, res) => {
     let {userName, password, email} = req.body;
 
@@ -112,7 +122,7 @@ class APIController {
       res.cookie('edflixSessionToken', result.lastID, {
         httpOnly: true,
       });
-      res.send();
+      res.end();
     } catch (e) {
       console.log(e);
       res
@@ -121,8 +131,6 @@ class APIController {
     }
 
   };
-
-
 }
 
 

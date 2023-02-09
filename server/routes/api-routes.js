@@ -12,6 +12,8 @@ router.get('/ratings/get/:id', apiController.getArtifactRating);
 
 router.get('/recommendations', apiController.getRecommendations);
 
+router.get('/logout', apiController.logout);
+
 router.post('/login', apiController.login);
 
 router.post('/register', apiController.register);
