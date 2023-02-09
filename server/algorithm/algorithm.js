@@ -58,9 +58,7 @@ function initialiseDBConnection() {
 }
 
 export async function getRecommendedArtifacts(userID) {
-  if (!db) {
-    initialiseDBConnection();
-  }
+  initialiseDBConnection();
 
   const scaleRating = (val) => (val - 2.5) / 2.5;
 
