@@ -61,15 +61,19 @@ class APIController {
   };
   login = async(req, res) => {
 
-    let {userName, password} = req.body;
+    let {userName, password, remember} = req.body;
     try {
       // eslint-disable-next-line max-len
       let user = await this.db.get('SELECT * FROM User where User_name=?', [userName]);
       if (user) {
         if (user.Password === password) {
-          res.cookie('edflixSessionToken', user.User_id, {
+          let cookieOpts = {
             httpOnly: false,
-          });
+          };
+          if (parseInt(remember, 2)) {
+            cookieOpts.maxAge = 2700000;
+          }
+          res.cookie('edflixSessionToken', user.User_id, cookieOpts);
           res.send();
         } else {
           res

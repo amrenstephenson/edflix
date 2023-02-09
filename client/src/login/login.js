@@ -31,7 +31,6 @@ async function handleSubmit(event) {
 }
 
 export default function Login() {
-	const [remember, setRemember] = React.useState(false);
 	return (
 		<div>
 			<div>
@@ -52,7 +51,7 @@ export default function Login() {
 					</div>
 
 					<div className="mt-2 mb-3" id="remChkContainer">
-						<input className="form-check-input" type="checkbox" id="remPswdCheck" value={remember} onChange={(value) => setRemember(value)}></input>
+						<input className="form-check-input" type="checkbox" id="remPswdCheck" name="remember" value='1'></input>
 						<label className="form-check-label" htmlFor="remPswdCheck">
 							Remember me
 						</label>
