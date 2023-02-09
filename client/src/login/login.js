@@ -1,6 +1,34 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
 import './login-signup.css';
+import {serverURL} from '../index';
+
+async function handleSubmit(event) {
+	event.preventDefault();
+
+	const form = event.target;
+	const formData = new FormData(form);
+	const json = JSON.stringify(Object.fromEntries(formData));
+
+	const res = await fetch(`${serverURL}/api/login`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: json,
+	});
+
+	if (res.ok) {
+		window.location.href = '/';
+	} else {
+		const err = await res.json();
+		if (err.code === 'UNKNOWN_USERNAME') {
+			alert('User not found.');
+		} else if (err.code === 'INCORRECT_PASSWORD') {
+			alert('Incorrect password.');
+		}
+	}
+}
 
 export default function Login() {
 	const [remember, setRemember] = React.useState(false);
@@ -13,13 +41,13 @@ export default function Login() {
 
 			<div className="loginBox">
 				<h2>Login</h2>
-				<form action="">
+				<form onSubmit={handleSubmit}>
 					<div className="item">
-						<input id="usrField" type="text" required></input>
+						<input id="usrField" type="text" name="userName" required></input>
 						<label htmlFor="usrField">Username</label>
 					</div>
 					<div className="item">
-						<input id="pwdField" type="password" required></input>
+						<input id="pwdField" type="password" name="password" required></input>
 						<label htmlFor="pwdField">Password</label>
 					</div>
 
@@ -29,7 +57,7 @@ export default function Login() {
 							Remember me
 						</label>
 					</div>
-					<button className="btn">LOGIN</button>
+					<input type="submit" className="btn" value="LOGIN" />
 					<hr />
 					{/* <a id="otherway" href="https://google.co.uk">
 						<svg width="18px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">

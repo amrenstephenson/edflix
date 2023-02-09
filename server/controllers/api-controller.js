@@ -74,12 +74,12 @@ class APIController {
         } else {
           res
             .status(500)
-            .send('Incorrect password.');
+            .json({ code: 'INCORRECT_PASSWORD' });
         }
       } else {
         res
           .status(500)
-          .send('Username invalid.');
+          .json({ code: 'UNKNOWN_USERNAME' });
       }
     } catch (e) {
       console.log(e);
