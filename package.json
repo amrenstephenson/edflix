@@ -13,7 +13,7 @@
     "check-coverage": "c8 report --check-coverage --lines 100",
     "lint": "eslint --ignore-path .gitignore .",
     "fix": "eslint --ignore-path .gitignore . --fix",
-    "test": "c8 mocha test --recursive --exit"
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest"
   },
   "type": "module",
   "nyc": {
