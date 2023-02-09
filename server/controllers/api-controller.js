@@ -67,7 +67,10 @@ class APIController {
       let user = await this.db.get('SELECT * FROM User where User_name=?', [userName]);
       if (user) {
         if (user.Password === password) {
-          res.json(user.User_id);
+          res.cookie('edflixSessionToken', user.User_id, {
+            httpOnly: false,
+          });
+          res.send();
         } else {
           res
             .status(500)
@@ -97,7 +100,11 @@ class APIController {
         Email: email,
         ProfilePicture: null,
       });
-      res.json(result.lastID);
+
+      res.cookie('edflixSessionToken', result.lastID, {
+        httpOnly: false,
+      });
+      res.send();
     } catch (e) {
       console.log(e);
       res

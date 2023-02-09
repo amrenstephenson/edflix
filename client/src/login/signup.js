@@ -1,6 +1,27 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
 import './login-signup.css';
+import {serverURL} from '../index';
+
+async function handleSubmit(event) {
+	event.preventDefault();
+
+	const form = event.target;
+	const formData = new FormData(form);
+	const json = JSON.stringify(Object.fromEntries(formData));
+
+	const res = await fetch(`${serverURL}/api/register`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: json,
+	});
+	console.log("response:", res);
+	if (res.ok) {
+		window.location.href = '/';
+	}
+}
 
 export default function Login() {
 	return (
@@ -12,13 +33,13 @@ export default function Login() {
 
 			<div className="loginBox">
 				<h2>Sign Up</h2>
-				<form action="">
+				<form onSubmit={handleSubmit}>
 					<div className="item">
-						<input id="usrField" type="text" required></input>
+						<input type="text" id="usrField" name="userName" required></input>
 						<label htmlFor="usrField">Username</label>
 					</div>
 					<div className="item">
-						<input id="pswdField" type="password" required></input>
+						<input id="pswdField" type="password" name="password" required></input>
 						<label htmlFor="pswdField">Password</label>
 					</div>
 					<div className="item">
@@ -26,7 +47,7 @@ export default function Login() {
 						<label htmlFor="confPswdField">Confirm Password</label>
 					</div>
 
-					<button className="btn">SIGN UP</button>
+					<input type="submit" className="btn" value="SIGN UP" />
 					<hr />
 					<div className="msg">
 						Already have account?&nbsp;
