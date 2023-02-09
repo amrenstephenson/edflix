@@ -1,13 +1,21 @@
 import fs from 'fs';
-import Sqlite from '../db/connect.js';
+import Sqlite from './connect.js';
 
 export async function runInContainer(f) {
-  fs.copyFileSync('./server/db/Edflix.db', './server/db/Edflix.backup.db');
+  await setupContainer();
   try {
     await f();
   } catch (e) {
     console.error(e);
   }
+  await cleanupContainer();
+}
+
+export async function setupContainer() {
+  fs.copyFileSync('./server/db/Edflix.db', './server/db/Edflix.backup.db');
+}
+
+export async function cleanupContainer() {
   fs.copyFileSync('./server/db/Edflix.db', './server/db/Edflix.tmp.db');
   fs.copyFileSync('./server/db/Edflix.backup.db', './server/db/Edflix.db');
   fs.unlinkSync('./server/db/Edflix.backup.db');
