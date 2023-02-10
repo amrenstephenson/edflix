@@ -26,7 +26,7 @@ function ArtifactRows(props) {
         }
         
         fetchData()
-            .catch(console.error);;
+            .catch(console.error);
     }, [])
 
     return (
