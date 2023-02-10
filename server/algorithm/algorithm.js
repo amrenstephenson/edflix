@@ -62,10 +62,15 @@ export async function getRecommendedArtifacts(userID) {
 
   const scaleRating = (val) => (val - 2.5) / 2.5;
 
-  const journalID = (await db.get(
+  const journal = await db.get(
     'SELECT Journal_id FROM User WHERE User_id=?',
     [userID],
-  )).Journal_id;
+  );
+  if (!journal) {
+    return [];
+  }
+
+  const journalID = journal.Journal_id;
   const similarJournals = await getSimilarJournals(journalID);
 
   let artifactScores = {};

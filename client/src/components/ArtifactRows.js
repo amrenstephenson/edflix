@@ -7,8 +7,8 @@ function ArtifactRows(props) {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch(`${serverURL}/api/artifacts`);
-            const artifacts = await response.json();
+            const [response1, response2] = await Promise.all([fetch(`${serverURL}/api/artifacts`), fetch(`${serverURL}/api/recommendations`)]);
+            const [artifacts, recommendations] = await Promise.all([response1.json(), response2.json()]);
         
             // Create an array of topics and their associated artifacts from the array of artifacts.
             const groupedArtifacts = []

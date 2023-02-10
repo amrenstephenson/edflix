@@ -58,8 +58,12 @@ class APIController {
   getRecommendations = async(req, res) => {
     const userID = this.getUserId(req.cookies.edflixSessionToken);
     try {
-      const recommendations = await getRecommendedArtifacts(userID);
-      res.json(recommendations);
+      if (userID == null) {
+        res.json(null);
+      } else {
+        const recommendations = await getRecommendedArtifacts(userID);
+        res.json(recommendations);
+      }
     } catch (e) {
       console.log(e);
       res
