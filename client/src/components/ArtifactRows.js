@@ -12,6 +12,10 @@ function ArtifactRows(props) {
         
             // Create an array of topics and their associated artifacts from the array of artifacts.
             const groupedArtifacts = []
+
+            if (recommendations && recommendations.length > 0) {
+                groupedArtifacts.push({'topic': 'Recommendations', 'artifacts': recommendations});
+            }
             
             artifacts.forEach((artifact) => {
                 const topic = groupedArtifacts.find(group => group.topic === artifact.Topic)

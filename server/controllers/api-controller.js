@@ -62,7 +62,15 @@ class APIController {
         res.json(null);
       } else {
         const recommendations = await getRecommendedArtifacts(userID);
-        res.json(recommendations);
+        let recommended = recommendations.map((r) => {
+          let a = this.db.get(
+            'SELECT * FROM Artifact WHERE Artifact_id=?',
+            [r[0]],
+          );
+          return a;
+        });
+        recommended = await Promise.all(recommended);
+        res.json(recommended);
       }
     } catch (e) {
       console.log(e);
