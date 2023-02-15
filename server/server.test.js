@@ -40,7 +40,7 @@ describe('Test /api/artifacts', () => {
 describe('Test /api/ratings/get/:id', () => {
   test('Rating with valid ID found and JSON returned.', () => {
     return request(app)
-      .get('/api/ratings/get/XXX')
+      .get('/api/ratings/get/1')
       .expect(200)
       .expect('Content-Type', /json/);
   });
@@ -61,7 +61,7 @@ describe('Test /api/login', () => {
     return request(app)
       .get('/api/login')
       .expect(200)
-      .expect('Content-Type', /json/);
+      .expect(user.Password);
   });
 });
 
