@@ -10,6 +10,7 @@ function ArtifactRows(props) {
         const fetchData = async () => {
             const response = await fetch(`${serverURL}/api/artifacts`);
             const artifacts = await response.json();
+            console.log(artifacts)
         
             // Create an array of topics and their associated artifacts from the array of artifacts.
             const groupedArtifacts = []

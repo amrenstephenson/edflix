@@ -17,16 +17,100 @@ margin: 0;
 padding: 0;
 }
 
-.cardbox{
-    width: 60%;
-    height: auto;
-    margin-left:5%;
-    background-color: aliceblue;
+
+
+.bigtitle{
+  margin-top: auto;
+  padding-bottom: 1rem;
+  color: white;
+  float: left;
+  font-size: 5rem;
+  z-index: 9999;
 }
 
-.LJcard{
-    height: auto;
-    width: 100%;
+.title{
+  margin-top: auto;
+  padding-bottom: 1rem;
+  color: white;
+  font-size: 2rem;
+  z-index: 9999;
+}
+
+.ant-table-wrapper .ant-table-pagination.ant-pagination {
+  display: none;
+}
+.ant-table-wrapper
+  .ant-table-container
+  table
+  > thead
+  > tr:first-child
+  > *:last-child {
+  text-align: center;
+}
+.ant-table-wrapper .ant-table-tbody > tr > td {
+  width: 25%;
+  color: white;
+  background-color: rgb(80, 80, 80);
+}
+.ant-table-wrapper .ant-table-thead > tr > th {
+  color: white;
+  background-color: rgb(80, 80, 80);
+  font-size: large;
+}
+.ant-table-container table>thead>tr:first-child >*:first-child{
+  font-size: large;
+}
+.ant-table-tbody>tr >td.ant-table-cell-row-hover:first-child{
+  background-color: rgb(80, 80, 80);
+}
+
+.ant-table-tbody>tr.ant-table-row:last-child:hover>td{
+  background-color:rgb(80, 80, 80);
+}
+.ant-table-wrapper .ant-table:not(.ant-table-bordered) .ant-table-tbody>tr >td.ant-table-cell-row-hover{
+  background-color: rgb(80, 80, 80);
 }
 
 
+.ant-list .ant-list-item .ant-list-item-meta .ant-list-item-meta-title >a {
+  color: white;
+}
+.ant-list .ant-list-item .ant-list-item-meta .ant-list-item-meta-description{
+  color: white;
+}
+
+.ant-list-vertical .ant-list-item .ant-list-item-main{
+  color: white;
+}
+
+.ant-pagination-next .ant-pagination-item-link{
+  color: white;
+}
+
+.ant-list-sm .ant-list-item{
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, .2);
+  margin-bottom: 0.25rem;
+}
+
+.ant-list-sm .ant-list-item:hover{
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, .7);
+}
+
+.ant-pagination .ant-pagination-next button{
+  color: rgb(255, 255, 255);
+}
+
+.ant-pagination .ant-pagination-disabled:hover .ant-pagination-item-link{
+    color: rgb(179, 179, 180);
+}
+
+.ant-pagination .ant-pagination-prev button{
+  color: rgb(255, 255, 255);
+}
+.ant-pagination{
+  color:#8d8d8d;
+}
+
+.ant-pagination .ant-pagination-disabled .ant-pagination-item-link{
+  color: rgb(179, 179, 180);
+}
