@@ -29,21 +29,47 @@ describe('Test /api/artifact/:id', () => {
 });
 
 describe('Test /api/artifacts', () => {
-  // Todo
+  test('Artifact found and JSON returned.', () => {
+    return request(app)
+      .get('/api/artifacts')
+      .expect(200)
+      .expect('Content-Type', /json/);
+  });
 });
 
 describe('Test /api/ratings/get/:id', () => {
-  // Todo
+  test('Rating with valid ID found and JSON returned.', () => {
+    return request(app)
+      .get('/api/ratings/get/XXX')
+      .expect(200)
+      .expect('Content-Type', /json/);
+  });
 });
 
 describe('Test /api/recommendations', () => {
-  // Todo
+  test('Recommendations not found and 500 given.', () => {
+    console.log('test');
+    return request(app)
+      .get('/api/recommendations')
+      .expect(500);
+  });
 });
 
+
 describe('Test /api/login', () => {
-  // Todo
+  test('Users found and 200 given.', () => {
+    return request(app)
+      .get('/api/login')
+      .expect(200)
+      .expect('Content-Type', /json/);
+  });
 });
 
 describe('Test /api/register', () => {
-  // Todo
+  test('User inserted and JSON returned.', () => {
+    return request(app)
+      .get('/api/register')
+      .expect(200)
+      .expect('text/html', /json/);
+  });
 });
