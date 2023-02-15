@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { runInContainer, createExampleUsers } from './container.js';
+import { runInContainer, createExampleUsers } from '../db/container.js';
 import { getRecommendedArtifacts } from './algorithm.js';
 
 function main() {
