@@ -14,8 +14,15 @@ class APIController {
 
   getArtifacts = async(req, res) => {
     try {
+      const filter = req.query.filter;
       // eslint-disable-next-line max-len
       let artifacts = await this.db.all('SELECT Artifact_id, Topic, ThumbnailURL, Artifact_Name FROM Artifact');
+      if (filter) {
+        artifacts = artifacts.filter(
+          (a) => a.Artifact_Name.toLowerCase().includes(filter.toLowerCase()) ||
+          a.Topic.toLowerCase().includes(filter.toLowerCase()),
+        );
+      }
       res.json(artifacts);
     } catch (e) {
       console.log(e);
