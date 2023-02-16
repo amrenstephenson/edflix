@@ -172,16 +172,19 @@
 
 .popup-container .popup-content .popup-content-link .popup-content-link-a:link {
   color: transparent;
+  background-clip: text;
   -webkit-background-clip: text;
 }
 
 .popup-container .popup-content .popup-content-link .popup-content-link-a:visited {
   color: transparent;
+  background-clip: text;
   -webkit-background-clip: text;
 }
 
 .popup-container .popup-content .popup-content-link .popup-content-link-a:hover {
   color: transparent;
+  background-clip: text;
   -webkit-background-clip: text;
 }
 
