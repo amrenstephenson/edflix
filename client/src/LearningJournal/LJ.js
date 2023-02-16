@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
 import NavBar from '../components/NavBar';
-
 
 export default function LearningJournal() {
 
@@ -18,5 +16,3 @@ export default function LearningJournal() {
     )
 
 }
-
-

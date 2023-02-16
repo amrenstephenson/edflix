@@ -1,12 +1,6 @@
-const changeNum = (num) => {
-    num = Number(num)
-    if (num === "NaN") return null
-    let count = String(num).split('.')[1]
-    if (count > 5) {
-        return Math.ceil(num)
-    } else {
-        return Number(String(num).split('.')[0] + '.5')
-    }
+function roundDP(value, decimalPlaces = 0) {
+    const factor = 10 ** decimalPlaces;
+    return Math.round(value * factor) / factor;
 }
 
-export { changeNum }
+export { roundDP }
