@@ -7,6 +7,11 @@ class APIController {
     this.db.connect();
   }
 
+  getUserId = (sessionToken) => {
+    // NOTE: for now, session tokens ARE user ids, but this could change
+    return sessionToken;
+  };
+
   getArtifacts = async(req, res) => {
     try {
       let artifacts = await this.db.all('SELECT * FROM Artifact');
@@ -19,6 +24,7 @@ class APIController {
     }
 
   };
+
   getArtifact = async(req, res) => {
     let id = req.params.id;
     try {
@@ -33,6 +39,7 @@ class APIController {
     }
 
   };
+
   getArtifactRating = async(req, res) => {
     let id = req.params['id'];
     try {
@@ -47,11 +54,24 @@ class APIController {
     }
 
   };
+
   getRecommendations = async(req, res) => {
-    const userID = req.query.userID;
+    const userID = this.getUserId(req.cookies.edflixSessionToken);
     try {
-      const recommendations = await getRecommendedArtifacts(userID);
-      res.json(recommendations);
+      if (userID == null) {
+        res.json(null);
+      } else {
+        const recommendations = await getRecommendedArtifacts(userID);
+        let recommended = recommendations.map((r) => {
+          let a = this.db.get(
+            'SELECT * FROM Artifact WHERE Artifact_id=?',
+            [r[0]],
+          );
+          return a;
+        });
+        recommended = await Promise.all(recommended);
+        res.json(recommended);
+      }
     } catch (e) {
       console.log(e);
       res
@@ -59,24 +79,37 @@ class APIController {
         .send('Internal Server Error - Could not fetch recommendations.');
     }
   };
-  login = async(req, res) => {
 
-    let {userName, password} = req.body;
+  logout = async(req, res) => {
+    res.clearCookie('edflixSessionToken');
+    res.redirect('/');
+  };
+
+  login = async(req, res) => {
+    let {userName, password, remember} = req.body;
+
     try {
       // eslint-disable-next-line max-len
       let user = await this.db.get('SELECT * FROM User where User_name=?', [userName]);
       if (user) {
         if (user.Password === password) {
-          res.json(user.User_id);
+          let cookieOpts = {
+            httpOnly: true,
+          };
+          if (parseInt(remember, 2)) {
+            cookieOpts.maxAge = 2700000;
+          }
+          res.cookie('edflixSessionToken', user.User_id, cookieOpts);
+          res.end();
         } else {
           res
             .status(500)
-            .send('Incorrect password.');
+            .json({ code: 'INCORRECT_PASSWORD' });
         }
       } else {
         res
           .status(500)
-          .send('Username invalid.');
+          .json({ code: 'UNKNOWN_USERNAME' });
       }
     } catch (e) {
       console.log(e);
@@ -85,9 +118,9 @@ class APIController {
         .send('Internal Server Error - Could not login.');
     }
   };
+
   register = async(req, res) => {
     let {userName, password, email} = req.body;
-    console.log({userName, password, email});
 
     try {
       // eslint-disable-next-line max-len
@@ -97,17 +130,19 @@ class APIController {
         Email: email,
         ProfilePicture: null,
       });
-      res.json(result.lastID);
+
+      res.cookie('edflixSessionToken', result.lastID, {
+        httpOnly: true,
+      });
+      res.end();
     } catch (e) {
       console.log(e);
       res
         .status(500)
-        .send('Internal Server Error - Could not create user.');
+        .json(e);
     }
 
   };
-
-
 }
 
 

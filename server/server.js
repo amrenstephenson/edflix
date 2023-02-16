@@ -3,6 +3,7 @@ import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
+import cookieParser from 'cookie-parser';
 
 import { fileURLToPath } from 'url';
 
@@ -23,6 +24,7 @@ if (process.env.VCAP_APPLICATION) {
 // enable parsing of http request body
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 // have node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, '../client/build')));

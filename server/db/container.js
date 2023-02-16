@@ -36,7 +36,9 @@ export async function createExampleUsers() {
 
   const choose = (arr) => arr[Math.floor(Math.random() * arr.length)];
   const unis = ['Durham', 'Oxford', 'Lancaster', 'Warwick', 'Bath'];
-  const courses = ['Computer Science', 'Physics', 'Maths', 'Engineering'];
+  const courses = [
+    'Computer Science', 'Physics', 'Maths', 'Engineering', 'Psychology',
+  ];
   const topics = [
     'Artificial Intelligence',
     'Capstone',
@@ -49,7 +51,9 @@ export async function createExampleUsers() {
   for (let i = 0; i < NUSERS; i++) {
     await db.exec('BEGIN TRANSACTION');
 
-    const topic = choose(topics);
+    const topic_i = Math.floor(Math.random() * topics.length);
+    const topic = topics[topic_i];
+    const course = courses[topic_i];
 
     let user = {
       User_name: `FakeUser_${i}_${topic}`,
@@ -60,7 +64,7 @@ export async function createExampleUsers() {
 
     let journal = {
       LevelOfStudy: 1 + Math.floor(Math.random() * 4),
-      UniversityCourse: choose(courses),
+      UniversityCourse: course,
       University: choose(unis),
       JournalURL: null,
     };
