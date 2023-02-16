@@ -6,6 +6,8 @@ const apiController = new APIController();
 
 router.get('/artifacts', apiController.getArtifacts);
 
+router.get('/artifacts/:topic', apiController.getPopularArtifacts);
+
 router.get('/artifact/:id', apiController.getArtifact);
 
 router.get('/ratings/get/:id', apiController.getArtifactRating);
