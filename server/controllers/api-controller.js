@@ -14,7 +14,13 @@ class APIController {
 
   getArtifacts = async(req, res) => {
     try {
+      const filter = req.query.filter;
       let artifacts = await this.db.all('SELECT * FROM Artifact');
+      if (filter) {
+        artifacts = artifacts.filter(
+          (a) => a.Artifact_Name.toLowerCase().includes(filter.toLowerCase()),
+        );
+      }
       res.json(artifacts);
     } catch (e) {
       console.log(e);
