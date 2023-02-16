@@ -1,4 +1,4 @@
-import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Container, Form, Button } from "react-bootstrap";
 
 function NavBar() {
 	return (
@@ -24,6 +24,16 @@ function NavBar() {
 							</NavDropdown.Item>
 						</NavDropdown>
 					</Nav>
+
+					<Form className="d-flex">
+						<Form.Control
+						type="search"
+						placeholder="Search"
+						className="me-2"
+						aria-label="Search"
+						/>
+						<Button variant="outline-success">Search</Button>
+					</Form>
 				</Navbar.Collapse>
 			</Container>
 		</Navbar>
