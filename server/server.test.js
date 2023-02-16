@@ -57,19 +57,28 @@ describe('Test /api/recommendations', () => {
 
 
 describe('Test /api/login', () => {
-  test('Users found and 200 given.', () => {
+  test('Invalid user found and 500 given.', () => {
+    console.log('test');
     return request(app)
-      .get('/api/login')
-      .expect(200)
-      .expect(user.Password);
+      .post('/api/login')
+      .expect(500)
+      .send({
+        username: 'tommy',
+        password: '123',
+      });
   });
 });
 
 describe('Test /api/register', () => {
-  test('User inserted and JSON returned.', () => {
+  test('User inserted unsuccessful and 500 returned.', () => {
+    console.log('test');
     return request(app)
-      .get('/api/register')
-      .expect(200)
-      .expect('text/html', /json/);
+      .post('/api/register')
+      .expect(500)
+      .send({
+        User_name: 'tommy',
+        password: '123',
+        email: 'XXX',
+      });
   });
 });
