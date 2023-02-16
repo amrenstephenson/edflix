@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import { Rate, Progress } from 'antd';
-import { roundDP } from '../utils';
 
 export class PopupRatings extends Component {
     render() {
@@ -18,8 +17,8 @@ export class PopupRatings extends Component {
                             ) : (
                                 <>
                                     <div>
-                                        <Rate disabled defaultValue={roundDP(this.props.rating.average)} />
-                                        &nbsp;&nbsp;&nbsp;{roundDP(this.props.rating.average, 1)} out of 5
+                                        <Rate disabled defaultValue={this.props.rating.average.toFixed(0)} />
+                                        &nbsp;&nbsp;&nbsp;{this.props.rating.average.toFixed(1)} out of 5.0
                                     </div>
                                     <div className="rating-tipc">
                                         {this.props.rating.counts.total} Total Rating{this.props.rating.counts.total === 1 ? '' : 's'}
@@ -33,7 +32,7 @@ export class PopupRatings extends Component {
                                 <span className="rating-progress-text" style={{ whiteSpace: 'nowrap' }}>
                                     {i} Star
                                 </span>
-                                <Progress status="normal" percent={this.props.rating.counts ? roundDP((this.props.rating.counts[i] / this.props.rating.counts.total) * 100) : 0} strokeWidth="18px" strokeColor="#f3c632" />
+                                <Progress status="normal" percent={this.props.rating.counts ? ((this.props.rating.counts[i] / this.props.rating.counts.total) * 100).toFixed(0) : 0} strokeWidth="18px" strokeColor="#f3c632" />
                             </div>
                         ))}
                     </div>
