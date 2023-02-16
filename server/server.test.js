@@ -57,28 +57,32 @@ describe('Test /api/recommendations', () => {
 
 
 describe('Test /api/login', () => {
-  test('Invalid user found and 500 given.', () => {
-    console.log('test');
+  test('User found and JSON returned.', () => {
     return request(app)
       .post('/api/login')
-      .expect(500)
       .send({
-        username: 'tommy',
+        userName: 'tommy',
         password: '123',
-      });
+      })
+      .set('Content-Type', 'application/json')
+      .expect(200)
+      .expect('Content-Type', /json/);
+    /**
+     * .expect('Set-Cookie', /edflixSessionToken/);
+     */
   });
 });
 
 describe('Test /api/register', () => {
   test('User inserted unsuccessful and 500 returned.', () => {
-    console.log('test');
     return request(app)
       .post('/api/register')
-      .expect(500)
       .send({
-        User_name: 'tommy',
+        userName: 'XXX',
         password: '123',
-        email: 'XXX',
-      });
+      })
+      .set('Content-Type', 'application/json')
+      .expect(200)
+      .expect('Content-Type', /json/);
   });
 });
