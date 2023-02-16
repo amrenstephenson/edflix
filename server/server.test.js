@@ -1,6 +1,7 @@
 import {app, server} from './server';
 import request from 'supertest';
 import { setupContainer, cleanupContainer } from './db/container';
+import assert from 'assert';
 
 beforeAll(async() => {
   await setupContainer();
@@ -41,7 +42,29 @@ describe('Test /api/recommendations', () => {
 });
 
 describe('Test /api/login', () => {
-  // Todo
+  test('A valid login request is accepted.', () => {
+    return request(app)
+      .post('/api/login')
+      .send({ userName: 'tommy', password: '123' })
+      .set('Content-Type', 'application/json')
+      .expect(200)
+      .expect('Set-Cookie', /edflixSessionToken/);
+  });
+
+  test('A login request with an incorrect password is rejected.', () => {
+    return request(app)
+      .post('/api/login')
+      .send({ userName: 'tommy', password: '1234' })
+      .set('Content-Type', 'application/json')
+      .expect(500)
+      .then(res => {
+        assert.strictEqual(res.body.code, 'INCORRECT_PASSWORD');
+      });
+  });
+
+  test('A login request with an incorrect username is rejected.', () => {
+    // Todo
+  });
 });
 
 describe('Test /api/register', () => {
