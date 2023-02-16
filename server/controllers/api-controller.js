@@ -19,7 +19,8 @@ class APIController {
       let artifacts = await this.db.all('SELECT Artifact_id, Topic, ThumbnailURL, Artifact_Name FROM Artifact');
       if (filter) {
         artifacts = artifacts.filter(
-          (a) => a.Artifact_Name.toLowerCase().includes(filter.toLowerCase()),
+          (a) => a.Artifact_Name.toLowerCase().includes(filter.toLowerCase()) ||
+          a.Topic.toLowerCase().includes(filter.toLowerCase()),
         );
       }
       res.json(artifacts);
