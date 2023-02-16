@@ -14,7 +14,8 @@ class APIController {
 
   getArtifacts = async(req, res) => {
     try {
-      let artifacts = await this.db.all('SELECT * FROM Artifact');
+      // eslint-disable-next-line max-len
+      let artifacts = await this.db.all('SELECT Topic, ThumbnailURL, Artifact_Name FROM Artifact');
       res.json(artifacts);
     } catch (e) {
       console.log(e);
