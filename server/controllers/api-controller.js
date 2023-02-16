@@ -14,7 +14,50 @@ class APIController {
 
   getArtifacts = async(req, res) => {
     try {
-      let artifacts = await this.db.all('SELECT * FROM Artifact');
+      const filter = req.query.filter;
+      // eslint-disable-next-line max-len
+      let artifacts = await this.db.all('SELECT Artifact_id, Topic, ThumbnailURL, Artifact_Name FROM Artifact');
+      if (filter) {
+        artifacts = artifacts.filter(
+          (a) => a.Artifact_Name.toLowerCase().includes(filter.toLowerCase()) ||
+          a.Topic.toLowerCase().includes(filter.toLowerCase()),
+        );
+      }
+      res.json(artifacts);
+    } catch (e) {
+      console.log(e);
+      res
+        .status(500)
+        .send('Internal Server Error - Could not get artifacts from database.');
+    }
+
+  };
+
+  getPopularArtifacts = async(req, res) => {
+    let topic = req.params.topic;
+    try {
+      let artifacts = await this.db.all(
+        // eslint-disable-next-line max-len
+        `
+        SELECT
+          r.Artifact_id,
+          a.Topic,
+          a.ThumbnailURL,
+          a.Artifact_Name,
+          AVG(Value) avg_rating
+        FROM
+          Rating r
+          INNER JOIN
+          Artifact a ON a.Artifact_id=r.Artifact_id
+        WHERE
+          a.Topic=?
+        GROUP BY
+          r.Artifact_id
+        ORDER BY
+          avg_rating DESC
+        `,
+        [topic],
+      );
       res.json(artifacts);
     } catch (e) {
       console.log(e);

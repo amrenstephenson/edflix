@@ -8,7 +8,8 @@ function ArtifactRows(props) {
     useEffect(() => {
             // Create an array of topics and their associated artifacts from the array of artifacts.
         const fetchData = async () => {
-            const [response1, response2] = await Promise.all([fetch(`${serverURL}/api/artifacts`), fetch(`${serverURL}/api/recommendations`)]);
+            const searchParams = new URLSearchParams(window.location.search);
+            const [response1, response2] = await Promise.all([fetch(`${serverURL}/api/artifacts?${searchParams}`), fetch(`${serverURL}/api/recommendations`)]);
             const [artifacts, recommendations] = await Promise.all([response1.json(), response2.json()]);
         
             // Create an array of topics and their associated artifacts from the array of artifacts.

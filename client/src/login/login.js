@@ -42,11 +42,11 @@ export default function Login() {
 				<h2>Login</h2>
 				<form onSubmit={handleSubmit}>
 					<div className="item">
-						<input id="usrField" type="text" name="userName" required></input>
+						<input id="usrField" type="text" name="userName" className="loginField" required></input>
 						<label htmlFor="usrField">Username</label>
 					</div>
 					<div className="item">
-						<input id="pwdField" type="password" name="password" required></input>
+						<input id="pwdField" type="password" name="password" className="loginField" required></input>
 						<label htmlFor="pwdField">Password</label>
 					</div>
 
