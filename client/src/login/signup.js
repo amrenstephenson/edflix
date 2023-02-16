@@ -40,15 +40,15 @@ export default function Login() {
 				<h2>Sign Up</h2>
 				<form onSubmit={handleSubmit}>
 					<div className="item">
-						<input type="text" id="usrField" name="userName" required></input>
+						<input type="text" id="usrField" name="userName" className="loginField" required></input>
 						<label htmlFor="usrField">Username</label>
 					</div>
 					<div className="item">
-						<input id="pswdField" type="password" name="password" required></input>
+						<input id="pswdField" type="password" name="password" className="loginField" required></input>
 						<label htmlFor="pswdField">Password</label>
 					</div>
 					<div className="item">
-						<input id="confPswdField" type="password" required></input>
+						<input id="confPswdField" type="password" className="loginField" required></input>
 						<label htmlFor="confPswdField">Confirm Password</label>
 					</div>
 
