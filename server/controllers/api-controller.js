@@ -170,7 +170,7 @@ class APIController {
 
     try {
       // eslint-disable-next-line max-len
-      let user = await this.db.get('SELECT * FROM User where User_id=?', [User_id]);
+      let user = await this.db.get('SELECT User_id, User_name, Email, ProfilePicture FROM User where User_id=?', [User_id]);
       if (user) {
 
         res
