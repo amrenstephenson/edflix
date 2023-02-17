@@ -166,7 +166,7 @@ class APIController {
 
   };
   getUser = async(req, res) => {
-    let User_id = req.cookies.edflixSessionToken;
+    let User_id = this.getUserId(req.cookies.edflixSessionToken);
 
     try {
       // eslint-disable-next-line max-len
@@ -191,7 +191,7 @@ class APIController {
   };
 
   getJournal = async(req, res) => {
-    let User_id = req.cookies.edflixSessionToken;
+    let User_id = this.getUserId(req.cookies.edflixSessionToken);
 
     try {
       // eslint-disable-next-line max-len
@@ -219,21 +219,43 @@ class APIController {
     }
   };
   JournalEdit = async(req, res) => {
+    let User_id = this.getUserId(req.cookies.edflixSessionToken);
     let {LevelOfStudy, UniversityCourse, University, Modules} = req.body;
 
     try {
+      await this.db.exec('BEGIN TRANSACTION');
+
       // eslint-disable-next-line max-len
-      let result = await this.db.insertObject('LearningJournal', {
-        LevelOfStudy, UniversityCourse, University,
-      });
-      let Journal_id = result.lastID;
-      for (const key in Modules) {
-        let Module_Name = Modules[key];
+      let journal = await this.db.get('SELECT j.* FROM User u INNER JOIN LearningJournal j ON u.Journal_id=j.Journal_id WHERE u.User_id=?', [User_id]);
+      let Journal_id = null;
+      if (journal) {
+        // edit existing journal:
+        Journal_id = journal.Journal_id;
+        await this.db.run(
+          // eslint-disable-next-line max-len
+          'UPDATE LearningJournal SET LevelOfStudy=?, UniversityCourse=?, University=? WHERE Journal_id=?',
+          [LevelOfStudy, UniversityCourse, University, Journal_id],
+        );
+        await this.db.run(
+          'DELETE FROM JournalModule WHERE Journal_id=?',
+          [Journal_id],
+        );
+      } else {
+        // create new journal:
+        // eslint-disable-next-line max-len
+        let result = await this.db.insertObject('LearningJournal', {
+          LevelOfStudy, UniversityCourse, University,
+        });
+        Journal_id = result.lastID;
+      }
+
+      for (const Module_Name of Modules) {
         await this.db.insertObject('JournalModule', {
           Journal_id, Module_Name,
         });
       }
 
+      await this.db.exec('COMMIT TRANSACTION');
 
       res.end();
     } catch (e) {
