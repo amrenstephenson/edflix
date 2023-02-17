@@ -197,7 +197,11 @@ class APIController {
       // eslint-disable-next-line max-len
       let journal = await this.db.get('SELECT j.* FROM User u INNER JOIN LearningJournal j ON u.Journal_id=j.Journal_id WHERE u.User_id=?', [User_id]);
       if (journal) {
-
+        // eslint-disable-next-line max-len
+        const modules = await this.db.all('SELECT Module_Name FROM JournalModule WHERE Journal_id=?', [journal.Journal_id]);
+        if (modules) {
+          journal.modules = modules.map((m) => m.Module_Name);
+        }
         res
           .status(200)
           .json(journal);
