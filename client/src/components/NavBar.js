@@ -9,7 +9,7 @@ function NavBar() {
     useEffect(() => {
         const fetchUser = async () => {
             const res = await fetch(`${serverURL}/api/user`);
-            setUser(await res.json())
+            setUser(await res.json());
         }
         
         fetchUser()
