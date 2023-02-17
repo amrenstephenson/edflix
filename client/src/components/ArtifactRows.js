@@ -4,7 +4,6 @@ import { serverURL } from '../index';
 
 function ArtifactRows(props) {
     const [artifactRows, setArtifactRows] = useState([]);
-    console.log(props)
     useEffect(() => {
             // Create an array of topics and their associated artifacts from the array of artifacts.
         const fetchData = async () => {
