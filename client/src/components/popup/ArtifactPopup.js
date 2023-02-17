@@ -19,39 +19,44 @@ class ArtifactPopup extends Component {
         super(props);
         this.state = { details: null, rating: null, recommendations: null };
         this.initialArtifactID = props.artifactID;
+        this.initialTopic = props.topic;
     }
 
     async componentDidMount() {
         ArtifactPopup.currentlyOpenPopup = this;
-        this.setArtifact(this.initialArtifactID);
+        this.setArtifact(this.initialArtifactID, this.initialTopic);
     }
 
-    async setArtifact(artifactID) {
+    async setArtifact(artifactID, topic) {
         document.getElementById('artifact-popup').scroll(0, 0);
         this.setState({ details: null, rating: null, recommendations: null });
-        await this.fetchData(artifactID);
-        await this.fetchRating(artifactID);
-        await this.fetchRecommendations(this.state.details.Topic);
+        this.fetchData(artifactID);
+        this.fetchRating(artifactID);
+        this.fetchRecommendations(topic);
     }
 
     fetchData = async (artifactID) => {
         const response = await fetch(`${serverURL}/api/artifact/${artifactID}`);
         const details = await response.json();
-        this.setState({ ...this.state, details: details });
+        // eslint-disable-next-line react/no-direct-mutation-state
+        this.state.details = details;
+        this.setState(this.state);
     };
 
     fetchRating = async (artifactID) => {
         const response = await fetch(`${serverURL}/api/ratings/get/${artifactID}`);
         const rating = await response.json();
-        this.setState({ ...this.state, rating: rating });
+        // eslint-disable-next-line react/no-direct-mutation-state
+        this.state.rating = rating;
+        this.setState(this.state);
     };
 
     fetchRecommendations = async (topic) => {
         const response = await fetch(`${serverURL}/api/artifacts/${encodeURIComponent(topic)}`);
         const recommendations = await response.json();
-        console.log(recommendations);
-        this.setState({ ...this.state, recommendations: recommendations });
-        console.log(this.state);
+        // eslint-disable-next-line react/no-direct-mutation-state
+        this.state.recommendations = recommendations;
+        this.setState(this.state);
     };
 
     closePopup = (e) => {

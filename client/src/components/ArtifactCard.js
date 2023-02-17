@@ -11,7 +11,7 @@ function ArtifactCard(props) {
             className="box"
             onClick={(e) => {
                 if (ArtifactPopup.currentlyOpenPopup !== null) {
-                    ArtifactPopup.currentlyOpenPopup.setArtifact(props.artifact.Artifact_id);
+                    ArtifactPopup.currentlyOpenPopup.setArtifact(props.artifact.Artifact_id, props.artifact.Topic);
                 } else {
                     setShowPopup(true);
                 }
@@ -20,7 +20,7 @@ function ArtifactCard(props) {
             <div style={{ borderRadius: '2rem', background: '#00000044', width: '100%', height: '100%', padding: '1rem' }}>
                 <b>{props.artifact.Artifact_Name}</b>
             </div>
-            {showPopup === true ? <ArtifactPopup closePopup={closePopup} artifactID={props.artifact.Artifact_id} /> : ''}
+            {showPopup === true ? <ArtifactPopup closePopup={closePopup} artifactID={props.artifact.Artifact_id} topic={props.artifact.Topic} /> : ''}
         </div>
     );
 }
