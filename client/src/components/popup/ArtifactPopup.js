@@ -24,15 +24,17 @@ class ArtifactPopup extends Component {
 
     async componentDidMount() {
         ArtifactPopup.currentlyOpenPopup = this;
-        this.setArtifact(this.initialArtifactID, this.initialTopic);
+        await this.setArtifact(this.initialArtifactID, this.initialTopic);
     }
 
     async setArtifact(artifactID, topic) {
         document.getElementById('artifact-popup').scroll(0, 0);
         this.setState({ details: null, rating: null, recommendations: null });
-        this.fetchData(artifactID);
-        this.fetchRating(artifactID);
-        this.fetchRecommendations(topic);
+        await Promise.all([
+            this.fetchData(artifactID),
+            this.fetchRating(artifactID),
+            this.fetchRecommendations(topic),
+        ]);
     }
 
     fetchData = async (artifactID) => {
@@ -89,7 +91,7 @@ class ArtifactPopup extends Component {
                                     <b style={{ fontSize: 20 }}>Start Studying</b>
                                     <div style={{ display: 'flex', flexDirection: 'column', flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                                         <a href={this.state.details.ArtifactURL} target="_blank" rel="noreferrer" draggable={false} style={{ width: '100%' }}>
-                                            <Button style={{ width: '100%' }}>Go to {new URL(this.state.details.ArtifactURL).hostname}</Button>
+                                            <Button style={{ width: '100%' }}>Go to {new URL(this.state.details.ArtifactURL || 'about:blank').hostname}</Button>
                                         </a>
                                     </div>
                                 </div>

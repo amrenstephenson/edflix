@@ -47,7 +47,7 @@ class APIController {
           AVG(Value) avg_rating
         FROM
           Rating r
-          INNER JOIN
+        INNER JOIN
           Artifact a ON a.Artifact_id=r.Artifact_id
         WHERE
           a.Topic=?
@@ -93,17 +93,17 @@ class APIController {
           Artifact_id=?
       `, [id]);
       let counts = await this.db.get(`
-          SELECT
-            count(*) AS total,
-            sum(case when Value=1 then 1 else 0 end) AS "1",
-            sum(case when Value=2 then 1 else 0 end) AS "2",
-            sum(case when Value=3 then 1 else 0 end) AS "3",
-            sum(case when Value=4 then 1 else 0 end) AS "4",
-            sum(case when Value=5 then 1 else 0 end) AS "5"
-          FROM
-            Rating
-          WHERE
-            Artifact_id=?
+        SELECT
+          count(*) AS total,
+          sum(case when Value=1 then 1 else 0 end) AS "1",
+          sum(case when Value=2 then 1 else 0 end) AS "2",
+          sum(case when Value=3 then 1 else 0 end) AS "3",
+          sum(case when Value=4 then 1 else 0 end) AS "4",
+          sum(case when Value=5 then 1 else 0 end) AS "5"
+        FROM
+          Rating
+        WHERE
+          Artifact_id=?
         `, [id],
       );
       res.json({...average, counts: counts});
