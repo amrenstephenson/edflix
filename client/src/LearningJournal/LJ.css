@@ -36,41 +36,6 @@ padding: 0;
   z-index: 9999;
 }
 
-.ant-table-wrapper .ant-table-pagination.ant-pagination {
-  display: none;
-}
-.ant-table-wrapper
-  .ant-table-container
-  table
-  > thead
-  > tr:first-child
-  > *:last-child {
-  text-align: center;
-}
-.ant-table-wrapper .ant-table-tbody > tr > td {
-  width: 25%;
-  color: white;
-  background-color: rgb(80, 80, 80);
-}
-.ant-table-wrapper .ant-table-thead > tr > th {
-  color: white;
-  background-color: rgb(80, 80, 80);
-  font-size: large;
-}
-.ant-table-container table>thead>tr:first-child >*:first-child{
-  font-size: large;
-}
-.ant-table-tbody>tr >td.ant-table-cell-row-hover:first-child{
-  background-color: rgb(80, 80, 80);
-}
-
-.ant-table-tbody>tr.ant-table-row:last-child:hover>td{
-  background-color:rgb(80, 80, 80);
-}
-.ant-table-wrapper .ant-table:not(.ant-table-bordered) .ant-table-tbody>tr >td.ant-table-cell-row-hover{
-  background-color: rgb(80, 80, 80);
-}
-
 
 .ant-list .ant-list-item .ant-list-item-meta .ant-list-item-meta-title >a {
   color: white;
@@ -113,4 +78,131 @@ padding: 0;
 
 .ant-pagination .ant-pagination-disabled .ant-pagination-item-link{
   color: rgb(179, 179, 180);
+}
+
+
+.ant-drawer .ant-drawer-content{
+  background-color: #706e6e;
+}
+
+.userinfo {
+  width: 80%;
+  height: 60%;
+  margin-left: 10%;
+  color: white;
+  background-color: #6d6a6a;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
+  border: solid 2px #dfdfdf;
+}
+
+.basicinfo {
+  height: 40%;
+}
+.username_title {
+  width: 25%;
+  border-bottom: black 1px solid;
+}
+
+.username {
+  width: 100%;
+  height: 50%;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.ProfilePicture {
+  width: 100%;
+  height: 60%;
+  text-align: center;
+}
+
+.id_title {
+  width: 15%;
+  height: 20%;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.email_title {
+  width: 15%;
+  height: 20%;
+  text-align: center;
+  font-size: 1.1rem;
+  border-bottom: black 1px solid;
+  font-weight: bold;
+}
+
+.id {
+  width: 40%;
+  height: 20%;
+  text-align: left;
+  font-weight: normal;
+}
+
+.email {
+  width: 40%;
+  height: 20%;
+  text-align: left;
+  border-bottom: black 1px solid;
+  font-weight: normal;
+}
+
+.degree_title {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.course_title {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.modules_title {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.degree {
+  text-align: center;
+}
+.course {
+  text-align: center;
+}
+.modules {
+  text-align: center;
+}
+
+.edit_picture {
+  width: 25%;
+  text-align: center;
+}
+.submit_picture {
+  width: 25%;
+  text-align: center;
+}
+
+.edit_basic_info {
+  width: 15%;
+  text-align: left;
+  font-weight: bold;
+}
+
+.inputbox {
+  width: 60%;
+  text-align: left;
+}
+
+.edit_course_degree_module_title {
+  font-size: 1.25rem;
+  color: #fff;
+  text-align: left;
+}
+
+.ant-drawer .ant-drawer-title{
+  color: white;
+  font-size: 2rem;
 }
