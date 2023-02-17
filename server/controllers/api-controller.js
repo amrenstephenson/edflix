@@ -247,6 +247,10 @@ class APIController {
           LevelOfStudy, UniversityCourse, University,
         });
         Journal_id = result.lastID;
+        await this.db.run(
+          'UPDATE User SET Journal_id=? WHERE User_id=?',
+          [Journal_id, User_id],
+        );
       }
 
       for (const Module_Name of Modules) {
