@@ -143,6 +143,105 @@ class APIController {
     }
 
   };
+  PostNew = async(req, res) => {
+    const User_id = this.getUserId(req.cookies.edflixSessionToken);
+    let {Artifact_id, Value} = req.body;
+
+    try {
+      // eslint-disable-next-line max-len
+      await this.db.insertObject('Rating', {
+        User_id,
+        Artifact_id,
+        Value,
+      });
+
+
+      res.end();
+    } catch (e) {
+      console.log(e);
+      res
+        .status(500)
+        .json(e);
+    }
+
+  };
+  getUser = async(req, res) => {
+    let User_id = req.cookies.edflixSessionToken;
+
+    try {
+      // eslint-disable-next-line max-len
+      let user = await this.db.get('SELECT * FROM User where User_id=?', [User_id]);
+      if (user) {
+
+        res
+          .status(200)
+          .json(user);
+
+      } else {
+        res
+          .status(500)
+          .json({ code: 'UNKNOWN_USERID' });
+      }
+    } catch (e) {
+      console.log(e);
+      res
+        .status(500)
+        .send('Internal Server Error - Could not get User.');
+    }
+  };
+
+  getJournal = async(req, res) => {
+    let User_id = req.cookies.edflixSessionToken;
+
+    try {
+      // eslint-disable-next-line max-len
+      let journal = await this.db.get(`select j.Journal_id,j.Module_Name from User u
+      join JournalModule j
+      on  u.Journal_id=j.Journal_id`, [User_id]);
+      if (journal) {
+
+        res
+          .status(200)
+          .json(journal);
+
+      } else {
+        res
+          .status(500)
+          .json({ code: 'UNKNOWN_JOURNALID' });
+      }
+    } catch (e) {
+      console.log(e);
+      res
+        .status(500)
+        .send('Internal Server Error - Could not get Journal.');
+    }
+  };
+  JournalEdit = async(req, res) => {
+    let {LevelOfStudy, UniversityCourse, University, Modules} = req.body;
+
+    try {
+      // eslint-disable-next-line max-len
+      let result = await this.db.insertObject('LearningJournal', {
+        LevelOfStudy, UniversityCourse, University,
+      });
+      let Journal_id = result.lastID;
+      for (const key in Modules) {
+        let Module_Name = Modules[key];
+        await this.db.insertObject('JournalModule', {
+          Journal_id, Module_Name,
+        });
+      }
+
+
+      res.end();
+    } catch (e) {
+      console.log(e);
+      res
+        .status(500)
+        .json(e);
+    }
+
+  };
 }
 
 
