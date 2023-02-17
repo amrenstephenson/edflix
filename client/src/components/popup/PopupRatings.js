@@ -32,7 +32,7 @@ export class PopupRatings extends Component {
                                 <span className="rating-progress-text" style={{ whiteSpace: 'nowrap' }}>
                                     {i} Star
                                 </span>
-                                <Progress status="normal" percent={this.props.rating.counts ? ((this.props.rating.counts[i] / this.props.rating.counts.total) * 100).toFixed(0) : 0} strokeWidth="18px" strokeColor="#f3c632" />
+                                <Progress status="normal" percent={this.props.rating.counts && this.props.rating.counts[i] ? ((this.props.rating.counts[i] / this.props.rating.counts.total) * 100).toFixed(0) : 0} strokeWidth="18px" strokeColor="#f3c632" />
                             </div>
                         ))}
                     </div>
