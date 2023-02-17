@@ -9,10 +9,10 @@ function App() {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path="/" exact element={<Home />} />
-				<Route path="/login" exact element={<Login />} />
-				<Route path="/signup" exact element={<Signup />} />
-				<Route path="/LearningJournal" exact element={<LearningJournal />} />
+				<Route path="/" exact caseSensitive element={<Home />} />
+				<Route path="/login" exact caseSensitive element={<Login />} />
+				<Route path="/signup" exact caseSensitive element={<Signup />} />
+				<Route path="/learning-journal" exact caseSensitive element={<LearningJournal />} />
 				<Route path='*' element={<PageNotFound />} />
 			</Routes>
 		</BrowserRouter>
