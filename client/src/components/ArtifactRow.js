@@ -35,7 +35,7 @@ function ArtifactRow (props) {
                         <Carousel.Item key={index}>
                             <div style={{ display: 'flex', height: '12rem', width: '100%', gap: '1rem' }}>
                                 {artifacts.map((artifact) => (
-                                    <ArtifactCard style={{ flex: 1 }} artifact={artifact} />
+                                    <ArtifactCard key={artifact.Artifact_id} style={{ flex: 1 }} artifact={artifact} />
                                 ))}
                             </div>
                             {/* <Carousel.Caption>

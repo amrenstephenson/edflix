@@ -37,7 +37,7 @@ function ArtifactRows(props) {
     return (
         <div {...props} style={{ ...props.style }}>
             {artifactRows.map((artifactRow,index) => (
-              <ArtifactRow index={index} title={artifactRow.topic} artifacts={artifactRow.artifacts} />
+              <ArtifactRow key={index} index={index} title={artifactRow.topic} artifacts={artifactRow.artifacts} />
             ))}
         </div>
     );
