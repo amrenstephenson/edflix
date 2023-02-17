@@ -1,0 +1,292 @@
+.popup-container {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  padding: 3% 20%;
+  box-sizing: border-box;
+  font-size: 14px;
+  z-index: 9;
+  position: fixed;
+  animation: fadeIn 0.1s ease-out;
+  cursor: auto;
+}
+
+.popup-header {
+  border: 1px solid #999;
+}
+
+.popup-content {
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
+  border-bottom: 1px solid #999;
+}
+
+.popup-container .subtitle {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.popup-container .popup-header {
+  position: relative;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  overflow: hidden;
+}
+
+.popup-container .popup-header .popup-header-img {
+  width: 100%;
+}
+
+.popup-container .popup-header .popup-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 5px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #fff;
+  font-size: 20px;
+  transition: opacity 0.1s;
+  cursor: pointer;
+}
+
+.popup-container .popup-header .popup-close-btn:hover {
+  opacity: 0.6;  
+}
+
+.popup-container .popup-header .popup-header-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  font-size: 30px;
+  background: linear-gradient(transparent, #181818);
+}
+
+.popup-container .popup-content {
+  padding: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #181818;
+}
+
+.popup-container .popup-content .popup-content-description {
+  line-height: 20px;
+}
+
+.popup-container .popup-content .popup-content-description .description-left {
+  flex: 2;
+}
+
+.popup-container .popup-content .popup-content-description .description-left .description-left-content {
+  position: relative;
+  margin: 10px 0;
+  text-indent: 30px;
+}
+
+.popup-container .popup-content .popup-content-description .description-left .description-left-content .anticon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.popup-container .popup-content .popup-content-description .description-right {
+  flex: 1.5;
+  margin-left: 20px;
+}
+
+.popup-container .popup-content .popup-content-description .description-right .description-right-content {
+  margin: 10px 0;
+}
+
+.popup-container .popup-content .popup-content-description .description-right a {
+  color: #79c0ff;
+}
+
+.popup-container .popup-content .popup-content-description .description-right a:link {
+  color: #79c0ff;
+}
+
+.popup-container .popup-content .popup-content-description .description-right a:hover {
+  color: #92ccff;
+}
+
+.popup-container .popup-content .popup-content-description .description-right a:visited {
+  color: #79c0ff;
+}
+
+.popup-container .popup-content .popup-content-outline {
+  margin-top: 20px;
+  line-height: 20px;
+}
+
+.popup-container .popup-content .popup-content-outline ul {
+  margin: 0;
+  margin-top: 10px;
+}
+
+.popup-container .popup-content .popup-content-outline ul li {
+  list-style: decimal;
+}
+
+.popup-container .popup-content .popup-content-outline .ant-select-selector {
+  width: 150px;
+  border-color: #4d4d4d;
+  background-color: #242424;
+}
+
+.popup-container .popup-content .popup-content-outline .ant-select-selector .ant-select-selection-placeholder,
+.popup-container .popup-content .popup-content-outline .ant-select-selector .ant-select-selection-item {
+  color: #fff;
+}
+
+.popup-container .popup-content .popup-content-outline .ant-select-clear {
+  color: #e8e8e8;
+  background-color: #333;
+}
+
+.popup-container .popup-content .popup-content-outline .ant-select-clear:hover {
+  color: #fff;
+  background-color: #333;
+}
+
+.popup-container .popup-content .popup-content-outline .ant-select-arrow {
+  color: #fff;
+}
+
+.popup-container .popup-content .popup-content-link {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.popup-container .popup-content .popup-content-link .popup-content-link-a {
+  position: relative;
+  padding: 5px 20px;
+  font-size: 24px;
+  background: linear-gradient(#e20a0a, #f1f1f1);
+}
+
+.popup-container .popup-content .popup-content-link .popup-content-link-a:hover {
+  background: linear-gradient(#d15757, #4a4a4a);
+}
+
+.popup-container .popup-content .popup-content-link .popup-content-link-a:link {
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.popup-container .popup-content .popup-content-link .popup-content-link-a:visited {
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.popup-container .popup-content .popup-content-link .popup-content-link-a:hover {
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.popup-container .popup-content .popup-content-rating {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.popup-container .popup-content .popup-content-current-rating {
+  margin-top: 20px;
+  line-height: 30px;
+}
+
+.popup-container .popup-content .popup-content-current-rating .rating-subtitle {
+  text-align: center;
+}
+
+.popup-container .popup-content .popup-content-current-rating .rating-rate {
+  margin-top: 10px;
+}
+
+.popup-container .popup-content .popup-content-current-rating .rating-tipc {
+  font-size: 12px;
+  color: #838383;
+}
+
+.popup-container .popup-content .popup-content-current-rating .rating-progress {
+  margin-top: 8px;
+}
+
+.popup-container .popup-content .popup-content-current-rating .rating-progress .rating-progress-text {
+  color: #a9b7f9;
+  margin-right: 10px;
+}
+
+.popup-container .popup-content .popup-content-recommendation {
+  margin-top: 20px;
+}
+
+.ant-select-dropdown {
+  color: #fff;
+}
+
+.ant-collapse .ant-collapse-item {
+  border: none;
+}
+
+.ant-collapse .ant-collapse-item .ant-collapse-header {
+  color: #fff;
+  padding-bottom: 0;
+}
+
+.ant-collapse .ant-collapse-item .ant-collapse-content {
+  padding-left: 25px;
+  color: #fff;
+}
+
+.ant-rate .ant-rate-star-zero .ant-rate-star-second {
+  color: #4d4d4d;
+}
+
+.ant-rate .ant-rate-star-active .ant-rate-star-second {
+  color: #4d4d4d;
+}
+
+.ant-progress {
+  margin: 0;
+}
+
+.ant-progress .ant-progress-inner {
+  background-color: #4d4d4d;
+}
+
+.ant-progress .ant-progress-text {
+  color: #a9b7f9;
+}
+
+.ant-spin-dot-item {
+  background-color: white !important;
+}
+
+.ant-spin-text {
+  color: white;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.popup-container .popup-content-rating {
+  display: flex;
+}
+
+.popup-container .popup-content-rating-sub {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
