@@ -38,9 +38,4 @@ router.get('/journal', apiController.getJournal);
 router.post('/journal/edit', apiController.JournalEdit);
 
 
-
-
-
-
-
 export default router;

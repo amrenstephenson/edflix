@@ -195,9 +195,7 @@ class APIController {
 
     try {
       // eslint-disable-next-line max-len
-      let journal = await this.db.get(`select j.Journal_id,j.Module_Name from User u
-      join JournalModule j
-      on  u.Journal_id=j.Journal_id`, [User_id]);
+      let journal = await this.db.get('SELECT j.* FROM User u INNER JOIN LearningJournal j ON u.Journal_id=j.Journal_id WHERE u.User_id=?', [User_id]);
       if (journal) {
 
         res
