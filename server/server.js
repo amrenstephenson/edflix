@@ -3,6 +3,7 @@ import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
+import cookieParser from 'cookie-parser';
 
 import { fileURLToPath } from 'url';
 
@@ -23,6 +24,7 @@ if (process.env.VCAP_APPLICATION) {
 // enable parsing of http request body
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 // have node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, '../client/build')));
@@ -33,7 +35,7 @@ app.use('/api', apiRoutes);
 
 // start node server
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`App UI available http://localhost:${port}`);
 });
 
@@ -42,4 +44,4 @@ app.use((req, res, next) => {
   res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 });
 
-export default app;
+export {app, server};

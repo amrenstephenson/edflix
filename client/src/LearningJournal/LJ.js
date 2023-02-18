@@ -362,7 +362,7 @@ export default function LearningJournal() {
                         <Rate allowHalf disabled defaultValue={3} />
                         &nbsp;&nbsp;&nbsp;{3} out of {""}
                         {3 > 5 ? 10 : 5}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href='https://www.ibm.com/uk-en' target="_blank"><LinkOutlined style={{fontSize:'2.25rem'}} /></a>
+                        <a href='https://www.ibm.com/uk-en' target="_blank" rel="noreferrer"><LinkOutlined style={{fontSize:'2.25rem'}} /></a>
                       </div>
                       
                     ]}
@@ -389,5 +389,3 @@ export default function LearningJournal() {
     )
 
 }
-
-

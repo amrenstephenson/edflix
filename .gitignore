@@ -9,3 +9,5 @@ localdev-config.json
 **/.DS_Store
 build
 unsplash_keys.json
+Edflix.tmp.db
+.idea

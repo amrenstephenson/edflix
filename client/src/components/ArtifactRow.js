@@ -10,7 +10,6 @@ function CarouselIcon(direction) {
 }
 
 function ArtifactRow (props) {
-  console.log(props.index)
     return (
       <div key={props.index}>
             <h1 style={{ color: 'white', paddingBottom: '1rem', float: 'left', fontSize: '2rem' }}>{props.title}</h1>
@@ -36,7 +35,7 @@ function ArtifactRow (props) {
                         <Carousel.Item key={index}>
                             <div style={{ display: 'flex', height: '12rem', width: '100%', gap: '1rem' }}>
                                 {artifacts.map((artifact) => (
-                                    <ArtifactCard style={{ flex: 1 }} artifact={artifact} />
+                                    <ArtifactCard key={artifact.Artifact_id} style={{ flex: 1 }} artifact={artifact} />
                                 ))}
                             </div>
                             {/* <Carousel.Caption>

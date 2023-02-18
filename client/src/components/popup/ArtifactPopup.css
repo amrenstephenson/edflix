@@ -6,20 +6,23 @@
   font-size: 14px;
   z-index: 9;
   position: fixed;
-  overflow: auto;
-  /* position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 900px;
-  overflow: auto;
-
-  z-index: 9999; */
+  animation: fadeIn 0.1s ease-out;
+  cursor: auto;
 }
 
+.popup-header {
+  border: 1px solid #999;
+}
+
+.popup-content {
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
+  border-bottom: 1px solid #999;
+}
 
 .popup-container .subtitle {
   font-size: 18px;
+  font-weight: bold;
 }
 
 .popup-container .popup-header {
@@ -38,18 +41,17 @@
   top: 20px;
   right: 20px;
   padding: 5px;
-  border: 2px solid transparent;
+  border: 2px solid #fff;
   border-radius: 50%;
   background-color: transparent;
-  color: #333;
+  color: #fff;
   font-size: 20px;
-  transition: border .5s, color .5s;
+  transition: opacity 0.1s;
+  cursor: pointer;
 }
 
 .popup-container .popup-header .popup-close-btn:hover {
-  border: 2px solid #fff;
-  color: #fff;
-  cursor: pointer;
+  opacity: 0.6;  
 }
 
 .popup-container .popup-header .popup-header-title {
@@ -67,8 +69,6 @@
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   background-color: #181818;
-
-
 }
 
 .popup-container .popup-content .popup-content-description {
@@ -134,7 +134,6 @@
   width: 150px;
   border-color: #4d4d4d;
   background-color: #242424;
-  font-family: "Sriracha", cursive;
 }
 
 .popup-container .popup-content .popup-content-outline .ant-select-selector .ant-select-selection-placeholder,
@@ -174,74 +173,25 @@
 
 .popup-container .popup-content .popup-content-link .popup-content-link-a:link {
   color: transparent;
+  background-clip: text;
   -webkit-background-clip: text;
 }
 
 .popup-container .popup-content .popup-content-link .popup-content-link-a:visited {
   color: transparent;
+  background-clip: text;
   -webkit-background-clip: text;
 }
 
 .popup-container .popup-content .popup-content-link .popup-content-link-a:hover {
   color: transparent;
+  background-clip: text;
   -webkit-background-clip: text;
 }
 
 .popup-container .popup-content .popup-content-rating {
   margin-top: 20px;
   text-align: center;
-}
-
-.popup-container .popup-content .popup-content-rating .popup-content-rating-submit {
-  padding: 3px 10px;
-  color: #fff;
-  background-color: #ff7f50;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.popup-container .popup-content .popup-content-rating .popup-content-rating-submit:hover {
-  color: #333;
-  background-color: #ffa787;
-}
-
-.popup-container .popup-content .popup-content-rating .popup-content-rating-a {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 5px 10px;
-  border-radius: 8px;
-}
-
-.popup-container .popup-content .popup-content-rating .popup-content-rating-a:link {
-  background-color: #f0f8ff;
-  color: #000;
-}
-
-.popup-container .popup-content .popup-content-rating .popup-content-rating-a:visited {
-  background-color: #f0f8ff;
-  color: #000;
-}
-
-.popup-container .popup-content .popup-content-rating .popup-content-rating-a:hover {
-  background-color: #fff;
-  color: #333;
-}
-
-.popup-container .popup-content .popup-content-rating .popup-content-rating-icon {
-  margin-top: 10px;
-  padding: 5px;
-  font-size: 40px;
-  border-radius: 50%;
-  background-color: #fff;
-  color: #181818;
-  cursor: pointer;
-  transition: background-color .5s, color .5s;
-}
-
-.popup-container .popup-content .popup-content-rating .popup-content-rating-icon:hover {
-  background-color: #bdbdbd;
-  color: #000000;
 }
 
 .popup-container .popup-content .popup-content-current-rating {
@@ -259,7 +209,6 @@
 
 .popup-container .popup-content .popup-content-current-rating .rating-tipc {
   font-size: 12px;
-  margin-left: 20px;
   color: #838383;
 }
 
@@ -277,7 +226,6 @@
 }
 
 .ant-select-dropdown {
-  font-family: "Sriracha", cursive;
   color: #fff;
 }
 
@@ -287,14 +235,12 @@
 
 .ant-collapse .ant-collapse-item .ant-collapse-header {
   color: #fff;
-  font-family: "Sriracha", cursive;
   padding-bottom: 0;
 }
 
 .ant-collapse .ant-collapse-item .ant-collapse-content {
   padding-left: 25px;
   color: #fff;
-  font-family: "Sriracha", cursive;
 }
 
 .ant-rate .ant-rate-star-zero .ant-rate-star-second {
@@ -315,5 +261,32 @@
 
 .ant-progress .ant-progress-text {
   color: #a9b7f9;
-  font-family: "Sriracha", cursive;
+}
+
+.ant-spin-dot-item {
+  background-color: white !important;
+}
+
+.ant-spin-text {
+  color: white;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.popup-container .popup-content-rating {
+  display: flex;
+}
+
+.popup-container .popup-content-rating-sub {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
 }

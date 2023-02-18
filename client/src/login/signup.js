@@ -1,6 +1,32 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
 import './login-signup.css';
+import {serverURL} from '../index';
+
+async function handleSubmit(event) {
+	event.preventDefault();
+
+	const form = event.target;
+	const formData = new FormData(form);
+	const json = JSON.stringify(Object.fromEntries(formData));
+
+	const res = await fetch(`${serverURL}/api/register`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: json,
+	});
+
+	if (res.ok) {
+		window.location.href = '/';
+	} else {
+		const err = await res.json();
+		if (err.code === 'SQLITE_CONSTRAINT') {
+			alert('User already exists.');
+		}
+	}
+}
 
 export default function Login() {
 	return (
@@ -12,25 +38,25 @@ export default function Login() {
 
 			<div className="loginBox">
 				<h2>Sign Up</h2>
-				<form action="">
+				<form onSubmit={handleSubmit}>
 					<div className="item">
-						<input id="usrField" type="text" required></input>
+						<input type="text" id="usrField" name="userName" className="loginField" required></input>
 						<label htmlFor="usrField">Username</label>
 					</div>
 					<div className="item">
-						<input id="pswdField" type="password" required></input>
+						<input id="pswdField" type="password" name="password" className="loginField" required></input>
 						<label htmlFor="pswdField">Password</label>
 					</div>
 					<div className="item">
-						<input id="confPswdField" type="password" required></input>
+						<input id="confPswdField" type="password" className="loginField" required></input>
 						<label htmlFor="confPswdField">Confirm Password</label>
 					</div>
 
-					<button className="btn">SIGN UP</button>
+					<input type="submit" className="btn" value="SIGN UP" />
 					<hr />
 					<div className="msg">
 						Already have account?&nbsp;
-						<a href="/Login">Login</a>
+						<a href="/login">Login</a>
 					</div>
 				</form>
 			</div>
