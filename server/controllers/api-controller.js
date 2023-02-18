@@ -14,7 +14,15 @@ class APIController {
 
   getArtifacts = async(req, res) => {
     try {
-      let artifacts = await this.db.all('SELECT * FROM Artifact');
+      const filter = req.query.filter;
+      // eslint-disable-next-line max-len
+      let artifacts = await this.db.all('SELECT Artifact_id, Topic, ThumbnailURL, Artifact_Name FROM Artifact');
+      if (filter) {
+        artifacts = artifacts.filter(
+          (a) => a.Artifact_Name.toLowerCase().includes(filter.toLowerCase()) ||
+          a.Topic.toLowerCase().includes(filter.toLowerCase()),
+        );
+      }
       res.json(artifacts);
     } catch (e) {
       console.log(e);
@@ -23,6 +31,40 @@ class APIController {
         .send('Internal Server Error - Could not get artifacts from database.');
     }
 
+  };
+
+  getPopularArtifacts = async(req, res) => {
+    let topic = req.params.topic;
+    try {
+      let artifacts = await this.db.all(
+        // eslint-disable-next-line max-len
+        `
+        SELECT
+          r.Artifact_id,
+          a.Topic,
+          a.ThumbnailURL,
+          a.Artifact_Name,
+          AVG(Value) avg_rating
+        FROM
+          Rating r
+        INNER JOIN
+          Artifact a ON a.Artifact_id=r.Artifact_id
+        WHERE
+          a.Topic=?
+        GROUP BY
+          r.Artifact_id
+        ORDER BY
+          avg_rating DESC
+        `,
+        [topic],
+      );
+      res.json(artifacts);
+    } catch (e) {
+      console.log(e);
+      res
+        .status(500)
+        .send('Internal Server Error - Could not get artifacts from database.');
+    }
   };
 
   getArtifact = async(req, res) => {
@@ -37,22 +79,40 @@ class APIController {
         .status(500)
         .send('Internal Server Error - Could not get artifact from database.');
     }
-
   };
 
   getArtifactRating = async(req, res) => {
     let id = req.params['id'];
     try {
-      // eslint-disable-next-line max-len
-      let rating = await this.db.get('SELECT AVG(Value) FROM Rating where Artifact_id=?', [id]);
-      res.json(rating);
+      let average = await this.db.get(`
+        SELECT
+          avg(Value) as average
+        FROM
+          Rating
+        WHERE
+          Artifact_id=?
+      `, [id]);
+      let counts = await this.db.get(`
+        SELECT
+          count(*) AS total,
+          sum(case when Value=1 then 1 else 0 end) AS "1",
+          sum(case when Value=2 then 1 else 0 end) AS "2",
+          sum(case when Value=3 then 1 else 0 end) AS "3",
+          sum(case when Value=4 then 1 else 0 end) AS "4",
+          sum(case when Value=5 then 1 else 0 end) AS "5"
+        FROM
+          Rating
+        WHERE
+          Artifact_id=?
+        `, [id],
+      );
+      res.json({...average, counts: counts});
     } catch (e) {
       console.log(e);
       res
         .status(500)
         .send('Internal Server Error - Could not get rating from database.');
     }
-
   };
 
   getRecommendations = async(req, res) => {
@@ -113,9 +173,7 @@ class APIController {
       }
     } catch (e) {
       console.log(e);
-      res
-        .status(500)
-        .send('Internal Server Error - Could not login.');
+      res.status(500).send('Internal Server Error - Could not login.');
     }
   };
 
@@ -141,7 +199,6 @@ class APIController {
         .status(500)
         .json(e);
     }
-
   };
   PostNew = async(req, res) => {
     const User_id = this.getUserId(req.cookies.edflixSessionToken);
@@ -271,6 +328,5 @@ class APIController {
 
   };
 }
-
 
 export default APIController;
