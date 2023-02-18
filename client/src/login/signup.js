@@ -56,7 +56,7 @@ export default function Login() {
 					<hr />
 					<div className="msg">
 						Already have account?&nbsp;
-						<a href="/Login">Login</a>
+						<a href="/login">Login</a>
 					</div>
 				</form>
 			</div>

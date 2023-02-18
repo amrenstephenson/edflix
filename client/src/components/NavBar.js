@@ -1,20 +1,23 @@
-import { Navbar, Nav, Container, Form, InputGroup } from 'react-bootstrap';
+import { Navbar, Nav, Container, Form, InputGroup, NavDropdown } from 'react-bootstrap';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { useEffect, useState } from 'react';
 import { serverURL } from '..';
 import './NavBar.css';
 
 function NavBar() {
-	const [, setUser] = useState({});
+    const [user, setUser] = useState(null);
     useEffect(() => {
         const fetchUser = async () => {
             const res = await fetch(`${serverURL}/api/user`);
-            setUser(await res.json());
-        }
-        
-        fetchUser()
-            .catch(console.error);
-    }, [])
+            if (res.status === 200) {
+                setUser(await res.json());
+            } else {
+                setUser(false);
+            }
+        };
+
+        fetchUser().catch(console.error);
+    }, []);
 
     return (
         <Navbar bg="dark" variant="dark" expand="lg">
@@ -48,12 +51,21 @@ function NavBar() {
                                 <div style={{ height: 20 }} />
                             </>
                         )}
-                        <Nav.Link href="/login" active={window.location.pathname === '/login'}>
-                            Login
-                        </Nav.Link>
-                        <Nav.Link href="/signup" active={window.location.pathname === '/signup'}>
-                            Sign Up
-                        </Nav.Link>
+                        {user && (
+                            <NavDropdown title={<img style={{ height: 30, width: 30, borderRadius: 15, backgroundColor: 'hsl(210, 11%, 25%)', color: 'transparent', display: 'inline-block' }} alt="Profile" src={user.ProfilePicture ?? 'https://avatars.abstractapi.com/v1/?api_key=6f7e30fa290f42a2aee47eed88c3f350&background_color=d00022&name=' + encodeURIComponent(user.User_name)} />} id="navbarScrollingDropdown">
+                                <div style={{ paddingTop: '0.5rem', paddingBottom: '0.75rem', paddingLeft: '1rem', paddingRight: '1rem', borderBottom: '1px solid hsl(210, 11%, 25%)', marginBottom: '0.5rem' }}>
+                                    Logged in as
+                                    <br />
+                                    <b>{user.User_name}</b>
+                                </div>
+                                <NavDropdown.Item href="/api/logout">Logout</NavDropdown.Item>
+                            </NavDropdown>
+                        )}
+                        {user === false && window.location.pathname !== '/login' && window.location.pathname !== '/signup' && (
+                            <Nav.Link href="/login" active={window.location.pathname === '/login'}>
+                                Login
+                            </Nav.Link>
+                        )}
                     </Nav>
                 </Navbar.Collapse>
             </Container>
