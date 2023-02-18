@@ -23,3 +23,16 @@
 .search-bar .search-input:focus {
     background-color: #000;
 }
+
+.dropdown-menu {
+    border: 1px solid hsl(210, 11%, 25%);
+    background-color: hsl(210, 11%, 18%);
+    color: white;
+}
+.dropdown-menu .dropdown-item {
+    color: white;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: hsl(210, 11%, 21%);
+}
