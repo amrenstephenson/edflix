@@ -275,7 +275,7 @@ class APIController {
         .send('Internal Server Error - Could not get Journal.');
     }
   };
-  JournalEdit = async(req, res) => {
+  editJournal = async(req, res) => {
     let User_id = this.getUserId(req.cookies.edflixSessionToken);
     let {LevelOfStudy, UniversityCourse, University, Modules} = req.body;
 
