@@ -31,7 +31,7 @@ router.post('/login', apiController.login);
 
 router.post('/register', apiController.register);
 
-router.post('/ratings/new', apiController.PostNew);
+router.post('/ratings/new', apiController.postRating);
 
 router.get('/user', apiController.getUser);
 

@@ -200,7 +200,7 @@ class APIController {
         .json(e);
     }
   };
-  PostNew = async(req, res) => {
+  postRating = async(req, res) => {
     const User_id = this.getUserId(req.cookies.edflixSessionToken);
     let {Artifact_id, Value} = req.body;
 
