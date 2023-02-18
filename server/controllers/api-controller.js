@@ -200,6 +200,133 @@ class APIController {
         .json(e);
     }
   };
+  postRating = async(req, res) => {
+    const User_id = this.getUserId(req.cookies.edflixSessionToken);
+    let {Artifact_id, Value} = req.body;
+
+    try {
+      // eslint-disable-next-line max-len
+      await this.db.insertObject('Rating', {
+        User_id,
+        Artifact_id,
+        Value,
+      });
+
+
+      res.end();
+    } catch (e) {
+      console.log(e);
+      res
+        .status(500)
+        .json(e);
+    }
+
+  };
+  getUser = async(req, res) => {
+    let User_id = this.getUserId(req.cookies.edflixSessionToken);
+
+    try {
+      // eslint-disable-next-line max-len
+      let user = await this.db.get('SELECT User_id, User_name, Email, ProfilePicture FROM User where User_id=?', [User_id]);
+      if (user) {
+
+        res
+          .status(200)
+          .json(user);
+
+      } else {
+        res
+          .status(500)
+          .json({ code: 'UNKNOWN_USERID' });
+      }
+    } catch (e) {
+      console.log(e);
+      res
+        .status(500)
+        .send('Internal Server Error - Could not get User.');
+    }
+  };
+
+  getJournal = async(req, res) => {
+    let User_id = this.getUserId(req.cookies.edflixSessionToken);
+
+    try {
+      // eslint-disable-next-line max-len
+      let journal = await this.db.get('SELECT j.* FROM User u INNER JOIN LearningJournal j ON u.Journal_id=j.Journal_id WHERE u.User_id=?', [User_id]);
+      if (journal) {
+        // eslint-disable-next-line max-len
+        const modules = await this.db.all('SELECT Module_Name FROM JournalModule WHERE Journal_id=?', [journal.Journal_id]);
+        if (modules) {
+          journal.modules = modules.map((m) => m.Module_Name);
+        }
+        res
+          .status(200)
+          .json(journal);
+
+      } else {
+        res
+          .status(500)
+          .json({ code: 'UNKNOWN_JOURNALID' });
+      }
+    } catch (e) {
+      console.log(e);
+      res
+        .status(500)
+        .send('Internal Server Error - Could not get Journal.');
+    }
+  };
+  editJournal = async(req, res) => {
+    let User_id = this.getUserId(req.cookies.edflixSessionToken);
+    let {LevelOfStudy, UniversityCourse, University, Modules} = req.body;
+
+    try {
+      await this.db.exec('BEGIN TRANSACTION');
+
+      // eslint-disable-next-line max-len
+      let journal = await this.db.get('SELECT j.* FROM User u INNER JOIN LearningJournal j ON u.Journal_id=j.Journal_id WHERE u.User_id=?', [User_id]);
+      let Journal_id = null;
+      if (journal) {
+        // edit existing journal:
+        Journal_id = journal.Journal_id;
+        await this.db.run(
+          // eslint-disable-next-line max-len
+          'UPDATE LearningJournal SET LevelOfStudy=?, UniversityCourse=?, University=? WHERE Journal_id=?',
+          [LevelOfStudy, UniversityCourse, University, Journal_id],
+        );
+        await this.db.run(
+          'DELETE FROM JournalModule WHERE Journal_id=?',
+          [Journal_id],
+        );
+      } else {
+        // create new journal:
+        // eslint-disable-next-line max-len
+        let result = await this.db.insertObject('LearningJournal', {
+          LevelOfStudy, UniversityCourse, University,
+        });
+        Journal_id = result.lastID;
+        await this.db.run(
+          'UPDATE User SET Journal_id=? WHERE User_id=?',
+          [Journal_id, User_id],
+        );
+      }
+
+      for (const Module_Name of Modules) {
+        await this.db.insertObject('JournalModule', {
+          Journal_id, Module_Name,
+        });
+      }
+
+      await this.db.exec('COMMIT TRANSACTION');
+
+      res.end();
+    } catch (e) {
+      console.log(e);
+      res
+        .status(500)
+        .json(e);
+    }
+
+  };
 }
 
 export default APIController;
