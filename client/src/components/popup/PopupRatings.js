@@ -27,7 +27,7 @@ export class PopupRatings extends Component {
                             )}
                         </div>
 
-                        {[1, 2, 3, 4, 5].map((i) => (
+                        {[5, 4, 3, 2, 1].map((i) => (
                             <div key={i} className="rating-progress flex-center">
                                 <span className="rating-progress-text" style={{ whiteSpace: 'nowrap' }}>
                                     {i} Star
