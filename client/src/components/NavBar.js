@@ -3,15 +3,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import { useEffect, useState } from 'react';
 import { serverURL } from '..';
 import './NavBar.css';
-
-function getInitials(name) {
-  const nameComponents = name.split(' ');
-  var initials = nameComponents[0].charAt(0);
-  if (nameComponents.length > 1) {
-    initials += nameComponents[nameComponents.length - 1].charAt(0);
-  }
-  return initials.toUpperCase();
-}
+import { UserAvatar } from './UserAvatar';
 
 function NavBar() {
   const [user, setUser] = useState(null);
@@ -63,11 +55,7 @@ function NavBar() {
             {user && (
               <NavDropdown
                 title={
-                  <span style={{ height: 30, width: 30, borderRadius: 15, display: 'inline-block', backgroundColor: 'hsl(210, 11%, 25%)', backgroundImage: user.ProfilePicture ? `url(${user.ProfilePicture})` : '' }}>
-                    <span style={{ height: 30, width: 30, borderRadius: 15, display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: user.ProfilePicture ? 'transparent' : 'rgb(208, 0, 34)' }}>
-                      <b style={{ fontSize: 14, color: user.ProfilePicture ? 'transparent' : '#ddd' }}>{getInitials(user.User_name)}</b>
-                    </span>
-                  </span>
+                  <UserAvatar user={user} size={30} style={{ fontSize: 14 }} />
                 }
                 id="navbarScrollingDropdown"
               >

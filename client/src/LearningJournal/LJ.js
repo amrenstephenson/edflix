@@ -5,6 +5,7 @@ import { UserOutlined } from '@ant-design/icons';
 import { Button, Tag, Modal, Input, List, Avatar, Drawer, Space, Upload, Select, Popconfirm, Rate } from "antd";
 import { LinkOutlined, EditFilled, UploadOutlined } from "@ant-design/icons";
 import { serverURL } from '../index';
+import { UserAvatar } from '../components/UserAvatar';
 
 
 const modules = Array.from({ length: 6 }).map((_, i) => `module ${i}`);
@@ -65,9 +66,7 @@ function UserInfo(props) {
         <th rowSpan="2" className="username_title">
           <div className="username">{userInfo.User_name}</div>
           <div className="ProfilePicture">
-            {(userInfo.ProfilePicture ? 
-              <Avatar size={56} src={userInfo.ProfilePicture} /> :
-              <Avatar size={56} icon={<UserOutlined />} />)}
+            <UserAvatar user={userInfo} size={56} />
           </div>
         </th>
         <th className="email_title">Email:</th>
@@ -151,9 +150,7 @@ function EditDrawer(props) {
           <thead>
             <tr>
               <th rowSpan="2" className="edit_picture">
-                {(userInfo.ProfilePicture ? 
-                  <Avatar size={56} src={userInfo.ProfilePicture} /> :
-                  <Avatar size={56} icon={<UserOutlined />} />)}
+                <UserAvatar user={userInfo} size={56} />
               </th>
               <th className="edit_basic_info">Username:</th>
               <th className="inputbox">
