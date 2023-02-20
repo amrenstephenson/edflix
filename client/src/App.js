@@ -2,8 +2,8 @@ import { BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from "./Home";
 import PageNotFound from "./PageNotFound";
 import Login from "./login/login";
-import Signup from "./login/signup"
-import  LearningJournal from  './LearningJournal/LJ'
+import Signup from "./login/signup";
+import  LearningJournal from  './LearningJournal/LJ';
 
 function App() {
   return (

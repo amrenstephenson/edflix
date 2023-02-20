@@ -12,27 +12,27 @@ function ArtifactRows(props) {
       const [artifacts, recommendations] = await Promise.all([response1.json(), response2.json()]);
         
       // Create an array of topics and their associated artifacts from the array of artifacts.
-      const groupedArtifacts = []
+      const groupedArtifacts = [];
 
       if (recommendations && recommendations.length > 0) {
         groupedArtifacts.push({'topic': 'Recommendations', 'artifacts': recommendations});
       }
             
       artifacts.forEach((artifact) => {
-        const topic = groupedArtifacts.find(group => group.topic === artifact.Topic)
+        const topic = groupedArtifacts.find(group => group.topic === artifact.Topic);
         if (topic) {
-          topic.artifacts.push(artifact)
+          topic.artifacts.push(artifact);
         } else {
-          groupedArtifacts.push({'topic':artifact.Topic, 'artifacts': [artifact]})
+          groupedArtifacts.push({'topic':artifact.Topic, 'artifacts': [artifact]});
         }
-      })
+      });
         
       setArtifactRows(groupedArtifacts);
-    }
+    };
         
     fetchData()
       .catch(console.error);
-  }, [])
+  }, []);
 
   return (
     <div {...props} style={{ ...props.style }}>

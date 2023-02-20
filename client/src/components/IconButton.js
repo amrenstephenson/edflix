@@ -7,8 +7,8 @@ function IconButton(props) {
     <button
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => {
-        setIsHovered(false)
-        setIsClicked(false)
+        setIsHovered(false);
+        setIsClicked(false);
       }}
       onMouseDown={() => setIsClicked(true)}
       onMouseUp={() => setIsClicked(false)}
@@ -23,7 +23,7 @@ function IconButton(props) {
     >
       {props.children}
     </button>
-  )
+  );
 }
 
 export default IconButton;

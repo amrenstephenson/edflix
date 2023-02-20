@@ -6,8 +6,8 @@ const clickColor = '#b00';
 
 export class Button extends Component {
   constructor(props) {
-    super(props)
-    this.state = {color: defaultColor}
+    super(props);
+    this.state = {color: defaultColor};
   }
 
   render() {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
-import './LJ.css'
+import './LJ.css';
 import { Button, Tag,Modal,Input,List,message, Avatar,Drawer,Space,Upload,Select, Popconfirm, Rate } from "antd";
 import {LinkOutlined,EditFilled, UploadOutlined} from "@ant-design/icons";
 import { serverURL } from '../index';

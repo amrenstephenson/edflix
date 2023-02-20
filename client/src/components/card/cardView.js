@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 
 import { Rate } from 'antd';
 
-import "./cardView.css"
+import "./cardView.css";
 import { Card } from 'antd';
 
 import { changeNum } from './../utils';
 
 class CardView extends Component {
   render() {
-    const { card_dataset } = this.props
+    const { card_dataset } = this.props;
     const { Meta } = Card;
     return (
       <Card

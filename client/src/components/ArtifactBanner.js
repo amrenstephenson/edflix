@@ -12,7 +12,7 @@ function ArtifactBanner(props) {
       alt="Test banner"
     />
 
-  )
+  );
 }
 
 export default ArtifactBanner;
