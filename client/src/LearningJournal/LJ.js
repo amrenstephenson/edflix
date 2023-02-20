@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
 import './LJ.css';
+import { UserOutlined } from '@ant-design/icons';
 import { Button, Tag, Modal, Input, List, Avatar, Drawer, Space, Upload, Select, Popconfirm, Rate } from "antd";
 import { LinkOutlined, EditFilled, UploadOutlined } from "@ant-design/icons";
 import { serverURL } from '../index';
@@ -64,11 +65,9 @@ function UserInfo(props) {
         <th rowSpan="2" className="username_title">
           <div className="username">{userInfo.User_name}</div>
           <div className="ProfilePicture">
-            <Avatar size={56} src={userinfomation[0].picture} />
+            <Avatar size={56} icon={<UserOutlined />} />
           </div>
         </th>
-      </tr>
-      <tr>
         <th className="email_title">Email:</th>
         <th className="email">{userInfo.Email}</th>
       </tr>
@@ -98,10 +97,6 @@ function JournalInfo(props) {
               {module}
             </Tag>
           )))}
-          
-          <Tag color="blue">
-            <a style={{ color: "blue" }}>...</a>
-          </Tag>
         </td>
       </tr>
     </tbody>
@@ -235,7 +230,7 @@ function EditDrawer(props) {
             </Tag>
           ))}
           <Tag color="blue">
-            <a style={{ color: "blue" }} onClick={showModal}>+</a>
+            <button style={{ all: "unset", color: "blue", cursor: "pointer" }} onClick={showModal}>+</button>
           </Tag>
           <Modal
             open={Modalopen}
@@ -244,7 +239,7 @@ function EditDrawer(props) {
             onCancel={handleCancel}
             footer={[
               <Button key="back" onClick={handleCancel}>
-                      Return
+                Cancel
               </Button>,
               <Button
                 key="submit"
@@ -252,7 +247,7 @@ function EditDrawer(props) {
                 loading={loading}
                 onClick={handleOk}
               >
-                      Submit
+                Submit
               </Button>
             ]}
           >
@@ -277,12 +272,12 @@ function RatingsList(props) {
 
       <div style={{ background:'rgb(30, 30, 30)',width:'80%',marginLeft:'10%' }}>
         <List
-          tyle={{ color:'white'}}
+          style={{ color:'white'}}
           itemLayout="vertical"
           size="small"
           pagination={{
             onChange: (page) => {
-              console.log(page);
+              console.log(page); //TODO: remove this
             },
             pageSize: 4
           }}
@@ -299,7 +294,7 @@ function RatingsList(props) {
                     okText="Yes"
                     cancelText="No"
                   >
-                    <button href="#" style={{backgroundColor:'rgb(45 45 45)',color:'red',border:'solid 1px',borderRadius:'5px',fontSize:'medium'}}>Delete</button>
+                    <button href="#" style={{backgroundColor:'rgb(45 45 45)',color:'red',border:'solid 1px',borderRadius:'5px',fontSize:'medium', padding: "2px 5px 2px 5px"}}>Delete</button>
                   </Popconfirm>
             }))
           }
