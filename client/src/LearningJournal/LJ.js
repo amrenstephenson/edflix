@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
 import './LJ.css';
-import { Button, Tag,Modal,Input,List,message, Avatar,Drawer,Space,Upload,Select, Popconfirm, Rate } from "antd";
-import {LinkOutlined,EditFilled, UploadOutlined} from "@ant-design/icons";
+import { Button, Tag, Modal, Input, List, Avatar, Drawer, Space, Upload, Select, Popconfirm, Rate } from "antd";
+import { LinkOutlined, EditFilled, UploadOutlined } from "@ant-design/icons";
 import { serverURL } from '../index';
 
 
@@ -21,24 +21,6 @@ const userinfomation = [
     module: modules
   }
 ];
-
-const props = {
-  name: "file",
-  action: "./",
-  headers: {
-    authorization: "authorization-text"
-  },
-  onChange(info) {
-    if (info.file.status !== "uploading") {
-      console.log(info.file, info.fileList);
-    }
-    if (info.file.status === "done") {
-      message.success(`${info.file.name} file uploaded successfully`);
-    } else if (info.file.status === "error") {
-      message.error(`${info.file.name} file upload failed.`);
-    }
-  }
-};
 
 const courses = [
   { label: "Computer Science" },
@@ -71,21 +53,6 @@ const stages = [
 
 
 
-const data = Array.from({ length: 21 }).map((_, i) => ({
-  href: "http://localhost:3000/",
-  title: `Artifact ${i}`,
-  description:
-  "Focused training for experienced UNIX administrators on how to install, customize, and administer the AIX operating system in a multiuser POWER partitioned environment. It is based on AIX 7.1 running on a Power system managed by Hardware Management Console v7. I(earlier versions also discussed)", 
-  content:     
-      <Popconfirm
-        title="Delete the artifact"
-        description="Are you sure to delete this artifact?"
-        okText="Yes"
-        cancelText="No"
-      >
-        <button href="#" style={{backgroundColor:'rgb(45 45 45)',color:'red',border:'solid 1px',borderRadius:'5px',fontSize:'medium'}}>Delete</button>
-      </Popconfirm>
-}));
 
 
 function UserInfo(props) {
@@ -94,7 +61,7 @@ function UserInfo(props) {
   return (
     <thead className="basicinfo">
       <tr>
-        <th rowspan="2" className="username_title">
+        <th rowSpan="2" className="username_title">
           <div className="username">{userInfo.User_name}</div>
           <div className="ProfilePicture">
             <Avatar size={56} src={userinfomation[0].picture} />
@@ -126,8 +93,8 @@ function JournalInfo(props) {
           <br />
         </td>
         <td className="modules">
-          {(journalInfo.modules.map((module) => (
-            <Tag color="blue">
+          {(journalInfo.modules.map((module, i) => (
+            <Tag color="blue" key={i}>
               {module}
             </Tag>
           )))}
@@ -186,7 +153,7 @@ function EditDrawer(props) {
         <table style={{ width: "100%" }}>
           <thead>
             <tr>
-              <th rowspan="2" className="edit_picture">
+              <th rowSpan="2" className="edit_picture">
                 <Avatar size={56} src={userinfomation[0].picture} />
               </th>
               <th className="edit_basic_info">Username:</th>
@@ -262,8 +229,8 @@ function EditDrawer(props) {
       <div>
         <h3 className="edit_course_degree_module_title">Modules:</h3>
         <div>
-          {journalInfo.modules.map((module) => (
-            <Tag color="blue">
+          {journalInfo.modules.map((module, i) => (
+            <Tag color="blue" key={i}>
               {module}
             </Tag>
           ))}
@@ -319,7 +286,23 @@ function RatingsList(props) {
             },
             pageSize: 4
           }}
-          dataSource={data}
+          dataSource = {
+            Array.from({ length: 21 }).map((_, i) => ({
+              href: "/",
+              title: `Artifact ${i}`,
+              description:
+              "Focused training for experienced UNIX administrators on how to install, customize, and administer the AIX operating system in a multiuser POWER partitioned environment. It is based on AIX 7.1 running on a Power system managed by Hardware Management Console v7. I(earlier versions also discussed)", 
+              content:     
+                  <Popconfirm
+                    title="Delete the artifact"
+                    description="Are you sure to delete this artifact?"
+                    okText="Yes"
+                    cancelText="No"
+                  >
+                    <button href="#" style={{backgroundColor:'rgb(45 45 45)',color:'red',border:'solid 1px',borderRadius:'5px',fontSize:'medium'}}>Delete</button>
+                  </Popconfirm>
+            }))
+          }
           renderItem={(item) => (
             <List.Item
               key={item.title}
@@ -387,7 +370,7 @@ export default function LearningJournal() {
   };
 
   return(
-    <div class="learning-journal">
+    <div className="learning-journal">
       <div>
         <NavBar />
       </div>
