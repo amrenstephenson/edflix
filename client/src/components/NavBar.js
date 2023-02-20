@@ -4,6 +4,15 @@ import { useEffect, useState } from 'react';
 import { serverURL } from '..';
 import './NavBar.css';
 
+function getInitials(name) {
+    const nameComponents = name.split(' ');
+    var initials = nameComponents[0].charAt(0);
+    if (nameComponents.length > 1) {
+        initials += nameComponents[nameComponents.length - 1].charAt(0);
+    }
+    return initials.toUpperCase();
+}
+
 function NavBar() {
     const [user, setUser] = useState(null);
     useEffect(() => {
@@ -52,7 +61,16 @@ function NavBar() {
                             </>
                         )}
                         {user && (
-                            <NavDropdown title={<img style={{ height: 30, width: 30, borderRadius: 15, backgroundColor: 'hsl(210, 11%, 25%)', color: 'transparent', display: 'inline-block' }} alt="Profile" src={user.ProfilePicture ?? 'https://avatars.abstractapi.com/v1/?api_key=6f7e30fa290f42a2aee47eed88c3f350&background_color=d00022&name=' + encodeURIComponent(user.User_name)} />} id="navbarScrollingDropdown">
+                            <NavDropdown
+                                title={
+                                    <span style={{ height: 30, width: 30, borderRadius: 15, display: 'inline-block', backgroundColor: 'hsl(210, 11%, 25%)', backgroundImage: user.ProfilePicture ? `url(${user.ProfilePicture})` : '' }}>
+                                        <span style={{ height: 30, width: 30, borderRadius: 15, display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: user.ProfilePicture ? 'transparent' : 'rgb(208, 0, 34)' }}>
+                                            <b style={{ fontSize: 14, color: user.ProfilePicture ? 'transparent' : '#ddd' }}>{getInitials(user.User_name)}</b>
+                                        </span>
+                                    </span>
+                                }
+                                id="navbarScrollingDropdown"
+                            >
                                 <div style={{ paddingTop: '0.5rem', paddingBottom: '0.75rem', paddingLeft: '1rem', paddingRight: '1rem', borderBottom: '1px solid hsl(210, 11%, 25%)', marginBottom: '0.5rem' }}>
                                     Logged in as
                                     <br />
