@@ -65,7 +65,9 @@ function UserInfo(props) {
         <th rowSpan="2" className="username_title">
           <div className="username">{userInfo.User_name}</div>
           <div className="ProfilePicture">
-            <Avatar size={56} icon={<UserOutlined />} />
+            {(userInfo.ProfilePicture ? 
+              <Avatar size={56} src={userInfo.ProfilePicture} /> :
+              <Avatar size={56} icon={<UserOutlined />} />)}
           </div>
         </th>
         <th className="email_title">Email:</th>
@@ -149,7 +151,9 @@ function EditDrawer(props) {
           <thead>
             <tr>
               <th rowSpan="2" className="edit_picture">
-                <Avatar size={56} src={userinfomation[0].picture} />
+                {(userInfo.ProfilePicture ? 
+                  <Avatar size={56} src={userInfo.ProfilePicture} /> :
+                  <Avatar size={56} icon={<UserOutlined />} />)}
               </th>
               <th className="edit_basic_info">Username:</th>
               <th className="inputbox">
