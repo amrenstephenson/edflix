@@ -1,16 +1,4 @@
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }
-  
-* {
-margin: 0;
-padding: 0;
-}
-
-
-
-.bigtitle{
+.learning-journal .bigtitle{
   margin-top: auto;
   padding-bottom: 1rem;
   color: white;
@@ -19,7 +7,7 @@ padding: 0;
   z-index: 9999;
 }
 
-.title{
+.learning-journal .title{
   margin-top: auto;
   padding-bottom: 1rem;
   color: white;
@@ -27,56 +15,56 @@ padding: 0;
   z-index: 9999;
 }
 
-
-.ant-list .ant-list-item .ant-list-item-meta .ant-list-item-meta-title >a {
-  color: white;
-}
-.ant-list .ant-list-item .ant-list-item-meta .ant-list-item-meta-description{
+.learning-journal .ant-list .ant-list-item .ant-list-item-meta .ant-list-item-meta-title >a {
   color: white;
 }
 
-.ant-list-vertical .ant-list-item .ant-list-item-main{
+.learning-journal .ant-list .ant-list-item .ant-list-item-meta .ant-list-item-meta-description{
   color: white;
 }
 
-.ant-pagination-next .ant-pagination-item-link{
+.learning-journal .ant-list-vertical .ant-list-item .ant-list-item-main{
   color: white;
 }
 
-.ant-list-sm .ant-list-item{
+.learning-journal .ant-pagination-next .ant-pagination-item-link{
+  color: white;
+}
+
+.learning-journal .ant-list-sm .ant-list-item{
   box-shadow: 0px 0px 20px rgba(255, 255, 255, .2);
   margin-bottom: 0.25rem;
 }
 
-.ant-list-sm .ant-list-item:hover{
+.learning-journal .ant-list-sm .ant-list-item:hover{
   box-shadow: 0px 0px 20px rgba(255, 255, 255, .7);
 }
 
-.ant-pagination .ant-pagination-next button{
+.learning-journal .ant-pagination .ant-pagination-next button{
   color: rgb(255, 255, 255);
 }
 
-.ant-pagination .ant-pagination-disabled:hover .ant-pagination-item-link{
+.learning-journal .ant-pagination .ant-pagination-disabled:hover .ant-pagination-item-link{
     color: rgb(179, 179, 180);
 }
 
-.ant-pagination .ant-pagination-prev button{
+.learning-journal .ant-pagination .ant-pagination-prev button{
   color: rgb(255, 255, 255);
 }
-.ant-pagination{
+
+.learning-journal .ant-pagination{
   color:#8d8d8d;
 }
 
-.ant-pagination .ant-pagination-disabled .ant-pagination-item-link{
+.learning-journal .ant-pagination .ant-pagination-disabled .ant-pagination-item-link{
   color: rgb(179, 179, 180);
 }
 
-
-.ant-drawer .ant-drawer-content{
+.learning-journal .ant-drawer .ant-drawer-content{
   background-color: #706e6e;
 }
 
-.userinfo {
+.learning-journal .userinfo {
   width: 80%;
   height: 60%;
   margin-left: 10%;
@@ -88,15 +76,16 @@ padding: 0;
   border: solid 2px #dfdfdf;
 }
 
-.basicinfo {
+.learning-journal .basicinfo {
   height: 40%;
 }
-.username_title {
+
+.learning-journal .username_title {
   width: 25%;
   border-bottom: black 1px solid;
 }
 
-.username {
+.learning-journal .username {
   width: 100%;
   height: 50%;
   font-size: 1.3rem;
@@ -104,13 +93,13 @@ padding: 0;
   text-align: center;
 }
 
-.ProfilePicture {
+.learning-journal .ProfilePicture {
   width: 100%;
   height: 60%;
   text-align: center;
 }
 
-.id_title {
+.learning-journal .id_title {
   width: 15%;
   height: 20%;
   text-align: center;
@@ -118,7 +107,7 @@ padding: 0;
   font-weight: bold;
 }
 
-.email_title {
+.learning-journal .email_title {
   width: 15%;
   height: 20%;
   text-align: center;
@@ -127,14 +116,14 @@ padding: 0;
   font-weight: bold;
 }
 
-.id {
+.learning-journal .id {
   width: 40%;
   height: 20%;
   text-align: left;
   font-weight: normal;
 }
 
-.email {
+.learning-journal .email {
   width: 40%;
   height: 20%;
   text-align: left;
@@ -142,58 +131,64 @@ padding: 0;
   font-weight: normal;
 }
 
-.degree_title {
+.learning-journal .degree_title {
   text-align: center;
   font-size: 1.2rem;
   font-weight: bold;
 }
-.course_title {
+
+.learning-journal .course_title {
   text-align: center;
   font-size: 1.2rem;
   font-weight: bold;
 }
-.modules_title {
+
+.learning-journal .modules_title {
   text-align: center;
   font-size: 1.2rem;
   font-weight: bold;
 }
-.degree {
-  text-align: center;
-}
-.course {
-  text-align: center;
-}
-.modules {
+
+.learning-journal .degree {
   text-align: center;
 }
 
-.edit_picture {
-  width: 25%;
+.learning-journal .course {
   text-align: center;
 }
-.submit_picture {
+
+.learning-journal .modules {
+  text-align: center;
+}
+
+.learning-journal .edit_picture {
   width: 25%;
   text-align: center;
 }
 
-.edit_basic_info {
+.learning-journal .submit_picture {
+  width: 25%;
+  text-align: center;
+}
+
+.learning-journal .edit_basic_info {
   width: 15%;
   text-align: left;
   font-weight: bold;
 }
 
-.inputbox {
+.learning-journal .inputbox {
   width: 60%;
   text-align: left;
 }
 
-.edit_course_degree_module_title {
+.learning-journal .edit_course_degree_module_title {
   font-size: 1.25rem;
   color: #fff;
   text-align: left;
 }
 
-.ant-drawer .ant-drawer-title{
+.learning-journal .ant-drawer .ant-drawer-title{
   color: white;
   font-size: 2rem;
 }

@@ -387,7 +387,7 @@ export default function LearningJournal() {
   };
 
   return(
-    <div>
+    <div class="learning-journal">
       <div>
         <NavBar />
       </div>
