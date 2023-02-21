@@ -70,6 +70,7 @@ function NavBar() {
                                     </span>
                                 }
                                 id="navbarScrollingDropdown"
+                                align="end"
                             >
                                 <div style={{ paddingTop: '0.5rem', paddingBottom: '0.75rem', paddingLeft: '1rem', paddingRight: '1rem', borderBottom: '1px solid hsl(210, 11%, 25%)', marginBottom: '0.5rem' }}>
                                     Logged in as
