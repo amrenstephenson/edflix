@@ -20,7 +20,6 @@ router.post('/login', apiController.login);
 
 router.post('/register', apiController.register);
 
-
 router.get('/artifact/:id', apiController.getArtifact);
 
 router.get('/ratings/get/:id', apiController.getArtifactRating);
@@ -35,9 +34,10 @@ router.post('/ratings/new', apiController.postRating);
 
 router.get('/user', apiController.getUser);
 
+router.get('/user/ratings', apiController.getUserRatings);
+
 router.get('/journal', apiController.getJournal);
 
 router.post('/journal/edit', apiController.editJournal);
-
 
 export default router;
