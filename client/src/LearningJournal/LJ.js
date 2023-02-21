@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
 import './LJ.css';
-import { UserOutlined } from '@ant-design/icons';
-import { Button, Tag, Modal, Input, List, Avatar, Drawer, Space, Upload, Select, Popconfirm, Rate } from "antd";
+import { Button, Tag, Modal, Input, List, Drawer, Space, Upload, Select, Popconfirm, Rate } from "antd";
 import { LinkOutlined, EditFilled, UploadOutlined } from "@ant-design/icons";
 import { serverURL } from '../index';
 import { UserAvatar } from '../components/UserAvatar';
@@ -334,8 +333,8 @@ function RatingsList(props) {
 
 
 export default function LearningJournal() {
-  const defaultUserInfo = {};
-  const defaultJournalInfo = {modules: []};
+  const defaultUserInfo = null;
+  const defaultJournalInfo = null;
 
   const [userInfo, setUserInfo] = useState(defaultUserInfo);
   const [journalInfo, setJournalInfo] = useState(defaultJournalInfo);
@@ -372,7 +371,7 @@ export default function LearningJournal() {
       </div>
       <div 
         style={{
-          backgroundImage: 'linear-gradient(0, black, transparent), url("images/testing/learningJ.jpg")',
+          backgroundImage: 'linear-gradient(0, black, transparent), url("images/testing/learningJ.jpg")', //TODO: image does not exist
           backgroundSize: '100%',
           height: '20rem',
           width: '100%',
@@ -380,8 +379,8 @@ export default function LearningJournal() {
       />
       <div>
         <table className="userinfo">
-          <UserInfo userInfo={ userInfo } />
-          <JournalInfo journalInfo={ journalInfo } />
+          {userInfo ? <UserInfo userInfo={ userInfo } /> : ''}
+          {journalInfo ? <JournalInfo journalInfo={ journalInfo } /> : ''}
         </table>
         <br />
         <div style={{ width: "90%", textAlign: "right" }}>
@@ -391,13 +390,15 @@ export default function LearningJournal() {
             icon={<EditFilled />}
             onClick={showDrawer}
           >
-                  Edit Your information
+            Edit Your information
           </Button>
-          <EditDrawer userInfo={ userInfo } journalInfo={ journalInfo } open={ open } setOpen={ setOpen } />
+          {userInfo && journalInfo ?
+            <EditDrawer userInfo={ userInfo } journalInfo={ journalInfo } open={ open } setOpen={ setOpen } /> :
+            ''}
         </div>
       </div>
 
-      <RatingsList />
+      {userInfo && journalInfo ? <RatingsList /> : ''}
     </div>
   );
 }
