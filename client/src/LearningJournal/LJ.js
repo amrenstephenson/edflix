@@ -7,23 +7,13 @@ import { serverURL } from '../index';
 import { UserAvatar } from '../components/UserAvatar';
 
 
-const modules = Array.from({ length: 6 }).map((_, i) => `module ${i}`);
-
 const userinfomation = [
   {
-    username: "usernmae",
-    picture:
-      "https://img.ixintu.com/download/jpg/20200827/a58b21d43b1d6d5fa679123b3d1a2dd6_512_512.jpg!con",
-    id: "user id",
-    email: "example@example.com",
-    course: "computer science",
     degree: "undergraduate",
-    stage: "year 2",
-    module: modules
   }
 ];
 
-const courses = [
+const validCourses = [
   { label: "Computer Science" },
   { label: "Math" },
   { label: "Artificial Intelligence" },
@@ -33,7 +23,7 @@ const courses = [
   { label: "Security" }
 ];
 
-const Degree = [
+const validDegrees = [
   { label: "High school" },
   { label: "Undergraduate" },
   { label: "Master" },
@@ -42,18 +32,13 @@ const Degree = [
   { label: "other" }
 ];
 
-const stages = [
+const validYearsOfStudy = [
   { label: "year 1" },
   { label: "year 2" },
   { label: "year 3" },
   { label: "Research" },
   { label: "Other" }
 ];
-
-
-
-
-
 
 
 function UserInfo(props) {
@@ -203,7 +188,7 @@ function EditDrawer(props) {
               .toLowerCase()
               .localeCompare((optionB?.label ?? "").toLowerCase())
           }
-          options={courses}
+          options={validCourses}
         />
       </div>
       <br />
@@ -212,12 +197,12 @@ function EditDrawer(props) {
         <Select
           defaultValue={userinfomation[0].degree}
           style={{ width: "60%" }}
-          options={Degree}
+          options={validDegrees}
         />
         <Select
-          defaultValue={journalInfo ? stages[parseInt(journalInfo.LevelOfStudy, 10) - 1].label : stages[0].label}
+          defaultValue={journalInfo ? validYearsOfStudy[parseInt(journalInfo.LevelOfStudy, 10) - 1].label : validYearsOfStudy[0].label}
           style={{ width: "30%" }}
-          options={stages}
+          options={validYearsOfStudy}
         />
       </div>
       <br />
