@@ -16,7 +16,24 @@ class APIController {
     try {
       const filter = req.query.filter;
       // eslint-disable-next-line max-len
-      let artifacts = await this.db.all('SELECT Artifact_id, Topic, ThumbnailURL, Artifact_Name FROM Artifact');
+      let artifacts = await this.db.all(
+        `
+        SELECT
+          a.Artifact_id,
+          a.Topic,
+          a.ThumbnailURL,
+          a.Artifact_Name,
+          AVG(Value) avg_rating
+        FROM
+          Artifact a
+        LEFT JOIN
+          Rating r ON a.Artifact_id=r.Artifact_id
+        GROUP BY
+          a.Artifact_id
+        ORDER BY
+          avg_rating DESC
+        `,
+      );
       if (filter) {
         artifacts = artifacts.filter(
           (a) => a.Artifact_Name.toLowerCase().includes(filter.toLowerCase()) ||
