@@ -9,7 +9,7 @@ function ArtifactCard(props) {
   };
   return (
     <div
-      style={{ borderRadius: '2rem', cursor: 'pointer', background: `url("${props.artifact.ThumbnailURL}")`, backgroundSize: 'cover', border: '1px solid #ddd', textShadow: '0px 0px 2px black;', ...props.style }}
+      style={{ borderRadius: '2rem', cursor: 'pointer', background: `url("${props.artifact.ThumbnailURL}")`, backgroundSize: 'cover', border: '1px solid #ddd', textShadow: '0px 0px 2px black', ...props.style }}
       className="box artifact-card"
       onClick={(e) => {
         if (ArtifactPopup.currentlyOpenPopup !== null) {
