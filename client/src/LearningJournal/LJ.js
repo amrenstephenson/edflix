@@ -193,7 +193,7 @@ function EditDrawer(props) {
           showSearch
           style={{ width: "60%" }}
           placeholder="Select a course"
-          defaultValue={journalInfo.UniversityCourse}
+          defaultValue={journalInfo?.UniversityCourse}
           optionFilterProp="children"
           filterOption={(input, option) =>
             (option?.label ?? "").includes(input)
@@ -215,7 +215,7 @@ function EditDrawer(props) {
           options={Degree}
         />
         <Select
-          defaultValue={stages[parseInt(journalInfo.LevelOfStudy, 10) - 1]}
+          defaultValue={journalInfo ? stages[parseInt(journalInfo.LevelOfStudy, 10) - 1].label : stages[0].label}
           style={{ width: "30%" }}
           options={stages}
         />
@@ -224,7 +224,7 @@ function EditDrawer(props) {
       <div>
         <h3 className="edit_course_degree_module_title">Modules:</h3>
         <div>
-          {journalInfo.modules.map((module, i) => (
+          {journalInfo?.modules?.map((module, i) => (
             <Tag color="blue" key={i}>
               {module}
             </Tag>
@@ -264,6 +264,8 @@ function EditDrawer(props) {
 }
 
 function RatingsList(props) {
+  const { userRatings } = props;
+
   return (
     <div>
       <div className='title' style={{textAlign:'center',marginTop:'2rem',marginBottom:'2rem'}}>
@@ -282,11 +284,13 @@ function RatingsList(props) {
             pageSize: 4
           }}
           dataSource = {
-            Array.from({ length: 21 }).map((_, i) => ({
-              href: "/",
-              title: `Artifact ${i}`,
-              description:
-              "Focused training for experienced UNIX administrators on how to install, customize, and administer the AIX operating system in a multiuser POWER partitioned environment. It is based on AIX 7.1 running on a Power system managed by Hardware Management Console v7. I(earlier versions also discussed)", 
+            userRatings.map((ratingInfo, i) => ({
+              href: `/?artifact=${ratingInfo.artifact.Artifact_id}`,
+              title: ratingInfo.artifact.Artifact_Name,
+              description: ratingInfo.artifact.Description,
+              rating: ratingInfo.rating,
+              url: ratingInfo.artifact.ArtifactURL,
+              image: ratingInfo.artifact.ThumbnailURL,
               content:     
                   <Popconfirm
                     title="Delete the artifact"
@@ -294,7 +298,9 @@ function RatingsList(props) {
                     okText="Yes"
                     cancelText="No"
                   >
-                    <button href="#" style={{backgroundColor:'rgb(45 45 45)',color:'red',border:'solid 1px',borderRadius:'5px',fontSize:'medium', padding: "2px 5px 2px 5px"}}>Delete</button>
+                    <button href="#" style={{backgroundColor:'rgb(45 45 45)',color:'red',border:'solid 1px',borderRadius:'5px',fontSize:'medium', padding: "2px 5px 2px 5px"}}>
+                      Delete
+                    </button>
                   </Popconfirm>
             }))
           }
@@ -303,10 +309,9 @@ function RatingsList(props) {
               key={item.title}
               actions={[
                 <div className="rating-rate" style={{color:'white'}}>
-                  <Rate allowHalf disabled defaultValue={3} />
-                        &nbsp;&nbsp;&nbsp;{3} out of {""}
-                  {3 > 5 ? 10 : 5}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <a href='https://www.ibm.com/uk-en' target="_blank" rel="noreferrer"><LinkOutlined style={{fontSize:'2.25rem'}} /></a>
+                  <Rate allowHalf disabled defaultValue={item.rating} />
+                        &nbsp;&nbsp;&nbsp;{item.rating} out of 5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <a href={item.url} target="_blank" rel="noreferrer"><LinkOutlined style={{fontSize:'2.25rem'}} /></a>
                 </div>
                       
               ]}
@@ -314,7 +319,7 @@ function RatingsList(props) {
                 <img
                   width={250}
                   alt="logo"
-                  src="images/testing/artifiact-image.png"
+                  src={item.image}
                 />
               }
             >
@@ -333,11 +338,9 @@ function RatingsList(props) {
 
 
 export default function LearningJournal() {
-  const defaultUserInfo = null;
-  const defaultJournalInfo = null;
-
-  const [userInfo, setUserInfo] = useState(defaultUserInfo);
-  const [journalInfo, setJournalInfo] = useState(defaultJournalInfo);
+  const [userInfo, setUserInfo] = useState(null);
+  const [journalInfo, setJournalInfo] = useState(null);
+  const [userRatings, setUserRatings] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -354,6 +357,16 @@ export default function LearningJournal() {
       const res = await fetch(`${serverURL}/api/journal`);
       if (res.status === 200) {
         setJournalInfo(await res.json());
+      }
+    }
+    fetchData().catch(console.error);
+  }, []);
+
+  useEffect(() => {
+    async function fetchData() {
+      const res = await fetch(`${serverURL}/api/user/ratings`);
+      if (res.status === 200) {
+        setUserRatings(await res.json());
       }
     }
     fetchData().catch(console.error);
@@ -383,22 +396,24 @@ export default function LearningJournal() {
           {journalInfo ? <JournalInfo journalInfo={ journalInfo } /> : ''}
         </table>
         <br />
-        <div style={{ width: "90%", textAlign: "right" }}>
-          <Button
-            type="primary"
-            shape="round"
-            icon={<EditFilled />}
-            onClick={showDrawer}
-          >
-            Edit Your information
-          </Button>
-          {userInfo && journalInfo ?
-            <EditDrawer userInfo={ userInfo } journalInfo={ journalInfo } open={ open } setOpen={ setOpen } /> :
-            ''}
-        </div>
+        {userInfo ?
+          <div style={{ width: "90%", textAlign: "right" }}>
+            <Button
+              type="primary"
+              shape="round"
+              icon={<EditFilled />}
+              onClick={showDrawer}
+            >
+              Edit Your information
+            </Button>
+            {userInfo ?
+              <EditDrawer userInfo={ userInfo } journalInfo={ journalInfo } open={ open } setOpen={ setOpen } /> :
+              ''}
+          </div>
+          : ''}
       </div>
 
-      {userInfo && journalInfo ? <RatingsList /> : ''}
+      {userRatings ? <RatingsList userRatings={ userRatings } /> : ''}
     </div>
   );
 }

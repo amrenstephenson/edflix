@@ -61,7 +61,7 @@ function NavBar() {
                 align="end"
               >
                 <div style={{ paddingTop: '0.5rem', paddingBottom: '0.75rem', paddingLeft: '1rem', paddingRight: '1rem', borderBottom: '1px solid hsl(210, 11%, 25%)', marginBottom: '0.5rem' }}>
-                                    Logged in as
+                  Logged in as
                   <br />
                   <b>{user.User_name}</b>
                 </div>
@@ -70,7 +70,7 @@ function NavBar() {
             )}
             {user === false && window.location.pathname !== '/login' && window.location.pathname !== '/signup' && (
               <Nav.Link href="/login" active={window.location.pathname === '/login'}>
-                                Login
+                Login
               </Nav.Link>
             )}
           </Nav>
