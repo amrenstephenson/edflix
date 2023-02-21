@@ -263,6 +263,10 @@ function EditDrawer(props) {
   );
 }
 
+function stripDescription(desc) {
+  return desc.replace( /(<([^>]+)>)/ig, '');
+}
+
 function RatingsList(props) {
   const { userRatings } = props;
 
@@ -287,7 +291,7 @@ function RatingsList(props) {
             userRatings.map((ratingInfo, i) => ({
               href: `/?artifact=${ratingInfo.artifact.Artifact_id}`,
               title: ratingInfo.artifact.Artifact_Name,
-              description: ratingInfo.artifact.Description,
+              description: stripDescription(ratingInfo.artifact.Description),
               rating: ratingInfo.rating,
               url: ratingInfo.artifact.ArtifactURL,
               image: ratingInfo.artifact.ThumbnailURL,
