@@ -16,7 +16,7 @@ export function UserAvatar(props) {
     <div className="user-avatar" style={{ display: 'inline-block' }}>
       {(user && user.ProfilePicture ? 
         <Avatar size={size} src={user.ProfilePicture} style={{...style}} /> :
-        <Avatar size={size} style={{...style}}>{getInitials(user.User_name)}</Avatar>)}
+        <Avatar size={size} style={{...style, userSelect: 'none'}}>{getInitials(user.User_name)}</Avatar>)}
     </div>
   );
 }
