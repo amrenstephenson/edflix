@@ -139,7 +139,7 @@ function EditDrawer(props) {
       extra={
         <Space>
           <Button onClick={onClose} type="primary">
-                  Submit
+            Submit
           </Button>
         </Space>
       }
@@ -364,7 +364,7 @@ export default function LearningJournal() {
     setOpen(true);
   };
 
-  return(
+  return (
     <div className="learning-journal">
       <div>
         <NavBar />

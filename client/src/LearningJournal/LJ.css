@@ -15,53 +15,53 @@
   z-index: 9999;
 }
 
-.learning-journal .ant-list .ant-list-item .ant-list-item-meta .ant-list-item-meta-title >a {
+.ant-list .ant-list-item .ant-list-item-meta .ant-list-item-meta-title >a {
   color: white;
 }
 
-.learning-journal .ant-list .ant-list-item .ant-list-item-meta .ant-list-item-meta-description{
+.ant-list .ant-list-item .ant-list-item-meta .ant-list-item-meta-description{
   color: white;
 }
 
-.learning-journal .ant-list-vertical .ant-list-item .ant-list-item-main{
+.ant-list-vertical .ant-list-item .ant-list-item-main{
   color: white;
 }
 
-.learning-journal .ant-pagination-next .ant-pagination-item-link{
+.ant-pagination-next .ant-pagination-item-link{
   color: white;
 }
 
-.learning-journal .ant-list-sm .ant-list-item{
+.ant-list-sm .ant-list-item{
   box-shadow: 0px 0px 20px rgba(255, 255, 255, .2);
   margin-bottom: 0.25rem;
 }
 
-.learning-journal .ant-list-sm .ant-list-item:hover{
+.ant-list-sm .ant-list-item:hover{
   box-shadow: 0px 0px 20px rgba(255, 255, 255, .7);
 }
 
-.learning-journal .ant-pagination .ant-pagination-next button{
+.ant-pagination .ant-pagination-next button{
   color: rgb(255, 255, 255);
 }
 
-.learning-journal .ant-pagination .ant-pagination-disabled:hover .ant-pagination-item-link{
+.ant-pagination .ant-pagination-disabled:hover .ant-pagination-item-link{
     color: rgb(179, 179, 180);
 }
 
-.learning-journal .ant-pagination .ant-pagination-prev button{
+.ant-pagination .ant-pagination-prev button{
   color: rgb(255, 255, 255);
 }
 
-.learning-journal .ant-pagination{
+.ant-pagination{
   color:#8d8d8d;
 }
 
-.learning-journal .ant-pagination .ant-pagination-disabled .ant-pagination-item-link{
+.ant-pagination .ant-pagination-disabled .ant-pagination-item-link{
   color: rgb(179, 179, 180);
 }
 
-.learning-journal .ant-drawer .ant-drawer-content{
-  background-color: #706e6e;
+.ant-drawer .ant-drawer-content{
+  background-color: var(--bs-dark);
 }
 
 .learning-journal .userinfo {
@@ -188,11 +188,15 @@
   text-align: left;
 }
 
-.learning-journal .ant-drawer .ant-drawer-title{
+.ant-drawer .ant-drawer-title{
   color: white;
   font-size: 2rem;
 }
 
 .anticon svg {
   vertical-align: 0;
+}
+
+.ant-drawer-close {
+  color: white !important;
 }
