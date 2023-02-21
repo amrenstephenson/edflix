@@ -16,7 +16,24 @@ class APIController {
     try {
       const filter = req.query.filter;
       // eslint-disable-next-line max-len
-      let artifacts = await this.db.all('SELECT Artifact_id, Topic, ThumbnailURL, Artifact_Name FROM Artifact');
+      let artifacts = await this.db.all(
+        `
+        SELECT
+          a.Artifact_id,
+          a.Topic,
+          a.ThumbnailURL,
+          a.Artifact_Name,
+          AVG(Value) avg_rating
+        FROM
+          Artifact a
+        LEFT JOIN
+          Rating r ON a.Artifact_id=r.Artifact_id
+        GROUP BY
+          a.Artifact_id
+        ORDER BY
+          avg_rating DESC
+        `,
+      );
       if (filter) {
         artifacts = artifacts.filter(
           (a) => a.Artifact_Name.toLowerCase().includes(filter.toLowerCase()) ||
@@ -200,6 +217,7 @@ class APIController {
         .json(e);
     }
   };
+
   postRating = async(req, res) => {
     const User_id = this.getUserId(req.cookies.edflixSessionToken);
     let {Artifact_id, Value} = req.body;
@@ -222,6 +240,7 @@ class APIController {
     }
 
   };
+
   getUser = async(req, res) => {
     let User_id = this.getUserId(req.cookies.edflixSessionToken);
 
@@ -244,6 +263,51 @@ class APIController {
       res
         .status(500)
         .send('Internal Server Error - Could not get User.');
+    }
+  };
+
+  getUserRatings = async(req, res) => {
+    if (!req.cookies.edflixSessionToken) {
+      res
+        .status(500)
+        .json({ code: 'UNKNOWN_USERID' });
+      return;
+    }
+
+    let userID = this.getUserId(req.cookies.edflixSessionToken);
+
+    try {
+      // eslint-disable-next-line max-len
+      let results = await this.db.all(`
+      SELECT
+        r.Value rating,
+        a.*
+      FROM
+        Rating r
+      INNER JOIN 
+        Artifact a
+      ON
+        a.Artifact_id = r.Artifact_id
+      WHERE
+        r.User_id = ?
+      `, [userID]);
+
+      const artfactRatings = results.map((result) => {
+        return {
+          rating: result.rating,
+          artifact: { ...result, rating: undefined},
+        };
+      });
+
+      res
+        .status(200)
+        .json(artfactRatings);
+
+    } catch (e) {
+      console.log(e);
+      res
+        .status(500)
+        .send('Internal Server Error - Could not get user ratings.');
     }
   };
 
@@ -275,6 +339,7 @@ class APIController {
         .send('Internal Server Error - Could not get Journal.');
     }
   };
+
   editJournal = async(req, res) => {
     let User_id = this.getUserId(req.cookies.edflixSessionToken);
     let {LevelOfStudy, UniversityCourse, University, Modules} = req.body;
