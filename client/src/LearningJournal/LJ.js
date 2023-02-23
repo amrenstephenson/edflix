@@ -136,6 +136,10 @@ function EditDrawer(props) {
   };
 
   const submitForm = async () => {
+    // TODO: check if required fields are met
+    // TODO: implement changing user info
+    // TODO: implement changing 'degree'
+
     const values = formRef.current?.getFieldsValue();
     const journalEditBody = {
       LevelOfStudy: values.levelOfStudy,
@@ -259,7 +263,7 @@ function EditDrawer(props) {
                 </Select>
               </Form.Item>
 
-              <Form.Item name="levelOfStudy" noStyle rules={[{ required: true }]}>
+              <Form.Item name="levelOfStudy" noStyle rules={[{ required: false }]}>
                 <Select
                   style={{ width: "30%" }}
                 >
@@ -379,6 +383,14 @@ function RatingsList(props) {
   );
 }
 
+function NotLoggedIn() {
+  return (
+    <h1 style={{ textAlign: 'center' }}>
+      You are not logged in
+    </h1>
+  );
+}
+
 
 export default function LearningJournal() {
   const [userInfo, setUserInfo] = useState(null);
@@ -433,13 +445,13 @@ export default function LearningJournal() {
           width: '100%',
         }}
       />
-      <div>
-        <table className="userinfo">
-          {userInfo ? <UserInfo userInfo={ userInfo } /> : ''}
-          {journalInfo ? <JournalInfo journalInfo={ journalInfo } /> : ''}
-        </table>
-        <br />
-        {userInfo ?
+      {userInfo ?
+        <div>
+          <table className="userinfo">
+            <UserInfo userInfo={ userInfo } />
+            {journalInfo ? <JournalInfo journalInfo={ journalInfo } /> : ''}
+          </table>
+          <br />
           <div style={{ width: "90%", textAlign: "right" }}>
             <Button
               type="primary"
@@ -449,12 +461,10 @@ export default function LearningJournal() {
             >
               Edit Your information
             </Button>
-            {userInfo ?
-              <EditDrawer userInfo={ userInfo } journalInfo={ journalInfo } open={ drawerOpen } setOpen={ setDrawerOpen } /> :
-              ''}
+            <EditDrawer userInfo={ userInfo } journalInfo={ journalInfo } open={ drawerOpen } setOpen={ setDrawerOpen } />
           </div>
-          : ''}
-      </div>
+        </div>
+        : <NotLoggedIn />}
 
       {userRatings ? <RatingsList userRatings={ userRatings } /> : ''}
     </div>
