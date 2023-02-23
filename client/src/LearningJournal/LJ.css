@@ -1,12 +1,3 @@
-.learning-journal .bigtitle{
-  margin-top: auto;
-  padding-bottom: 1rem;
-  color: white;
-  float: left;
-  font-size: 5rem;
-  z-index: 9999;
-}
-
 .learning-journal .title{
   margin-top: auto;
   padding-bottom: 1rem;
@@ -99,14 +90,6 @@
   margin-bottom: 10px;
 }
 
-.learning-journal .id_title {
-  width: 15%;
-  height: 20%;
-  text-align: center;
-  font-size: 1.1rem;
-  font-weight: bold;
-}
-
 .learning-journal .email_title {
   width: 15%;
   height: 20%;
@@ -159,22 +142,6 @@
 
 .learning-journal .modules {
   text-align: center;
-}
-
-.learning-journal .edit_picture {
-  width: 25%;
-  text-align: center;
-}
-
-.learning-journal .inputbox {
-  width: 60%;
-  text-align: left;
-}
-
-.learning-journal .edit_course_degree_module_title {
-  font-size: 1.25rem;
-  color: #fff;
-  text-align: left;
 }
 
 .ant-drawer .ant-drawer-title{
