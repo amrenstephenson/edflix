@@ -166,17 +166,6 @@
   text-align: center;
 }
 
-.learning-journal .submit_picture {
-  width: 25%;
-  text-align: center;
-}
-
-.learning-journal .edit_basic_info {
-  width: 15%;
-  text-align: left;
-  font-weight: bold;
-}
-
 .learning-journal .inputbox {
   width: 60%;
   text-align: left;
@@ -198,5 +187,9 @@
 }
 
 .ant-drawer-close {
+  color: white !important;
+}
+
+.edit-journal-form label {
   color: white !important;
 }

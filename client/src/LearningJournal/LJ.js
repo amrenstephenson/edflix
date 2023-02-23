@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import NavBar from '../components/NavBar';
 import './LJ.css';
-import { Button, Tag, Modal, Input, List, Drawer, Space, Upload, Select, Popconfirm, Rate } from "antd";
+import { Button, Tag, Modal, Input, List, Drawer, Space, Upload, Select, Popconfirm, Rate, Form } from "antd";
 import { LinkOutlined, EditFilled, UploadOutlined } from "@ant-design/icons";
 import { serverURL } from '../index';
 import { UserAvatar } from '../components/UserAvatar';
@@ -9,7 +9,7 @@ import { UserAvatar } from '../components/UserAvatar';
 
 const userinfomation = [
   {
-    degree: "undergraduate",
+    degree: "Undergraduate",
   }
 ];
 
@@ -32,12 +32,12 @@ const validDegrees = [
   { label: "other" }
 ];
 
-const validYearsOfStudy = [
-  { label: "year 1" },
-  { label: "year 2" },
-  { label: "year 3" },
-  { label: "Research" },
-  { label: "Other" }
+const validLevelsOfStudy = [
+  { label: "Year 1", value: 1 },
+  { label: "Year 2", value: 2 },
+  { label: "Year 3", value: 3 },
+  { label: "Research", value: 4 },
+  { label: "Other", value: 5 }
 ];
 
 
@@ -88,161 +88,239 @@ function JournalInfo(props) {
   );
 }
 
+function useResetFormOnCloseModal (form, open) {
+  const prevOpenRef = useRef(false);
+  useEffect(() => {
+    prevOpenRef.current = open;
+  }, [open]);
+  const prevOpen = prevOpenRef.current;
+
+  useEffect(() => {
+    if (!open && prevOpen) {
+      form.resetFields();
+    }
+  }, [form, prevOpen, open]);
+};
+
+function AddModuleModal(props) {
+  const { open, addModule, onCancel } = props;
+  const [form] = Form.useForm();
+
+  useResetFormOnCloseModal(form, open);
+
+  const onOk = () => {
+    addModule(form?.getFieldValue("moduleName"));
+  };
+
+  return (
+    <Modal
+      open={open}
+      title="Module selection"
+      onOk={onOk}
+      onCancel={onCancel}
+      footer={[
+        <Button key="back" onClick={onCancel}>
+          Cancel
+        </Button>,
+        <Button
+          key="submit"
+          type="primary"
+          onClick={onOk}
+        >
+          Submit
+        </Button>
+      ]}
+    >
+      <Form form={form}>
+        <Form.Item name="moduleName" rules={[{ required: true }]}>
+          <Input
+            placeholder="New module"
+            showCount="true"
+            maxLength="30"
+          />
+        </Form.Item>
+      </Form>
+    </Modal>
+  );
+}
+
 function EditDrawer(props) {
   const { userInfo, journalInfo, open, setOpen } = props;
 
-  const [loading, setLoading] = useState(false);
   const [Modalopen, ModalsetOpen] = useState(false);
+  let formRef = useRef(null);
 
   const showModal = () => {
     ModalsetOpen(true);
   };
 
-  const handleOk = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      ModalsetOpen(false);
-    }, 3000); //TODO: remove arbitrary 3 second wait
-  };
-
-  const handleCancel = () => {
+  const addModule = (module) => {
+    const modules = [...(formRef.current?.getFieldValue('modules') ?? []), module];
+    formRef.current.setFieldValue('modules', modules);
     ModalsetOpen(false);
   };
 
-  const onClose = () => {
+  const handleCancelModal = () => {
+    ModalsetOpen(false);
+  };
+
+  const onDrawerClose = () => {
     setOpen(false);
+  };
+
+  const submitForm = async () => {
+    const values = formRef.current?.getFieldsValue();
+    const journalEditBody = {
+      LevelOfStudy: values.levelOfStudy,
+      UniversityCourse: values.course,
+      University: values.university,
+      Modules: formRef.current?.getFieldValue('modules')
+    };
+    await fetch(`${serverURL}/api/journal/edit`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(journalEditBody),
+    });
+    setOpen(false);
+  };
+
+  const formLayout = {
+    labelCol: {
+      span: 8,
+    },
+    wrapperCol: {
+      span: 16,
+    },
+  };
+
+  const initialFormValues = {
+    username: userInfo?.User_name,
+    email: userInfo?.Email,
+    university: journalInfo?.University,
+    course: journalInfo?.UniversityCourse,
+    degree: userinfomation[0].degree,
+    levelOfStudy: journalInfo?.LevelOfStudy,
+    modules: journalInfo?.modules
   };
 
   return (
     <Drawer
       title="Your Information"
       placement="right"
-      onClose={onClose}
+      onClose={onDrawerClose}
       open={open}
       size='large'
       extra={
         <Space>
-          <Button onClick={onClose} type="primary">
+          <Button onClick={submitForm} type="primary">
             Submit
           </Button>
         </Space>
       }
     >
       <div style={{ width: "100%" }}>
-        <table style={{ width: "100%" }}>
-          <thead>
-            <tr>
-              <th rowSpan="2" className="edit_picture">
-                <UserAvatar user={userInfo} size={56} />
-              </th>
-              <th className="edit_basic_info">Username:</th>
-              <th className="inputbox">
-                <Input
-                  placeholder="Username"
-                  defaultValue={userInfo.User_name}
-                  maxLength="30"
-                  showCount="true"
-                  size="small"
-                />
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="submit_picture">
-                <Upload {...props}>
-                  <Button size="small" icon={<UploadOutlined />}>
-                          Upload
-                  </Button>
-                </Upload>
-              </td>
-              <td className="edit_basic_info">Email:</td>
-              <td className="inputbox">
-                <Input
-                  placeholder="Email"
-                  defaultValue={userInfo.Email}
-                  maxLength="30"
-                  showCount="true"
-                  size="small"
-                />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <br />
-      </div>
-      <div>
-        <h1 className="edit_course_degree_module_title">Course:</h1>
-        <Select
-          showSearch
-          style={{ width: "60%" }}
-          placeholder="Select a course"
-          defaultValue={journalInfo?.UniversityCourse}
-          optionFilterProp="children"
-          filterOption={(input, option) =>
-            (option?.label ?? "").includes(input)
-          }
-          filterSort={(optionA, optionB) =>
-            (optionA?.label ?? "")
-              .toLowerCase()
-              .localeCompare((optionB?.label ?? "").toLowerCase())
-          }
-          options={validCourses}
-        />
-      </div>
-      <br />
-      <div>
-        <h2 className="edit_course_degree_module_title">Degree:</h2>
-        <Select
-          defaultValue={userinfomation[0].degree}
-          style={{ width: "60%" }}
-          options={validDegrees}
-        />
-        <Select
-          defaultValue={journalInfo ? validYearsOfStudy[parseInt(journalInfo.LevelOfStudy, 10) - 1].label : validYearsOfStudy[0].label}
-          style={{ width: "30%" }}
-          options={validYearsOfStudy}
-        />
-      </div>
-      <br />
-      <div>
-        <h3 className="edit_course_degree_module_title">Modules:</h3>
-        <div>
-          {journalInfo?.modules?.map((module, i) => (
-            <Tag color="blue" key={i}>
-              {module}
-            </Tag>
-          ))}
-          <Tag color="blue">
-            <button style={{ all: "unset", color: "blue", cursor: "pointer" }} onClick={showModal}>+</button>
-          </Tag>
-          <Modal
-            open={Modalopen}
-            title="Module selection"
-            onOk={handleOk}
-            onCancel={handleCancel}
-            footer={[
-              <Button key="back" onClick={handleCancel}>
-                Cancel
-              </Button>,
-              <Button
-                key="submit"
-                type="primary"
-                loading={loading}
-                onClick={handleOk}
-              >
-                Submit
-              </Button>
-            ]}
-          >
+        <UserAvatar user={userInfo} size={56} /><br />
+        <Upload {...props}>
+          <Button size="small" icon={<UploadOutlined />}>
+            Upload
+          </Button>
+        </Upload>
+        <Form
+          {...formLayout}
+          style={{ maxWidth: 600 }}
+          className="edit-journal-form"
+          ref={formRef}
+          initialValues={initialFormValues}
+        >
+          <Form.Item name="username" label="Username" rules={[{ required: true }]}>
             <Input
-              placeholder="New module"
-              showCount="true"
+              placeholder="Username"
               maxLength="30"
+              showCount="true"
+              size="small"
             />
-          </Modal>
-        </div>
+          </Form.Item>
+          <Form.Item name="email" label="Email" rules={[{ required: true }]}>
+            <Input
+              placeholder="Email"
+              maxLength="30"
+              showCount="true"
+              size="small"
+            />
+          </Form.Item>
+          <Form.Item name="university" label="University" rules={[{ required: true }]}>
+            <Input
+              placeholder="University"
+              maxLength="30"
+              showCount="true"
+              size="small"
+            />
+          </Form.Item>
+
+          <Form.Item name="course" label="Course" rules={[{ required: true }]}>
+            <Select
+              showSearch
+              style={{ width: "60%" }}
+              placeholder="Select a course"
+              optionFilterProp="children"
+              filterOption={(input, option) =>
+                (option?.label ?? "").toLowerCase().includes(input)
+              }
+              filterSort={(optionA, optionB) =>
+                (optionA?.label ?? "")
+                  .toLowerCase()
+                  .localeCompare((optionB?.label ?? "").toLowerCase())
+              }
+            >
+              {validCourses.map((course, i) => 
+                <Select.Option value={course.label} key={i}>{course.label}</Select.Option>
+              )}
+            </Select>
+          </Form.Item>
+
+          <Form.Item name="degree" label="Degree" rules={[{ required: false }]}>
+            <Select
+              style={{ width: "60%" }}
+            >
+              {validDegrees.map((degree, i) => 
+                <Select.Option value={degree.label} key={i}>{degree.label}</Select.Option>
+              )}
+            </Select>
+          </Form.Item>
+
+          <Form.Item name="levelOfStudy" label="Level of Study" rules={[{ required: true }]}>
+            <Select
+              style={{ width: "30%" }}
+            >
+              {validLevelsOfStudy.map((level, i) => 
+                <Select.Option value={level.value} key={i}>{level.label}</Select.Option>
+              )}
+            </Select>
+          </Form.Item>
+
+          <Form.Item label="Modules" shouldUpdate={
+            (prevValues, curValues) => prevValues.users !== curValues.users
+          }>
+            {({ getFieldValue }) => {
+              const modules = getFieldValue('modules') ?? [];
+              return (
+                <div>
+                  {modules.map((module, i) => 
+                    <Tag color="blue" key={i}>
+                      {module}
+                    </Tag>
+                  )}
+                  <Tag color="blue">
+                    <button style={{ all: "unset", color: "blue", cursor: "pointer" }} onClick={showModal}>+</button>
+                  </Tag>
+                </div>
+              );
+            }}
+          </Form.Item>
+        </Form>
+        <AddModuleModal open={Modalopen} addModule={addModule} onCancel={handleCancelModal} />
       </div>
     </Drawer>
   );
@@ -330,6 +408,7 @@ export default function LearningJournal() {
   const [userInfo, setUserInfo] = useState(null);
   const [journalInfo, setJournalInfo] = useState(null);
   const [userRatings, setUserRatings] = useState(null);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -339,7 +418,7 @@ export default function LearningJournal() {
       }
     }
     fetchData().catch(console.error);
-  }, []);
+  }, [drawerOpen]);
 
   useEffect(() => {
     async function fetchData() {
@@ -349,7 +428,7 @@ export default function LearningJournal() {
       }
     }
     fetchData().catch(console.error);
-  }, []);
+  }, [drawerOpen]);
 
   useEffect(() => {
     async function fetchData() {
@@ -359,11 +438,10 @@ export default function LearningJournal() {
       }
     }
     fetchData().catch(console.error);
-  }, []);
+  }, [drawerOpen]);
 
-  const [open, setOpen] = useState(false);
   const showDrawer = () => {
-    setOpen(true);
+    setDrawerOpen(true);
   };
 
   return (
@@ -396,7 +474,7 @@ export default function LearningJournal() {
               Edit Your information
             </Button>
             {userInfo ?
-              <EditDrawer userInfo={ userInfo } journalInfo={ journalInfo } open={ open } setOpen={ setOpen } /> :
+              <EditDrawer userInfo={ userInfo } journalInfo={ journalInfo } open={ drawerOpen } setOpen={ setDrawerOpen } /> :
               ''}
           </div>
           : ''}
