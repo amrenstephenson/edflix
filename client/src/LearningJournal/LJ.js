@@ -247,24 +247,28 @@ function EditDrawer(props) {
             </Select>
           </Form.Item>
 
-          <Form.Item name="degree" label="Degree" rules={[{ required: false }]}>
-            <Select
-              style={{ width: "60%" }}
-            >
-              {validDegrees.map((degree, i) => 
-                <Select.Option value={degree.label} key={i}>{degree.label}</Select.Option>
-              )}
-            </Select>
-          </Form.Item>
+          <Form.Item label="Level of Study">
+            <Input.Group compact>
+              <Form.Item name="degree" noStyle rules={[{ required: false }]}>
+                <Select
+                  style={{ width: "60%" }}
+                >
+                  {validDegrees.map((degree, i) => 
+                    <Select.Option value={degree.label} key={i}>{degree.label}</Select.Option>
+                  )}
+                </Select>
+              </Form.Item>
 
-          <Form.Item name="levelOfStudy" label="Level of Study" rules={[{ required: true }]}>
-            <Select
-              style={{ width: "30%" }}
-            >
-              {validLevelsOfStudy.map((level, i) => 
-                <Select.Option value={i+1} key={i}>{level}</Select.Option>
-              )}
-            </Select>
+              <Form.Item name="levelOfStudy" noStyle rules={[{ required: true }]}>
+                <Select
+                  style={{ width: "30%" }}
+                >
+                  {validLevelsOfStudy.map((level, i) => 
+                    <Select.Option value={i+1} key={i}>{level}</Select.Option>
+                  )}
+                </Select>
+              </Form.Item>
+            </Input.Group>
           </Form.Item>
 
           <Form.Item label="Modules" shouldUpdate={
