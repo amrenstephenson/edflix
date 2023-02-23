@@ -297,6 +297,14 @@ function EditDrawer(props) {
   );
 }
 
+function getArtifactURL(artifact) {
+  const searchParams = new URLSearchParams({
+    artifact: artifact.Artifact_id,
+    topic: artifact.Topic,
+  });
+  return `/?${searchParams.toString()}`;
+}
+
 function stripDescription(desc) {
   return desc.replace( /(<([^>]+)>)/ig, '');
 }
@@ -319,8 +327,8 @@ function RatingsList(props) {
             pageSize: 4
           }}
           dataSource = {
-            userRatings.map((ratingInfo, i) => ({
-              href: `/?artifact=${ratingInfo.artifact.Artifact_id}`,
+            userRatings.map((ratingInfo) => ({
+              href: getArtifactURL(ratingInfo.artifact),
               title: ratingInfo.artifact.Artifact_Name,
               description: stripDescription(ratingInfo.artifact.Description),
               rating: ratingInfo.rating,
