@@ -18,11 +18,7 @@ const validDegrees = [
 ];
   
 const validLevelsOfStudy = [
-  { label: "Year 1", value: 1 },
-  { label: "Year 2", value: 2 },
-  { label: "Year 3", value: 3 },
-  { label: "Research", value: 4 },
-  { label: "Other", value: 5 }
+  "Year 1", "Year 2", "Year 3", "Research", "Other",
 ];
 
 export { validCourses, validDegrees, validLevelsOfStudy };

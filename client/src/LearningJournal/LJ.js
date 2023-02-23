@@ -40,7 +40,7 @@ function JournalInfo(props) {
       <tr>
         <td className="course">{journalInfo.UniversityCourse}</td>
         <td className="degree">
-          Level {journalInfo.LevelOfStudy}
+          {validLevelsOfStudy[(journalInfo.LevelOfStudy ?? 1) - 1]}
           <br />
         </td>
         <td className="modules">
@@ -262,7 +262,7 @@ function EditDrawer(props) {
               style={{ width: "30%" }}
             >
               {validLevelsOfStudy.map((level, i) => 
-                <Select.Option value={level.value} key={i}>{level.label}</Select.Option>
+                <Select.Option value={i+1} key={i}>{level}</Select.Option>
               )}
             </Select>
           </Form.Item>
@@ -312,9 +312,6 @@ function RatingsList(props) {
           itemLayout="vertical"
           size="small"
           pagination={{
-            onChange: (page) => {
-              console.log(page); //TODO: remove this
-            },
             pageSize: 4
           }}
           dataSource = {
