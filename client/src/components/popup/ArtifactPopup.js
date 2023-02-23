@@ -15,20 +15,20 @@ import ArtifactRow from '../ArtifactRow';
 import { useSearchParams } from 'react-router-dom';
 
 class ArtifactPopupClass extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { details: null, rating: null, recommendations: null };
-    }
+  constructor(props) {
+    super(props);
+    this.state = { details: null, rating: null, recommendations: null };
+  }
 
-    async componentDidMount() {
-        await this.setArtifact(this.props.artifactID, this.props.topic);
-    }
+  async componentDidMount() {
+    await this.setArtifact(this.props.artifactID, this.props.topic);
+  }
 
-    async componentDidUpdate(prevProps) {
-        if (this.props.artifactID !== prevProps.artifactID || this.props.topic !== prevProps.topic) {
-            await this.setArtifact(this.props.artifactID, this.props.topic);
-        }
+  async componentDidUpdate(prevProps) {
+    if (this.props.artifactID !== prevProps.artifactID || this.props.topic !== prevProps.topic) {
+      await this.setArtifact(this.props.artifactID, this.props.topic);
     }
+  }
 
   async setArtifact(artifactID, topic) {
     document.getElementById('artifact-popup').scroll(0, 0);
@@ -64,14 +64,14 @@ class ArtifactPopupClass extends Component {
     this.setState(this.state);
   };
 
-    closePopup = (e) => {
-        if (e) {
-            e.stopPropagation();
-        }
-        this.props.searchParams.delete("artifact");
-        this.props.searchParams.delete("topic");
-        this.props.setSearchParams(this.props.searchParams);
-    };
+  closePopup = (e) => {
+    if (e) {
+      e.stopPropagation();
+    }
+    this.props.searchParams.delete("artifact");
+    this.props.searchParams.delete("topic");
+    this.props.setSearchParams(this.props.searchParams);
+  };
 
   render() {
     return (
@@ -131,6 +131,6 @@ class ArtifactPopupClass extends Component {
 
 // Wrap class-based component in a functional component so that hooks can be used.
 export default function ArtifactPopup(props) {
-    const [searchParams, setSearchParams] = useSearchParams();
-    return <ArtifactPopupClass {...props} searchParams={searchParams} setSearchParams={setSearchParams} />;
+  const [searchParams, setSearchParams] = useSearchParams();
+  return <ArtifactPopupClass {...props} searchParams={searchParams} setSearchParams={setSearchParams} />;
 }
