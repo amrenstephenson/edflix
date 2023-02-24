@@ -156,25 +156,29 @@ function EditDrawer(props) {
   };
 
   const submitForm = async () => {
-    // TODO: check if required fields are met
     // TODO: implement changing user info
     // TODO: implement changing 'degree'
 
-    const values = formRef.current?.getFieldsValue();
-    const journalEditBody = {
-      LevelOfStudy: values.levelOfStudy,
-      UniversityCourse: values.course,
-      University: values.university,
-      Modules: formRef.current?.getFieldValue('modules')
-    };
-    await fetch(`${serverURL}/api/journal/edit`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(journalEditBody),
-    });
-    setOpen(false);
+    const form = formRef.current;
+
+    try {
+      await form?.validateFields();
+      const values = form?.getFieldsValue();
+      const journalEditBody = {
+        LevelOfStudy: values.levelOfStudy,
+        UniversityCourse: values.course,
+        University: values.university,
+        Modules: form?.getFieldValue('modules')
+      };
+      await fetch(`${serverURL}/api/journal/edit`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(journalEditBody),
+      });
+      setOpen(false);
+    } catch {}
   };
 
   const formLayout = {
