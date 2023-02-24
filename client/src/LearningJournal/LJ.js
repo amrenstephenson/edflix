@@ -467,7 +467,10 @@ export default function LearningJournal() {
         <div>
           <table className="userinfo">
             <UserInfo userInfo={ userInfo } />
-            {journalInfo ? <JournalInfo journalInfo={ journalInfo } /> : ''}
+            {journalInfo ?
+              <JournalInfo journalInfo={ journalInfo } /> :
+              <tbody style={{textAlign: 'center'}}>You have not created a learning journal.</tbody>
+            }
           </table>
           <br />
           <div style={{ width: "90%", textAlign: "right" }}>
