@@ -444,7 +444,7 @@ export default function LearningJournal() {
       }
     }
     fetchData().catch(console.error);
-  }, [drawerOpen]);
+  }, []);
 
   const showDrawer = () => {
     setDrawerOpen(true);
