@@ -230,7 +230,6 @@ function EditDrawer(props) {
               placeholder="Username"
               maxLength="30"
               showCount="true"
-              size="small"
             />
           </Form.Item>
           <Form.Item name="email" label="Email" rules={[{ required: true }]}>
@@ -238,7 +237,6 @@ function EditDrawer(props) {
               placeholder="Email"
               maxLength="30"
               showCount="true"
-              size="small"
             />
           </Form.Item>
           <Form.Item name="university" label="University" rules={[{ required: true }]}>
@@ -246,7 +244,6 @@ function EditDrawer(props) {
               placeholder="University"
               maxLength="30"
               showCount="true"
-              size="small"
             />
           </Form.Item>
 
