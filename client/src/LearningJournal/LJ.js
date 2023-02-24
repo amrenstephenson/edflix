@@ -111,6 +111,20 @@ function AddModuleModal(props) {
   );
 }
 
+function EditableTag(props) {
+  const { module, onClose } = props;
+
+  const closeTag = () => {
+    onClose(module);
+  };
+
+  return (
+    <Tag color="blue" closable onClose={closeTag}>
+      {module}
+    </Tag>
+  );
+}
+
 function EditDrawer(props) {
   const { userInfo, journalInfo, open, setOpen } = props;
 
@@ -125,6 +139,12 @@ function EditDrawer(props) {
     const modules = [...(formRef.current?.getFieldValue('modules') ?? []), module];
     formRef.current.setFieldValue('modules', modules);
     ModalsetOpen(false);
+  };
+
+  const removeModule = (module) => {
+    let modules = formRef.current?.getFieldValue('modules') ?? [];
+    modules.splice(modules.indexOf(module), 1);
+    formRef.current.setFieldValue('modules', modules);
   };
 
   const handleCancelModal = () => {
@@ -282,10 +302,7 @@ function EditDrawer(props) {
               const modules = getFieldValue('modules') ?? [];
               return (
                 <div>
-                  {modules.map((module, i) => 
-                    <Tag color="blue" key={i}>
-                      {module}
-                    </Tag>
+                  {modules.map((module, i) => <EditableTag module={module} onClose={removeModule} key={i} />
                   )}
                   <Tag color="blue">
                     <button style={{ all: "unset", color: "blue", cursor: "pointer" }} onClick={showModal}>+</button>
