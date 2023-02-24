@@ -30,7 +30,9 @@ router.post('/login', apiController.login);
 
 router.post('/register', apiController.register);
 
-router.post('/ratings/new', apiController.postRating);
+router.post('/ratings/set', apiController.setRating);
+
+router.post('/ratings/remove', apiController.removeRating);
 
 router.get('/user', apiController.getUser);
 
