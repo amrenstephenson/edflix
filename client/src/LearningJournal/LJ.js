@@ -196,7 +196,7 @@ function EditDrawer(props) {
     university: journalInfo?.University,
     course: journalInfo?.UniversityCourse,
     degree: "Undergraduate",
-    levelOfStudy: journalInfo?.LevelOfStudy,
+    levelOfStudy: journalInfo?.LevelOfStudy ?? 1,
     modules: journalInfo?.modules
   };
 
