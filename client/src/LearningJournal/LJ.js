@@ -258,12 +258,12 @@ function EditDrawer(props) {
               placeholder="Select a course"
               optionFilterProp="children"
               filterOption={(input, option) =>
-                (option?.label ?? "").toLowerCase().includes(input)
+                (option?.value ?? "").toLocaleLowerCase().includes(input.toLocaleLowerCase())
               }
               filterSort={(optionA, optionB) =>
-                (optionA?.label ?? "")
+                (optionA?.value ?? "")
                   .toLowerCase()
-                  .localeCompare((optionB?.label ?? "").toLowerCase())
+                  .localeCompare((optionB?.value ?? "").toLowerCase())
               }
             >
               {validCourses.map((course, i) => 
