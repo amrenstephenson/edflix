@@ -167,7 +167,7 @@ class APIController {
 
     try {
       // eslint-disable-next-line max-len
-      let user = await this.db.get('SELECT * FROM User where User_name=?', [userName]);
+      let user = await this.db.get('SELECT * FROM User WHERE User_name=?', [userName]);
       if (user) {
         if (user.Password === password) {
           let cookieOpts = {
@@ -456,6 +456,32 @@ class APIController {
         .json(e);
     }
 
+  };
+
+  editUser = async(req, res) => {
+    const userID = this.getUserId(req.cookies.edflixSessionToken);
+    if (!userID) {
+      res
+        .status(200)
+        .json({ success: false, isLoggedIn: false });
+      return;
+    }
+
+    let { email, username } = req.body;
+    try {
+      await this.db.run(
+        'UPDATE User SET Email=?, User_name=? WHERE User_id=?',
+        [email, username, userID],
+      );
+      res
+        .status(200)
+        .json({ success: true, isLoggedIn: true });
+    } catch (e) {
+      console.log(e);
+      res
+        .status(500)
+        .json({ success: false, isLoggedIn: true, error: e });
+    }
   };
 }
 

@@ -42,4 +42,6 @@ router.get('/journal', apiController.getJournal);
 
 router.post('/journal/edit', apiController.editJournal);
 
+router.post('/user/edit', apiController.editUser);
+
 export default router;
