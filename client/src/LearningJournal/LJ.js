@@ -164,19 +164,33 @@ function EditDrawer(props) {
     try {
       await form?.validateFields();
       const values = form?.getFieldsValue();
+
       const journalEditBody = {
         LevelOfStudy: values.levelOfStudy,
         UniversityCourse: values.course,
         University: values.university,
         Modules: form?.getFieldValue('modules')
       };
-      await fetch(`${serverURL}/api/journal/edit`, {
+      const journalPromise = fetch(`${serverURL}/api/journal/edit`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(journalEditBody),
       });
+
+      const userEditBody = {
+        email: values.email,
+        username: values.username,
+      };
+      const userPromise = fetch(`${serverURL}/api/user/edit`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userEditBody),
+      });
+      await Promise.all([journalPromise, userPromise]);
       setOpen(false);
     } catch {}
   };
