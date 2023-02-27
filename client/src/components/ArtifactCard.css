@@ -1,3 +1,11 @@
 .artifact-card:hover {
     color: #ccc;
 }
+
+.artifact-card {
+    text-shadow: '0px 0px 2px black';
+}
+
+.artifact-card * {
+    text-shadow: none;
+}

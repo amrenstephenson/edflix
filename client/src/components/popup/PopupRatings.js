@@ -17,7 +17,7 @@ export class PopupRatings extends Component {
                             ) : (
                                 <>
                                     <div>
-                                        <Rate disabled defaultValue={this.props.rating.average.toFixed(0)} />
+                                        <Rate allowHalf disabled value={Math.floor(this.props.rating.average * 2) / 2} />
                                         &nbsp;&nbsp;&nbsp;{this.props.rating.average.toFixed(1)} out of 5.0
                                     </div>
                                     <div className="rating-tipc">
