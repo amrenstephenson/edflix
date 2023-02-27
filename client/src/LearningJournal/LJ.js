@@ -332,7 +332,21 @@ function stripDescription(desc) {
 }
 
 function RatingsList(props) {
-  const { userRatings } = props;
+  const { userRatings, setUserRatings } = props;
+  const [renders, setRenders] = useState(0);
+
+  const removeRating = async (rating) => {
+    await fetch(`${serverURL}/api/ratings/remove`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ artifactID: rating.artifact.Artifact_id }),
+    });
+    userRatings.splice(userRatings.indexOf(rating), 1);
+    setUserRatings(userRatings);
+    setRenders(renders + 1);
+  };
 
   return (
     <div>
@@ -362,6 +376,7 @@ function RatingsList(props) {
                     description="Are you sure to delete this artifact?"
                     okText="Yes"
                     cancelText="No"
+                    onConfirm={() => removeRating(ratingInfo)}
                   >
                     <button href="#" style={{backgroundColor:'rgb(45 45 45)',color:'red',border:'solid 1px',borderRadius:'5px',fontSize:'medium', padding: "2px 5px 2px 5px"}}>
                       Delete
@@ -487,7 +502,7 @@ export default function LearningJournal() {
         </div>
         : <NotLoggedIn />}
 
-      {userRatings ? <RatingsList userRatings={ userRatings } /> : ''}
+      {userRatings ? <RatingsList userRatings={ userRatings } setUserRatings={ setUserRatings } /> : ''}
     </div>
   );
 }
