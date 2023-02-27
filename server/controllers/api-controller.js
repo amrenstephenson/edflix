@@ -98,7 +98,7 @@ class APIController {
     }
   };
 
-  getArtifactRating = async(req, res) => {
+  getGlobalRatings = async(req, res) => {
     let id = req.params['id'];
     try {
       let average = await this.db.get(`
@@ -215,6 +215,33 @@ class APIController {
       res
         .status(500)
         .json(e);
+    }
+  };
+
+  getRating = async(req, res) => {
+    const userID = this.getUserId(req.cookies.edflixSessionToken);
+    const artifactID = req.params.id;
+    try {
+      if (artifactID == null || artifactID === '') {
+        res.json({ message: 'Artifact ID not speifiied.' });
+      } else if (userID == null) {
+        res.json({ message: 'User is not logged in.' });
+      } else {
+        let rating = await this.db.get(
+          'SELECT Value rating FROM Rating WHERE Artifact_id=? AND User_id=?',
+          [artifactID, userID],
+        );
+        if (rating) {
+          res.json(rating);
+        } else {
+          res.json({});
+        }
+      }
+    } catch (e) {
+      console.log(e);
+      res
+        .status(500)
+        .send('Internal Server Error - Could not get recommendation.');
     }
   };
 

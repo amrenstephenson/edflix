@@ -10,8 +10,6 @@ router.get('/artifacts/:topic', apiController.getPopularArtifacts);
 
 router.get('/artifact/:id', apiController.getArtifact);
 
-router.get('/ratings/get/:id', apiController.getArtifactRating);
-
 router.get('/recommendations', apiController.getRecommendations);
 
 router.get('/logout', apiController.logout);
@@ -22,13 +20,15 @@ router.post('/register', apiController.register);
 
 router.get('/artifact/:id', apiController.getArtifact);
 
-router.get('/ratings/get/:id', apiController.getArtifactRating);
-
 router.get('/recommendations/', apiController.getRecommendations);
 
 router.post('/login', apiController.login);
 
 router.post('/register', apiController.register);
+
+router.get('/ratings/global/:id', apiController.getGlobalRatings);
+
+router.get('/ratings/get/:id', apiController.getRating);
 
 router.post('/ratings/set', apiController.setRating);
 
