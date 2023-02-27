@@ -5,7 +5,7 @@ import { Button, Tag, Modal, Input, List, Drawer, Space, Upload, Select, Popconf
 import { LinkOutlined, EditFilled, UploadOutlined } from "@ant-design/icons";
 import { serverURL } from '../index';
 import { UserAvatar } from '../components/UserAvatar';
-import { validCourses, validDegrees, validLevelsOfStudy } from './validOptions';
+import { validCourses, validLevelsOfStudy } from './validOptions';
 
 
 function UserInfo(props) {
@@ -40,7 +40,7 @@ function JournalInfo(props) {
       <tr>
         <td className="course">{journalInfo.UniversityCourse}</td>
         <td className="degree">
-          {validLevelsOfStudy[(journalInfo.LevelOfStudy ?? 1) - 1]}
+          {validLevelsOfStudy[(journalInfo.LevelOfStudy ?? 1)]}
           <br />
         </td>
         <td className="modules">
@@ -157,7 +157,6 @@ function EditDrawer(props) {
 
   const submitForm = async () => {
     // TODO: implement changing user info
-    // TODO: implement changing 'degree'
 
     const form = formRef.current;
 
@@ -209,7 +208,6 @@ function EditDrawer(props) {
     email: userInfo?.Email,
     university: journalInfo?.University,
     course: journalInfo?.UniversityCourse,
-    degree: "Undergraduate",
     levelOfStudy: journalInfo?.LevelOfStudy ?? 1,
     modules: journalInfo?.modules
   };
@@ -268,7 +266,6 @@ function EditDrawer(props) {
           <Form.Item name="course" label="Course" rules={[{ required: true }]}>
             <Select
               showSearch
-              style={{ width: "60%" }}
               placeholder="Select a course"
               optionFilterProp="children"
               filterOption={(input, option) =>
@@ -286,28 +283,12 @@ function EditDrawer(props) {
             </Select>
           </Form.Item>
 
-          <Form.Item label="Level of Study">
-            <Input.Group compact>
-              <Form.Item name="degree" noStyle rules={[{ required: false }]}>
-                <Select
-                  style={{ width: "60%" }}
-                >
-                  {validDegrees.map((degree, i) => 
-                    <Select.Option value={degree.label} key={i}>{degree.label}</Select.Option>
-                  )}
-                </Select>
-              </Form.Item>
-
-              <Form.Item name="levelOfStudy" noStyle rules={[{ required: false }]}>
-                <Select
-                  style={{ width: "30%" }}
-                >
-                  {validLevelsOfStudy.map((level, i) => 
-                    <Select.Option value={i+1} key={i}>{level}</Select.Option>
-                  )}
-                </Select>
-              </Form.Item>
-            </Input.Group>
+          <Form.Item name="levelOfStudy" label="Level of Study" rules={[{ required: false }]}>
+            <Select>
+              {validLevelsOfStudy.map((level, i) => 
+                <Select.Option value={i} key={i}>{level}</Select.Option>
+              )}
+            </Select>
           </Form.Item>
 
           <Form.Item label="Modules" shouldUpdate={
