@@ -11,21 +11,25 @@ import { PopupRatings } from './PopupRatings';
 
 import { Button } from '../Button';
 import ArtifactRow from '../ArtifactRow';
+import { useSearchParams } from 'react-router-dom';
 
 // TODO: Change this before production, or deal with artifacts with no link in some other way.
 const defaultArtifactLink = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
 
-class ArtifactPopup extends Component {
-    static currentlyOpenPopup = null;
-
+class ArtifactPopupClass extends Component {
     constructor(props) {
         super(props);
         this.state = { details: null, globalRatings: null, recommendations: null };
     }
 
     async componentDidMount() {
-        ArtifactPopup.currentlyOpenPopup = this;
         await this.setArtifact(this.props.artifactID, this.props.topic);
+    }
+
+    async componentDidUpdate(prevProps) {
+        if (this.props.artifactID !== prevProps.artifactID || this.props.topic !== prevProps.topic) {
+            await this.setArtifact(this.props.artifactID, this.props.topic);
+        }
     }
 
     async setArtifact(artifactID, topic) {
@@ -130,8 +134,9 @@ class ArtifactPopup extends Component {
         if (e) {
             e.stopPropagation();
         }
-        this.props.closePopup(false);
-        ArtifactPopup.currentlyOpenPopup = null;
+        this.props.searchParams.delete("artifact");
+        this.props.searchParams.delete("topic");
+        this.props.setSearchParams(this.props.searchParams);
     };
 
     render() {
@@ -200,4 +205,8 @@ class ArtifactPopup extends Component {
     }
 }
 
-export default ArtifactPopup;
+// Wrap class-based component in a functional component so that hooks can be used.
+export default function ArtifactPopup(props) {
+    const [searchParams, setSearchParams] = useSearchParams();
+    return <ArtifactPopupClass {...props} searchParams={searchParams} setSearchParams={setSearchParams} />;
+}
