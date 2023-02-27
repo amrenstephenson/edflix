@@ -10,14 +10,14 @@ export class PopupRatings extends Component {
             <div className="rating-subtitle subtitle">
               <hr />
                             User Ratings
-            </div>
-            <div className="rating-rate">
-              {this.props.rating.average == null ? (
-                <div style={{ display: 'flex', justifyContent: 'center' }}>This artifact has no ratings.</div>
-              ) : (
-                <>
-                  <div>
-                    <Rate disabled defaultValue={this.props.rating.average.toFixed(0)} />
+                        </div>
+                        <div className="rating-rate">
+                            {this.props.rating.average == null ? (
+                                <div style={{ display: 'flex', justifyContent: 'center' }}>This artifact has no ratings.</div>
+                            ) : (
+                                <>
+                                    <div>
+                                        <Rate allowHalf disabled value={Math.floor(this.props.rating.average * 2) / 2} />
                                         &nbsp;&nbsp;&nbsp;{this.props.rating.average.toFixed(1)} out of 5.0
                   </div>
                   <div className="rating-tipc">

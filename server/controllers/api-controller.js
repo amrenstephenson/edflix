@@ -98,7 +98,7 @@ class APIController {
     }
   };
 
-  getArtifactRating = async(req, res) => {
+  getGlobalRatings = async(req, res) => {
     let id = req.params['id'];
     try {
       let average = await this.db.get(`
@@ -218,27 +218,92 @@ class APIController {
     }
   };
 
-  postRating = async(req, res) => {
-    const User_id = this.getUserId(req.cookies.edflixSessionToken);
-    let {Artifact_id, Value} = req.body;
-
+  getRating = async(req, res) => {
+    const userID = this.getUserId(req.cookies.edflixSessionToken);
+    const artifactID = req.params.id;
     try {
-      // eslint-disable-next-line max-len
-      await this.db.insertObject('Rating', {
-        User_id,
-        Artifact_id,
-        Value,
-      });
-
-
-      res.end();
+      if (artifactID == null || artifactID === '') {
+        res.json({ message: 'Artifact ID not speifiied.' });
+      } else if (userID == null) {
+        res.json({ message: 'User is not logged in.' });
+      } else {
+        let rating = await this.db.get(
+          'SELECT Value rating FROM Rating WHERE Artifact_id=? AND User_id=?',
+          [artifactID, userID],
+        );
+        if (rating) {
+          res.json(rating);
+        } else {
+          res.json({});
+        }
+      }
     } catch (e) {
       console.log(e);
       res
         .status(500)
-        .json(e);
+        .send('Internal Server Error - Could not get recommendation.');
+    }
+  };
+
+  setRating = async(req, res) => {
+    const userID = this.getUserId(req.cookies.edflixSessionToken);
+    if (!userID) {
+      res
+        .status(200)
+        .json({ success: false, isLoggedIn: false });
+      return;
     }
 
+    let { artifactID, value } = req.body;
+    try {
+      await this.db.run(
+        `
+        INSERT OR REPLACE INTO
+          Rating
+        VALUES
+          (?, ?, ?)
+        `,
+        [userID, artifactID, value],
+      );
+      res
+        .status(200)
+        .json({ success: true, isLoggedIn: true });
+    } catch (e) {
+      console.log(e);
+      res
+        .status(500)
+        .json({ success: false, isLoggedIn: true, error: e });
+    }
+  };
+
+  removeRating = async(req, res) => {
+    const userID = this.getUserId(req.cookies.edflixSessionToken);
+    if (!userID) {
+      res
+        .status(200)
+        .json({ success: false, isLoggedIn: false });
+      return;
+    }
+
+    let { artifactID } = req.body;
+    try {
+      await this.db.run(`
+        DELETE FROM
+          Rating
+        WHERE
+          User_id = ?
+        AND
+          Artifact_id = ?
+      `, [userID, artifactID]);
+      res
+        .status(200)
+        .json({ success: true, isLoggedIn: true });
+    } catch (e) {
+      console.log(e);
+      res
+        .status(500)
+        .json({ success: false, isLoggedIn: true, error: e });
+    }
   };
 
   getUser = async(req, res) => {
