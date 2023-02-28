@@ -1,3 +1,4 @@
+import React from 'react';
 import './ArtifactCard.css';
 import { useSearchParams } from 'react-router-dom';
 

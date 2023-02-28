@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { Spin } from 'antd';
 
 export class PopupLoadingIndicator extends Component {

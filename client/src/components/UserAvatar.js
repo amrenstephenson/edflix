@@ -1,4 +1,5 @@
-import { Avatar } from "antd";
+import React from 'react';
+import { Avatar } from 'antd';
 
 function getInitials(name) {
   const nameComponents = name.split(' ');
@@ -11,10 +12,10 @@ function getInitials(name) {
 
 export function UserAvatar(props) {
   const { user, size, style } = props;
-  
+
   return (
     <div className="user-avatar" style={{ display: 'inline-block' }}>
-      {(user && user.ProfilePicture ? 
+      {(user && user.ProfilePicture ?
         <Avatar size={size} src={user.ProfilePicture} style={{...style, backgroundColor: 'rgb(208, 0, 34)'}} /> :
         <Avatar size={size} style={{...style, userSelect: 'none', backgroundColor: 'rgb(208, 0, 34)'}}>{getInitials(user.User_name)}</Avatar>)}
     </div>

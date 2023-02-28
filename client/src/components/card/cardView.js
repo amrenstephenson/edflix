@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Rate } from 'antd';
 
-import "./cardView.css";
+import './cardView.css';
 import { Card } from 'antd';
 
 import { changeNum } from './../utils';

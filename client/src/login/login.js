@@ -71,7 +71,7 @@ export default function Login() {
 						<span>Login with Google</span>
 					</a> */}
           <div className="msg">
-						Don't have account?&nbsp;
+						Don&apos;t have account?&nbsp;
             <a href="/signup">Sign up</a>
           </div>
         </form>

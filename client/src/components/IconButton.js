@@ -18,7 +18,7 @@ function IconButton(props) {
         display: 'flex',
         alignItems: 'center',
         opacity: isClicked ? 0.3 : (isHovered ? 0.5 : 1),
-        ...props.style
+        ...props.style,
       }}
     >
       {props.children}

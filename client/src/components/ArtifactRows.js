@@ -1,12 +1,12 @@
-import ArtifactRow from "./ArtifactRow";
-import { useEffect, useState } from "react";
+import ArtifactRow from './ArtifactRow';
+import React, { useEffect, useState } from 'react';
 import { serverURL } from '../index';
 
 function ArtifactRows(props) {
   const [artifactRows, setArtifactRows] = useState([]);
   useEffect(() => {
     // Create an array of topics and their associated artifacts from the array of artifacts.
-    const fetchData = async () => {
+    const fetchData = async() => {
       const searchParams = new URLSearchParams(window.location.search);
       const [response1, response2] = await Promise.all([fetch(`${serverURL}/api/artifacts?filter=${searchParams.get('filter') ?? ''}`), fetch(`${serverURL}/api/recommendations`)]);
       const [artifacts, recommendations] = await Promise.all([response1.json(), response2.json()]);
@@ -15,7 +15,7 @@ function ArtifactRows(props) {
       const groupedArtifacts = [];
 
       if (recommendations && recommendations.length > 0) {
-        groupedArtifacts.push({'topic': 'Recommendations', 'artifacts': recommendations});
+        groupedArtifacts.push({topic: 'Recommendations', artifacts: recommendations});
       }
 
       artifacts.forEach((artifact) => {
@@ -23,7 +23,7 @@ function ArtifactRows(props) {
         if (topic) {
           topic.artifacts.push(artifact);
         } else {
-          groupedArtifacts.push({'topic':artifact.Topic, 'artifacts': [artifact]});
+          groupedArtifacts.push({topic: artifact.Topic, artifacts: [artifact]});
         }
       });
 
@@ -36,7 +36,7 @@ function ArtifactRows(props) {
 
   return (
     <div {...props} style={{ ...props.style }}>
-      {artifactRows.map((artifactRow,index) => (
+      {artifactRows.map((artifactRow, index) => (
         <ArtifactRow key={index} index={index} title={artifactRow.topic} artifacts={artifactRow.artifacts} />
       ))}
     </div>

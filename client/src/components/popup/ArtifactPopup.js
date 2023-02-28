@@ -38,7 +38,7 @@ class ArtifactPopupClass extends Component {
     await Promise.all([this.fetchData(), this.fetchUserRating(), this.fetchGlobalRatings(), this.fetchRecommendations()]);
   }
 
-  fetchData = async () => {
+  fetchData = async() => {
     const response = await fetch(`${serverURL}/api/artifact/${this.props.artifactID}`);
     const details = await response.json();
     // eslint-disable-next-line react/no-direct-mutation-state
@@ -46,7 +46,7 @@ class ArtifactPopupClass extends Component {
     this.setState(this.state);
   };
 
-  fetchUserRating = async () => {
+  fetchUserRating = async() => {
     const response = await fetch(`${serverURL}/api/ratings/get/${this.props.artifactID}`);
     const { rating = null } = await response.json();
     // eslint-disable-next-line react/no-direct-mutation-state
@@ -54,7 +54,7 @@ class ArtifactPopupClass extends Component {
     this.setState(this.state);
   };
 
-  fetchGlobalRatings = async () => {
+  fetchGlobalRatings = async() => {
     const response = await fetch(`${serverURL}/api/ratings/global/${this.props.artifactID}`);
     const globalRatings = await response.json();
     // eslint-disable-next-line react/no-direct-mutation-state
@@ -62,7 +62,7 @@ class ArtifactPopupClass extends Component {
     this.setState(this.state);
   };
 
-  fetchRecommendations = async () => {
+  fetchRecommendations = async() => {
     const response = await fetch(`${serverURL}/api/artifacts/${encodeURIComponent(this.props.topic)}`);
     const recommendations = await response.json();
     // eslint-disable-next-line react/no-direct-mutation-state
@@ -134,8 +134,8 @@ class ArtifactPopupClass extends Component {
     if (e) {
       e.stopPropagation();
     }
-    this.props.searchParams.delete("artifact");
-    this.props.searchParams.delete("topic");
+    this.props.searchParams.delete('artifact');
+    this.props.searchParams.delete('topic');
     this.props.setSearchParams(this.props.searchParams);
   };
 

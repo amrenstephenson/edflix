@@ -20,6 +20,9 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
+    "env": {
+      "browser": true
+    },
     "settings": {
       "react": {
         "version": "detect"
@@ -31,7 +34,11 @@
     "extends": [
       "eslint:recommended",
       "plugin:react/recommended"
-    ]
+    ],
+    "rules": {
+      "max-len": "off",
+      "react/prop-types": "off"
+    }
   },
   "browserslist": {
     "production": [
