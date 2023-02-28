@@ -1,3 +1,5 @@
+import React from 'react';
+
 function ArtifactBanner(props) {
   return (
 
@@ -7,7 +9,7 @@ function ArtifactBanner(props) {
         backgroundSize: '100%',
         height: '20rem',
         width: '100%',
-        marginBottom: "-10rem"
+        marginBottom: '-10rem',
       }}
       alt="Test banner"
     />

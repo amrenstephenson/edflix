@@ -20,13 +20,24 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
+    "env": {
+      "browser": true
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "plugins": [
+      "react"
+    ],
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "eslint:recommended",
+      "plugin:react/recommended"
     ],
     "rules": {
-      "indent": ["error", 2],
-      "semi": ["error", "always"]
+      "max-len": "off",
+      "react/prop-types": "off"
     }
   },
   "browserslist": {
@@ -44,6 +55,7 @@
   "devDependencies": {
     "antd": "^5.2.2",
     "axios": "^1.2.4",
+    "eslint-plugin-react": "^7.32.2",
     "react-router-dom": "^6.4.5"
   }
 }

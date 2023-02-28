@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import NavBar from '../components/NavBar';
 import './LJ.css';
-import { Button, Tag, Modal, Input, List, Drawer, Space, Upload, Select, Popconfirm, Rate, Form } from "antd";
-import { LinkOutlined, EditFilled, UploadOutlined } from "@ant-design/icons";
+import { Button, Tag, Modal, Input, List, Drawer, Space, Upload, Select, Popconfirm, Rate, Form } from 'antd';
+import { LinkOutlined, EditFilled, UploadOutlined } from '@ant-design/icons';
 import { serverURL } from '../index';
 import { UserAvatar } from '../components/UserAvatar';
 import { validCourses, validLevelsOfStudy } from './validOptions';
@@ -55,7 +55,7 @@ function JournalInfo(props) {
   );
 }
 
-function useResetFormOnCloseModal (form, open) {
+function useResetFormOnCloseModal(form, open) {
   const prevOpenRef = useRef(false);
   useEffect(() => {
     prevOpenRef.current = open;
@@ -67,7 +67,7 @@ function useResetFormOnCloseModal (form, open) {
       form.resetFields();
     }
   }, [form, prevOpen, open]);
-};
+}
 
 function AddModuleModal(props) {
   const { open, addModule, onCancel } = props;
@@ -76,7 +76,7 @@ function AddModuleModal(props) {
   useResetFormOnCloseModal(form, open);
 
   const onOk = () => {
-    addModule(form?.getFieldValue("moduleName"));
+    addModule(form?.getFieldValue('moduleName'));
   };
 
   return (
@@ -95,7 +95,7 @@ function AddModuleModal(props) {
           onClick={onOk}
         >
           Submit
-        </Button>
+        </Button>,
       ]}
     >
       <Form form={form}>
@@ -155,7 +155,7 @@ function EditDrawer(props) {
     setOpen(false);
   };
 
-  const submitForm = async () => {
+  const submitForm = async() => {
     // TODO: implement changing user info
 
     const form = formRef.current;
@@ -168,7 +168,7 @@ function EditDrawer(props) {
         LevelOfStudy: values.levelOfStudy,
         UniversityCourse: values.course,
         University: values.university,
-        Modules: form?.getFieldValue('modules')
+        Modules: form?.getFieldValue('modules'),
       };
       const journalPromise = fetch(`${serverURL}/api/journal/edit`, {
         method: 'POST',
@@ -191,7 +191,9 @@ function EditDrawer(props) {
       });
       await Promise.all([journalPromise, userPromise]);
       setOpen(false);
-    } catch {}
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   const formLayout = {
@@ -209,7 +211,7 @@ function EditDrawer(props) {
     university: journalInfo?.University,
     course: journalInfo?.UniversityCourse,
     levelOfStudy: journalInfo?.LevelOfStudy ?? 1,
-    modules: journalInfo?.modules
+    modules: journalInfo?.modules,
   };
 
   return (
@@ -227,7 +229,7 @@ function EditDrawer(props) {
         </Space>
       }
     >
-      <div style={{ width: "100%" }}>
+      <div style={{ width: '100%' }}>
         <UserAvatar user={userInfo} size={56} /><br />
         <Upload {...props}>
           <Button size="small" icon={<UploadOutlined />}>
@@ -269,24 +271,24 @@ function EditDrawer(props) {
               placeholder="Select a course"
               optionFilterProp="children"
               filterOption={(input, option) =>
-                (option?.value ?? "").toLocaleLowerCase().includes(input.toLocaleLowerCase())
+                (option?.value ?? '').toLocaleLowerCase().includes(input.toLocaleLowerCase())
               }
               filterSort={(optionA, optionB) =>
-                (optionA?.value ?? "")
+                (optionA?.value ?? '')
                   .toLowerCase()
-                  .localeCompare((optionB?.value ?? "").toLowerCase())
+                  .localeCompare((optionB?.value ?? '').toLowerCase())
               }
             >
-              {validCourses.map((course, i) => 
-                <Select.Option value={course.label} key={i}>{course.label}</Select.Option>
+              {validCourses.map((course, i) =>
+                <Select.Option value={course.label} key={i}>{course.label}</Select.Option>,
               )}
             </Select>
           </Form.Item>
 
           <Form.Item name="levelOfStudy" label="Level of Study" rules={[{ required: false }]}>
             <Select>
-              {validLevelsOfStudy.map((level, i) => 
-                <Select.Option value={i} key={i}>{level}</Select.Option>
+              {validLevelsOfStudy.map((level, i) =>
+                <Select.Option value={i} key={i}>{level}</Select.Option>,
               )}
             </Select>
           </Form.Item>
@@ -298,10 +300,10 @@ function EditDrawer(props) {
               const modules = getFieldValue('modules') ?? [];
               return (
                 <div>
-                  {modules.map((module, i) => <EditableTag module={module} onClose={removeModule} key={i} />
+                  {modules.map((module, i) => <EditableTag module={module} onClose={removeModule} key={i} />,
                   )}
                   <Tag color="blue">
-                    <button style={{ all: "unset", color: "blue", cursor: "pointer" }} onClick={showModal}>+</button>
+                    <button style={{ all: 'unset', color: 'blue', cursor: 'pointer' }} onClick={showModal}>+</button>
                   </Tag>
                 </div>
               );
@@ -323,14 +325,14 @@ function getArtifactURL(artifact) {
 }
 
 function stripDescription(desc) {
-  return desc.replace( /(<([^>]+)>)/ig, '');
+  return desc.replace(/(<([^>]+)>)/ig, '');
 }
 
 function RatingsList(props) {
   const { userRatings, setUserRatings } = props;
   const [renders, setRenders] = useState(0);
 
-  const removeRating = async (rating) => {
+  const removeRating = async(rating) => {
     await fetch(`${serverURL}/api/ratings/remove`, {
       method: 'POST',
       headers: {
@@ -345,17 +347,17 @@ function RatingsList(props) {
 
   return (
     <div>
-      <div className='title' style={{textAlign:'center',marginTop:'2rem',marginBottom:'2rem'}}>
+      <div className='title' style={{textAlign: 'center', marginTop: '2rem', marginBottom: '2rem'}}>
         Your Learning Journal
       </div>
 
-      <div style={{ background:'rgb(30, 30, 30)',width:'80%',marginLeft:'10%' }}>
+      <div style={{ background: 'rgb(30, 30, 30)', width: '80%', marginLeft: '10%' }}>
         <List
-          style={{ color:'white'}}
+          style={{ color: 'white'}}
           itemLayout="vertical"
           size="small"
           pagination={{
-            pageSize: 4
+            pageSize: 4,
           }}
           dataSource = {
             userRatings.map((ratingInfo) => ({
@@ -365,7 +367,7 @@ function RatingsList(props) {
               rating: ratingInfo.rating,
               url: ratingInfo.artifact.ArtifactURL,
               image: ratingInfo.artifact.ThumbnailURL,
-              content:     
+              content:
                   <Popconfirm
                     title="Delete the artifact"
                     description="Are you sure to delete this artifact?"
@@ -373,22 +375,21 @@ function RatingsList(props) {
                     cancelText="No"
                     onConfirm={() => removeRating(ratingInfo)}
                   >
-                    <button href="#" style={{backgroundColor:'rgb(45 45 45)',color:'red',border:'solid 1px',borderRadius:'5px',fontSize:'medium', padding: "2px 5px 2px 5px"}}>
+                    <button href="#" style={{backgroundColor: 'rgb(45 45 45)', color: 'red', border: 'solid 1px', borderRadius: '5px', fontSize: 'medium', padding: '2px 5px 2px 5px'}}>
                       Delete
                     </button>
-                  </Popconfirm>
+                  </Popconfirm>,
             }))
           }
           renderItem={(item) => (
             <List.Item
               key={item.title}
               actions={[
-                <div className="rating-rate" style={{color:'white'}}>
+                <div className="rating-rate" style={{color: 'white'}} key={0}>
                   <Rate allowHalf disabled defaultValue={item.rating} />
                         &nbsp;&nbsp;&nbsp;{item.rating} out of 5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <a href={item.url} target="_blank" rel="noreferrer"><LinkOutlined style={{fontSize:'2.25rem'}} /></a>
-                </div>
-                      
+                  <a href={item.url} target="_blank" rel="noreferrer"><LinkOutlined style={{fontSize: '2.25rem'}} /></a>
+                </div>,
               ]}
               extra={
                 <img
@@ -465,9 +466,9 @@ export default function LearningJournal() {
       <div>
         <NavBar />
       </div>
-      <div 
+      <div
         style={{
-          backgroundImage: 'linear-gradient(0, black, transparent), url("images/testing/learningJ.jpg")', //TODO: image does not exist
+          backgroundImage: 'linear-gradient(0, black, transparent), url("images/testing/learningJ.jpg")', // TODO: image does not exist
           backgroundSize: '100%',
           height: '20rem',
           width: '100%',
@@ -483,7 +484,7 @@ export default function LearningJournal() {
             }
           </table>
           <br />
-          <div style={{ width: "90%", textAlign: "right" }}>
+          <div style={{ width: '90%', textAlign: 'right' }}>
             <Button
               type="primary"
               shape="round"

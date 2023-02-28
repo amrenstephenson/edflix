@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { Rate, Progress } from 'antd';
 
 export class PopupRatings extends Component {

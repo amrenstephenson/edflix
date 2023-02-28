@@ -1,6 +1,6 @@
 import { Navbar, Nav, Container, Form, InputGroup, NavDropdown } from 'react-bootstrap';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { serverURL } from '..';
 import './NavBar.css';
 import { UserAvatar } from './UserAvatar';
@@ -8,7 +8,7 @@ import { UserAvatar } from './UserAvatar';
 function NavBar() {
   const [user, setUser] = useState(null);
   useEffect(() => {
-    const fetchUser = async () => {
+    const fetchUser = async() => {
       const res = await fetch(`${serverURL}/api/user`);
       if (res.status === 200) {
         setUser(await res.json());

@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 
 const defaultColor = '#f00';
 const hoverColor = '#d00';
