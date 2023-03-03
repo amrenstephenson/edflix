@@ -84,8 +84,10 @@ const apiController = new APIController();
 /**
  * @swagger
  * tags:
- *   name: Artifacts
- *   description: The artifacts managing API
+ *   - name: Artifacts
+ *     description: The artifacts managing API
+ *   - name: Accounts
+ *     description: The account management API
  */
 
 /**
@@ -158,17 +160,43 @@ router.get('/artifacts/:topic', apiController.getPopularArtifacts);
  */
 router.get('/artifact/:id', apiController.getArtifact);
 
+/**
+ * @swagger
+ * /recommendations:
+ *   get:
+ *     summary: Returns the list of all the user's recommended artifacts
+ *     tags: [Artifacts]
+ *     responses:
+ *       200:
+ *         description: The list of recommended artifacts
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/ShortArtifact'
+ */
 router.get('/recommendations', apiController.getRecommendations);
 
+/**
+ * @swagger
+ * /logout:
+ *   post:
+ *     summary: Clears the user's current session token and logs them out of their account
+ *     tags: [Accounts]
+ *     parameters:
+ *       - name: edflixSessionToken
+ *         in: header
+ *         description: Session token cookie
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: The user was successfully logged-out
+ *       500:
+ *         description: An error occurred
+ */
 router.get('/logout', apiController.logout);
-
-router.post('/login', apiController.login);
-
-router.post('/register', apiController.register);
-
-router.get('/artifact/:id', apiController.getArtifact);
-
-router.get('/recommendations/', apiController.getRecommendations);
 
 router.post('/login', apiController.login);
 
