@@ -2,28 +2,42 @@ import React, { useState, useEffect, useRef } from 'react';
 import NavBar from '../components/NavBar';
 import './LJ.css';
 import { Button, Tag, Modal, Input, List, Drawer, Space, Upload, Select, Popconfirm, Rate, Form } from 'antd';
-import { LinkOutlined, EditFilled, UploadOutlined } from '@ant-design/icons';
+import { LinkOutlined, StarOutlined, UploadOutlined, EditFilled } from '@ant-design/icons';
 import { serverURL } from '../index';
 import { UserAvatar } from '../components/UserAvatar';
 import { validCourses, validLevelsOfStudy } from './validOptions';
-
+import ArtifactBanner from '../components/ArtifactBanner';
 
 function UserInfo(props) {
-  const { userInfo } = props;
+  const { userInfo, journalInfo, drawerOpen, showDrawer, setDrawerOpen } = props;
 
   return (
-    <thead className="basicinfo">
-      <tr>
-        <th rowSpan="2" className="username_title">
-          <div className="username">{userInfo.User_name}</div>
-          <div className="ProfilePicture">
-            <UserAvatar user={userInfo} size={56} />
-          </div>
-        </th>
-        <th className="email_title">Email:</th>
-        <th className="email">{userInfo.Email}</th>
-      </tr>
-    </thead>
+    <>
+      <div style={{marginBottom: 15, display: 'flex', justifyContent: 'space-between'}}>
+        <div>
+          <UserAvatar user={userInfo} size={56} style={{marginRight: 10}} />
+          <b>{userInfo.User_name}</b>
+        </div>
+        <div>
+          <Button
+            type="primary"
+            shape="round"
+            icon={<EditFilled />}
+            onClick={showDrawer}
+          >
+              Edit Your information
+          </Button>
+          <EditDrawer userInfo={ userInfo } journalInfo={ journalInfo } open={ drawerOpen } setOpen={ setDrawerOpen } />
+        </div>
+      </div>
+      <div style={{ display: 'flex' }}>
+        <b>Email:</b>&nbsp;
+        <div>
+          {userInfo.Email}
+        </div>
+      </div>
+      <hr/>
+    </>
   );
 }
 
@@ -31,27 +45,30 @@ function JournalInfo(props) {
   const { journalInfo } = props;
 
   return (
-    <tbody>
-      <tr>
-        <td className="course_title">Course</td>
-        <td className="degree_title">Level of study</td>
-        <td className="modules_title">Modules</td>
-      </tr>
-      <tr>
-        <td className="course">{journalInfo.UniversityCourse}</td>
-        <td className="degree">
+    <>
+      <div style={{marginBottom: 5, display: 'flex'}}>
+        <b>Course:</b>&nbsp;
+        <div>
+          {journalInfo.UniversityCourse}
+        </div>
+      </div>
+      <div style={{marginBottom: 5, display: 'flex'}}>
+        <b>Level of Study:</b>&nbsp;
+        <div>
           {validLevelsOfStudy[(journalInfo.LevelOfStudy ?? 1)]}
-          <br />
-        </td>
-        <td className="modules">
+        </div>
+      </div>
+      <div style={{display: 'flex'}}>
+        <b>Modules:</b>&nbsp;
+        <div>
           {(journalInfo.modules.map((module, i) => (
             <Tag color="blue" key={i}>
               {module}
             </Tag>
           )))}
-        </td>
-      </tr>
-    </tbody>
+        </div>
+      </div>
+    </>
   );
 }
 
@@ -220,7 +237,7 @@ function EditDrawer(props) {
       placement="right"
       onClose={onDrawerClose}
       open={open}
-      size='large'
+      width={450}
       extra={
         <Space>
           <Button onClick={submitForm} type="primary">
@@ -229,16 +246,17 @@ function EditDrawer(props) {
         </Space>
       }
     >
-      <div style={{ width: '100%' }}>
-        <UserAvatar user={userInfo} size={56} /><br />
-        <Upload {...props}>
-          <Button size="small" icon={<UploadOutlined />}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+        <div style={{marginBottom: 10, display: 'flex', alignItems: 'center'}}>
+          <UserAvatar user={userInfo} size={56} style={{marginRight: 10}} />
+          <Upload {...props}>
+            <Button size="small" icon={<UploadOutlined />}>
             Upload
-          </Button>
-        </Upload>
+            </Button>
+          </Upload>
+        </div>
         <Form
           {...formLayout}
-          style={{ maxWidth: 600 }}
           className="edit-journal-form"
           ref={formRef}
           initialValues={initialFormValues}
@@ -347,18 +365,24 @@ function RatingsList(props) {
 
   return (
     <div>
-      <div className='title' style={{textAlign: 'center', marginTop: '2rem', marginBottom: '2rem'}}>
+      <div className='title' style={{textAlign: 'center', marginTop: 10, marginBottom: 5}}>
         Your Learning Journal
       </div>
 
-      <div style={{ background: 'rgb(30, 30, 30)', width: '80%', marginLeft: '10%' }}>
+      <div style={{ background: 'rgb(30, 30, 30)', width: 'calc(100% - 25px)', marginLeft: 12.5, marginBottom: 40, borderRadius: 10, border: '1px solid white' }}>
         <List
-          style={{ color: 'white'}}
+          style={{ color: 'white' }}
           itemLayout="vertical"
           size="small"
           pagination={{
             pageSize: 4,
           }}
+          locale={{ emptyText: (
+            <div style={{ color: 'white', display: 'flex', flexDirection: 'column' }}>
+              <StarOutlined size={200} style={{fontSize: 40, marginBottom: 10, marginTop: 20}} />
+              <span style={{fontSize: 16}}>You have not rated any artifacts.</span>
+            </div>
+          ) }}
           dataSource = {
             userRatings.map((ratingInfo) => ({
               href: getArtifactURL(ratingInfo.artifact),
@@ -367,43 +391,51 @@ function RatingsList(props) {
               rating: ratingInfo.rating,
               url: ratingInfo.artifact.ArtifactURL,
               image: ratingInfo.artifact.ThumbnailURL,
-              content:
-                  <Popconfirm
-                    title="Delete the artifact"
-                    description="Are you sure to delete this artifact?"
-                    okText="Yes"
-                    cancelText="No"
-                    onConfirm={() => removeRating(ratingInfo)}
-                  >
-                    <button href="#" style={{backgroundColor: 'rgb(45 45 45)', color: 'red', border: 'solid 1px', borderRadius: '5px', fontSize: 'medium', padding: '2px 5px 2px 5px'}}>
-                      Delete
-                    </button>
-                  </Popconfirm>,
+              ratingInfo: ratingInfo,
             }))
           }
           renderItem={(item) => (
             <List.Item
               key={item.title}
-              actions={[
-                <div className="rating-rate" style={{color: 'white'}} key={0}>
-                  <Rate allowHalf disabled defaultValue={item.rating} />
-                        &nbsp;&nbsp;&nbsp;{item.rating} out of 5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <a href={item.url} target="_blank" rel="noreferrer"><LinkOutlined style={{fontSize: '2.25rem'}} /></a>
-                </div>,
-              ]}
               extra={
                 <img
                   width={250}
-                  alt="logo"
+                  alt="artifact thumbnail"
                   src={item.image}
                 />
               }
             >
               <List.Item.Meta
-                title={<a href={item.href}>{item.title}</a>}
+                title={(
+                  <>
+                    {item.title}
+                    <div className="rating-rate" style={{color: 'white', fontWeight: 'normal', marginBottom: -10 }} key={0}>
+                      <Rate allowHalf disabled defaultValue={item.rating} />
+                        &nbsp;&nbsp;&nbsp;{item.rating} out of 5
+                    </div>
+                  </>
+                )}
                 description={item.description}
               />
-              {item.content}
+              <div style={{display: 'flex', marginBottom: 10 }}>
+                <a href={item.href} className='hover-dim' style={{marginRight: 7, textDecoration: 'none', backgroundColor: '#33aaff', color: 'black', border: 'solid 1px #33aaff', borderRadius: '5px', fontSize: 'medium', padding: '2px 5px 2px 5px'}}>
+                  Open Artifact
+                </a>
+                <a href={item.url} target="_blank" rel="noreferrer" className='hover-dim' style={{marginRight: 7, textDecoration: 'none', backgroundColor: 'rgb(45 45 45)', color: '#33ffaa', border: 'solid 1px #33ffaa', borderRadius: '5px', fontSize: 'medium', padding: '2px 5px 2px 5px'}}>
+                  Visit Resource <LinkOutlined />
+                </a>
+                <Popconfirm
+                  title="Delete the artifact"
+                  description="Are you sure to delete this artifact?"
+                  okText="Yes"
+                  cancelText="No"
+                  onConfirm={() => removeRating(item.ratingInfo)}
+                >
+                  <button className='hover-dim' style={{backgroundColor: 'rgb(45 45 45)', color: 'red', border: 'solid 1px', borderRadius: '5px', fontSize: 'medium', padding: '2px 5px 2px 5px'}}>
+                      Delete
+                  </button>
+                </Popconfirm>
+              </div>
             </List.Item>
           )}
         />
@@ -463,38 +495,21 @@ export default function LearningJournal() {
 
   return (
     <div className="learning-journal">
-      <div>
-        <NavBar />
-      </div>
-      <div
-        style={{
-          backgroundImage: 'linear-gradient(0, black, transparent), url("images/testing/learningJ.jpg")', // TODO: image does not exist
-          backgroundSize: '100%',
-          height: '20rem',
-          width: '100%',
-        }}
-      />
+      <NavBar />
+      <ArtifactBanner url='images/banner-journal.png' />
       {userInfo ?
         <div>
-          <table className="userinfo">
-            <UserInfo userInfo={ userInfo } />
+          <div className='title' style={{textAlign: 'center', marginBottom: 5}}>
+            Your Information
+          </div>
+          <div className='userinfo'>
+            <UserInfo userInfo={ userInfo } journalInfo={ journalInfo } drawerOpen={ drawerOpen } showDrawer={ showDrawer } setDrawerOpen={ setDrawerOpen } />
             {journalInfo ?
               <JournalInfo journalInfo={ journalInfo } /> :
-              <tbody style={{textAlign: 'center'}}>You have not created a learning journal.</tbody>
+              <div style={{textAlign: 'center'}}>You have not entered your course details.</div>
             }
-          </table>
-          <br />
-          <div style={{ width: '90%', textAlign: 'right' }}>
-            <Button
-              type="primary"
-              shape="round"
-              icon={<EditFilled />}
-              onClick={showDrawer}
-            >
-              Edit Your information
-            </Button>
-            <EditDrawer userInfo={ userInfo } journalInfo={ journalInfo } open={ drawerOpen } setOpen={ setDrawerOpen } />
           </div>
+          <br />
         </div>
         : <NotLoggedIn />}
 
