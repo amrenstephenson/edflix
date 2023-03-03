@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import express from 'express';
 import APIController from '../controllers/api-controller.js';
 
@@ -63,6 +64,31 @@ const apiController = new APIController();
  */
 router.get('/artifacts', apiController.getArtifacts);
 
+/**
+ * @swagger
+ * /artifacts/{topic}:
+ *   parameters:
+ *     - in: path
+ *       name: topic
+ *       schema:
+ *         type: string
+ *       required: true
+ *       description: The artifact topic
+ *   get:
+ *     summary: Returns the list of all the artifacts belonging to a particular topic
+ *     tags: [Artifacts]
+ *     responses:
+ *       200:
+ *         description: The list of artifacts
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/ShortArtifact'
+ *       500:
+ *         description: Some error happened
+ */
 router.get('/artifacts/:topic', apiController.getPopularArtifacts);
 
 router.get('/artifact/:id', apiController.getArtifact);
