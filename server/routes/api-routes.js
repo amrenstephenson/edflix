@@ -24,7 +24,7 @@ const apiController = new APIController();
  *           description: The artifact name
  *         ThumbnailURL:
  *           type: string
- *           description: The book author
+ *           description: The artifact's thumbnail image URL
  *         Topic:
  *           type: string
  *           description: The topic the artifact belongs to
@@ -37,6 +37,48 @@ const apiController = new APIController();
  *         ThumbnailURL: ...
  *         Topic: Artificial Intelligence
  *         avg_rating: 4.5
+ *     Artifact:
+ *       type: object
+ *       required:
+ *         - Artifact_id
+ *         - Artifact_Name
+ *         - Topic
+ *       properties:
+ *         Artifact_id:
+ *           type: integer
+ *           description: The auto-generated id of the artifact
+ *         Artifact_Name:
+ *           type: string
+ *           description: The artifact name
+ *         ThumbnailURL:
+ *           type: string
+ *           description: The artifact's thumbnail image URL
+ *         Topic:
+ *           type: string
+ *           description: The topic the artifact belongs to
+ *         ArtifactURL:
+ *           type: string
+ *           description: The external URL to the artifact's resource
+ *         Description:
+ *           type: string
+ *           description: The artifact's description as a HTML string
+ *         Type:
+ *           type: string
+ *           enum: [Courseware, Resources, Software]
+ *           description: The type of artifact
+ *         ImageURL:
+ *           type: string
+ *           description: The artifact's main image URL
+ *       example:
+ *         Artifact_id: 1316
+ *         Artifact_Name: Machine Learning for Dummies
+ *         ThumbnailURL: ...
+ *         Topic: Artificial Intelligence
+ *         avg_rating: 4.5
+ *         ArtifactURL: ...
+ *         Description: <p>This book gives you insights...
+ *         Type: Resources
+ *         ImageURL: ...
  */
 
 /**
@@ -91,6 +133,29 @@ router.get('/artifacts', apiController.getArtifacts);
  */
 router.get('/artifacts/:topic', apiController.getPopularArtifacts);
 
+/**
+ * @swagger
+ * /artifact/{id}:
+ *   parameters:
+ *     - in: path
+ *       name: id
+ *       schema:
+ *         type: integer
+ *       required: true
+ *       description: The artifact id
+ *   get:
+ *     summary: Returns the full details of a particular artifact by id
+ *     tags: [Artifacts]
+ *     responses:
+ *       200:
+ *         description: The full artifact details
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Artifact'
+ *       500:
+ *         description: Some error happened
+ */
 router.get('/artifact/:id', apiController.getArtifact);
 
 router.get('/recommendations', apiController.getRecommendations);
