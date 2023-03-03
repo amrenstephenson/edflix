@@ -4,6 +4,63 @@ import APIController from '../controllers/api-controller.js';
 const router = express.Router();
 const apiController = new APIController();
 
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     ShortArtifact:
+ *       type: object
+ *       required:
+ *         - Artifact_id
+ *         - Artifact_Name
+ *         - Topic
+ *       properties:
+ *         Artifact_id:
+ *           type: integer
+ *           description: The auto-generated id of the artifact
+ *         Artifact_Name:
+ *           type: string
+ *           description: The artifact name
+ *         ThumbnailURL:
+ *           type: string
+ *           description: The book author
+ *         Topic:
+ *           type: string
+ *           description: The topic the artifact belongs to
+ *         avg_rating:
+ *           type: float
+ *           description: The artifact's average rating
+ *       example:
+ *         Artifact_id: 1316
+ *         Artifact_Name: Machine Learning for Dummies
+ *         ThumbnailURL: ...
+ *         Topic: Artificial Intelligence
+ *         avg_rating: 4.5
+ */
+
+/**
+ * @swagger
+ * tags:
+ *   name: Artifacts
+ *   description: The artifacts managing API
+ */
+
+/**
+ * @swagger
+ * /artifacts:
+ *   get:
+ *     summary: Returns the list of all the artifacts
+ *     tags: [Artifacts]
+ *     responses:
+ *       200:
+ *         description: The list of artifacts
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/ShortArtifact'
+ */
 router.get('/artifacts', apiController.getArtifacts);
 
 router.get('/artifacts/:topic', apiController.getPopularArtifacts);
