@@ -103,6 +103,45 @@ const apiController = new APIController();
  *         User_name: FakeUser_19_Capstone
  *         Email: fake_19.fake@gmail.com
  *         ProfilePicture: ...
+ *     LearningJournal:
+ *       type: object
+ *       required:
+ *         - Journal_id
+ *         - LevelOfStudy
+ *         - UniversityCourse
+ *         - University
+ *         - modules
+ *       properties:
+ *         Journal_id:
+ *           type: integer
+ *           description: The auto-generated id of the journal
+ *         LevelOfStudy:
+ *           type: integer
+ *           description: The user's current level of study
+ *         UniversityCourse:
+ *           type: string
+ *           description: The course that the user is currently enrolled on
+ *         University:
+ *           type: string
+ *           description: The university that the user currently attends
+ *         JournalURL:
+ *           type: string
+ *           description: A link to a static, shareable copy of this learning journal
+ *         modules:
+ *           type: array
+ *           description: The list of modules that the user takes
+ *           items:
+ *             type: string
+ *       example:
+ *         Journal_id: 105
+ *         LevelOfStudy: 2
+ *         UniversityCourse: Computer Science
+ *         University: Durham University
+ *         JournalURL: ...
+ *         modules:
+ *           - Artificial Intelligence
+ *           - Theory of Computation
+ *           - Software Engineering
  */
 
 /**
@@ -655,6 +694,38 @@ router.post('/ratings/remove', apiController.removeRating);
  */
 router.get('/user/ratings', apiController.getUserRatings);
 
+/**
+ * @swagger
+ * /journal:
+ *   get:
+ *     summary: Returns the information in the user's learning journal
+ *     tags: [Journals]
+ *     parameters:
+ *       - name: edflixSessionToken
+ *         in: cookie
+ *         description: Session token cookie
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: The learning journal information
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/LearningJournal'
+ *       500:
+ *         description: An error occurred
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 code:
+ *                   type: string
+ *                   description: The relevant error code
+ *               example:
+ *                 code: UNKNOWN_JOURNALID
+ */
 router.get('/journal', apiController.getJournal);
 
 router.post('/journal/edit', apiController.editJournal);
