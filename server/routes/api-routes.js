@@ -621,6 +621,38 @@ router.post('/ratings/set', apiController.setRating);
  */
 router.post('/ratings/remove', apiController.removeRating);
 
+/**
+ * @swagger
+ * /user/ratings:
+ *   get:
+ *     summary: Returns the list of all the ratings that the user has left
+ *     tags: [Ratings]
+ *     parameters:
+ *       - name: edflixSessionToken
+ *         in: cookie
+ *         description: Session token cookie
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: The list of ratings
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   rating:
+ *                     type: integer
+ *                     description: The value of the rating
+ *                   artifact:
+ *                     $ref: '#/components/schemas/ShortArtifact'
+ *                 example:
+ *                   rating: 4
+ *       500:
+ *         description: An error occurred
+ */
 router.get('/user/ratings', apiController.getUserRatings);
 
 router.get('/journal', apiController.getJournal);
