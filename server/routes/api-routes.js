@@ -172,6 +172,8 @@ const apiController = new APIController();
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/ShortArtifact'
+ *       500:
+ *         description: An error occurred
  */
 router.get('/artifacts', apiController.getArtifacts);
 
@@ -247,6 +249,8 @@ router.get('/artifact/:id', apiController.getArtifact);
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/ShortArtifact'
+ *       500:
+ *         description: An error occurred
  */
 router.get('/recommendations', apiController.getRecommendations);
 
@@ -264,9 +268,7 @@ router.get('/recommendations', apiController.getRecommendations);
  *         type: string
  *     responses:
  *       200:
- *         description: The user was successfully logged-out
- *       500:
- *         description: An error occurred
+ *         description: The page to redirect to
  */
 router.get('/logout', apiController.logout);
 
@@ -305,6 +307,16 @@ router.get('/logout', apiController.logout);
  *         description: The user was successfully logged-in
  *       500:
  *         description: An error occurred
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 code:
+ *                   type: string
+ *                   description: The relevant error code
+ *               example:
+ *                 code: INCORRECT_PASSWORD
  */
 router.post('/login', apiController.login);
 
@@ -575,7 +587,7 @@ router.get('/ratings/get/:id', apiController.getRating);
  *                   description: True if the user is currently logged in
  *                 error:
  *                   type: object
- *                   description: The error message if applicable
+ *                   description: The error object if applicable
  *                   properties:
  *                     errno:
  *                       type: integer
@@ -756,10 +768,7 @@ router.get('/journal', apiController.getJournal);
  *               University:
  *                 type: string
  *                 description: The university that the user currently attends
- *               JournalURL:
- *                 type: string
- *                 description: A link to a static, shareable copy of this learning journal
- *               modules:
+ *               Modules:
  *                 type: array
  *                 description: The list of modules that the user takes
  *                 items:
@@ -768,8 +777,7 @@ router.get('/journal', apiController.getJournal);
  *               LevelOfStudy: 2
  *               UniversityCourse: Computer Science
  *               University: Durham University
- *               JournalURL: ...
- *               modules:
+ *               Modules:
  *                 - Artificial Intelligence
  *                 - Theory of Computation
  *                 - Software Engineering
@@ -778,6 +786,19 @@ router.get('/journal', apiController.getJournal);
  *         description: The learning journal details were successfully updated
  *       500:
  *         description: An error occurred
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               description: The error object if applicable
+ *               properties:
+ *                 errno:
+ *                   type: integer
+ *                 code:
+ *                   type: string
+ *               example:
+ *                 errno: 19
+ *                 code: SQLITE_CONSTRAINT
  */
 router.post('/journal/edit', apiController.editJournal);
 
