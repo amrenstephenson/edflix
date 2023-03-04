@@ -198,6 +198,42 @@ router.get('/recommendations', apiController.getRecommendations);
  */
 router.get('/logout', apiController.logout);
 
+/**
+ * @swagger
+ * /login:
+ *   post:
+ *     summary: Authenticate the user and set the current session token
+ *     tags: [Accounts]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               userName:
+ *                 type: string
+ *                 description: The account username
+ *               password:
+ *                 type: string
+ *                 description: The account password
+ *               remember:
+ *                 type: boolean
+ *                 description: True if the user's session should persist across browser sessions
+ *             required:
+ *               - userName
+ *               - password
+ *               - remember
+ *             example:
+ *               userName: FakeUser_0_IBM Cloud
+ *               password: password1
+ *               remember: true
+ *     responses:
+ *       200:
+ *         description: The user was successfully logged-in
+ *       500:
+ *         description: An error occurred
+ */
 router.post('/login', apiController.login);
 
 router.post('/register', apiController.register);
