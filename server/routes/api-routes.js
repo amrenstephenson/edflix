@@ -338,6 +338,45 @@ router.post('/register', apiController.register);
  */
 router.get('/user', apiController.getUser);
 
+/**
+ * @swagger
+ * /user/edit:
+ *   post:
+ *     summary: Edit an existing Edflix account's details
+ *     tags: [Accounts]
+ *     parameters:
+ *       - name: edflixSessionToken
+ *         in: cookie
+ *         description: Session token cookie
+ *         required: true
+ *         type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 description: The account email
+ *               username:
+ *                 type: string
+ *                 description: The account username
+ *             required:
+ *               - email
+ *               - username
+ *             example:
+ *               email: example@example.com
+ *               username: FakeUser_0_IBM Cloud
+ *     responses:
+ *       200:
+ *         description: The account details were successfully updated
+ *       500:
+ *         description: An error occurred
+ */
+router.post('/user/edit', apiController.editUser);
+
 router.get('/ratings/global/:id', apiController.getGlobalRatings);
 
 router.get('/ratings/get/:id', apiController.getRating);
@@ -351,7 +390,5 @@ router.get('/user/ratings', apiController.getUserRatings);
 router.get('/journal', apiController.getJournal);
 
 router.post('/journal/edit', apiController.editJournal);
-
-router.post('/user/edit', apiController.editUser);
 
 export default router;
