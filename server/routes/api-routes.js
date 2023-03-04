@@ -551,6 +551,74 @@ router.get('/ratings/get/:id', apiController.getRating);
  */
 router.post('/ratings/set', apiController.setRating);
 
+/**
+ * @swagger
+ * /ratings/remove:
+ *   post:
+ *     summary: Remove a rating the user left on an artifact
+ *     tags: [Ratings]
+ *     parameters:
+ *       - name: edflixSessionToken
+ *         in: cookie
+ *         description: Session token cookie
+ *         required: true
+ *         type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               artifactID:
+ *                 type: integer
+ *                 description: The artifact ID to be rated
+ *             required:
+ *               - artifactID
+ *             example:
+ *               artifactID: 1271
+ *     responses:
+ *       200:
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   description: True if the rating was successfully removed
+ *                 isLoggedIn:
+ *                   type: boolean
+ *                   description: True if the user is currently logged in
+ *               example:
+ *                 success: true
+ *                 isLoggedIn: true
+ *       500:
+ *         description: An error occurred
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   description: True if the rating was successfully removed
+ *                 isLoggedIn:
+ *                   type: boolean
+ *                   description: True if the user is currently logged in
+ *                 error:
+ *                   type: object
+ *                   description: The error message if applicable
+ *                   properties:
+ *                     errno:
+ *                       type: integer
+ *                     code:
+ *                       type: string
+ *               example:
+ *                 success: false
+ *                 isLoggedIn: false
+ */
 router.post('/ratings/remove', apiController.removeRating);
 
 router.get('/user/ratings', apiController.getUserRatings);
