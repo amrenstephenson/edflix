@@ -109,9 +109,13 @@ const apiController = new APIController();
  * @swagger
  * tags:
  *   - name: Artifacts
- *     description: The artifacts managing API
+ *     description: The artifacts management API
  *   - name: Accounts
  *     description: The account management API
+ *   - name: Ratings
+ *     description: The ratings management API
+ *   - name: Journals
+ *     description: The learning journals management API
  */
 
 /**
@@ -165,8 +169,7 @@ router.get('/artifacts/:topic', apiController.getPopularArtifacts);
  *   parameters:
  *     - in: path
  *       name: id
- *       schema:
- *         type: integer
+ *       type: integer
  *       required: true
  *       description: The artifact id
  *   get:
@@ -377,6 +380,62 @@ router.get('/user', apiController.getUser);
  */
 router.post('/user/edit', apiController.editUser);
 
+/**
+ * @swagger
+ * /ratings/global/{id}:
+ *   get:
+ *     summary: Returns the ratings breakdown for a particular artifact
+ *     tags: [Ratings]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         type: integer
+ *         required: true
+ *         description: The artifact id
+ *     responses:
+ *       200:
+ *         description: The ratings breakdown
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 average:
+ *                   type: number
+ *                   description: The artifact's average rating
+ *                 counts:
+ *                   type: object
+ *                   properties:
+ *                     1:
+ *                       type: integer
+ *                       description: The number of 1-star ratings
+ *                     2:
+ *                       type: integer
+ *                       description: The number of 2-star ratings
+ *                     3:
+ *                       type: integer
+ *                       description: The number of 3-star ratings
+ *                     4:
+ *                       type: integer
+ *                       description: The number of 4-star ratings
+ *                     5:
+ *                       type: integer
+ *                       description: The number of 5-star ratings
+ *                     total:
+ *                       type: integer
+ *                       description: The total number of ratings
+ *               example:
+ *                 average: 4.5
+ *                 counts:
+ *                   1: 0
+ *                   2: 0
+ *                   3: 0
+ *                   4: 1
+ *                   5: 1
+ *                   total: 2
+ *       500:
+ *         description: An error occurred
+ */
 router.get('/ratings/global/:id', apiController.getGlobalRatings);
 
 router.get('/ratings/get/:id', apiController.getRating);
