@@ -22,7 +22,7 @@ const options = {
     info: {
       title: 'Edflix API',
       version: '1.0.0',
-      description: 'TODO',
+      description: 'Documentation for Edflix\'s REST API',
     },
     servers: [
       {
