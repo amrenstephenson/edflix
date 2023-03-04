@@ -746,33 +746,33 @@ router.get('/journal', apiController.getJournal);
  *         application/json:
  *           schema:
  *             type: object
- *       properties:
- *         LevelOfStudy:
- *           type: integer
- *           description: The user's current level of study
- *         UniversityCourse:
- *           type: string
- *           description: The course that the user is currently enrolled on
- *         University:
- *           type: string
- *           description: The university that the user currently attends
- *         JournalURL:
- *           type: string
- *           description: A link to a static, shareable copy of this learning journal
- *         modules:
- *           type: array
- *           description: The list of modules that the user takes
- *           items:
- *             type: string
- *       example:
- *         LevelOfStudy: 2
- *         UniversityCourse: Computer Science
- *         University: Durham University
- *         JournalURL: ...
- *         modules:
- *           - Artificial Intelligence
- *           - Theory of Computation
- *           - Software Engineering
+ *             properties:
+ *               LevelOfStudy:
+ *                 type: integer
+ *                 description: The user's current level of study
+ *               UniversityCourse:
+ *                 type: string
+ *                 description: The course that the user is currently enrolled on
+ *               University:
+ *                 type: string
+ *                 description: The university that the user currently attends
+ *               JournalURL:
+ *                 type: string
+ *                 description: A link to a static, shareable copy of this learning journal
+ *               modules:
+ *                 type: array
+ *                 description: The list of modules that the user takes
+ *                 items:
+ *                   type: string
+ *             example:
+ *               LevelOfStudy: 2
+ *               UniversityCourse: Computer Science
+ *               University: Durham University
+ *               JournalURL: ...
+ *               modules:
+ *                 - Artificial Intelligence
+ *                 - Theory of Computation
+ *                 - Software Engineering
  *     responses:
  *       200:
  *         description: The learning journal details were successfully updated
