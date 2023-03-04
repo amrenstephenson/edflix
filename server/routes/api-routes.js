@@ -166,6 +166,12 @@ router.get('/artifact/:id', apiController.getArtifact);
  *   get:
  *     summary: Returns the list of all the user's recommended artifacts
  *     tags: [Artifacts]
+ *     parameters:
+ *       - name: edflixSessionToken
+ *         in: cookie
+ *         description: Session token cookie
+ *         required: true
+ *         type: string
  *     responses:
  *       200:
  *         description: The list of recommended artifacts
@@ -186,7 +192,7 @@ router.get('/recommendations', apiController.getRecommendations);
  *     tags: [Accounts]
  *     parameters:
  *       - name: edflixSessionToken
- *         in: header
+ *         in: cookie
  *         description: Session token cookie
  *         required: true
  *         type: string
@@ -236,6 +242,42 @@ router.get('/logout', apiController.logout);
  */
 router.post('/login', apiController.login);
 
+/**
+ * @swagger
+ * /register:
+ *   post:
+ *     summary: Register a new Edflix account
+ *     tags: [Accounts]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 description: The account email
+ *               userName:
+ *                 type: string
+ *                 description: The account username
+ *               password:
+ *                 type: string
+ *                 description: The account password
+ *             required:
+ *               - email
+ *               - userName
+ *               - password
+ *             example:
+ *               email: example@example.com
+ *               userName: FakeUser_0_IBM Cloud
+ *               password: password1
+ *     responses:
+ *       200:
+ *         description: The user was successfully logged-in
+ *       500:
+ *         description: An error occurred
+ */
 router.post('/register', apiController.register);
 
 router.get('/ratings/global/:id', apiController.getGlobalRatings);
