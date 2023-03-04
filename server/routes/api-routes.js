@@ -438,6 +438,39 @@ router.post('/user/edit', apiController.editUser);
  */
 router.get('/ratings/global/:id', apiController.getGlobalRatings);
 
+/**
+ * @swagger
+ * /ratings/get/{id}:
+ *   get:
+ *     summary: Returns the rating that the user left on a particular artifact
+ *     tags: [Ratings]
+ *     parameters:
+ *       - name: edflixSessionToken
+ *         in: cookie
+ *         description: Session token cookie
+ *         required: true
+ *         type: string
+ *       - name: id
+ *         in: path
+ *         description: The artifact id
+ *         required: true
+ *         type: integer
+ *     responses:
+ *       200:
+ *         description: The user's account information
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 rating:
+ *                   type: integer
+ *                   description: The rating that the user gave the artifact
+ *               example:
+ *                 rating: 3
+ *       500:
+ *         description: An error occurred
+ */
 router.get('/ratings/get/:id', apiController.getRating);
 
 router.post('/ratings/set', apiController.setRating);
