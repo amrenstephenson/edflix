@@ -198,7 +198,7 @@ router.get('/artifacts', apiController.getArtifacts);
  *               items:
  *                 $ref: '#/components/schemas/ShortArtifact'
  *       500:
- *         description: Some error happened
+ *         description: An error occurred
  */
 router.get('/artifacts/:topic', apiController.getPopularArtifacts);
 
@@ -222,7 +222,7 @@ router.get('/artifacts/:topic', apiController.getPopularArtifacts);
  *             schema:
  *               $ref: '#/components/schemas/Artifact'
  *       500:
- *         description: Some error happened
+ *         description: An error occurred
  */
 router.get('/artifact/:id', apiController.getArtifact);
 
