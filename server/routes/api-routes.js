@@ -79,6 +79,30 @@ const apiController = new APIController();
  *         Description: <p>This book gives you insights...
  *         Type: Resources
  *         ImageURL: ...
+ *     User:
+ *       type: object
+ *       required:
+ *         - User_id
+ *         - User_name
+ *         - Email
+ *       properties:
+ *         User_id:
+ *           type: integer
+ *           description: The auto-generated id of the account
+ *         User_name:
+ *           type: string
+ *           description: The account's username
+ *         Email:
+ *           type: string
+ *           description: The user's email address
+ *         ProfilePicture:
+ *           type: string
+ *           description: The image URL of the user's profile picture
+ *       example:
+ *         User_id: 20
+ *         User_name: FakeUser_19_Capstone
+ *         Email: fake_19.fake@gmail.com
+ *         ProfilePicture: ...
  */
 
 /**
@@ -280,6 +304,40 @@ router.post('/login', apiController.login);
  */
 router.post('/register', apiController.register);
 
+/**
+ * @swagger
+ * /user:
+ *   get:
+ *     summary: Returns the user's account information
+ *     tags: [Accounts]
+ *     parameters:
+ *       - name: edflixSessionToken
+ *         in: cookie
+ *         description: Session token cookie
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: The user's account information
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/User'
+ *       500:
+ *         description: The user is not logged in or the session token is invalid
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 code:
+ *                   type: string
+ *                   description: The relevant error code
+ *               example:
+ *                 code: UNKNOWN_USERID
+ */
+router.get('/user', apiController.getUser);
+
 router.get('/ratings/global/:id', apiController.getGlobalRatings);
 
 router.get('/ratings/get/:id', apiController.getRating);
@@ -287,8 +345,6 @@ router.get('/ratings/get/:id', apiController.getRating);
 router.post('/ratings/set', apiController.setRating);
 
 router.post('/ratings/remove', apiController.removeRating);
-
-router.get('/user', apiController.getUser);
 
 router.get('/user/ratings', apiController.getUserRatings);
 
