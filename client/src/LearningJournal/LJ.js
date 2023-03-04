@@ -495,25 +495,30 @@ export default function LearningJournal() {
 
   return (
     <div className="learning-journal">
-      <NavBar />
-      <ArtifactBanner url='images/banner-journal.png' />
-      {userInfo ?
-        <div>
-          <div className='title' style={{textAlign: 'center', marginBottom: 5}}>
-            Your Information
-          </div>
-          <div className='userinfo'>
-            <UserInfo userInfo={ userInfo } journalInfo={ journalInfo } drawerOpen={ drawerOpen } showDrawer={ showDrawer } setDrawerOpen={ setDrawerOpen } />
-            {journalInfo ?
-              <JournalInfo journalInfo={ journalInfo } /> :
-              <div style={{textAlign: 'center'}}>You have not entered your course details.</div>
-            }
-          </div>
-          <br />
-        </div>
-        : <NotLoggedIn />}
+      <header>
+        <NavBar />
+      </header>
 
-      {userRatings ? <RatingsList userRatings={ userRatings } setUserRatings={ setUserRatings } /> : ''}
+      <ArtifactBanner url='images/banner-journal.png' />
+      <main className="container">
+        {userInfo ?
+          <div>
+            <div className='title' style={{textAlign: 'center', marginBottom: 5}}>
+              Your Information
+            </div>
+            <div className='userinfo'>
+              <UserInfo userInfo={ userInfo } journalInfo={ journalInfo } drawerOpen={ drawerOpen } showDrawer={ showDrawer } setDrawerOpen={ setDrawerOpen } />
+              {journalInfo ?
+                <JournalInfo journalInfo={ journalInfo } /> :
+                <div style={{textAlign: 'center'}}>You have not entered your course details.</div>
+              }
+            </div>
+            <br />
+          </div>
+          : <NotLoggedIn />}
+
+        {userRatings ? <RatingsList userRatings={ userRatings } setUserRatings={ setUserRatings } /> : ''}
+      </main>
     </div>
   );
 }
