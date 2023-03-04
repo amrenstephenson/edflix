@@ -473,6 +473,82 @@ router.get('/ratings/global/:id', apiController.getGlobalRatings);
  */
 router.get('/ratings/get/:id', apiController.getRating);
 
+/**
+ * @swagger
+ * /ratings/set:
+ *   post:
+ *     summary: Leave or update a rating on an artifact
+ *     tags: [Ratings]
+ *     parameters:
+ *       - name: edflixSessionToken
+ *         in: cookie
+ *         description: Session token cookie
+ *         required: true
+ *         type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               artifactID:
+ *                 type: integer
+ *                 description: The artifact ID to be rated
+ *               value:
+ *                 type: integer
+ *                 description: The rating value from 1 to 5
+ *             required:
+ *               - artifactID
+ *               - value
+ *             example:
+ *               artifactID: 1271
+ *               value: 3
+ *     responses:
+ *       200:
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   description: True if the rating was successfully left
+ *                 isLoggedIn:
+ *                   type: boolean
+ *                   description: True if the user is currently logged in
+ *               example:
+ *                 success: true
+ *                 isLoggedIn: true
+ *       500:
+ *         description: An error occurred
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   description: True if the rating was successfully left
+ *                 isLoggedIn:
+ *                   type: boolean
+ *                   description: True if the user is currently logged in
+ *                 error:
+ *                   type: object
+ *                   description: The error message if applicable
+ *                   properties:
+ *                     errno:
+ *                       type: integer
+ *                     code:
+ *                       type: string
+ *               example:
+ *                 success: false
+ *                 isLoggedIn: true
+ *                 error:
+ *                   errno: 19
+ *                   code: SQLITE_CONSTRAINT
+ */
 router.post('/ratings/set', apiController.setRating);
 
 router.post('/ratings/remove', apiController.removeRating);
