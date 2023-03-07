@@ -37,7 +37,9 @@
     "express": "^4.18.2",
     "helmet": "^6.0.0",
     "ibm-cloud-env": "^0",
-    "sqlite3": "^5.1.4"
+    "sqlite3": "^5.1.4",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.2"
   },
   "devDependencies": {
     "c8": "^7.12.0",
