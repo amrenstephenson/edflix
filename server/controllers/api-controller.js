@@ -139,13 +139,13 @@ class APIController {
         res.json(null);
       } else {
         const recommendations = await getRecommendedArtifacts(userID);
-        let recommended = recommendations.map((r) => {
+        let recommended = recommendations?.map((r) => {
           let a = this.db.get(
             'SELECT * FROM Artifact WHERE Artifact_id=?',
             [r[0]],
           );
           return a;
-        });
+        }) ?? [];
         recommended = await Promise.all(recommended);
         res.json(recommended);
       }
@@ -180,12 +180,12 @@ class APIController {
           res.end();
         } else {
           res
-            .status(500)
+            .status(403)
             .json({ code: 'INCORRECT_PASSWORD' });
         }
       } else {
         res
-          .status(500)
+          .status(404)
           .json({ code: 'UNKNOWN_USERNAME' });
       }
     } catch (e) {
@@ -313,14 +313,13 @@ class APIController {
       // eslint-disable-next-line max-len
       let user = await this.db.get('SELECT User_id, User_name, Email, ProfilePicture FROM User where User_id=?', [User_id]);
       if (user) {
-
         res
           .status(200)
           .json(user);
 
       } else {
         res
-          .status(500)
+          .status(404)
           .json({ code: 'UNKNOWN_USERID' });
       }
     } catch (e) {
@@ -332,9 +331,9 @@ class APIController {
   };
 
   getUserRatings = async(req, res) => {
-    if (!req.cookies.edflixSessionToken) {
+    if (!this.getUserId(req.cookies.edflixSessionToken)) {
       res
-        .status(500)
+        .status(404)
         .json({ code: 'UNKNOWN_USERID' });
       return;
     }
@@ -394,7 +393,7 @@ class APIController {
 
       } else {
         res
-          .status(500)
+          .status(404)
           .json({ code: 'UNKNOWN_JOURNALID' });
       }
     } catch (e) {
