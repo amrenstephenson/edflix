@@ -8,13 +8,14 @@ function ArtifactRows(props) {
     // Create an array of topics and their associated artifacts from the array of artifacts.
     const fetchData = async() => {
       const searchParams = new URLSearchParams(window.location.search);
-      const [response1, response2] = await Promise.all([fetch(`${serverURL}/api/artifacts?filter=${searchParams.get('filter') ?? ''}`), fetch(`${serverURL}/api/recommendations`)]);
+      const searchFilter = searchParams.get('filter');
+      const [response1, response2] = await Promise.all([fetch(`${serverURL}/api/artifacts?filter=${searchFilter ?? ''}`), fetch(`${serverURL}/api/recommendations`)]);
       const [artifacts, recommendations] = await Promise.all([response1.json(), response2.json()]);
 
       // Create an array of topics and their associated artifacts from the array of artifacts.
       const groupedArtifacts = [];
 
-      if (recommendations && recommendations.length > 0) {
+      if (!searchFilter && recommendations && recommendations.length > 0) {
         groupedArtifacts.push({topic: 'Recommendations', artifacts: recommendations});
       }
 
