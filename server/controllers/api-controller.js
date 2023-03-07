@@ -407,6 +407,7 @@ class APIController {
   editJournal = async(req, res) => {
     let User_id = this.getUserId(req.cookies.edflixSessionToken);
     let {LevelOfStudy, UniversityCourse, University, Modules} = req.body;
+    Modules = Modules ?? [];
 
     try {
       await this.db.exec('BEGIN TRANSACTION');
