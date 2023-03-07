@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import NavBar from '../components/NavBar';
 import './LJ.css';
-import { Button, Tag, Modal, Input, List, Drawer, Space, Upload, Select, Popconfirm, Rate, Form } from 'antd';
+import { Button, Tag, Modal, Input, List, Drawer, Space, Upload, Select, Popconfirm, Rate, Form, ConfigProvider, theme } from 'antd';
 import { LinkOutlined, StarOutlined, UploadOutlined, EditFilled } from '@ant-design/icons';
 import { serverURL } from '../index';
 import { UserAvatar } from '../components/UserAvatar';
@@ -215,10 +215,10 @@ function EditDrawer(props) {
 
   const formLayout = {
     labelCol: {
-      span: 8,
+      span: 4,
     },
     wrapperCol: {
-      span: 16,
+      span: 20,
     },
   };
 
@@ -236,8 +236,8 @@ function EditDrawer(props) {
       title="Your Information"
       placement="right"
       onClose={onDrawerClose}
+      size="large"
       open={open}
-      width={450}
       extra={
         <Space>
           <Button onClick={submitForm} type="primary">
@@ -246,90 +246,102 @@ function EditDrawer(props) {
         </Space>
       }
     >
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-        <div style={{marginBottom: 10, display: 'flex', alignItems: 'center'}}>
-          <UserAvatar user={userInfo} size={56} style={{marginRight: 10}} />
-          <Upload {...props}>
-            <Button size="small" icon={<UploadOutlined />}>
+      <ConfigProvider
+        theme={{
+          algorithm: theme.darkAlgorithm,
+        }}
+      >
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+          <Form
+            {...formLayout}
+            className="edit-journal-form"
+            ref={formRef}
+            initialValues={initialFormValues}
+            style={{width: '100%'}}
+          >
+            <Form.Item name="profile-pic" label="Profile Picture" rules={[{ required: false }]}>
+              <Upload {...props}>
+                <Button size="small" icon={<UploadOutlined />}>
             Upload
-            </Button>
-          </Upload>
+                </Button>
+              </Upload>
+            </Form.Item>
+            <Form.Item name="username" label="Username" rules={[{ required: true }]}>
+              <Input
+                placeholder="Username"
+                maxLength="30"
+                showCount="true"
+              />
+            </Form.Item>
+            <Form.Item name="email" label="Email" rules={[{ required: true }]}>
+              <Input
+                placeholder="Email"
+                maxLength="30"
+                showCount="true"
+              />
+            </Form.Item>
+            <Form.Item name="university" label="University" rules={[{ required: true }]}>
+              <Input
+                placeholder="University"
+                maxLength="30"
+                showCount="true"
+              />
+            </Form.Item>
+
+            <Form.Item name="course" label="Course" rules={[{ required: true }]}>
+              <Select
+                showSearch
+                placeholder="Select a course"
+                optionFilterProp="children"
+                filterOption={(input, option) =>
+                  (option?.value ?? '').toLocaleLowerCase().includes(input.toLocaleLowerCase())
+                }
+                filterSort={(optionA, optionB) =>
+                  (optionA?.value ?? '')
+                    .toLowerCase()
+                    .localeCompare((optionB?.value ?? '').toLowerCase())
+                }
+              >
+                {validCourses.map((course, i) =>
+                  <Select.Option value={course.label} key={i}>{course.label}</Select.Option>,
+                )}
+              </Select>
+            </Form.Item>
+
+            <Form.Item name="levelOfStudy" label="Level of Study" rules={[{ required: false }]}>
+              <Select>
+                {validLevelsOfStudy.map((level, i) =>
+                  <Select.Option value={i} key={i}>{level}</Select.Option>,
+                )}
+              </Select>
+            </Form.Item>
+
+            <Form.Item label="Modules" shouldUpdate={
+              (prevValues, curValues) => prevValues.users !== curValues.users
+            }>
+              {({ getFieldValue }) => {
+                const modules = getFieldValue('modules') ?? [];
+                return (
+                  <ConfigProvider
+                    theme={{
+                      algorithm: null,
+                    }}
+                  >
+                    <div>
+                      {modules.map((module, i) => <EditableTag module={module} onClose={removeModule} key={i} />,
+                      )}
+                      <Tag color="blue">
+                        <button style={{ all: 'unset', cursor: 'pointer' }} onClick={showModal}>+</button>
+                      </Tag>
+                    </div>
+                  </ConfigProvider>
+                );
+              }}
+            </Form.Item>
+          </Form>
+          <AddModuleModal open={Modalopen} addModule={addModule} onCancel={handleCancelModal} />
         </div>
-        <Form
-          {...formLayout}
-          className="edit-journal-form"
-          ref={formRef}
-          initialValues={initialFormValues}
-        >
-          <Form.Item name="username" label="Username" rules={[{ required: true }]}>
-            <Input
-              placeholder="Username"
-              maxLength="30"
-              showCount="true"
-            />
-          </Form.Item>
-          <Form.Item name="email" label="Email" rules={[{ required: true }]}>
-            <Input
-              placeholder="Email"
-              maxLength="30"
-              showCount="true"
-            />
-          </Form.Item>
-          <Form.Item name="university" label="University" rules={[{ required: true }]}>
-            <Input
-              placeholder="University"
-              maxLength="30"
-              showCount="true"
-            />
-          </Form.Item>
-
-          <Form.Item name="course" label="Course" rules={[{ required: true }]}>
-            <Select
-              showSearch
-              placeholder="Select a course"
-              optionFilterProp="children"
-              filterOption={(input, option) =>
-                (option?.value ?? '').toLocaleLowerCase().includes(input.toLocaleLowerCase())
-              }
-              filterSort={(optionA, optionB) =>
-                (optionA?.value ?? '')
-                  .toLowerCase()
-                  .localeCompare((optionB?.value ?? '').toLowerCase())
-              }
-            >
-              {validCourses.map((course, i) =>
-                <Select.Option value={course.label} key={i}>{course.label}</Select.Option>,
-              )}
-            </Select>
-          </Form.Item>
-
-          <Form.Item name="levelOfStudy" label="Level of Study" rules={[{ required: false }]}>
-            <Select>
-              {validLevelsOfStudy.map((level, i) =>
-                <Select.Option value={i} key={i}>{level}</Select.Option>,
-              )}
-            </Select>
-          </Form.Item>
-
-          <Form.Item label="Modules" shouldUpdate={
-            (prevValues, curValues) => prevValues.users !== curValues.users
-          }>
-            {({ getFieldValue }) => {
-              const modules = getFieldValue('modules') ?? [];
-              return (
-                <div>
-                  {modules.map((module, i) => <EditableTag module={module} onClose={removeModule} key={i} />,
-                  )}
-                  <Tag color="blue">
-                    <button style={{ all: 'unset', color: 'blue', cursor: 'pointer' }} onClick={showModal}>+</button>
-                  </Tag>
-                </div>
-              );
-            }}
-          </Form.Item>
-        </Form>
-        <AddModuleModal open={Modalopen} addModule={addModule} onCancel={handleCancelModal} />
-      </div>
+      </ConfigProvider>
     </Drawer>
   );
 }
@@ -378,7 +390,7 @@ function RatingsList(props) {
             pageSize: 4,
           }}
           locale={{ emptyText: (
-            <div style={{ color: 'white', display: 'flex', flexDirection: 'column' }}>
+            <div style={{ color: 'white', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <StarOutlined size={200} style={{fontSize: 40, marginBottom: 10, marginTop: 20}} />
               <span style={{fontSize: 16}}>You have not rated any artifacts.</span>
             </div>
@@ -498,27 +510,34 @@ export default function LearningJournal() {
       <header>
         <NavBar />
       </header>
-
-      <ArtifactBanner url='images/banner-journal.png' />
-      <main className="container">
-        {userInfo ?
-          <div>
-            <div className='title' style={{textAlign: 'center', marginBottom: 5}}>
+      <ConfigProvider
+        theme={{
+          token: {
+            colorPrimary: '#ff0000',
+          },
+        }}
+      >
+        <ArtifactBanner url='images/banner-journal.png' />
+        <main className="container">
+          {userInfo ?
+            <div>
+              <div className='title' style={{textAlign: 'center', marginBottom: 5}}>
               Your Information
+              </div>
+              <div className='userinfo'>
+                <UserInfo userInfo={ userInfo } journalInfo={ journalInfo } drawerOpen={ drawerOpen } showDrawer={ showDrawer } setDrawerOpen={ setDrawerOpen } />
+                {journalInfo ?
+                  <JournalInfo journalInfo={ journalInfo } /> :
+                  <div style={{textAlign: 'center'}}>You have not entered your course details.</div>
+                }
+              </div>
+              <br />
             </div>
-            <div className='userinfo'>
-              <UserInfo userInfo={ userInfo } journalInfo={ journalInfo } drawerOpen={ drawerOpen } showDrawer={ showDrawer } setDrawerOpen={ setDrawerOpen } />
-              {journalInfo ?
-                <JournalInfo journalInfo={ journalInfo } /> :
-                <div style={{textAlign: 'center'}}>You have not entered your course details.</div>
-              }
-            </div>
-            <br />
-          </div>
-          : <NotLoggedIn />}
+            : <NotLoggedIn />}
 
-        {userRatings ? <RatingsList userRatings={ userRatings } setUserRatings={ setUserRatings } /> : ''}
-      </main>
+          {userRatings ? <RatingsList userRatings={ userRatings } setUserRatings={ setUserRatings } /> : ''}
+        </main>
+      </ConfigProvider>
     </div>
   );
 }
