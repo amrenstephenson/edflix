@@ -19,7 +19,7 @@ async function handleSubmit(event) {
   });
 
   if (res.ok) {
-    window.location.href = '/';
+    window.location.href = '/learning-journal';
   } else {
     const err = await res.json();
     if (err.code === 'SQLITE_CONSTRAINT') {
