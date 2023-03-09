@@ -30,12 +30,14 @@ function UserInfo(props) {
           <EditDrawer userInfo={ userInfo } journalInfo={ journalInfo } open={ drawerOpen } setOpen={ setDrawerOpen } />
         </div>
       </div>
+      { userInfo.Email &&
       <div style={{ display: 'flex' }}>
         <b>Email:</b>&nbsp;
         <div>
           {userInfo.Email}
         </div>
       </div>
+      }
       <hr/>
     </>
   );
