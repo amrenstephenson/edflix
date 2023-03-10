@@ -15,10 +15,10 @@ async function calculateJournalSimilarity(journal1, journal2) {
 
   let score = 0.0;
   if (journal1.LevelOfStudy === journal2.LevelOfStudy)
-    score += 0.2;
+    score += 0.1;
 
-  score += 0.5 * fuzzy(journal1.UniversityCourse, journal2.UniversityCourse);
-  score += 0.1 * fuzzy(journal1.University, journal2.University);
+  score += 0.5 * fuzzy(journal2.UniversityCourse, journal1.UniversityCourse);
+  score += 0.1 * fuzzy(journal2.University, journal1.University);
 
   const SQL = 'SELECT Module_Name FROM JournalModule WHERE Journal_id = ?';
   const modules1 = (await db.all(
@@ -32,7 +32,7 @@ async function calculateJournalSimilarity(journal1, journal2) {
   const searcher = new Searcher(modules1);
   for (const module of modules2) {
     const matches = searcher.search(module, {returnMatchData: true});
-    score = matches.reduce((acc, cur) => (acc + 0.2 * cur.score), score);
+    score = matches.reduce((acc, cur) => (acc + 0.4 * cur.score), score);
   }
 
   return score;

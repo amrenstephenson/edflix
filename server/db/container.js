@@ -44,38 +44,67 @@ export async function createExampleUsers() {
 
   await deleteExampleUsers(db);
 
-  async function insertObject(table, obj) {
-    const cols = Object.keys(obj).join(',');
-    const placeholders = Object.keys(obj).fill('?').join(',');
-    return await db.run(
-      `INSERT INTO ${table} (${cols}) VALUES (${placeholders})`,
-      Object.values(obj),
-    );
-  }
-
   const choose = (arr) => arr[Math.floor(Math.random() * arr.length)];
-  const unis = ['Durham', 'Oxford', 'Lancaster', 'Warwick', 'Bath'];
-  const courses = [
-    'Computer Science', 'Physics', 'Maths', 'Engineering', 'Psychology',
-  ];
-  const topics = [
-    'Artificial Intelligence',
-    'Capstone',
-    'Data Science',
-    'IBM Automation',
-    'IBM Cloud',
+
+  const userTypes = [
+    {
+      courses: ['Computer Science'],
+      topics: ['IBM Cloud', 'IBM Security', 'Red Hat Academy'],
+      modules: [
+        'Networks and Systems',
+        'Theory of Computation',
+        'Software Engineering',
+        'Programming',
+      ],
+    },
+    {
+      courses: ['Mathematics', 'Computer Science'],
+      topics: ['Data Science', 'Capstone'],
+      modules: [
+        'Data Science',
+        'Analysis',
+      ],
+    },
+    {
+      courses: ['Mathematics', 'Computer Science'],
+      topics: ['Artificial Intelligence'],
+      modules: [
+        'Artificial Intelligence',
+        'Machine Learning',
+        'Deep Learning',
+      ],
+    },
+    {
+      courses: ['Physics', 'Mathematics', 'Engineering'],
+      topics: ['IBM Quantum', 'IBM Engineering'],
+      modules: [
+        'Quantum Computing',
+        'Quantum Mechanics',
+        'Analysis',
+      ],
+    },
+    {
+      courses: ['International Business', 'Economics', 'Accounting'],
+      topics: ['IBM Z'],
+      modules: [
+        'Economics',
+        'Finance',
+        'Business',
+      ],
+    },
   ];
 
-  const NUSERS = 100;
+
+  const unis = ['Durham', 'Oxford', 'Lancaster', 'Warwick', 'Bath'];
+
+  const NUSERS = 500;
   for (let i = 0; i < NUSERS; i++) {
     await db.exec('BEGIN TRANSACTION');
 
-    const topic_i = Math.floor(Math.random() * topics.length);
-    const topic = topics[topic_i];
-    const course = courses[topic_i];
+    const userType = choose(userTypes);
 
     let user = {
-      User_name: `FakeUser_${i}_${topic}`,
+      User_name: `FakeUser_${i}`,
       Email: `fake_${i}.fake@gmail.com`,
       Password: 'password1',
       ProfilePicture: null,
@@ -83,15 +112,15 @@ export async function createExampleUsers() {
 
     let journal = {
       LevelOfStudy: 1 + Math.floor(Math.random() * 4),
-      UniversityCourse: course,
+      UniversityCourse: choose(userType.courses),
       University: choose(unis),
       JournalURL: null,
     };
 
     // eslint-disable-next-line max-len
-    journal.Journal_id = (await insertObject('LearningJournal', journal)).lastID;
+    journal.Journal_id = (await db.insertObject('LearningJournal', journal)).lastID;
     user.Journal_id = journal.Journal_id;
-    user.User_id = (await insertObject('User', user)).lastID;
+    user.User_id = (await db.insertObject('User', user)).lastID;
 
     const n_ratings = 3 + Math.floor(Math.random() * 6);
     let rated = [];
@@ -99,7 +128,7 @@ export async function createExampleUsers() {
       const { Artifact_id } = await db.get(
         // eslint-disable-next-line max-len
         'SELECT Artifact_id FROM Artifact WHERE Topic=? ORDER BY RANDOM() LIMIT 1',
-        [topic],
+        [choose(userType.topics)],
       );
       if (rated.includes(Artifact_id))
         continue;
@@ -111,7 +140,14 @@ export async function createExampleUsers() {
         Artifact_id: Artifact_id,
         Value: 3 + Math.floor(Math.random() * 3),
       };
-      await insertObject('Rating', rating);
+      await db.insertObject('Rating', rating);
+    }
+
+    for (const module of userType.modules) {
+      await db.insertObject('JournalModule', {
+        Journal_id: journal.Journal_id,
+        Module_Name: module,
+      });
     }
 
     db.exec('COMMIT TRANSACTION');
