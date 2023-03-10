@@ -41,7 +41,7 @@ function NavBar() {
             {window.location.pathname !== '/login' && window.location.pathname !== '/signup' && (
               <>
                 <div style={{ width: 10, height: 20 }} />
-                <Form className="flex-grow-1 search-bar">
+                <Form className="flex-grow-1 search-bar" action="/">
                   <InputGroup>
                     <InputGroup.Text>
                       <i className="bi-search"></i>
