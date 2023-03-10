@@ -1,5 +1,6 @@
 import Sqlite from '../db/connect.js';
 import { getRecommendedArtifacts } from '../algorithm/algorithm.js';
+import {Searcher} from 'fast-fuzzy';
 
 class APIController {
   constructor() {
@@ -35,10 +36,13 @@ class APIController {
         `,
       );
       if (filter) {
-        artifacts = artifacts.filter(
-          (a) => a.Artifact_Name.toLowerCase().includes(filter.toLowerCase()) ||
-          a.Topic.toLowerCase().includes(filter.toLowerCase()),
-        );
+        const searcher = new Searcher(artifacts, {
+          keySelector: a => a.Artifact_Name,
+        });
+        const filtered = searcher.search(filter);
+        artifacts = filtered.concat(artifacts.filter(
+          (a) => a.Topic.toLowerCase().includes(filter.toLowerCase()),
+        ));
       }
       res.json(artifacts);
     } catch (e) {
