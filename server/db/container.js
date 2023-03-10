@@ -21,9 +21,28 @@ export async function cleanupContainer() {
   fs.unlinkSync('./server/db/Edflix.backup.db');
 }
 
+async function deleteExampleUsers(db) {
+  const exampleUsers = await db.all(
+    'SELECT * FROM User WHERE User_name LIKE ?', ['FakeUser%'],
+  );
+  for (const user of exampleUsers) {
+    await db.exec('BEGIN TRANSACTION');
+
+    await db.run('DELETE FROM User WHERE User_id=?', [user.User_id]);
+    await db.run('DELETE FROM Rating WHERE User_id=?', [user.User_id]);
+    await db.run(
+      'DELETE FROM LearningJournal WHERE Journal_id=?', [user.Journal_id],
+    );
+
+    await db.exec('COMMIT TRANSACTION');
+  }
+}
+
 export async function createExampleUsers() {
   const db = new Sqlite();
   db.connect();
+
+  await deleteExampleUsers(db);
 
   async function insertObject(table, obj) {
     const cols = Object.keys(obj).join(',');
