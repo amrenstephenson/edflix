@@ -162,10 +162,16 @@ const apiController = new APIController();
  * /artifacts:
  *   get:
  *     summary: Returns the list of all the artifacts
+ *     parameters:
+ *       - name: filter
+ *         in: query
+ *         description: String to filter the returned artifacts by
+ *         required: false
+ *         type: string
  *     tags: [Artifacts]
  *     responses:
  *       200:
- *         description: The list of artifacts
+ *         description: The filtered list of artifacts, sorted by average rating
  *         content:
  *           application/json:
  *             schema:
