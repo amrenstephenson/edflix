@@ -8,14 +8,22 @@ async function handleSubmit(event) {
 
   const form = event.target;
   const formData = new FormData(form);
-  const json = JSON.stringify(Object.fromEntries(formData));
+  const formObject = Object.fromEntries(formData);
+
+  if (formObject.password !== formObject.confPassword) {
+    alert('The passwords entered are not the same.');
+    return;
+  }
+  delete formObject.confPassword;
+
+  const formJson = JSON.stringify(formObject);
 
   const res = await fetch(`${serverURL}/api/register`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: json,
+    body: formJson,
   });
 
   if (res.ok) {
@@ -48,7 +56,7 @@ export default function Login() {
             <label htmlFor="pswdField">Password</label>
           </div>
           <div className="item">
-            <input id="confPswdField" type="password" className="loginField" required></input>
+            <input id="confPswdField" type="password" name="confPassword" className="loginField" required></input>
             <label htmlFor="confPswdField">Confirm Password</label>
           </div>
 
