@@ -3,8 +3,8 @@ const isDev = require('electron-is-dev');
 
 function createWindow() {
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1600,
+    height: 900,
   });
 
   win.loadURL(
