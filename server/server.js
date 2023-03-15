@@ -10,10 +10,34 @@ import { fileURLToPath } from 'url';
 import healthRoutes from './routes/health-route.js';
 import apiRoutes from './routes/api-routes.js';
 
+import swaggerUI from 'swagger-ui-express';
+import swaggerJsDoc from 'swagger-jsdoc';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const options = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Edflix API',
+      version: '1.0.0',
+      description: 'Documentation for Edflix\'s REST API',
+    },
+    servers: [
+      {
+        url: 'http://localhost:3000/api/',
+      },
+    ],
+  },
+  apis: ['./server/routes/*.js'],
+};
+
+const specs = swaggerJsDoc(options);
+
 const app = express();
+
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(specs));
 
 // if production, enable helmet
 /* c8 ignore next 3  */

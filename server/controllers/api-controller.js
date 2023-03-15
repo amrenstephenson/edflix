@@ -1,5 +1,6 @@
 import Sqlite from '../db/connect.js';
 import { getRecommendedArtifacts } from '../algorithm/algorithm.js';
+import {Searcher} from 'fast-fuzzy';
 
 class APIController {
   constructor() {
@@ -16,12 +17,32 @@ class APIController {
     try {
       const filter = req.query.filter;
       // eslint-disable-next-line max-len
-      let artifacts = await this.db.all('SELECT Artifact_id, Topic, ThumbnailURL, Artifact_Name FROM Artifact');
+      let artifacts = await this.db.all(
+        `
+        SELECT
+          a.Artifact_id,
+          a.Topic,
+          a.ThumbnailURL,
+          a.Artifact_Name,
+          AVG(Value) avg_rating
+        FROM
+          Artifact a
+        LEFT JOIN
+          Rating r ON a.Artifact_id=r.Artifact_id
+        GROUP BY
+          a.Artifact_id
+        ORDER BY
+          avg_rating DESC
+        `,
+      );
       if (filter) {
-        artifacts = artifacts.filter(
-          (a) => a.Artifact_Name.toLowerCase().includes(filter.toLowerCase()) ||
-          a.Topic.toLowerCase().includes(filter.toLowerCase()),
-        );
+        const searcher = new Searcher(artifacts, {
+          keySelector: a => a.Artifact_Name,
+        });
+        const filtered = searcher.search(filter);
+        artifacts = filtered.concat(artifacts.filter(
+          (a) => a.Topic.toLowerCase().includes(filter.toLowerCase()),
+        ));
       }
       res.json(artifacts);
     } catch (e) {
@@ -81,7 +102,7 @@ class APIController {
     }
   };
 
-  getArtifactRating = async(req, res) => {
+  getGlobalRatings = async(req, res) => {
     let id = req.params['id'];
     try {
       let average = await this.db.get(`
@@ -122,13 +143,13 @@ class APIController {
         res.json(null);
       } else {
         const recommendations = await getRecommendedArtifacts(userID);
-        let recommended = recommendations.map((r) => {
+        let recommended = recommendations?.map((r) => {
           let a = this.db.get(
             'SELECT * FROM Artifact WHERE Artifact_id=?',
             [r[0]],
           );
           return a;
-        });
+        }) ?? [];
         recommended = await Promise.all(recommended);
         res.json(recommended);
       }
@@ -150,7 +171,7 @@ class APIController {
 
     try {
       // eslint-disable-next-line max-len
-      let user = await this.db.get('SELECT * FROM User where User_name=?', [userName]);
+      let user = await this.db.get('SELECT * FROM User WHERE User_name=?', [userName]);
       if (user) {
         if (user.Password === password) {
           let cookieOpts = {
@@ -163,12 +184,12 @@ class APIController {
           res.end();
         } else {
           res
-            .status(500)
+            .status(403)
             .json({ code: 'INCORRECT_PASSWORD' });
         }
       } else {
         res
-          .status(500)
+          .status(404)
           .json({ code: 'UNKNOWN_USERNAME' });
       }
     } catch (e) {
@@ -200,28 +221,95 @@ class APIController {
         .json(e);
     }
   };
-  postRating = async(req, res) => {
-    const User_id = this.getUserId(req.cookies.edflixSessionToken);
-    let {Artifact_id, Value} = req.body;
 
+  getRating = async(req, res) => {
+    const userID = this.getUserId(req.cookies.edflixSessionToken);
+    const artifactID = req.params.id;
     try {
-      // eslint-disable-next-line max-len
-      await this.db.insertObject('Rating', {
-        User_id,
-        Artifact_id,
-        Value,
-      });
-
-
-      res.end();
+      if (artifactID == null || artifactID === '') {
+        res.json({ message: 'Artifact ID not speifiied.' });
+      } else if (userID == null) {
+        res.json({ message: 'User is not logged in.' });
+      } else {
+        let rating = await this.db.get(
+          'SELECT Value rating FROM Rating WHERE Artifact_id=? AND User_id=?',
+          [artifactID, userID],
+        );
+        if (rating) {
+          res.json(rating);
+        } else {
+          res.json({});
+        }
+      }
     } catch (e) {
       console.log(e);
       res
         .status(500)
-        .json(e);
+        .send('Internal Server Error - Could not get recommendation.');
+    }
+  };
+
+  setRating = async(req, res) => {
+    const userID = this.getUserId(req.cookies.edflixSessionToken);
+    if (!userID) {
+      res
+        .status(200)
+        .json({ success: false, isLoggedIn: false });
+      return;
     }
 
+    let { artifactID, value } = req.body;
+    try {
+      await this.db.run(
+        `
+        INSERT OR REPLACE INTO
+          Rating
+        VALUES
+          (?, ?, ?)
+        `,
+        [userID, artifactID, value],
+      );
+      res
+        .status(200)
+        .json({ success: true, isLoggedIn: true });
+    } catch (e) {
+      console.log(e);
+      res
+        .status(500)
+        .json({ success: false, isLoggedIn: true, error: e });
+    }
   };
+
+  removeRating = async(req, res) => {
+    const userID = this.getUserId(req.cookies.edflixSessionToken);
+    if (!userID) {
+      res
+        .status(200)
+        .json({ success: false, isLoggedIn: false });
+      return;
+    }
+
+    let { artifactID } = req.body;
+    try {
+      await this.db.run(`
+        DELETE FROM
+          Rating
+        WHERE
+          User_id = ?
+        AND
+          Artifact_id = ?
+      `, [userID, artifactID]);
+      res
+        .status(200)
+        .json({ success: true, isLoggedIn: true });
+    } catch (e) {
+      console.log(e);
+      res
+        .status(500)
+        .json({ success: false, isLoggedIn: true, error: e });
+    }
+  };
+
   getUser = async(req, res) => {
     let User_id = this.getUserId(req.cookies.edflixSessionToken);
 
@@ -229,14 +317,13 @@ class APIController {
       // eslint-disable-next-line max-len
       let user = await this.db.get('SELECT User_id, User_name, Email, ProfilePicture FROM User where User_id=?', [User_id]);
       if (user) {
-
         res
           .status(200)
           .json(user);
 
       } else {
         res
-          .status(500)
+          .status(404)
           .json({ code: 'UNKNOWN_USERID' });
       }
     } catch (e) {
@@ -244,6 +331,51 @@ class APIController {
       res
         .status(500)
         .send('Internal Server Error - Could not get User.');
+    }
+  };
+
+  getUserRatings = async(req, res) => {
+    if (!this.getUserId(req.cookies.edflixSessionToken)) {
+      res
+        .status(404)
+        .json({ code: 'UNKNOWN_USERID' });
+      return;
+    }
+
+    let userID = this.getUserId(req.cookies.edflixSessionToken);
+
+    try {
+      // eslint-disable-next-line max-len
+      let results = await this.db.all(`
+      SELECT
+        r.Value rating,
+        a.*
+      FROM
+        Rating r
+      INNER JOIN 
+        Artifact a
+      ON
+        a.Artifact_id = r.Artifact_id
+      WHERE
+        r.User_id = ?
+      `, [userID]);
+
+      const artfactRatings = results.map((result) => {
+        return {
+          rating: result.rating,
+          artifact: { ...result, rating: undefined},
+        };
+      });
+
+      res
+        .status(200)
+        .json(artfactRatings);
+
+    } catch (e) {
+      console.log(e);
+      res
+        .status(500)
+        .send('Internal Server Error - Could not get user ratings.');
     }
   };
 
@@ -265,7 +397,7 @@ class APIController {
 
       } else {
         res
-          .status(500)
+          .status(404)
           .json({ code: 'UNKNOWN_JOURNALID' });
       }
     } catch (e) {
@@ -275,9 +407,11 @@ class APIController {
         .send('Internal Server Error - Could not get Journal.');
     }
   };
+
   editJournal = async(req, res) => {
     let User_id = this.getUserId(req.cookies.edflixSessionToken);
     let {LevelOfStudy, UniversityCourse, University, Modules} = req.body;
+    Modules = Modules ?? [];
 
     try {
       await this.db.exec('BEGIN TRANSACTION');
@@ -326,6 +460,32 @@ class APIController {
         .json(e);
     }
 
+  };
+
+  editUser = async(req, res) => {
+    const userID = this.getUserId(req.cookies.edflixSessionToken);
+    if (!userID) {
+      res
+        .status(200)
+        .json({ success: false, isLoggedIn: false });
+      return;
+    }
+
+    let { email, username } = req.body;
+    try {
+      await this.db.run(
+        'UPDATE User SET Email=?, User_name=? WHERE User_id=?',
+        [email, username, userID],
+      );
+      res
+        .status(200)
+        .json({ success: true, isLoggedIn: true });
+    } catch (e) {
+      console.log(e);
+      res
+        .status(500)
+        .json({ success: false, isLoggedIn: true, error: e });
+    }
   };
 }
 

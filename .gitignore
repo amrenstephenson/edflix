@@ -11,3 +11,5 @@ build
 unsplash_keys.json
 Edflix.tmp.db
 .idea
+get_courses.py
+app/out/
