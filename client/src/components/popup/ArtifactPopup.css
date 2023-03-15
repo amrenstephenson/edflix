@@ -243,12 +243,10 @@
   color: #fff;
 }
 
-.ant-rate .ant-rate-star-zero .ant-rate-star-second {
-  color: #4d4d4d;
-}
-
-.ant-rate .ant-rate-star-active .ant-rate-star-second {
-  color: #4d4d4d;
+.ant-rate li:not(.ant-rate-star-full):not(.ant-rate-star-half) .ant-rate-star-first .anticon-star,
+.ant-rate li:not(.ant-rate-star-full) .ant-rate-star-second .anticon-star
+{
+  color: #4d4d4d !important;
 }
 
 .ant-progress {
@@ -289,4 +287,19 @@
   align-items: center;
   justify-content: center;
   flex: 1;
+}
+
+.rating-alert-success, .rating-alert-error {
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.rating-alert-success {
+  background-color: #172d15;
+  border: 1px solid #9dd59c;
+}
+
+.rating-alert-error {
+  background-color: #2d1515;
+  border: 1px solid #d59c9c;
 }
