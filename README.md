@@ -1,3 +1,7 @@
+# Edflix
+## Below is the default README for IBM Cloud projects of this type. For detailed usage and devlopment information please refer to the user manual instead.
+---
+---
 ---
 
 copyright:
