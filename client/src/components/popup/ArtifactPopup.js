@@ -13,8 +13,7 @@ import { Button } from '../Button';
 import ArtifactRow from '../ArtifactRow';
 import { useSearchParams } from 'react-router-dom';
 
-// TODO: Change this before production, or deal with artifacts with no link in some other way.
-const defaultArtifactLink = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+const defaultArtifactLink = 'about:blank';
 
 class ArtifactPopupClass extends Component {
   constructor(props) {
@@ -160,9 +159,14 @@ class ArtifactPopupClass extends Component {
                 <div style={{ display: 'flex', flexDirection: 'column', flex: 1, borderRight: '2px solid #4d4d4d', alignItems: 'center', justifyContent: 'center' }}>
                   <b style={{ fontSize: 20 }}>Start Studying</b>
                   <div style={{ display: 'flex', flexDirection: 'column', flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                    <a href={this.state.details.ArtifactURL ?? defaultArtifactLink} target="_blank" rel="noreferrer" draggable={false} style={{ width: '100%' }}>
-                      <Button style={{ width: '100%' }}>Go to {new URL(this.state.details.ArtifactURL ?? defaultArtifactLink).hostname}</Button>
-                    </a>
+                    {
+                      this.state.details.ArtifactURL ?
+                        <a href={this.state.details.ArtifactURL ?? defaultArtifactLink} target="_blank" rel="noreferrer" draggable={false} style={{ width: '100%' }}>
+                          <Button style={{ width: '100%' }}>Go to {new URL(this.state.details.ArtifactURL ?? defaultArtifactLink).hostname}</Button>
+                        </a>
+                        :
+                        'No URL Found'
+                    }
                   </div>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', flex: 1, alignItems: 'center', justifyContent: 'center' }}>
