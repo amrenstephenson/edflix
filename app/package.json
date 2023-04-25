@@ -1,5 +1,6 @@
 {
-  "name": "app",
+  "name": "Edflix",
+  "productName": "Edflix",
   "version": "1.0.0",
   "description": "Electron application for Edflix",
   "main": "main.js",
