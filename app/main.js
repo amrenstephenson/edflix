@@ -16,6 +16,8 @@ function createWindow() {
   }
 }
 
+app.setName('Edflix');
+
 app.whenReady().then(() => {
   createWindow();
 
