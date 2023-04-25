@@ -195,16 +195,20 @@ function EditDrawer(props) {
         body: JSON.stringify(journalEditBody),
       });
 
+      const pfpFile = values.profilePicture;
+      const pfpBlob = pfpFile.file.originFileObj;
       const userEditBody = {
         email: values.email,
         username: values.username,
+        profilePicture: pfpBlob,
       };
+      const formData = new FormData();
+      for (const field in userEditBody) {
+        formData.append(field, userEditBody[field]);
+      }
       const userPromise = fetch(`${serverURL}/api/user/edit`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userEditBody),
+        body: formData,
       });
       await Promise.all([journalPromise, userPromise]);
       setOpen(false);
@@ -259,8 +263,8 @@ function EditDrawer(props) {
             initialValues={initialFormValues}
             style={{width: '100%'}}
           >
-            <Form.Item name="profile-pic" label="Profile Picture" rules={[{ required: false }]}>
-              <Upload {...props}>
+            <Form.Item name="profilePicture" label="Profile Picture" rules={[{ required: false }]}>
+              <Upload accept="image/png, image/jpeg">
                 <Button size="small" icon={<UploadOutlined />}>
             Upload
                 </Button>

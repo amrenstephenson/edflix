@@ -1,9 +1,11 @@
 /* eslint-disable max-len */
 import express from 'express';
 import APIController from '../controllers/api-controller.js';
+import multer from 'multer';
 
 const router = express.Router();
 const apiController = new APIController();
+const upload = multer({ dest: 'uploads/' });
 
 /**
  * @swagger
@@ -435,7 +437,7 @@ router.get('/user', apiController.getUser);
  *       500:
  *         description: An error occurred
  */
-router.post('/user/edit', apiController.editUser);
+router.post('/user/edit', upload.single('profilePicture'), apiController.editUser);
 
 /**
  * @swagger
