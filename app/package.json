@@ -1,9 +1,9 @@
 {
-  "name": "app",
+  "name": "edflix-app",
+  "productName": "Edflix",
   "version": "1.0.0",
   "description": "Electron application for Edflix",
   "main": "main.js",
-  "productName": "Edflix",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron-forge start",
