@@ -13,8 +13,7 @@ import { Button } from '../Button';
 import ArtifactRow from '../ArtifactRow';
 import { useSearchParams } from 'react-router-dom';
 
-// TODO: Change this before production, or deal with artifacts with no link in some other way.
-const defaultArtifactLink = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+const defaultArtifactLink = 'about:blank';
 
 class ArtifactPopupClass extends Component {
   constructor(props) {

@@ -10,7 +10,6 @@ with open('learning_artifacts.json', 'r') as artifacts_file, open('image_collect
 
 	def create_artifact_row(artifact, image):
 		name = artifact["title"]
-		# TODO: handle no links?
 		url = artifact["links"][0]["linkURL"] if len(artifact["links"]) > 0 else None
 		description = artifact["desc"]
 		topic = artifact["topic"]

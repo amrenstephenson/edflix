@@ -175,8 +175,6 @@ function EditDrawer(props) {
   };
 
   const submitForm = async() => {
-    // TODO: implement changing user info
-
     const form = formRef.current;
 
     try {
