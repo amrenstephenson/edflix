@@ -477,6 +477,12 @@ class APIController {
         'UPDATE User SET Email=?, User_name=? WHERE User_id=?',
         [email, username, userID],
       );
+      if (req.file) {
+        await this.db.run(
+          'UPDATE User SET ProfilePicture=? WHERE User_id=?',
+          [req.file.path, userID],
+        );
+      }
       res
         .status(200)
         .json({ success: true, isLoggedIn: true });

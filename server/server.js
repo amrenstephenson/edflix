@@ -52,6 +52,7 @@ app.use(cookieParser());
 
 // have node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, '../client/build')));
+app.use('/uploads', express.static(path.resolve(__dirname, '../uploads')));
 
 // routes and api calls
 app.use('/health', healthRoutes);
